@@ -1,0 +1,16 @@
+<form #resturantMenuForm="ngForm" class="editForm" novalidate>
+    <div class="form-horizontal">
+        <div class="tab-pane fade in active">
+       
+            <div class='row'>
+                <div class='col-xs-offset-4 col-xs-10 col-sm-offset-5 col-sm-4'>
+        <h1>Resturant Menu Form</h1>
+                </div>
+            </div>
+            <div class="form-group text-center space-20">
+                <button class="btn btn-outline-rounded btn-default" (click)="goToPrevious(resturantMenuForm)"> <span style="margin-right:10px;" class="glyphicon glyphicon-arrow-left"></span> Previous</button>
+                <button class="btn btn-outline-rounded btn-info" [disabled]="!resturantMenuForm.valid" (click)="goToNext(resturantMenuForm)"> Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
+            </div>
+        </div>
+    </div>
+</form>
