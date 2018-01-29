@@ -1,0 +1,102 @@
+<mat-toolbar>WoHooooo</mat-toolbar>
+
+<h2>User Registration</h2>
+<div class="example-container">
+<!--
+<div class="example-container">
+  
+    <mat-form-field>
+      <mat-select placeholder="Title">
+        <mat-option value="option">Mr</mat-option>
+        <mat-option value="option">Miss</mat-option>
+        <mat-option value="option">Mrs</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="First Name">
+  </mat-form-field>
+
+  <mat-form-field>
+      <input matInput placeholder="Family Name/Last Name">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-select placeholder="Gender">
+          <mat-option value="option">Male</mat-option>
+          <mat-option value="option">Female</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+          <input matInput placeholder="Mobile Number">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="E-mail Id">
+          </mat-form-field>
+
+  <mat-form-field>
+    <textarea matInput placeholder="Address"></textarea>
+  </mat-form-field>
+
+-->
+
+  <button mat-raised-button (click)="isLinear = true" id="toggle-linear">Enable linear mode</button>
+  <mat-horizontal-stepper [linear]="isLinear">
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Personal Details</ng-template>
+        <mat-form-field>
+          <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+  <!--  <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Restaurent Details</ng-template>
+        <mat-form-field>
+          <input matInput placeholder="Address" formControlName="secondCtrl" required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>-->
+    <mat-step [stepControl]="thirdFormGroup">
+      <form [formGroup]="thirdFormGroup">
+        <ng-template matStepLabel>Restaurent Details</ng-template>
+        <mat-form-field>
+          <input matInput placeholder="Address" formControlName="thirdCtrl" required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+ <!--   <mat-step [stepControl]="fourthFormGroup">
+      <form [formGroup]="fourthFormGroup">
+        <ng-template matStepLabel>Menu Items</ng-template>
+        <mat-form-field>
+          <input matInput placeholder="Last name, First name" formControlName="fourthCtrl" required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>-->
+    <mat-step>
+      <ng-template matStepLabel>Open Restaurent</ng-template>
+      You are now done.
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+
+</div>
