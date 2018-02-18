@@ -26,7 +26,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   imports: [
     BrowserModule,
     MatButtonModule, MatCheckboxModule, MatInputModule,MatRadioModule,MatMenuModule,MatFormFieldModule,MatSelectModule,
-    MatToolbarModule,MatCardModule
+    MatToolbarModule,MatCardModule,
     BrowserAnimationsModule,MatStepperModule,FormsModule,ReactiveFormsModule,MatGridListModule,MatIconModule
   ],
   providers: [RegistrationService],

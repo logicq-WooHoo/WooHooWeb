@@ -13,21 +13,57 @@ body{
 	box-shadow: 2px 4px 58px -20px rgba(0,0,0,1);
 }
 
+.card_home_page_image{
+	text-align: center;
+	padding: 10%;
+	color: #ea5b31;
+}
+
+.rights_home{
+	text-align: center;
+	padding: 1%;
+	background-color: rgba(0, 0, 0, 0.377);
+	color: #f7f4f3;
+	margin-top: 5px;
+	font-size: x-small;
+}
+
+.about_us_home{
+	height: 300px;
+	padding: 1%;
+	margin-top: 5px;
+	background-color: rgba(0, 0, 0, 0.788);
+}
+
+.about_us_home mat-grid-tile{
+	
+}
+
 .fill-remaining-space {
     /* This fills the remaining space, by using flexbox. 
        Every toolbar row uses a flexbox row layout. */
     flex: 1 1 auto;
 }
 
-.home_background{
-    color: #991022;
-}
+.demo-full-width {
+	width: 100%;
+  }
 
 .bk_image_home{
     padding: 1%;
     height: 500px;
     width: auto;
-    background-image: url("2.jpg");
+    background-image: url("1.jpg");
+}
+
+.bk_image_home h3{
+	color: #0000009c;
+}
+
+.bk_image_home button{
+	color: rgb(243, 250, 250);
+	background-color:#20ac76;
+	border-color: #1c9767;
 }
 
 .login-container{

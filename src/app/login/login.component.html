@@ -16,7 +16,46 @@
  </mat-toolbar>
 
  <mat-card class="bk_image_home">
-    <mat-card-content>
-      
+    <mat-card-content class="card_home_page_image">
+    <h1 class="">Order delicius food online!</h1>
+    <h3>Order food online from the best restaurants near you</h3>
+      <form>
+          <mat-form-field>
+            <mat-select placeholder="Select City">
+              <mat-option *ngFor="let food of foods" [value]="food.value">
+                {{ food.viewValue }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput  placeholder="Select Area">
+            </mat-form-field>          
+          <mat-form-field>
+            <mat-select placeholder="Favorite food">
+              <mat-option *ngFor="let food of foods" [value]="food.value">
+                {{ food.viewValue }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <button mat-button>Search Restaurants</button>
+      </form>
     </mat-card-content>
  </mat-card>
+
+<mat-card class="about_us_home">
+    <mat-grid-list cols="3">
+        <mat-grid-tile>
+            <h3>About Us</h3>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <h3>Contat Us</h3>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <h3>Useful Links</h3>
+        </mat-grid-tile>
+    </mat-grid-list>
+</mat-card>  
+
+<mat-card class="rights_home">
+    <h3>@2018 ALL RIGHTS RESERVED | LogicQ Pvt Ltd | WooHoo Inc | Brands Mentioned Above Are Property Of Their Respective Owner</h3>
+</mat-card>  
