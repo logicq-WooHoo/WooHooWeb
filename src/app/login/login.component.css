@@ -1,0 +1,76 @@
+body{
+	font-family: 'Roboto', sans-serif;
+	margin:0px !important;
+}
+
+.app-header{
+	color: #fff;
+    background-color: #ea5b31;
+    text-align: center;
+    padding: 1%;
+	-webkit-box-shadow: 2px 4px 58px -20px rgba(0,0,0,1);
+	-moz-box-shadow: 2px 4px 58px -20px rgba(0,0,0,1);
+	box-shadow: 2px 4px 58px -20px rgba(0,0,0,1);
+}
+
+.fill-remaining-space {
+    /* This fills the remaining space, by using flexbox. 
+       Every toolbar row uses a flexbox row layout. */
+    flex: 1 1 auto;
+}
+
+.home_background{
+    color: #991022;
+}
+
+.bk_image_home{
+    padding: 1%;
+    height: 500px;
+    width: auto;
+    background-image: url("2.jpg");
+}
+
+.login-container{
+	width: 100%;
+  	height:400px;
+  	padding: 0% !important;
+	background-color: #fff;
+	-webkit-box-shadow: 2px 4px 58px -20px rgba(0,0,0,1);
+	-moz-box-shadow: 2px 4px 58px -20px rgba(0,0,0,1);
+	box-shadow: 2px 4px 58px -20px rgba(0,0,0,1);
+}
+ 
+.login-box-header{
+	width: auto;
+    height: 10%;
+    background-color: #0b1d57;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 3em;
+    padding: 2%;
+    color: #fff;
+}
+ 
+.login-box-body{
+	width: auto;
+	height:100%;
+	padding: 5% 5% 5% 5%;
+	color: #d2d2d2;
+}
+ 
+.login-icon{
+	margin-top: -2px;
+}
+ 
+.justifier {
+	width: 100%;
+	padding-bottom: 2%;
+}
+ 
+.login-button{
+	width: 100%;
+	padding:1.5% !important;	
+    background-color: #673ab7;
+    font-size: 1.5em;
+    color: #fff !important;
+}

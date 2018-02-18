@@ -9,7 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 //Material Components
 import {MatButtonModule, MatCheckboxModule, MatInputModule,MatRadioModule,MatMenuModule,MatFormFieldModule,MatSelectModule
-  ,MatToolbarModule
+  ,MatToolbarModule,MatGridListModule,MatIconModule,MatCardModule
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {UserRegistrationComponent} from './user_registration/user_registration.component';
@@ -26,8 +26,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   imports: [
     BrowserModule,
     MatButtonModule, MatCheckboxModule, MatInputModule,MatRadioModule,MatMenuModule,MatFormFieldModule,MatSelectModule,
-    MatToolbarModule,
-    BrowserAnimationsModule,MatStepperModule,FormsModule,ReactiveFormsModule
+    MatToolbarModule,MatCardModule
+    BrowserAnimationsModule,MatStepperModule,FormsModule,ReactiveFormsModule,MatGridListModule,MatIconModule
   ],
   providers: [RegistrationService],
   bootstrap: [AppComponent]
