@@ -29,14 +29,26 @@ body{
 }
 
 .about_us_home{
-	height: 300px;
+	height: 200px;
+	width: auto;
 	padding: 1%;
 	margin-top: 5px;
 	background-color: rgba(0, 0, 0, 0.788);
 }
 
 .about_us_home mat-grid-tile{
-	
+
+	margin: 2px;
+}
+
+.google_play_home{
+	height: 100px;
+	text-align: center;
+	padding: 1%;
+	background-color: rgba(212, 36, 36, 0.973);
+	color: #f7f4f3;
+	margin-top: 5px;
+	font-size: small;
 }
 
 .fill-remaining-space {
