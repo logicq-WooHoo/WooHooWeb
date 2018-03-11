@@ -3,15 +3,7 @@ body{
 	margin:0px !important;
 }
 
-.app-header{
-	color: #fff;
-    background-color: #ea5b31;
-    text-align: center;
-    padding: 1%;
-	-webkit-box-shadow: 2px 4px 58px -20px rgba(0,0,0,1);
-	-moz-box-shadow: 2px 4px 58px -20px rgba(0,0,0,1);
-	box-shadow: 2px 4px 58px -20px rgba(0,0,0,1);
-}
+
 
 .card_home_page_image{
 	text-align: center;
@@ -51,11 +43,7 @@ body{
 	font-size: small;
 }
 
-.fill-remaining-space {
-    /* This fills the remaining space, by using flexbox. 
-       Every toolbar row uses a flexbox row layout. */
-    flex: 1 1 auto;
-}
+
 
 .demo-full-width {
 	width: 100%;
@@ -65,7 +53,7 @@ body{
     padding: 1%;
     height: 500px;
     width: auto;
-    background-image: url("1.jpg");
+    background-image: url("food_image.jpg");
 }
 
 .bk_image_home h3{

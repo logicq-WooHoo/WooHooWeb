@@ -1,102 +1,315 @@
-<mat-toolbar>WoHooooo</mat-toolbar>
+<div class="container-fluid">
+<mat-toolbar class="app-header">
+    <mat-icon>home</mat-icon>
+    <h2>
+     <span><b>WooHoo</b></span>
+   </h2>
+   
+   <span class="fill-remaining-space"></span>
+   
+   <h3>
+      <span>Help</span>
+   </h3>
+   <mat-icon>help_outline</mat-icon>
+   <p>&nbsp;</p>
+   <p>&nbsp;</p>
+   <!--<mat-icon data-target="#myModal">account_circle</mat-icon>-->
+   <button type="button" class="btn-primary-outline glyphicon glyphicon-user" data-toggle="modal" data-target="#myModal"></button>
+</mat-toolbar>
+<h3>User Registration</h3>
 
-<h2>User Registration</h2>
-<div class="example-container">
-<!--
-<div class="example-container">
-  
-    <mat-form-field>
-      <mat-select placeholder="Title">
-        <mat-option value="option">Mr</mat-option>
-        <mat-option value="option">Miss</mat-option>
-        <mat-option value="option">Mrs</mat-option>
-      </mat-select>
-    </mat-form-field>
-
-  <mat-form-field>
-    <input matInput placeholder="First Name">
-  </mat-form-field>
-
-  <mat-form-field>
-      <input matInput placeholder="Family Name/Last Name">
-    </mat-form-field>
-
-    <mat-form-field>
-        <mat-select placeholder="Gender">
-          <mat-option value="option">Male</mat-option>
-          <mat-option value="option">Female</mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      <mat-form-field>
-          <input matInput placeholder="Mobile Number">
-        </mat-form-field>
-
-        <mat-form-field>
-            <input matInput placeholder="E-mail Id">
-          </mat-form-field>
-
-  <mat-form-field>
-    <textarea matInput placeholder="Address"></textarea>
-  </mat-form-field>
-
--->
-
-  <button mat-raised-button (click)="isLinear = true" id="toggle-linear">Enable linear mode</button>
-  <mat-horizontal-stepper [linear]="isLinear">
+<mat-horizontal-stepper [linear]="isLinear" #stepper="matHorizontalStepper">
     <mat-step [stepControl]="firstFormGroup">
-      <form [formGroup]="firstFormGroup">
         <ng-template matStepLabel>Personal Details</ng-template>
-        <mat-form-field>
-          <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
-        </mat-form-field>
+          <!-- Default form register -->
+          <form>
+              <div class="row">
+
+                  <div class="col-md-1">
+                      <!-- Default input name -->
+                      <label for="defaultFormRegisterNameEx" class="grey-text">Title</label>
+                      <input type="text" id="defaultFormRegisterNameEx" class="form-control">
+                    </div>
+
+                <div class="col-md-3">
+                  <!-- Default input name -->
+                  <label for="defaultFormRegisterNameEx" class="grey-text">First Name</label>
+                  <input type="text" id="defaultFormRegisterNameEx" class="form-control">
+                </div>
+                
+
+                <div class="col-md-3">
+                <!-- Default input email -->
+                  <label for="defaultFormRegisterEmailEx" class="grey-text">Last Name</label>
+                  <input type="email" id="defaultFormRegisterEmailEx" class="form-control">
+                </div>
+              </div>
+              <br>
+
+              <div class="row">
+
+                  <div class="col-md-1">
+                      <!-- Default input name -->
+                      <label for="defaultFormRegisterNameEx" class="grey-text">Gender</label>
+                      <input type="text" id="defaultFormRegisterNameEx" class="form-control">
+                    </div>
+
+                  <div class="col-md-3">
+                    <!-- Default input name -->
+                    <label for="defaultFormRegisterNameEx" class="grey-text">Phone Number</label>
+                    <input type="text" id="defaultFormRegisterNameEx" class="form-control">
+                  </div>
+                  
+  
+                  <div class="col-md-3">
+                  <!-- Default input email -->
+                    <label for="defaultFormRegisterEmailEx" class="grey-text">E-Mail Id</label>
+                    <input type="email" id="defaultFormRegisterEmailEx" class="form-control">
+                  </div>
+                </div>
+
+                <br>
+          </form>
+          <!-- Default form register -->   
         <div>
-          <button mat-button matStepperNext>Next</button>
+          <button mat-button matStepperNext class="mat_button_next_button">Next</button>
         </div>
-      </form>
     </mat-step>
-  <!--  <mat-step [stepControl]="secondFormGroup">
-      <form [formGroup]="secondFormGroup">
+
+    <mat-step [stepControl]="secondFormGroup">
         <ng-template matStepLabel>Restaurent Details</ng-template>
-        <mat-form-field>
-          <input matInput placeholder="Address" formControlName="secondCtrl" required>
-        </mat-form-field>
-        <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
+        <!-- Default form register -->
+        <div class="row">
+          <div class="col-md-3">
+            <!-- Default input name -->
+            <label for="defaultFormRegisterNameEx" class="grey-text">Restaurant Name</label>
+            <input type="text" id="defaultFormRegisterNameEx" class="form-control">
+          </div>
+          
+
+          <div class="col-md-3">
+          <!-- Default input email -->
+            <label for="defaultFormRegisterEmailEx" class="grey-text">Registration Details</label>
+            <input type="email" id="defaultFormRegisterEmailEx" class="form-control">
+          </div>
+
+          <div class="col-md-1">
+              <label for="defaultFormRegisterEmailEx" class="grey-text">Upload</label>
+              <button mat-button class="mat_button_next_button">Upload</button>
+          </div>
+
         </div>
-      </form>
-    </mat-step>-->
-    <mat-step [stepControl]="thirdFormGroup">
-      <form [formGroup]="thirdFormGroup">
-        <ng-template matStepLabel>Restaurent Details</ng-template>
-        <mat-form-field>
-          <input matInput placeholder="Address" formControlName="thirdCtrl" required>
-        </mat-form-field>
-        <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
-        </div>
-      </form>
-    </mat-step>
- <!--   <mat-step [stepControl]="fourthFormGroup">
-      <form [formGroup]="fourthFormGroup">
-        <ng-template matStepLabel>Menu Items</ng-template>
-        <mat-form-field>
-          <input matInput placeholder="Last name, First name" formControlName="fourthCtrl" required>
-        </mat-form-field>
-        <div>
-          <button mat-button matStepperNext>Next</button>
-        </div>
-      </form>
-    </mat-step>-->
-    <mat-step>
-      <ng-template matStepLabel>Open Restaurent</ng-template>
-      You are now done.
+        <br>
+
+        <div class="row">
+            <div class="col-md-3">
+              <!-- Default input name -->
+              <label for="defaultFormRegisterNameEx" class="grey-text">Address Line 1</label>
+              <input type="text" id="defaultFormRegisterNameEx" class="form-control">
+            </div>
+            
+  
+            <div class="col-md-3">
+            <!-- Default input email -->
+              <label for="defaultFormRegisterEmailEx" class="grey-text">Address Line 2</label>
+              <input type="email" id="defaultFormRegisterEmailEx" class="form-control">
+            </div>
+
+          </div>
+          <br>
+
+          <div class="row">
+              <div class="col-md-3">
+                <!-- Default input name -->
+                <label for="defaultFormRegisterNameEx" class="grey-text">Country</label>
+                <input type="text" id="defaultFormRegisterNameEx" class="form-control">
+              </div>
+              
+    
+              <div class="col-md-3">
+              <!-- Default input email -->
+                <label for="defaultFormRegisterEmailEx" class="grey-text">State</label>
+                <input type="email" id="defaultFormRegisterEmailEx" class="form-control">
+              </div>
+  
+            </div>
+            <br>
+
+            <div class="row">
+                <div class="col-md-3">
+                  <!-- Default input name -->
+                  <label for="defaultFormRegisterNameEx" class="grey-text">City</label>
+                  <input type="text" id="defaultFormRegisterNameEx" class="form-control">
+                </div>
+                
+      
+                <div class="col-md-3">
+                <!-- Default input email -->
+                  <label for="defaultFormRegisterEmailEx" class="grey-text">Pin Code</label>
+                  <input type="email" id="defaultFormRegisterEmailEx" class="form-control">
+                </div>
+    
+              </div>
+              <br>
+        <!-- Default form register -->   
       <div>
-        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperPrevious class="mat_button_next_button">Previous</button>
+        <button mat-button matStepperNext class="mat_button_next_button">Next</button>
       </div>
     </mat-step>
-  </mat-horizontal-stepper>
+
+    <mat-step [stepControl]="thirdFormGroup">
+        <ng-template matStepLabel>Setup Restaurent</ng-template>
+        <!-- Default form register -->
+        <div class="row">
+            <div class="col-md-6">
+                   <!--Checkbox butons-->
+                   <label>Food Type</label>
+                   <div class="btn-group" data-toggle="buttons">
+                  
+                  <label class="btn btn-warning btn-rounded active form-check-label">
+                      <input type="checkbox" class="form-check-input" checked autocomplete="off"> American <i class="fa fa-diamond ml-2"></i>
+                  </label>
+
+                  <label class="btn btn-warning btn-rounded form-check-label">
+                      <input type="checkbox" class="form-check-input" autocomplete="off"> Europian<i class="fa fa-user ml-2"></i>
+                  </label>
+
+                  <label class="btn btn-warning btn-rounded form-check-label">
+                      <input type="checkbox" class="form-check-input" autocomplete="off"> Asian <i class="fa fa-code ml-2"></i>
+                  </label>
+
+                  <label class="btn btn-warning btn-rounded form-check-label">
+                      <input type="checkbox" class="form-check-input" autocomplete="off"> Latin <i class="fa fa-code ml-2"></i>
+                  </label>
+
+                  <label class="btn btn-warning btn-rounded form-check-label">
+                      <input type="checkbox" class="form-check-input" autocomplete="off">Others <i class="fa fa-code ml-2"></i>
+                  </label>
+
+              </div>
+              <!--Checkbox butons-->
+            </div>
+        </div>
+          <br>
+
+          <div class="row">
+              <div class="col-md-6">
+                     <!--Checkbox butons-->
+                     <label>Delivery Partner</label>
+                     <div class="btn-group" data-toggle="buttons">
+                    
+                    <label class="btn btn-warning btn-rounded active form-check-label">
+                        <input type="checkbox" class="form-check-input" checked autocomplete="off"> Swiggy <i class="fa fa-diamond ml-2"></i>
+                    </label>
+  
+                    <label class="btn btn-warning btn-rounded form-check-label">
+                        <input type="checkbox" class="form-check-input" autocomplete="off"> Ola Cafe<i class="fa fa-user ml-2"></i>
+                    </label>
+  
+                    <label class="btn btn-warning btn-rounded form-check-label">
+                        <input type="checkbox" class="form-check-input" autocomplete="off"> Zomato <i class="fa fa-code ml-2"></i>
+                    </label>
+  
+                    <label class="btn btn-warning btn-rounded form-check-label">
+                        <input type="checkbox" class="form-check-input" autocomplete="off"> Food Panda <i class="fa fa-code ml-2"></i>
+                    </label>
+  
+                </div>
+                <!--Checkbox butons-->
+              </div>
+          </div>
+            <br>
+            <div class="row">
+                <div class="col-md-6"><label>Operation Time</label> 
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-6"><label>elivery Services</label> 
+                </div>
+            </div>
+            <br>
+
+
+      <div>
+        <button mat-button matStepperPrevious class="mat_button_next_button">Previous</button>
+        <button mat-button matStepperNext class="mat_button_next_button">Next</button>
+      </div>
+    </mat-step>
+
+    <mat-step [stepControl]="fourthFormGroup">
+        <ng-template matStepLabel>Menu Items</ng-template>
+        <!-- Default form register -->
+        <form>
+            <p class="h4 text-left mb-4">Sign up</p>
+
+            <!-- Default input name -->
+            <label for="defaultFormRegisterNameEx" class="grey-text">Your name</label>
+            <input type="text" id="defaultFormRegisterNameEx" class="form-control">
+            
+            <br>
+
+            <!-- Default input email -->
+            <label for="defaultFormRegisterEmailEx" class="grey-text">Your email</label>
+            <input type="email" id="defaultFormRegisterEmailEx" class="form-control">
+            
+            <br>
+
+            <!-- Default input email -->
+            <label for="defaultFormRegisterConfirmEx" class="grey-text">Confirm your email</label>
+            <input type="email" id="defaultFormRegisterConfirmEx" class="form-control">
+
+            <br>
+
+            <!-- Default input password -->
+            <label for="defaultFormRegisterPasswordEx" class="grey-text">Your password</label>
+            <input type="password" id="defaultFormRegisterPasswordEx" class="form-control">
+            <br>
+        </form>
+        <!-- Default form register -->   
+      <div>
+        <button mat-button matStepperNext class="mat_button_next_button">Next</button>
+      </div>
+    </mat-step>
+
+    <mat-step [stepControl]="fifthFormGroup">
+        <ng-template matStepLabel>Open Restaurent</ng-template>
+        <!-- Default form register -->
+        <form>
+            <p class="h4 text-left mb-4">Sign up</p>
+
+            <!-- Default input name -->
+            <label for="defaultFormRegisterNameEx" class="grey-text">Your name</label>
+            <input type="text" id="defaultFormRegisterNameEx" class="form-control">
+            
+            <br>
+
+            <!-- Default input email -->
+            <label for="defaultFormRegisterEmailEx" class="grey-text">Your email</label>
+            <input type="email" id="defaultFormRegisterEmailEx" class="form-control">
+            
+            <br>
+
+            <!-- Default input email -->
+            <label for="defaultFormRegisterConfirmEx" class="grey-text">Confirm your email</label>
+            <input type="email" id="defaultFormRegisterConfirmEx" class="form-control">
+
+            <br>
+
+            <!-- Default input password -->
+            <label for="defaultFormRegisterPasswordEx" class="grey-text">Your password</label>
+            <input type="password" id="defaultFormRegisterPasswordEx" class="form-control">
+            <br>
+        </form>
+        <!-- Default form register -->   
+      <div>
+        <button mat-button matStepperNext class="mat_button_next_button">Next</button>
+      </div>
+    </mat-step>
+
+</mat-horizontal-stepper>
+
+
 
 </div>

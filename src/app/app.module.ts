@@ -15,7 +15,10 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {UserRegistrationComponent} from './user_registration/user_registration.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { HttpClientModule } from '@angular/common/http';
 import { HttpModule, BrowserXhr, Http, Request, RequestOptionsArgs, Response, XHRBackend, RequestOptions, ConnectionBackend, Headers } from '@angular/http';
+import { routing, appRoutingProviders } from './app.routing';
+import {CdkStepperModule} from '@angular/cdk/stepper';
 
 
 @NgModule({
@@ -29,7 +32,9 @@ import { HttpModule, BrowserXhr, Http, Request, RequestOptionsArgs, Response, XH
     BrowserModule,
     MatButtonModule, MatCheckboxModule, MatInputModule,MatRadioModule,MatMenuModule,MatFormFieldModule,MatSelectModule,
     MatToolbarModule,MatCardModule,
-    BrowserAnimationsModule,MatStepperModule,FormsModule,ReactiveFormsModule,MatGridListModule,MatIconModule
+    BrowserAnimationsModule,MatStepperModule,FormsModule,ReactiveFormsModule,MatGridListModule,MatIconModule,
+    HttpClientModule,HttpModule,
+    CdkStepperModule
   ],
   providers: [RegistrationService],
   bootstrap: [AppComponent]

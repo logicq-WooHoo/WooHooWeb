@@ -11,9 +11,7 @@ export class LoginComponent implements OnInit {
 
   restaurantCitiesList = [];
 
-  constructor(public loginService : LoginserviceService) {
-
-
+  constructor(private loginService: LoginserviceService) {
    }
 
   ngOnInit() {
