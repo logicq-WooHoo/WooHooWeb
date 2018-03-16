@@ -1,20 +1,12 @@
-import { Component, OnInit, Input }   from '@angular/core';
+import { Component} from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
-import { FormDataService }            from './data/formData.service';
-
-@Component ({
-    selector:     'multi-step-wizard-app'
-    ,templateUrl: './app.component.html'
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
-
-export class AppComponent implements OnInit {
-    @Input() formData;
-    
-    constructor(private formDataService: FormDataService) {
-    }
-
-    ngOnInit() {
-        this.formData = this.formDataService.getFormData();
-       
-    }
+export class AppComponent {
+  title = 'app works!';
 }

@@ -1,0 +1,8 @@
+  $('#saveReport').on('click', function(event){
+    // if( $(event.target).is('.cd-panel') || $(event.target).is('.cd-panel-close') || $(event.target).is('.closepan') ) {
+		// 	$('.cd-panel').removeClass('is-visible');
+		// 	event.preventDefault();
+		// }
+    $('.form-horizontal').fadeOut();
+    $("#reportPanel").show();
+  });
