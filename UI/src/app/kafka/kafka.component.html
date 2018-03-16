@@ -1,0 +1,39 @@
+<app-header> </app-header>
+
+<div class="container-fluid text-center">
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+      <!-- <p><a (click)="getDatasource()">DataSources</a></p>
+      <p><a >Historical Nodes</a></p>
+      <p><a >Overload Status Node</a></p>
+      <p><a >Broker Status Node</a></p>
+      <p><a >Coordinator Status Node</a></p> -->
+      <app-menu> </app-menu>
+    </div>
+
+
+    <div class="col-sm-8 text-left">
+      <h2>Kafka Status</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Topic</th>
+            <th>Leader</th>
+            <th>ISR</th>
+            <th>Timestamp</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of datas">
+            <th>{{data.topic}}</th>
+            <th>{{data.leader}}</th>
+            <th>{{data.isr}}</th>
+            <th>{{data.timestamp}}</th>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- <app-datasources> </app-datasources> -->
+    </div>
+  </div>
+</div>

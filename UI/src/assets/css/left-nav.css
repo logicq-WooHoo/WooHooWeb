@@ -1,0 +1,289 @@
+.toggled-2 {display:none;transition: all 0.5s ease;}
+.silide-nav #left ul {position:static; width:auto;}
+.silide-nav #left ul li {float: none; width: auto; border-bottom:0 none; list-style:none;}
+.silide-nav #left ul li a{ color:#fff; line-height: normal;opacity:0.5;display:block; transition: all 0.5s ease; }
+.silide-nav #left ul li span { display:inline-block; width:auto; height:auto; float:none; opacity:0.9; transition: all 0.5s ease; }
+
+.silide-nav #left ul li a:hover, .silide-nav ul li a:hover span{opacity:1; cursor:pointer;}
+.silide-nav #left ul li a:hover{ background:none; text-decoration:none;cursor:pointer;}
+
+.silide-nav #left ul li .span { display:inline-block; width:45px; height:50px; float:left; opacity:0.9; transition: all 0.5s ease; }
+
+#left ul.nav {
+    margin-bottom: 2px;
+    font-size: 12px; /* to change font-size, please change instead .lbl */
+}
+#left ul.nav ul,
+#left ul.nav ul li {
+    list-style: none!important;
+    list-style-type: none!important;
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+#left ul.nav > li > a {
+    padding:0;
+}
+
+#left ul.nav ul {
+    padding-left: 0;
+    width: auto;
+}
+#left ul.nav ul.children {
+    padding-left: 36px;
+    width: auto;
+
+}
+#left ul.nav ul.children ul {
+    padding-left: 12px;
+    padding-right:5px;
+    width: auto;
+    /* Vertically Scroll
+    ax-height: 350px;
+    overflow-y: auto;
+    overflow-x: hidden;*/
+}
+#left ul.nav ul.children li{
+    margin-left: 0px;
+}
+#left ul.nav li a:hover {
+    text-decoration: none;
+}
+
+#left ul.nav>li.item-8.active {
+	background:#361544;
+	padding-bottom:20px;
+}
+
+/* 3rd Label */
+#left ul.nav ul.children ul {
+   background: url(../images/line-repeat.png) repeat left bottom;
+   padding-bottom:0px;
+}
+
+#left ul.nav ul.children ul li {
+   background: url(../images/line-repeat.png) no-repeat -283px -1px;
+   margin:11px 0;
+}
+#left ul.nav ul.children ul li:first-child {
+   margin-top:0;
+}
+
+#left ul.nav ul.children ul li .lbl{
+   padding-left:0px;
+}
+
+#left ul.nav ul.children ul li:first-child {
+   margin-top:0;
+}
+
+/* parent item */
+#left ul.nav li.parent a {
+    padding: 0px;
+    color: #ccc;
+}
+#left ul.nav>li.parent>a {
+    border: solid 1px #999;
+}
+
+/*#left ul.nav li.parent a:hover {
+    background-color: #fff;
+    -webkit-box-shadow:inset 0 3px 8px rgba(0,0,0,0.125);
+    -moz-box-shadow:inset 0 3px 8px rgba(0,0,0,0.125);
+    box-shadow:inset 0 3px 8px rgba(0,0,0,0.125);
+}*/
+
+/* link tag (a)*/
+#left ul.nav li.parent ul li a {
+    color: #222;
+    border: none;
+    display:block;
+    padding-left: 5px;
+}
+
+#left ul.nav li.parent a::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#left ul.nav li.parent ul li a::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#left ul.nav li.parent ul li a.active{
+opacity:1;
+color: #fff !important;
+text-decoration:none;
+
+}
+
+#left ul.nav li.parent ul li a span.active{
+opacity:1;
+color: #fff !important;
+text-decoration:none;
+/*font-weight: bolder;*/
+}
+
+#left ul.nav>li.item-8 span.active{
+  opacity:1;
+  color: #fff !important;
+  text-decoration:none;
+  }
+
+#left ul.nav>li.item-8 ul li  span.active{
+  opacity:1;
+  color: #fff !important;
+  text-decoration:none;
+}
+
+/* sign for parent item */
+#left ul.nav li .sign {
+    display: inline-block;
+    width: 44px;
+    padding: 5px 0px;
+    background-color: transparent;
+    color: #fff;
+    float:right;
+}
+#left ul.nav li.parent>a>.sign{
+    margin-left: 0px;
+    /*background-color: #999;*/
+}
+
+#left ul.nav li .sign .icon-white {
+	background:url(../images/arw-white.png) no-repeat 0 0;
+	width:37px;
+	height:40px;
+	display:inline-block;
+	float:right;
+}
+#left ul.nav li .sign .icon-white.icon-minus {
+	background-position:0 -40px;
+}
+/* 2nd Label */
+#left ul.nav li ul li .sign {
+    display: inline-block;
+    width: 16px;
+    padding: 0;
+    margin-top:4px;
+}
+
+
+#left ul.nav li ul li .sign .icon-white {
+	background:url(../images/arw-plus.png) no-repeat 0 0;
+	width:16px;
+	height:16px;
+}
+#left ul.nav li ul li .sign .icon-white.icon-minus {
+	background-position:0 -16px;
+}
+
+/* 4th Label */
+#left ul.nav li ul li ul li .sign .icon-white {
+	background:#361544 url(../images/arw-plus.png) no-repeat 0 0;
+}
+
+/* label */
+#left ul.nav li .lbl {
+    padding: 16px 12px 15px 0;
+    display: inline-block;
+}
+
+#left ul.nav li ul li .lbl {
+    padding: 2px 5px;
+    display: inline-block;
+}
+
+#left ul.nav li ul li .lbl {
+    padding-left:6px;
+}
+
+#left ul.nav li.current>a>.lbl {
+    color: #fff;
+}
+#left ul.nav  li a .lbl{
+    font-size: 12px;
+}
+
+#left ul.nav li ul li .sign {
+  float:left;
+}
+
+/* THEMATIQUE
+------------------------- */
+/* theme 1 */
+#left ul.nav>li.item-1.parent>a {
+    border: solid 1px #ff6307;
+}
+#left ul.nav>li.item-1.parent>a>.sign,
+#left ul.nav>li.item-1 li.parent>a>.sign{
+    margin-left: 0px;
+    background-color: #ff6307;
+}
+#left ul.nav>li.item-1 .lbl {
+    color: #fff;
+    opacity:0.5;
+}
+#left ul.nav>li.item-1 li.current>a .lbl {
+    background-color: #ff6307;
+    color: #fff!important;
+}
+
+/* theme 2 */
+#left ul.nav>li.item-8.parent>a {
+	border:0 none;
+    border-top:1px solid #6d487c;
+    border-bottom:1px solid #6d487c;
+}
+
+#left ul.nav>li.item-8.parent.active>a ,#left ul.nav>li.item-8.parent>a.active {
+	 border-bottom:0 none;
+   opacity:1;
+   color: #b9a0c3 !important;
+   text-decoration:none;
+   border-top: 1px solid #6d487c;
+   border-bottom: 1px solid #6d487c;
+}
+
+
+#left ul.nav>li.item-8.parent>a:hover, #left ul.nav>li.item-8.parent>a:focus {
+    background:none;
+}
+
+#left ul.nav>li.item-8.parent>a>.sign,
+#left ul.nav>li.item-8 li.parent>a>.sign{
+    margin-left: 0px;
+}
+#left ul.nav>li.item-8 .lbl {
+    color: #fff;
+    font-size:14px;
+}
+
+#left ul.nav>li.item-8 ul li ul li .lbl {
+    font-size:13px;
+    overflow: hidden;
+    display: block;
+    width: 95%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+#left ul.first-lavel{
+   background: url(../images/line-repeat.png) repeat  40px bottom !important;
+   padding-bottom:0px !important;
+       margin-left: -6px !important;
+}
+
+#left ul.first-lavel li {
+   background: url(../images/line-repeat.png) no-repeat -283px -1px !important;
+   margin:10px 0 !important;
+       margin-left: 11px !important;
+}
+
+#left ul.first-lavel li .lbl {
+    color: #fff;
+    font-size:13px !important;
+}
