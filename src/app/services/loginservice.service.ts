@@ -4,6 +4,7 @@ import { Http,Headers,RequestOptions,Response,RequestMethod,Request} from '@angu
 import { Observable } from 'rxjs';
 import { AppConfig } from '../configuration/app.config';
 
+
 @Injectable()
 export class LoginserviceService {
 
@@ -11,6 +12,19 @@ export class LoginserviceService {
     
    }
 
+  getSignIn(request){
+    console.log("Login service");
+    let postheaders = new Headers({'Content-Type': 'application/json','Access-Control-Allow-Origin':'*'});
+    let options = new RequestOptions({ headers: postheaders });
+    return this.http.post("http://127.0.0.1:8090/user/login",request).map(res => res);
+  }
+
+  getSignUp(request){
+    console.log("Signup service");
+    let postheaders = new Headers({'Content-Type': 'application/json','Access-Control-Allow-Origin':'*'});
+    let options = new RequestOptions({ headers: postheaders });
+    return this.http.post("http://127.0.0.1:8090/api/user/registration",request);
+  }
   getRestaurantCities() {
     //let postheaders = new Headers({'Content-Type': 'application/json','Access-Control-Allow-Origin':'*'});
     //let options = new RequestOptions({ headers: postheaders });

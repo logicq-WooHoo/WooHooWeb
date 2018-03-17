@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpModule, BrowserXhr, Http, Request, RequestOptionsArgs, Response, XHRBackend, RequestOptions, ConnectionBackend, Headers } from '@angular/http';
 import { routing, appRoutingProviders } from './app.routing';
 import {CdkStepperModule} from '@angular/cdk/stepper';
+import { HotelregistrationComponent } from './hotelregistration/hotelregistration.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import {CdkStepperModule} from '@angular/cdk/stepper';
     AppComponent,
     UserRegistrationComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    HotelregistrationComponent
   ],
   imports: [
     BrowserModule,
@@ -34,9 +36,10 @@ import {CdkStepperModule} from '@angular/cdk/stepper';
     MatToolbarModule,MatCardModule,
     BrowserAnimationsModule,MatStepperModule,FormsModule,ReactiveFormsModule,MatGridListModule,MatIconModule,
     HttpClientModule,HttpModule,
-    CdkStepperModule
+    CdkStepperModule,
+    routing
   ],
-  providers: [RegistrationService],
+  providers: [appRoutingProviders,RegistrationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
