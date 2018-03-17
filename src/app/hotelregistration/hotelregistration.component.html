@@ -16,7 +16,7 @@
      <!--<mat-icon data-target="#myModal">account_circle</mat-icon>-->
      <button type="button" class="btn-primary-outline glyphicon glyphicon-user" data-toggle="modal" data-target="#myModal"></button>
   </mat-toolbar>
-  <h3>User Registration</h3>
+  <h3>Hotel Registration</h3>
   
   <mat-horizontal-stepper [linear]="isLinear" #stepper="matHorizontalStepper">
       <mat-step [stepControl]="firstFormGroup">
@@ -28,7 +28,11 @@
                     <div class="col-md-1">
                         <!-- Default input name -->
                         <label for="defaultFormRegisterNameEx" class="grey-text">Title</label>
-                        <input type="text" id="defaultFormRegisterNameEx" class="form-control">
+                        <select class="form-control" required="required" ng-model="order.monitoringDuration" convert-to-number>
+                          <option value="Mr">Mr</option>
+                          <option value="Miss">Miss</option>
+                          <option value="Mrs">Mrs</option>
+                        </select>
                       </div>
   
                   <div class="col-md-3">
@@ -51,7 +55,10 @@
                     <div class="col-md-1">
                         <!-- Default input name -->
                         <label for="defaultFormRegisterNameEx" class="grey-text">Gender</label>
-                        <input type="text" id="defaultFormRegisterNameEx" class="form-control">
+                        <select class="form-control" required="required" ng-model="order.monitoringDuration" convert-to-number>
+                          <option value="Male">Male</option>
+                          <option value="Female">Female</option>
+                        </select>
                       </div>
   
                     <div class="col-md-3">
@@ -281,132 +288,104 @@
                           </tr>
                           <tr>
                               <td>
-                                  <div class="dropdown">
-                                      <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">From
-                                      <span class="caret"></span></button>
-                                      <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
-                                      </ul>
-                                    </div>
+                                <select class="form-control" required="required" ng-model="order.monitoringDuration" convert-to-number>
+                                  <option value="">From</option>
+                                  <option value="2">Miss</option>
+                                  <option value="3">Mrs</option>
+                                </select>
                               </td>
                               <td>
-                                  <div class="dropdown">
-                                      <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">From
-                                      <span class="caret"></span></button>
-                                      <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
-                                      </ul>
-                                    </div>
+                                <select class="form-control" required="required" ng-model="order.monitoringDuration" convert-to-number>
+                                  <option value="">From</option>
+                                  <option value="2">Miss</option>
+                                  <option value="3">Mrs</option>
+                                </select>
                               </td>
                               <td>
-                                  <div class="dropdown">
-                                      <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">From
-                                      <span class="caret"></span></button>
-                                      <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
-                                      </ul>
-                                    </div>
+                                <select class="form-control" required="required" ng-model="order.monitoringDuration" convert-to-number>
+                                  <option value="">From</option>
+                                  <option value="2">Miss</option>
+                                  <option value="3">Mrs</option>
+                                </select>
                               </td>
                               <td>
-                                  <div class="dropdown">
-                                      <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">From
-                                      <span class="caret"></span></button>
-                                      <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
-                                      </ul>
-                                    </div>
+                                <select class="form-control" required="required" ng-model="order.monitoringDuration" convert-to-number>
+                                  <option value="">From</option>
+                                  <option value="2">Miss</option>
+                                  <option value="3">Mrs</option>
+                                </select>
                               </td>
                               <td>
-                                  <div class="dropdown">
-                                      <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">From
-                                      <span class="caret"></span></button>
-                                      <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
-                                      </ul>
-                                    </div>
+                                <select class="form-control" required="required" ng-model="order.monitoringDuration" convert-to-number>
+                                  <option value="">From</option>
+                                  <option value="2">Miss</option>
+                                  <option value="3">Mrs</option>
+                                </select>
                               </td>
                               <td>
-                                  <div class="dropdown">
-                                      <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">From
-                                      <span class="caret"></span></button>
-                                      <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
-                                      </ul>
-                                    </div>
+                                <select class="form-control" required="required" ng-model="order.monitoringDuration" convert-to-number>
+                                  <option value="">From</option>
+                                  <option value="2">Miss</option>
+                                  <option value="3">Mrs</option>
+                                </select>
                               </td>
                               <td>
-                                  <div class="dropdown">
-                                      <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">From
-                                      <span class="caret"></span></button>
-                                      <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
-                                      </ul>
-                                    </div>
+                                <select class="form-control" required="required" ng-model="order.monitoringDuration" convert-to-number>
+                                  <option value="">From</option>
+                                  <option value="2">Miss</option>
+                                  <option value="3">Mrs</option>
+                                </select>
                               </td>
                           </tr>
                           <tr>
                               <td>
-                                  <div class="dropdown">
-                                      <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">To
-                                      <span class="caret"></span></button>
-                                      <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
-                                      </ul>
-                                    </div>
+                                <select class="form-control" required="required" ng-model="order.monitoringDuration" convert-to-number>
+                                  <option value="">To</option>
+                                  <option value="2">Miss</option>
+                                  <option value="3">Mrs</option>
+                                </select>
                               </td>
                               <td>
-                                  <div class="dropdown">
-                                      <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">To
-                                      <span class="caret"></span></button>
-                                      <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
-                                      </ul>
-                                    </div>
+                                <select class="form-control" required="required" ng-model="order.monitoringDuration" convert-to-number>
+                                  <option value="">To</option>
+                                  <option value="2">Miss</option>
+                                  <option value="3">Mrs</option>
+                                </select>
                               </td>
                               <td>
-                                  <div class="dropdown">
-                                      <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">To
-                                      <span class="caret"></span></button>
-                                      <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
-                                      </ul>
-                                    </div>
+                                <select class="form-control" required="required" ng-model="order.monitoringDuration" convert-to-number>
+                                  <option value="">To</option>
+                                  <option value="2">Miss</option>
+                                  <option value="3">Mrs</option>
+                                </select>
                               </td>
                               <td>
-                                  <div class="dropdown">
-                                      <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">To
-                                      <span class="caret"></span></button>
-                                      <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
-                                      </ul>
-                                    </div>
+                                <select class="form-control" required="required" ng-model="order.monitoringDuration" convert-to-number>
+                                  <option value="">To</option>
+                                  <option value="2">Miss</option>
+                                  <option value="3">Mrs</option>
+                                </select>
                               </td>
                               <td>
-                                  <div class="dropdown">
-                                      <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">To
-                                      <span class="caret"></span></button>
-                                      <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
-                                      </ul>
-                                    </div>
+                                <select class="form-control" required="required" ng-model="order.monitoringDuration" convert-to-number>
+                                  <option value="">To</option>
+                                  <option value="2">Miss</option>
+                                  <option value="3">Mrs</option>
+                                </select>
                               </td>
                               <td>
-                                  <div class="dropdown">
-                                      <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown"> To 
-                                      <span class="caret"></span></button>
-                                      <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
-                                      </ul>
-                                    </div>
+                                <select class="form-control" required="required" ng-model="order.monitoringDuration" convert-to-number>
+                                  <option value="">To</option>
+                                  <option value="2">Miss</option>
+                                  <option value="3">Mrs</option>
+                                </select>
                               </td> 
                               <td>
-                                  <div class="dropdown">
-                                      <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">To
-                                      <span class="caret"></span></button>
-                                      <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
-                                      </ul>
-                                    </div>
+                                <select class="form-control" required="required" ng-model="order.monitoringDuration" convert-to-number>
+                                  <option value="">To</option>
+                                  <option value="2">Miss</option>
+                                  <option value="3">Mrs</option>
+                                </select>
                               </td>
                           </tr>
                       </table>
@@ -473,132 +452,104 @@
                           </tr>
                           <tr>
                               <td>
-                                  <div class="dropdown">
-                                      <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">From
-                                      <span class="caret"></span></button>
-                                      <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
-                                      </ul>
-                                    </div>
+                                <select class="form-control" required="required" ng-model="order.monitoringDuration" convert-to-number>
+                                  <option value="">From</option>
+                                  <option value="2">Miss</option>
+                                  <option value="3">Mrs</option>
+                                </select>
                               </td>
                               <td>
-                                  <div class="dropdown">
-                                      <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">From
-                                      <span class="caret"></span></button>
-                                      <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
-                                      </ul>
-                                    </div>
+                                <select class="form-control" required="required" ng-model="order.monitoringDuration" convert-to-number>
+                                  <option value="">From</option>
+                                  <option value="2">Miss</option>
+                                  <option value="3">Mrs</option>
+                                </select>
                               </td>
                               <td>
-                                  <div class="dropdown">
-                                      <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">From
-                                      <span class="caret"></span></button>
-                                      <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
-                                      </ul>
-                                    </div>
+                                <select class="form-control" required="required" ng-model="order.monitoringDuration" convert-to-number>
+                                  <option value="">From</option>
+                                  <option value="2">Miss</option>
+                                  <option value="3">Mrs</option>
+                                </select>
                               </td>
                               <td>
-                                  <div class="dropdown">
-                                      <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">From
-                                      <span class="caret"></span></button>
-                                      <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
-                                      </ul>
-                                    </div>
+                                <select class="form-control" required="required" ng-model="order.monitoringDuration" convert-to-number>
+                                  <option value="">From</option>
+                                  <option value="2">Miss</option>
+                                  <option value="3">Mrs</option>
+                                </select>
                               </td>
                               <td>
-                                  <div class="dropdown">
-                                      <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">From
-                                      <span class="caret"></span></button>
-                                      <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
-                                      </ul>
-                                    </div>
+                                <select class="form-control" required="required" ng-model="order.monitoringDuration" convert-to-number>
+                                  <option value="">From</option>
+                                  <option value="2">Miss</option>
+                                  <option value="3">Mrs</option>
+                                </select>
                               </td>
                               <td>
-                                  <div class="dropdown">
-                                      <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">From
-                                      <span class="caret"></span></button>
-                                      <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
-                                      </ul>
-                                    </div>
+                                <select class="form-control" required="required" ng-model="order.monitoringDuration" convert-to-number>
+                                  <option value="">From</option>
+                                  <option value="2">Miss</option>
+                                  <option value="3">Mrs</option>
+                                </select>
                               </td>
                               <td>
-                                  <div class="dropdown">
-                                      <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">From
-                                      <span class="caret"></span></button>
-                                      <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
-                                      </ul>
-                                    </div>
+                                <select class="form-control" required="required" ng-model="order.monitoringDuration" convert-to-number>
+                                  <option value="">From</option>
+                                  <option value="2">Miss</option>
+                                  <option value="3">Mrs</option>
+                                </select>
                               </td>
                           </tr>
                           <tr>
                               <td>
-                                  <div class="dropdown">
-                                      <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">To
-                                      <span class="caret"></span></button>
-                                      <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
-                                      </ul>
-                                    </div>
+                                <select class="form-control" required="required" ng-model="order.monitoringDuration" convert-to-number>
+                                  <option value="">To</option>
+                                  <option value="2">Miss</option>
+                                  <option value="3">Mrs</option>
+                                </select>
                               </td>
                               <td>
-                                  <div class="dropdown">
-                                      <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">To
-                                      <span class="caret"></span></button>
-                                      <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
-                                      </ul>
-                                    </div>
+                                <select class="form-control" required="required" ng-model="order.monitoringDuration" convert-to-number>
+                                  <option value="">To</option>
+                                  <option value="2">Miss</option>
+                                  <option value="3">Mrs</option>
+                                </select>
                               </td>
                               <td>
-                                  <div class="dropdown">
-                                      <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">To
-                                      <span class="caret"></span></button>
-                                      <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
-                                      </ul>
-                                    </div>
+                                <select class="form-control" required="required" ng-model="order.monitoringDuration" convert-to-number>
+                                  <option value="">To</option>
+                                  <option value="2">Miss</option>
+                                  <option value="3">Mrs</option>
+                                </select>
                               </td>
                               <td>
-                                  <div class="dropdown">
-                                      <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">To
-                                      <span class="caret"></span></button>
-                                      <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
-                                      </ul>
-                                    </div>
+                                <select class="form-control" required="required" ng-model="order.monitoringDuration" convert-to-number>
+                                  <option value="">To</option>
+                                  <option value="2">Miss</option>
+                                  <option value="3">Mrs</option>
+                                </select>
                               </td>
                               <td>
-                                  <div class="dropdown">
-                                      <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">To
-                                      <span class="caret"></span></button>
-                                      <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
-                                      </ul>
-                                    </div>
+                                <select class="form-control" required="required" ng-model="order.monitoringDuration" convert-to-number>
+                                  <option value="">To</option>
+                                  <option value="2">Miss</option>
+                                  <option value="3">Mrs</option>
+                                </select>
                               </td>
                               <td>
-                                  <div class="dropdown">
-                                      <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown"> To 
-                                      <span class="caret"></span></button>
-                                      <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
-                                      </ul>
-                                    </div>
+                                <select class="form-control" required="required" ng-model="order.monitoringDuration" convert-to-number>
+                                  <option value="">To</option>
+                                  <option value="2">Miss</option>
+                                  <option value="3">Mrs</option>
+                                </select>
                               </td> 
                               <td>
-                                  <div class="dropdown">
-                                      <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">To
-                                      <span class="caret"></span></button>
-                                      <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
-                                      </ul>
-                                    </div>
+                                <select class="form-control" required="required" ng-model="order.monitoringDuration" convert-to-number>
+                                  <option value="">To</option>
+                                  <option value="2">Miss</option>
+                                  <option value="3">Mrs</option>
+                                </select>
                               </td>
                           </tr>
                       </table>
@@ -692,7 +643,6 @@
     
           <div>
               <button mat-button matStepperPrevious class="mat_button_next_button">Previous</button>
-              <button mat-button matStepperNext class="mat_button_next_button">Next</button>
           </div>
       </mat-step>
   
