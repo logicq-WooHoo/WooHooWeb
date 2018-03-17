@@ -1,0 +1,703 @@
+<div class="container-fluid">
+<mat-toolbar class="app-header">
+    <mat-icon>home</mat-icon>
+    <h2>
+     <span><b>WooHoo</b></span>
+   </h2>
+   
+   <span class="fill-remaining-space"></span>
+   
+   <h3>
+      <span>Help</span>
+   </h3>
+   <mat-icon>help_outline</mat-icon>
+   <p>&nbsp;</p>
+   <p>&nbsp;</p>
+   <!--<mat-icon data-target="#myModal">account_circle</mat-icon>-->
+   <button type="button" class="btn-primary-outline glyphicon glyphicon-user" data-toggle="modal" data-target="#myModal"></button>
+</mat-toolbar>
+<h3>User Registration</h3>
+
+<mat-horizontal-stepper [linear]="isLinear" #stepper="matHorizontalStepper">
+    <mat-step [stepControl]="firstFormGroup">
+        <ng-template matStepLabel>Personal Details</ng-template>
+          <!-- Default form register -->
+          <form [formGroup]="firstFormGroup">
+              <div class="row">
+
+                  <div class="col-md-1">
+                      <!-- Default input name -->
+                      <label for="defaultFormRegisterNameEx" class="grey-text">Title</label>
+                      <input type="text" id="defaultFormRegisterNameEx" class="form-control">
+                    </div>
+
+                <div class="col-md-3">
+                  <!-- Default input name -->
+                  <label for="defaultFormRegisterNameEx" class="grey-text">First Name</label>
+                  <input type="text" id="defaultFormRegisterNameEx" class="form-control">
+                </div>
+                
+
+                <div class="col-md-3">
+                <!-- Default input email -->
+                  <label for="defaultFormRegisterEmailEx" class="grey-text">Last Name</label>
+                  <input type="email" id="defaultFormRegisterEmailEx" class="form-control">
+                </div>
+              </div>
+              <br>
+
+              <div class="row">
+
+                  <div class="col-md-1">
+                      <!-- Default input name -->
+                      <label for="defaultFormRegisterNameEx" class="grey-text">Gender</label>
+                      <input type="text" id="defaultFormRegisterNameEx" class="form-control">
+                    </div>
+
+                  <div class="col-md-3">
+                    <!-- Default input name -->
+                    <label for="defaultFormRegisterNameEx" class="grey-text">Phone Number</label>
+                    <input type="text" id="defaultFormRegisterNameEx" class="form-control">
+                  </div>
+                  
+  
+                  <div class="col-md-3">
+                  <!-- Default input email -->
+                    <label for="defaultFormRegisterEmailEx" class="grey-text">E-Mail Id</label>
+                    <input type="email" id="defaultFormRegisterEmailEx" class="form-control">
+                  </div>
+                </div>
+
+                <br>
+          </form>
+          <!-- Default form register -->   
+        <div>
+          <button mat-button matStepperNext class="mat_button_next_button">Next</button>
+        </div>
+    </mat-step>
+
+    <mat-step [stepControl]="secondFormGroup">
+        <ng-template matStepLabel>Restaurent Details</ng-template>
+        <form [formGroup]="secondFormGroup">
+        <!-- Default form register -->
+        <div class="row">
+          <div class="col-md-3">
+            <!-- Default input name -->
+            <label for="defaultFormRegisterNameEx" class="grey-text">Restaurant Name</label>
+            <input type="text" id="defaultFormRegisterNameEx" class="form-control">
+          </div>
+          
+
+          <div class="col-md-3">
+          <!-- Default input email -->
+            <label for="defaultFormRegisterEmailEx" class="grey-text">Registration Details</label>
+            <input type="email" id="defaultFormRegisterEmailEx" class="form-control">
+          </div>
+
+          <div class="col-md-1">
+              <label for="defaultFormRegisterEmailEx" class="grey-text">Upload</label>
+              <button mat-button class="mat_button_next_button">Upload</button>
+          </div>
+
+        </div>
+        <br>
+
+        <div class="row">
+            <div class="col-md-3">
+              <!-- Default input name -->
+              <label for="defaultFormRegisterNameEx" class="grey-text">Address Line 1</label>
+              <input type="text" id="defaultFormRegisterNameEx" class="form-control">
+            </div>
+            
+  
+            <div class="col-md-3">
+            <!-- Default input email -->
+              <label for="defaultFormRegisterEmailEx" class="grey-text">Address Line 2</label>
+              <input type="email" id="defaultFormRegisterEmailEx" class="form-control">
+            </div>
+
+          </div>
+          <br>
+
+          <div class="row">
+              <div class="col-md-3">
+                <!-- Default input name -->
+                <label for="defaultFormRegisterNameEx" class="grey-text">Country</label>
+                <input type="text" id="defaultFormRegisterNameEx" class="form-control">
+              </div>
+              
+    
+              <div class="col-md-3">
+              <!-- Default input email -->
+                <label for="defaultFormRegisterEmailEx" class="grey-text">State</label>
+                <input type="email" id="defaultFormRegisterEmailEx" class="form-control">
+              </div>
+  
+            </div>
+            <br>
+
+            <div class="row">
+                <div class="col-md-3">
+                  <!-- Default input name -->
+                  <label for="defaultFormRegisterNameEx" class="grey-text">City</label>
+                  <input type="text" id="defaultFormRegisterNameEx" class="form-control">
+                </div>
+                
+      
+                <div class="col-md-3">
+                <!-- Default input email -->
+                  <label for="defaultFormRegisterEmailEx" class="grey-text">Pin Code</label>
+                  <input type="email" id="defaultFormRegisterEmailEx" class="form-control">
+                </div>
+    
+              </div>
+            </form>
+              <br>
+        <!-- Default form register -->   
+      <div>
+        <button mat-button matStepperPrevious class="mat_button_next_button">Previous</button>
+        <button mat-button matStepperNext class="mat_button_next_button">Next</button>
+      </div>
+    </mat-step>
+
+    <mat-step [stepControl]="thirdFormGroup">
+        <ng-template matStepLabel>Setup Restaurent</ng-template>
+        <!-- Default form register -->
+        <div class="row">
+            <div class="col-md-6">
+                   <!--Checkbox butons-->
+                   <label>Food Type</label>
+                   <div class="btn-group" data-toggle="buttons">
+                  
+                  <label class="btn btn-warning btn-rounded active form-check-label">
+                      <input type="checkbox" class="form-check-input" checked autocomplete="off"> American <i class="fa fa-diamond ml-2"></i>
+                  </label>
+
+                  <label class="btn btn-warning btn-rounded form-check-label">
+                      <input type="checkbox" class="form-check-input" autocomplete="off"> Europian<i class="fa fa-user ml-2"></i>
+                  </label>
+
+                  <label class="btn btn-warning btn-rounded form-check-label">
+                      <input type="checkbox" class="form-check-input" autocomplete="off"> Asian <i class="fa fa-code ml-2"></i>
+                  </label>
+
+                  <label class="btn btn-warning btn-rounded form-check-label">
+                      <input type="checkbox" class="form-check-input" autocomplete="off"> Latin <i class="fa fa-code ml-2"></i>
+                  </label>
+
+                  <label class="btn btn-warning btn-rounded form-check-label">
+                      <input type="checkbox" class="form-check-input" autocomplete="off">Others <i class="fa fa-code ml-2"></i>
+                  </label>
+
+              </div>
+              <!--Checkbox butons-->
+            </div>
+        </div>
+          <br>
+
+          <div class="row">
+              <div class="col-md-6">
+                     <!--Checkbox butons-->
+                     <label>Delivery Partner</label>
+                     <div class="btn-group" data-toggle="buttons">
+                    
+                    <label class="btn btn-warning btn-rounded active form-check-label">
+                        <input type="checkbox" class="form-check-input" checked autocomplete="off"> Swiggy <i class="fa fa-diamond ml-2"></i>
+                    </label>
+  
+                    <label class="btn btn-warning btn-rounded form-check-label">
+                        <input type="checkbox" class="form-check-input" autocomplete="off"> Ola Cafe<i class="fa fa-user ml-2"></i>
+                    </label>
+  
+                    <label class="btn btn-warning btn-rounded form-check-label">
+                        <input type="checkbox" class="form-check-input" autocomplete="off"> Zomato <i class="fa fa-code ml-2"></i>
+                    </label>
+  
+                    <label class="btn btn-warning btn-rounded form-check-label">
+                        <input type="checkbox" class="form-check-input" autocomplete="off"> Food Panda <i class="fa fa-code ml-2"></i>
+                    </label>
+  
+                </div>
+                <!--Checkbox butons-->
+              </div>
+          </div>
+            <br>
+            <div class="row">
+                <div class="col-md-6"><label>Operation Time</label>
+                  <div class="table-responsive clearfix">
+                    <table class="table">
+                        <tr>
+                          <th>Monday</th>
+                          <th>Tuesday</th>
+                          <th>Wednesday</th>
+                          <th>Thursday</th>
+                          <th>Friday</th>
+                          <th>Saturday</th>
+                          <th>Sunday</th>
+                        </tr>
+                        <tr>
+                          <td>
+                              <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                              </label>
+                          </td>
+                          <td>
+                              <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                              </label>
+                          </td>
+                          <td>
+                              <label class="switch">
+                                  <input type="checkbox">
+                                  <span class="slider round"></span>
+                                </label>
+                          </td>
+                          <td>
+                              <label class="switch">
+                                  <input type="checkbox">
+                                  <span class="slider round"></span>
+                                </label>
+                          </td>
+                          <td>
+                              <label class="switch">
+                                  <input type="checkbox">
+                                  <span class="slider round"></span>
+                                </label>
+                          </td>
+                          <td>
+                              <label class="switch">
+                                  <input type="checkbox">
+                                  <span class="slider round"></span>
+                                </label>
+                          </td>
+                          <td>
+                              <label class="switch">
+                                  <input type="checkbox">
+                                  <span class="slider round"></span>
+                                </label>
+                          </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">From
+                                    <span class="caret"></span></button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+                                    </ul>
+                                  </div>
+                            </td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">From
+                                    <span class="caret"></span></button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+                                    </ul>
+                                  </div>
+                            </td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">From
+                                    <span class="caret"></span></button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+                                    </ul>
+                                  </div>
+                            </td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">From
+                                    <span class="caret"></span></button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+                                    </ul>
+                                  </div>
+                            </td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">From
+                                    <span class="caret"></span></button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+                                    </ul>
+                                  </div>
+                            </td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">From
+                                    <span class="caret"></span></button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+                                    </ul>
+                                  </div>
+                            </td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">From
+                                    <span class="caret"></span></button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+                                    </ul>
+                                  </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">To
+                                    <span class="caret"></span></button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+                                    </ul>
+                                  </div>
+                            </td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">To
+                                    <span class="caret"></span></button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+                                    </ul>
+                                  </div>
+                            </td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">To
+                                    <span class="caret"></span></button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+                                    </ul>
+                                  </div>
+                            </td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">To
+                                    <span class="caret"></span></button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+                                    </ul>
+                                  </div>
+                            </td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">To
+                                    <span class="caret"></span></button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+                                    </ul>
+                                  </div>
+                            </td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown"> To 
+                                    <span class="caret"></span></button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+                                    </ul>
+                                  </div>
+                            </td> 
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">To
+                                    <span class="caret"></span></button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+                                    </ul>
+                                  </div>
+                            </td>
+                        </tr>
+                    </table>
+                  </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-6"><label>Delivery Services</label>
+                  <div class="table-responsive clearfix">
+                    <table class="table">
+                        <tr>
+                          <th>Monday</th>
+                          <th>Tuesday</th>
+                          <th>Wednesday</th>
+                          <th>Thursday</th>
+                          <th>Friday</th>
+                          <th>Saturday</th>
+                          <th>Sunday</th>
+                        </tr>
+                        <tr>
+                          <td>
+                              <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                              </label>
+                          </td>
+                          <td>
+                              <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                              </label>
+                          </td>
+                          <td>
+                              <label class="switch">
+                                  <input type="checkbox">
+                                  <span class="slider round"></span>
+                                </label>
+                          </td>
+                          <td>
+                              <label class="switch">
+                                  <input type="checkbox">
+                                  <span class="slider round"></span>
+                                </label>
+                          </td>
+                          <td>
+                              <label class="switch">
+                                  <input type="checkbox">
+                                  <span class="slider round"></span>
+                                </label>
+                          </td>
+                          <td>
+                              <label class="switch">
+                                  <input type="checkbox">
+                                  <span class="slider round"></span>
+                                </label>
+                          </td>
+                          <td>
+                              <label class="switch">
+                                  <input type="checkbox">
+                                  <span class="slider round"></span>
+                                </label>
+                          </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">From
+                                    <span class="caret"></span></button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+                                    </ul>
+                                  </div>
+                            </td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">From
+                                    <span class="caret"></span></button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+                                    </ul>
+                                  </div>
+                            </td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">From
+                                    <span class="caret"></span></button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+                                    </ul>
+                                  </div>
+                            </td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">From
+                                    <span class="caret"></span></button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+                                    </ul>
+                                  </div>
+                            </td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">From
+                                    <span class="caret"></span></button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+                                    </ul>
+                                  </div>
+                            </td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">From
+                                    <span class="caret"></span></button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+                                    </ul>
+                                  </div>
+                            </td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">From
+                                    <span class="caret"></span></button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+                                    </ul>
+                                  </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">To
+                                    <span class="caret"></span></button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+                                    </ul>
+                                  </div>
+                            </td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">To
+                                    <span class="caret"></span></button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+                                    </ul>
+                                  </div>
+                            </td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">To
+                                    <span class="caret"></span></button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+                                    </ul>
+                                  </div>
+                            </td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">To
+                                    <span class="caret"></span></button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+                                    </ul>
+                                  </div>
+                            </td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">To
+                                    <span class="caret"></span></button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+                                    </ul>
+                                  </div>
+                            </td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown"> To 
+                                    <span class="caret"></span></button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+                                    </ul>
+                                  </div>
+                            </td> 
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">To
+                                    <span class="caret"></span></button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>
+                                    </ul>
+                                  </div>
+                            </td>
+                        </tr>
+                    </table>
+                  </div>
+                </div>
+            </div>
+            <br>
+      <div>
+          <button mat-button matStepperPrevious class="mat_button_next_button">Previous</button>
+          <button mat-button matStepperNext class="mat_button_next_button">Next</button>
+      </div>
+    </mat-step>
+
+    <mat-step [stepControl]="fourthFormGroup">
+        <ng-template matStepLabel>Menu Items</ng-template>
+        <form [formGroup]="fourthFormGroup">
+          <div class="row">
+            <div class="col-md-6">
+                   <!--Checkbox butons-->
+                   <label>Food Service Type</label>
+                   <div class="btn-group" data-toggle="buttons">
+                  
+                  <label class="btn btn-warning btn-rounded active form-check-label">
+                      <input type="checkbox" class="form-check-input" checked autocomplete="off"> Breakfast <i class="fa fa-diamond ml-2"></i>
+                  </label>
+
+                  <label class="btn btn-warning btn-rounded form-check-label">
+                      <input type="checkbox" class="form-check-input" autocomplete="off"> Lunch<i class="fa fa-user ml-2"></i>
+                  </label>
+
+                  <label class="btn btn-warning btn-rounded form-check-label">
+                      <input type="checkbox" class="form-check-input" autocomplete="off"> Snacks <i class="fa fa-code ml-2"></i>
+                  </label>
+
+                  <label class="btn btn-warning btn-rounded form-check-label">
+                      <input type="checkbox" class="form-check-input" autocomplete="off"> Dinner <i class="fa fa-code ml-2"></i>
+                  </label>
+
+                  <label class="btn btn-warning btn-rounded form-check-label">
+                      <input type="checkbox" class="form-check-input" autocomplete="off">Brunch <i class="fa fa-code ml-2"></i>
+                  </label>
+
+              </div>
+              <!--Checkbox butons-->
+            </div>
+        </div>
+        <br>
+        <div class="row">
+          <br>
+          <div class="col-md-8">
+            <label>Restaurant Menu</label>
+              <br>
+              <br>
+              <div class="panel panel-default">
+                <div class="panel-body">Restaurant Menu
+                  
+                </div>
+              </div>
+
+              <br>
+              <div class="panel panel-default">
+                <div class="panel-body">Restaurant Menu</div>
+              </div>
+
+              <br>
+              <div class="panel panel-default">
+                <div class="panel-body">Restaurant Menu</div>
+              </div>
+
+              <br>
+              <div class="panel panel-default">
+                <div class="panel-body">Restaurant Menu</div>
+              </div>
+
+              <br>
+              <div class="panel panel-default">
+                <div class="panel-body">Restaurant Menu</div>
+              </div>
+
+          </div>
+        </div>
+        </form>
+        <div>
+            <button mat-button matStepperPrevious class="mat_button_next_button">Previous</button>
+            <button mat-button matStepperNext class="mat_button_next_button">Next</button>
+        </div>
+    </mat-step>
+
+    <mat-step [stepControl]="fifthFormGroup">
+        <ng-template matStepLabel>Open Restaurent</ng-template>
+  
+        <div>
+            <button mat-button matStepperPrevious class="mat_button_next_button">Previous</button>
+            <button mat-button matStepperNext class="mat_button_next_button">Next</button>
+        </div>
+    </mat-step>
+
+</mat-horizontal-stepper>
+
+
+
+</div>
