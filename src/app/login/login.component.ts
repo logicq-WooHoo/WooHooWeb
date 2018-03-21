@@ -8,8 +8,9 @@ import { LoginserviceService } from '../services/loginservice.service';
   providers: [LoginserviceService],
 })
 export class LoginComponent implements OnInit {
-  firstName:string="";
-  lastName:string="";
+  firstname:string="";
+  lastname:string="";
+  username:string=""
   emailId:string="";
   mobileNo:string="";
   password:string="";
@@ -30,23 +31,26 @@ export class LoginComponent implements OnInit {
 
   signIn(){
     let request={
-      userName:this.emailId,
+      userName:this.username,
       password:this.password
     }
+    console.log("Usermane : "+this.username);
+    console.log("Password : "+this.password);
     this.loginService.getSignIn(request).subscribe(data=>{
-      console.log(data)
+      console.log(data);
+      console.log("Usermane : "+this.username);
+      console.log("Password : "+this.password);
     })
   }
 
   signUp(){
     var request={
-      firstName:this.firstName,
-      lastName:this.lastName,
-      emailId:this.emailId,
-      mobileNo:this.mobileNo,
-      type:'User'
+      firstName:this.firstname,
+      lastName:this.lastname,
+      username:this.username,
+      password:this.password
     }
-    console.log();
+    console.log(this.firstname+"            "+this.lastname+"     "+this.username+"           "+this.password);
     this.loginService.getSignUp(request).subscribe(data => {
       //console.log(data.usernam);
       
