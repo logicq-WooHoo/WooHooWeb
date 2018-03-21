@@ -20,6 +20,8 @@ import { HttpModule, BrowserXhr, Http, Request, RequestOptionsArgs, Response, XH
 import { routing, appRoutingProviders } from './app.routing';
 import {CdkStepperModule} from '@angular/cdk/stepper';
 import { HotelregistrationComponent } from './hotelregistration/hotelregistration.component';
+import { BasicSearchComponent } from './basic-search/basic-search.component';
+import { SearchComponent } from './search/search.component';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { HotelregistrationComponent } from './hotelregistration/hotelregistratio
     LandingComponent,
     LoginComponent,
     DashboardComponent,
-    HotelregistrationComponent
+    HotelregistrationComponent,
+    BasicSearchComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

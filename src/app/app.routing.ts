@@ -2,14 +2,16 @@ import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { LandingComponent } from './landing/landing.component'
+import { LandingComponent } from './landing/landing.component';
+import { SearchComponent } from './search/search.component'
 import { HotelregistrationComponent } from './hotelregistration/hotelregistration.component';
 
 export const appRoutes: Routes = [
 
   { path: '', pathMatch: 'full', component: LandingComponent },
   { path: 'login',component: LoginComponent },
-  { path:  'hotelregistration', component :HotelregistrationComponent}
+  { path:  'hotelregistration', component :HotelregistrationComponent},
+  { path:  'search', component :SearchComponent}
 ];
 
 export const appRoutingProviders: any[] = [
