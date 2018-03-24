@@ -234,7 +234,7 @@
 /* Flat Imagebox
 -------------------------------------------------------------- */
 .flat-imagebox {
-	padding: 100px 0 108px;
+	padding: 50px 0 108px;
 }
 
 .flat-imagebox .flat-row-title {
@@ -1423,7 +1423,7 @@
 
 /* Login Social */
 .login-social {
-    padding: 151px 68px 168px 31px;
+    padding: 50px 68px 168px 31px;
     border-left: 1px solid #7197a3;
 }
 
