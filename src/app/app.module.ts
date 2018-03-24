@@ -28,6 +28,8 @@ import { FoodSearchComponent } from './food/food.component';
 import { HotelSearchComponent } from './hotel/hotel.component';
 import { BarSearchComponent } from './bar/bar.component';
 import { ShopSearchComponent } from './shop/shop.component';
+import { EntitySearchComponent } from './entitysearch/entitysearch.component';
+
 
 @NgModule({
   declarations: [
@@ -42,7 +44,8 @@ import { ShopSearchComponent } from './shop/shop.component';
     BarSearchComponent,
     ShopSearchComponent,
     EntityTypeComponent,
-    PatnerComponent
+    PatnerComponent,
+    EntitySearchComponent
   ],
   imports: [
     BrowserModule,

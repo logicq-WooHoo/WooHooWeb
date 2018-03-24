@@ -10,6 +10,7 @@ import { ShopSearchComponent } from './shop/shop.component';
 import { HotelregistrationComponent } from './hotelregistration/hotelregistration.component';
 import { EntityTypeComponent } from './entity/entity.component';
 import {PatnerComponent } from './patner/patner.component';
+import {EntitySearchComponent } from './entitysearch/entitysearch.component';
 
 export const appRoutes: Routes = [
 
@@ -21,7 +22,8 @@ export const appRoutes: Routes = [
   { path:  'hotelsearchlist', component :HotelSearchComponent},
   { path:  'shopsearchlist', component :ShopSearchComponent},
   { path:  'entitytype', component :EntityTypeComponent},
-  { path:  'patner', component :PatnerComponent}
+  { path:  'patner', component :PatnerComponent},
+  { path:  'entitysearch', component :EntitySearchComponent}
 ];
 
 export const appRoutingProviders: any[] = [
