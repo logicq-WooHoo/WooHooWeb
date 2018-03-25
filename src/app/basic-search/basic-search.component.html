@@ -1,17 +1,24 @@
 <section class="page-title style1 parallax parallax1">
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-10">
         <div class="wrap-box-search style1">
           <form action="#" method="post" accept-charset="utf-8">
             <span>
-              <input type="text" placeholder="What are you looking for ?" name="search">
+              <input type="text"  [(ngModel)]="entitytype" placeholder="What are you looking for ?" name="search" list="entitysearch">
+              <datalist id="entitysearch">
+                  <option value="Food ">
+                  <option value="Hotels ">
+                  <option value="Automove ">
+                  <option value="Shops">
+                  <option value="Night Life">
+                </datalist>
             </span>
             <span class="location">
-              <input type="text" placeholder="Location" name="location">
+              <input type="text" [(ngModel)]="location" placeholder="Pune Railway Station, Agarkar Nagar" name="location">
             </span>
             <div class="button-header">
-                <a  routerLink="/searchlist" class="btn btn-info" >Search</a>
+                <a (click)="search()" class="btn btn-info" >Search</a>
             </div>
           </form><!-- /form -->
         </div><!-- /.wrap-box-search -->
