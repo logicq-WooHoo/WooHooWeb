@@ -9,26 +9,26 @@ import { BasicSearchService } from '../services/basicsearch.service';
 })
 export class BasicSearchComponent implements OnInit {
 
-  restaurantCitiesList = [];
+  entitytype:string="";
+  location:string="";
 
-  constructor(private loginService: BasicSearchService) {
+  constructor(private basicSearchService: BasicSearchService) {
    }
 
   ngOnInit() {
     
   }
 
-  getRestaurantCities(){
-    
+  search(){
+    let request={
+      entitytype:this.entitytype,
+      location:this.location
+    }
+
+    this.basicSearchService.searchAccordingToEntity(request).subscribe(data=>{
+
+    })
   }
 
-  signIn(){
-  
-  }
-
-  signUp(){
-
-   
-  }
 
 }
