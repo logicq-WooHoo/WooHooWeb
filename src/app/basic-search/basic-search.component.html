@@ -14,11 +14,11 @@
                   <option value="Night Life">
                 </datalist>
             </span>
-            <span class="location">
-              <input type="text" [(ngModel)]="location" placeholder="Pune Railway Station, Agarkar Nagar" name="location">
+            <span class="location" >
+                <input type="text" [(ngModel)]="location" class="form-control" translate placeholder={{searchforlocation}} #search [formControl]="searchControl" >
             </span>
             <div class="button-header">
-                <a (click)="search()" class="btn btn-info" >Search</a>
+                <a (click)="displayData()" class="btn btn-info" translate="bsearch"> {{bsearch}}</a>
             </div>
           </form><!-- /form -->
         </div><!-- /.wrap-box-search -->

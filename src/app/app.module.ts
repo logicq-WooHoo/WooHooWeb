@@ -29,6 +29,15 @@ import { HotelSearchComponent } from './hotel/hotel.component';
 import { BarSearchComponent } from './bar/bar.component';
 import { ShopSearchComponent } from './shop/shop.component';
 import { EntitySearchComponent } from './entitysearch/entitysearch.component';
+import { AgmCoreModule } from '@agm/core';
+import {TranslateModule} from '@ngx-translate/core';
+import {TranslateLoader ,TranslateService} from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient } from '@angular/common/http';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
+}
 
 
 @NgModule({
@@ -48,15 +57,27 @@ import { EntitySearchComponent } from './entitysearch/entitysearch.component';
     EntitySearchComponent
   ],
   imports: [
+    AgmCoreModule.forRoot({
+      apiKey: "AIzaSyBG30O7cDCM-fKwisQ3OvwYMk-3lQo1pys",
+      libraries: ["places"]
+    }),
     BrowserModule,
     MatButtonModule, MatCheckboxModule, MatInputModule, MatRadioModule, MatMenuModule, MatFormFieldModule, MatSelectModule,
     MatToolbarModule, MatCardModule,
     BrowserAnimationsModule, MatStepperModule, FormsModule, ReactiveFormsModule, MatGridListModule, MatIconModule,
     HttpClientModule, HttpModule,
     CdkStepperModule,
-    routing
+    routing,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
-  providers: [appRoutingProviders, LandingService],
+  providers: [appRoutingProviders, LandingService,TranslateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
