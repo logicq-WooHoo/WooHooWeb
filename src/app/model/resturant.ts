@@ -6,8 +6,8 @@ export class Resturant {
         public city: string,
 		 public recommendationCount: number,
 		  public rating: number,
-          public deliveryPartners :String[],
-          public restaurantTypes:String[],
+          public deliveryPartners :string[],
+          public restaurantTypes:string[],
           public area:string
           
     ) { }   

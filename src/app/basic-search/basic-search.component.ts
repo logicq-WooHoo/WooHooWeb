@@ -90,8 +90,8 @@ export class BasicSearchComponent implements OnInit {
     //this.localStorage.setItem('searchResult', this.searchData);
         this.localStorage.setItem('searchResult', data).subscribe(() => {});
     });
-   
 
+    
   }
 
 }

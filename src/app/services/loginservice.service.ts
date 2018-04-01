@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http'
 import { Http,Headers,RequestOptions,Response,RequestMethod,Request} from '@angular/http';
 import { Observable } from 'rxjs';
 import { AppConfig } from '../configuration/app.config';
+import 'rxjs/Rx';
 
 
 @Injectable()

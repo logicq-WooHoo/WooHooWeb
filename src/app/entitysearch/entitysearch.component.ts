@@ -17,11 +17,15 @@ export class EntitySearchComponent implements OnInit {
   constructor(private loginService: EntitySearchService,protected localStorage: AsyncLocalStorage) {
     this.localStorage.getItem<Resturant[]>('searchResult').subscribe((searchResult) => {
      this.result=searchResult;
-     console.log(this.result);
     });
+    
    }
 
   ngOnInit() {
+    
+  }
+
+  getRestaurantCities(){
     
   }
 
