@@ -17,6 +17,11 @@ export class BasicSearchService {
         let options = new RequestOptions({ headers: postheaders });
         return this.http.post("http://127.0.0.1:8090/user/login",request).map(res => res);
       }
-    
 
+      restaurentSearch(request) {
+        console.log("Call to Backend");
+        let postheaders = new Headers({'Content-Type': 'application/json','Access-Control-Allow-Origin':'*'});
+        let options = new RequestOptions({ headers: postheaders });
+        return this.http.post("http://127.0.0.1:8090/api/user/restaurant/search",request);
+      }
 }

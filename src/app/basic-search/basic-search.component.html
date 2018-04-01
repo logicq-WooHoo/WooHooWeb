@@ -18,7 +18,7 @@
                 <input type="text" [(ngModel)]="location" class="form-control" translate placeholder={{searchforlocation}} #search [formControl]="searchControl" >
             </span>
             <div class="button-header">
-                <a (click)="displayData()" class="btn btn-info" translate="bsearch"> {{bsearch}}</a>
+                <a (click)="restaurentSearchdata()" class="btn btn-info" translate="bsearch" routerLink="/entitysearch"> {{bsearch}}</a>
             </div>
           </form><!-- /form -->
         </div><!-- /.wrap-box-search -->

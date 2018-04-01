@@ -7,7 +7,8 @@ import { ElementRef, NgZone } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { } from 'googlemaps';
 import { MapsAPILoader } from '@agm/core';
-
+import { AsyncLocalStorage } from 'angular-async-local-storage';
+ 
 
 @Component({
   selector: 'app-basic-search',
@@ -17,7 +18,10 @@ import { MapsAPILoader } from '@agm/core';
 })
 export class BasicSearchComponent implements OnInit {
 
+ public searchData:Object = {};
   public searchControl: FormControl;
+  public lati: number;
+  public longi: number;
   public city:String;
   public country:String;
   public temp:String[];
@@ -25,14 +29,14 @@ export class BasicSearchComponent implements OnInit {
   searchforlocation:String="search for location";
   bsearch="Search";
 
-
+ 
   @ViewChild("search")
   public searchElementRef: ElementRef;
 
   constructor(
     private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone,
-    private basicSearchService: BasicSearchService)
+    private basicSearchService: BasicSearchService,protected localStorage: AsyncLocalStorage)
     { }
 
   ngOnInit() {
@@ -61,9 +65,31 @@ export class BasicSearchComponent implements OnInit {
           if (place.geometry === undefined || place.geometry === null) {
             return;
           }
+
+          this.lati = place.geometry.location.lat();
+          this.longi= place.geometry.location.lng();
         });
       });
     });
+  }
+
+  restaurentSearchdata(){
+    var latitude:String;
+      var longitude:String; 
+    var request={
+      latitude:this.lati ,
+      longitude:this.longi 
+      };
+     console.log("Request: "+request);
+    this.basicSearchService.restaurentSearch(request).subscribe(data => {
+     // this.searchData=data;
+    //this.localStorage.setItem('searchResult', this.searchData);
+        this.localStorage.setItem('searchResult', data).subscribe(() => {});
+    });
+
+    
+
+
   }
 
 }
