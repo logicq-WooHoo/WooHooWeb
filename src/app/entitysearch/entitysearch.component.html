@@ -1,8 +1,8 @@
 
 <section class="flat-row flat-imagebox style3">
-    <div class="container">
-      <div class="wrap-imagebox style3">
-        <div class="row">
+    <div class="container" >
+      <div class="wrap-imagebox style3" >
+        <div class="row" >
           <div class="col-sm-9">
             <div class="imagebox style2">
               <div class="box-imagebox">
@@ -11,9 +11,9 @@
                     <img src="assets/images/page/american.jpg" alt="">
                   </div>
                 </div><!-- /.box-header -->
-                <div class="box-content">
+                <div class="box-content" *ngFor="let res of result">
                   <div class="box-title">
-                  <a href="#" title="">Restaurant Name</a>
+                  <a href="#" title="">{{res.restaurantName}}</a>
                     <div class="queue">
                       <i class="fa fa-star" aria-hidden="true"></i>
                       <i class="fa fa-star" aria-hidden="true"></i>
@@ -25,181 +25,17 @@
                
                   <div class="box-desc">
                       <ul class="rating">
-                          <li>GrubHub</li>
-                          <li>FoodPanda</li>
-                          <li>Zoomato</li>
+                          <li *ngFor="let restype of res.restaurantTypes">{{restype}}</li>
                       </ul>
                       <ul class="rating">
-                          <li>BreakFast</li>
-                          <li>Dinner</li>
-                          <li>Lunch</li>
+                          <li *ngFor="let delpart of res.deliveryPartners">{{delpart}}</li>
                       </ul>
                   </div>
                   <ul class="location">
-                    <li class="address"><span class="ti-location-pin"></span>Hanoi, Vietnam</li>
+                    <li class="address"><span class="ti-location-pin"></span>{{res.area}}, {{res.city}}</li>
                     <li class="open"> <a href="#" title="">Menus</a></li>
                   </ul>
                 </div><!-- /.box-content -->
-              </div><!-- /.box-imagebox -->
-            </div><!-- /.imagebox style2 -->
-          </div><!-- /.col-sm-12 -->
-          <div class="col-sm-9">
-            <div class="imagebox style2">
-              <div class="box-imagebox">
-                <div class="box-header">
-                  <div class="box-image">
-                    <img src="assets/images/page/asian.jpg" alt="">
-                  </div>
-                </div><!-- /.box-header -->
-                <div class="box-content">
-                    <div class="box-title">
-                    <a href="#" title="">Restaurant Name 1</a>
-                      <div class="queue">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                      </div>
-                    </div>
-                 
-                    <div class="box-desc">
-                        <ul class="rating">
-                            <li>GrubHub</li>
-                            <li>FoodPanda</li>
-                            <li>Zoomato</li>
-                        </ul>
-                        <ul class="rating">
-                            <li>Sancks</li>
-                            <li>Dinner</li>
-                            <li>Lunch</li>
-                        </ul>
-                    </div>
-                    <ul class="location">
-                      <li class="address"><span class="ti-location-pin"></span>Hanoi, Vietnam</li>
-                      <li class="open"> <a href="#" title="">Menus</a></li>
-                    </ul>
-                  </div><!-- /.box-content -->
-              </div><!-- /.box-imagebox -->
-            </div><!-- /.imagebox style2 -->
-          </div><!-- /.col-sm-12 -->
-          <div class="col-sm-9">
-            <div class="imagebox style2">
-              <div class="box-imagebox">
-                <div class="box-header">
-                  <div class="box-image">
-                    <img src="assets/images/page/austrelian.jpg" alt="">
-                  </div>
-                </div><!-- /.box-header -->
-                <div class="box-content">
-                    <div class="box-title">
-                    <a href="#" title="">Restaurant Name 2</a>
-                      <div class="queue">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                      </div>
-                    </div>
-                 
-                    <div class="box-desc">
-                        <ul class="rating">
-                            <li>GrubHub</li>
-                            <li>FoodPanda</li>
-                            <li>Zoomato</li>
-                        </ul>
-                        <ul class="rating">
-                            <li>BreakFast</li>
-                            <li>Dinner</li>
-                            <li>Lunch</li>
-                        </ul>
-                    </div>
-                    <ul class="location">
-                      <li class="address"><span class="ti-location-pin"></span>Hanoi, Vietnam</li>
-                      <li class="open"> <a href="#" title="">Menus</a></li>
-                    </ul>
-                  </div><!-- /.box-content -->
-              </div><!-- /.box-imagebox -->
-            </div><!-- /.imagebox style2 -->
-          </div><!-- /.col-sm-12 -->
-          <div class="col-sm-9">
-            <div class="imagebox style2">
-              <div class="box-imagebox">
-                <div class="box-header">
-                  <div class="box-image">
-                    <img src="assets/images/page/chinese.jpg" alt="">
-                  </div>
-                </div><!-- /.box-header -->
-                <div class="box-content">
-                    <div class="box-title">
-                    <a href="#" title="">Restaurant Name </a>
-                      <div class="queue">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                      </div>
-                    </div>
-                 
-                    <div class="box-desc">
-                        <ul class="rating">
-                            <li>GrubHub</li>
-                            <li>FoodPanda</li>
-                            <li>Zoomato</li>
-                        </ul>
-                        <ul class="rating">
-                            <li>BreakFast</li>
-                            <li>Dinner</li>
-                            <li>Lunch</li>
-                        </ul>
-                    </div>
-                    <ul class="location">
-                      <li class="address"><span class="ti-location-pin"></span>Hanoi, Vietnam</li>
-                      <li class="open"> <a href="#" title="">Menus</a></li>
-                    </ul>
-                  </div><!-- /.box-content -->
-              </div><!-- /.box-imagebox -->
-            </div><!-- /.imagebox style2 -->
-          </div><!-- /.col-sm-12 -->
-          <div class="col-sm-9">
-            <div class="imagebox style2">
-              <div class="box-imagebox">
-                <div class="box-header">
-                  <div class="box-image">
-                    <img src="assets/images/page/indian.jpg" alt="">
-                  </div>
-                </div><!-- /.box-header -->
-                <div class="box-content">
-                    <div class="box-title">
-                    <a href="#" title="">Restaurant Name</a>
-                      <div class="queue">
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                      </div>
-                    </div>
-                 
-                    <div class="box-desc">
-                        <ul class="rating">
-                            <li>GrubHub</li>
-                            <li>FoodPanda</li>
-                            <li>Zoomato</li>
-                        </ul>
-                        <ul class="rating">
-                            <li>BreakFast</li>
-                            <li>Dinner</li>
-                            <li>Lunch</li>
-                        </ul>
-                    </div>
-                    <ul class="location">
-                      <li class="address"><span class="ti-location-pin"></span>Hanoi, Vietnam</li>
-                      <li class="open"> <a href="#" title="">Menus</a></li>
-                    </ul>
-                  </div><!-- /.box-content -->
               </div><!-- /.box-imagebox -->
             </div><!-- /.imagebox style2 -->
           </div><!-- /.col-sm-12 -->

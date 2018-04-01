@@ -37,7 +37,9 @@ export class BasicSearchComponent implements OnInit {
     private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone,
     private basicSearchService: BasicSearchService,protected localStorage: AsyncLocalStorage)
-    { }
+    {
+     
+     }
 
   ngOnInit() {
     
@@ -81,14 +83,14 @@ export class BasicSearchComponent implements OnInit {
       longitude:this.longi 
       };
      console.log("Request: "+request);
+    
+
     this.basicSearchService.restaurentSearch(request).subscribe(data => {
      // this.searchData=data;
     //this.localStorage.setItem('searchResult', this.searchData);
         this.localStorage.setItem('searchResult', data).subscribe(() => {});
     });
-
-    
-
+   
 
   }
 

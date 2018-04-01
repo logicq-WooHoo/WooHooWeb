@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EntitySearchService } from '../services/entitysearch.service';
 import { AsyncLocalStorage } from 'angular-async-local-storage';
+import {Resturant } from '../model/resturant';
 
 @Component({
   selector: 'app-entity-search',
@@ -10,19 +11,17 @@ import { AsyncLocalStorage } from 'angular-async-local-storage';
 })
 export class EntitySearchComponent implements OnInit {
 
+  result:Resturant[];
+
 
   constructor(private loginService: EntitySearchService,protected localStorage: AsyncLocalStorage) {
-    this.localStorage.getItem<Object>('searchResult').subscribe((searchResult) => {
-      console.log(searchResult);
+    this.localStorage.getItem<Resturant[]>('searchResult').subscribe((searchResult) => {
+     this.result=searchResult;
+     console.log(this.result);
     });
-    console.log();
    }
 
   ngOnInit() {
-    
-  }
-
-  getRestaurantCities(){
     
   }
 
