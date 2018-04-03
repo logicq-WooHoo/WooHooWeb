@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { BasicSearchService } from '../services/basicsearch.service';
 import { ViewChild } from '@angular/core';
 import { } from '@types/googlemaps';
 
@@ -7,14 +6,14 @@ import { ElementRef, NgZone } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { } from 'googlemaps';
 import { MapsAPILoader } from '@agm/core';
-import { AsyncLocalStorage } from 'angular-async-local-storage';
+import {Routes, RouterModule, Router, ActivatedRoute} from "@angular/router";
  
 
 @Component({
   selector: 'app-basic-search',
   templateUrl: './basic-search.component.html',
   styleUrls: ['./basic-search.component.css'],
-  providers: [BasicSearchService],
+  providers: [],
 })
 export class BasicSearchComponent implements OnInit {
 
@@ -26,8 +25,6 @@ export class BasicSearchComponent implements OnInit {
   public country:String;
   public temp:String[];
   public location:String;
-  searchforlocation:String="search for location";
-  bsearch="Search";
 
  
   @ViewChild("search")
@@ -36,10 +33,11 @@ export class BasicSearchComponent implements OnInit {
   constructor(
     private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone,
-    private basicSearchService: BasicSearchService,protected localStorage: AsyncLocalStorage)
-    {
-     
-     }
+    private route: ActivatedRoute,
+    private router: Router
+  
+  )
+    { }
 
   ngOnInit() {
     
@@ -60,7 +58,7 @@ export class BasicSearchComponent implements OnInit {
 
           this.temp=this.location.split(",");
 
-          console.log(this.temp);
+          //console.log(this.temp);
           
 
           //verify result
@@ -76,22 +74,7 @@ export class BasicSearchComponent implements OnInit {
   }
 
   restaurentSearchdata(){
-    var latitude:String;
-      var longitude:String; 
-    var request={
-      latitude:this.lati ,
-      longitude:this.longi 
-      };
-     console.log("Request: "+request);
-    
-
-    this.basicSearchService.restaurentSearch(request).subscribe(data => {
-     // this.searchData=data;
-    //this.localStorage.setItem('searchResult', this.searchData);
-        this.localStorage.setItem('searchResult', data).subscribe(() => {});
-    });
-
-    
+    this.router.navigate(['entitysearch', {longi:this.longi, lati:this.lati }]);
   }
 
 }

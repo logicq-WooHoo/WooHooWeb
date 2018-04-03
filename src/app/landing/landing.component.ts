@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LandingService } from '../services/landing.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {TranslateService} from '@ngx-translate/core';
+//import {TranslateService} from '@ngx-translate/core';
+import {TranslateService} from 'ng2-translate';
 
 
 @Component({
@@ -15,12 +16,12 @@ export class LandingComponent implements OnInit {
   isLinear = false;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
-  languages="English,French".split(",");
-  defaultLocation:String="Pune Railway Station, Agarkar Nagar";
-  loginSignUp:String="Login/SignUp";
+  //defaultLocation:String="Pune Railway Station, Agarkar Nagar";
+ 
 
   constructor(private _formBuilder: FormBuilder,private translate: TranslateService) {
     translate.setDefaultLang('en');
+    translate.use('en');
    }
 
   ngOnInit() {
@@ -36,7 +37,6 @@ export class LandingComponent implements OnInit {
   }
 
   switchLanguage(language: string) {
-    console.log("Language seleted : "+language)
     this.translate.use(language);
   }
 }

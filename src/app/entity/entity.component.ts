@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { EntityTypeService } from '../services/entitytype.service';
-import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-entity',
@@ -10,14 +9,7 @@ import {TranslateService} from '@ngx-translate/core';
 })
 export class EntityTypeComponent implements OnInit {
 
-  restaurantCitiesList = [];
-  food:String="Food";
-  hotel : String="Hotel";
-  shop  : String="Shop";
-  nightlife:String="Night Life";
-
-  constructor(private loginService: EntityTypeService,
-    private translate: TranslateService) {
+  constructor(private loginService: EntityTypeService) {
    }
 
   ngOnInit() {

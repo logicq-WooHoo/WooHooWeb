@@ -4,34 +4,31 @@ import { Http,Headers,RequestOptions,Response,RequestMethod,Request} from '@angu
 import { Observable } from 'rxjs';
 import { AppConfig } from '../configuration/app.config';
 import {Resturant} from '../model/resturant';
-import 'rxjs/Rx';
 
 
 @Injectable()
 export class BasicSearchService {
 
-    constructor(private http :HttpClient) {
+    constructor(private http :Http) {
         
        }
     
       searchAccordingToEntity(request){
         let postheaders = new Headers({'Content-Type': 'application/json','Access-Control-Allow-Origin':'*'});
         let options = new RequestOptions({ headers: postheaders });
-        return this.http.post("http://127.0.0.1:8090/user/login",request).map(res => res);
+        return this.http.post("http://127.0.0.1:8090/user/login",request,options).map(res => res.json());
       }
 
-     // restaurentSearch(request) {
-       // console.log("Call to Backend");
-       // let postheaders = new Headers({'Content-Type': 'application/json','Access-Control-Allow-Origin':'*'});
-       // let options = new RequestOptions({ headers: postheaders });
-       // return this.http.post("http://127.0.0.1:8090/api/user/restaurant/search",request);
-     // }
 
-      restaurentSearch(request): Observable<Resturant[]> {
-        let postheaders = new Headers({'Content-Type': 'application/json','Access-Control-Allow-Origin':'*'});
-        let options = new RequestOptions({ headers: postheaders });
+    restaurentSearch(request :any) {
+      let postheaders = new Headers({'Content-Type': 'application/json','Access-Control-Allow-Origin':'*'});
+      let options = new RequestOptions({ headers: postheaders });
+     return this.http.post("http://127.0.0.1:8090/api/user/restaurant/search",request,options).map(res => res.json());
+    }
 
-        console.log("Call to Backend");
-        return this.http.post("http://127.0.0.1:8090/api/user/restaurant/search",request).map((response: Response) => <Resturant[]>response.json());
+    restaurentTypeSearch(request :any) {
+      let postheaders = new Headers({'Content-Type': 'application/json','Access-Control-Allow-Origin':'*'});
+      let options = new RequestOptions({ headers: postheaders });
+     return this.http.post("http://127.0.0.1:8090/api/user/restaurant/searchtype",request,options).map(res => res.json());
     }
 }

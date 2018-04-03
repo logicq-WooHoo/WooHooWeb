@@ -5,20 +5,19 @@
         <div class="wrap-box-search style1">
           <form action="#" method="post" accept-charset="utf-8">
             <span>
-              <input type="text"  [(ngModel)]="entitytype" placeholder="What are you looking for ?" name="search" list="entitysearch">
+              <input type="text"  [(ngModel)]="entitytype"  [placeholder]=" 'lookingfor' | translate" name="search" list="entitysearch">
               <datalist id="entitysearch">
-                  <option value="Food ">
-                  <option value="Hotels ">
-                  <option value="Automove ">
-                  <option value="Shops">
-                  <option value="Night Life">
+                  <option [value]=" 'food' | translate">
+                  <option [value]=" 'hotel' | translate">
+                  <option [value]=" 'shop' | translate">
+                  <option [value]=" 'nightlife' | translate">
                 </datalist>
             </span>
             <span class="location" >
-                <input type="text" [(ngModel)]="location" class="form-control" translate placeholder={{searchforlocation}} #search [formControl]="searchControl" >
+                <input type="text" [(ngModel)]="location" class="form-control"  [placeholder]=" 'searchforlocation' | translate" #search [formControl]="searchControl" >
             </span>
-            <div class="button-header">
-                <a (click)="restaurentSearchdata()" class="btn btn-info" translate="bsearch" routerLink="/entitysearch"> {{bsearch}}</a>
+            <div class="button-header" >
+                <a  class="btn btn-info" (click)="restaurentSearchdata()" > {{'bsearch' | translate}}</a>
             </div>
           </form><!-- /form -->
         </div><!-- /.wrap-box-search -->

@@ -5,8 +5,6 @@ import { LandingService } from './services/landing.service';
 import { LoginserviceService } from './services/loginservice.service';
 import { MatStepperModule } from '@angular/material/stepper';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AsyncLocalStorageModule } from 'angular-async-local-storage';
-
 
 //Material Components
 import {
@@ -18,7 +16,7 @@ import { LandingComponent } from './landing/landing.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpModule, BrowserXhr, Http, Request, RequestOptionsArgs, Response, XHRBackend, RequestOptions, ConnectionBackend, Headers } from '@angular/http';
+import { Http,Headers,RequestOptions,Response,RequestMethod,Request,HttpModule} from '@angular/http';
 import { routing, appRoutingProviders } from './app.routing';
 import { CdkStepperModule } from '@angular/cdk/stepper';
 import { HotelregistrationComponent } from './hotelregistration/hotelregistration.component';
@@ -31,15 +29,10 @@ import { BarSearchComponent } from './bar/bar.component';
 import { ShopSearchComponent } from './shop/shop.component';
 import { EntitySearchComponent } from './entitysearch/entitysearch.component';
 import { AgmCoreModule } from '@agm/core';
-import {TranslateModule} from '@ngx-translate/core';
-import {TranslateLoader ,TranslateService} from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient } from '@angular/common/http';
- 
+import {BasicSearchService} from './services/basicsearch.service';
+import {TranslateModule, TranslateStaticLoader, TranslateLoader} from 'ng2-translate/ng2-translate';
 
-export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
-}
 
 
 @NgModule({
@@ -58,7 +51,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     PatnerComponent,
     EntitySearchComponent
   ],
-  imports: [AsyncLocalStorageModule,
+  imports: [
     AgmCoreModule.forRoot({
       apiKey: "AIzaSyBG30O7cDCM-fKwisQ3OvwYMk-3lQo1pys",
       libraries: ["places"]
@@ -71,15 +64,13 @@ export function HttpLoaderFactory(http: HttpClient) {
     CdkStepperModule,
     routing,
     HttpClientModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
+    TranslateModule.forRoot({ 
+      provide: TranslateLoader,
+      useFactory: (http: Http) => new TranslateStaticLoader(http, '/assets/i18n', '.json'),
+      deps: [Http]
     })
   ],
-  providers: [appRoutingProviders, LandingService,TranslateService],
+  providers: [appRoutingProviders,TranslateModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
