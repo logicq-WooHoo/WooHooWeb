@@ -5,7 +5,9 @@ import { LandingService } from './services/landing.service';
 import { LoginserviceService } from './services/loginservice.service';
 import { MatStepperModule } from '@angular/material/stepper';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
+import { GoogleLoginProvider, FacebookLoginProvider, LinkedInLoginProvider} from "angularx-social-login";
+ 
 //Material Components
 import {
   MatButtonModule, MatCheckboxModule, MatInputModule, MatRadioModule, MatMenuModule, MatFormFieldModule, MatSelectModule
@@ -33,7 +35,32 @@ import { HttpClient } from '@angular/common/http';
 import {BasicSearchService} from './services/basicsearch.service';
 import {TranslateModule, TranslateStaticLoader, TranslateLoader} from 'ng2-translate/ng2-translate';
 
+/*export function getAuthServiceConfigs() {
+  let config = new AuthServiceConfig(
+      [
+        {
+          id: FacebookLoginProvider.PROVIDER_ID,
+          provider: new FacebookLoginProvider("130722581110534")
+        },
+        {
+          id: GoogleLoginProvider.PROVIDER_ID,
+          provider: new GoogleLoginProvider("221264096256-o6c03p2dnvmssriovgm75p047652el23.apps.googleusercontent.com")
+        },
+      ]
+  );
+  return config;
+}*/
 
+let config = new AuthServiceConfig([
+  {
+    id: GoogleLoginProvider.PROVIDER_ID,
+    provider: new GoogleLoginProvider("221264096256-o6c03p2dnvmssriovgm75p047652el23.apps.googleusercontent.com")
+  },
+  {
+    id: FacebookLoginProvider.PROVIDER_ID,
+    provider: new FacebookLoginProvider("130722581110534")
+  }
+]);
 
 @NgModule({
   declarations: [
@@ -57,6 +84,7 @@ import {TranslateModule, TranslateStaticLoader, TranslateLoader} from 'ng2-trans
       libraries: ["places"]
     }),
     BrowserModule,
+    SocialLoginModule.initialize(config),
     MatButtonModule, MatCheckboxModule, MatInputModule, MatRadioModule, MatMenuModule, MatFormFieldModule, MatSelectModule,
     MatToolbarModule, MatCardModule,
     BrowserAnimationsModule, MatStepperModule, FormsModule, ReactiveFormsModule, MatGridListModule, MatIconModule,

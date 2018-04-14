@@ -15,8 +15,12 @@
                  </ul>
               </nav>
              
-              <div class="button-header">
+              <div class="button-header" *ngIf="!user">
                   <a routerLink="/login" class="btn btn-info" >{{'loginSignUp' | translate}}</a>
+              </div>
+              <div class="button-header" *ngIf="user">
+                 <span>Welcome {{user.name}}!</span>
+                 <a  class="btn btn-info" (click)="signOut()">{{'logOut' | translate}}</a>
               </div>
             </div><!-- /.nav-wrap -->
           </div><!-- /.header-wrap -->
