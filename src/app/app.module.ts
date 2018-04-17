@@ -30,6 +30,8 @@ import { HotelSearchComponent } from './hotel/hotel.component';
 import { BarSearchComponent } from './bar/bar.component';
 import { ShopSearchComponent } from './shop/shop.component';
 import { EntitySearchComponent } from './entitysearch/entitysearch.component';
+import { LocationComponent } from './location/location.component';
+import { LocationService } from './location/location.service';
 import { AgmCoreModule } from '@agm/core';
 import { HttpClient } from '@angular/common/http';
 import {BasicSearchService} from './services/basicsearch.service';
@@ -76,7 +78,8 @@ let config = new AuthServiceConfig([
     ShopSearchComponent,
     EntityTypeComponent,
     PatnerComponent,
-    EntitySearchComponent
+    EntitySearchComponent,
+    LocationComponent
   ],
   imports: [
     AgmCoreModule.forRoot({
@@ -98,7 +101,7 @@ let config = new AuthServiceConfig([
       deps: [Http]
     })
   ],
-  providers: [appRoutingProviders,TranslateModule],
+  providers: [appRoutingProviders,TranslateModule, LocationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

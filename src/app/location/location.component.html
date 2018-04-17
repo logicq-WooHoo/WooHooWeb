@@ -1,0 +1,35 @@
+
+<section class="page-title style1 parallax parallax1">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-14">
+          <div class="wrap-box-search style1">
+            <form action="#" method="post" accept-charset="utf-8">
+                <span *ngIf="countryList && countryList.length > 0">
+                    <input type="text"  [ngModel]="selectedCountry" (ngModelChange)="selectCountry($event)" [placeholder]=" 'Select Country' | translate" name="countrySearch" list="countrySearchList">
+                
+                        <datalist id="countrySearchList">
+                          <option *ngFor="let country of countryList" [value]="country">{{country}}</option>
+                      </datalist>
+                   
+                  </span>
+                <span>
+                    <input type="text"  [(ngModel)]="selectedCity"  [placeholder]=" 'Select City' | translate" name="citySearch" list="citySearchList">
+                  
+                        <datalist id="citySearchList">
+                          <option *ngFor="let city of cityList" [value]="city">{{city}}</option>
+                        </datalist>
+                </span>
+              <span class="location">
+                  <input type="text" [(ngModel)]="location" class="form-control"  [placeholder]=" 'searchforlocation' | translate" #countrySearch #citySearch [formControl]="searchControl" >
+              </span>
+              <div class="button-header" >
+                  <a  class="btn btn-info"  (click)="restaurentSearchdata()" > {{'bsearch' | translate}}</a>
+              </div>
+            </form><!-- /form -->
+          </div><!-- /.wrap-box-search -->
+        </div><!-- /.col-md-12 -->
+      </div><!-- /.row -->
+    </div><!-- /.container -->
+    <div class="overlay"></div>
+  </section><!-- /.page-title -->

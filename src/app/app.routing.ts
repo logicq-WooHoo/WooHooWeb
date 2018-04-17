@@ -11,10 +11,11 @@ import { HotelregistrationComponent } from './hotelregistration/hotelregistratio
 import { EntityTypeComponent } from './entity/entity.component';
 import {PatnerComponent } from './patner/patner.component';
 import {EntitySearchComponent } from './entitysearch/entitysearch.component';
+import { LocationComponent } from './location/location.component';
 
 export const appRoutes: Routes = [
-
-  { path: '', pathMatch: 'full', component: LandingComponent },
+  { path: '', pathMatch: 'full', component: LocationComponent },
+  { path: 'landing', component: LandingComponent },
   { path: 'login',component: LoginComponent },
   { path:  'hotelregistration', component :HotelregistrationComponent},
   { path:  'foodsearchlist', component :FoodSearchComponent},
