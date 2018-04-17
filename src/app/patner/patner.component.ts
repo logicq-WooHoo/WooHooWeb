@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PatnerService } from '../services/patner.service';
+import { PatnerService } from './patner.service';
 
 @Component({
   selector: 'app-patner',

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LandingService } from '../services/landing.service';
+import { LandingService } from './landing.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 //import {TranslateService} from '@ngx-translate/core';
 import {TranslateService} from 'ng2-translate';

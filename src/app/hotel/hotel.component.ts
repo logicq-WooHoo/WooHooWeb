@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HotelSearchService } from '../services/hotel.service';
+import { HotelSearchService } from './hotel.service';
 
 @Component({
   selector: 'app-hotel-search',

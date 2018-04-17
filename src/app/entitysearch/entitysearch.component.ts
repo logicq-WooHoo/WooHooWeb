@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { EntitySearchService } from '../services/entitysearch.service';
+import { EntitySearchService } from './entitysearch.service';
 import {Resturant } from '../model/resturant';
 import {Routes, RouterModule, Router, ActivatedRoute} from "@angular/router";
 import {GeoMap} from '../model/gmap';
-import { BasicSearchService } from '../services/basicsearch.service';
+import { BasicSearchService } from '../basic-search/basicsearch.service';
 
 @Component({
   selector: 'app-entity-search',

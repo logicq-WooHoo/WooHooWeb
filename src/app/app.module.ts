@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { LandingService } from './services/landing.service';
-import { LoginserviceService } from './services/loginservice.service';
+import { LandingService } from './landing/landing.service';
+import { LoginserviceService } from './login/loginservice.service';
 import { MatStepperModule } from '@angular/material/stepper';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
@@ -34,7 +34,7 @@ import { LocationComponent } from './location/location.component';
 import { LocationService } from './location/location.service';
 import { AgmCoreModule } from '@agm/core';
 import { HttpClient } from '@angular/common/http';
-import {BasicSearchService} from './services/basicsearch.service';
+import {BasicSearchService} from './basic-search/basicsearch.service';
 import {TranslateModule, TranslateStaticLoader, TranslateLoader} from 'ng2-translate/ng2-translate';
 
 /*export function getAuthServiceConfigs() {

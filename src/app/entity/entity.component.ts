@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EntityTypeService } from '../services/entitytype.service';
+import { EntityTypeService } from './entitytype.service';
 
 @Component({
   selector: 'app-entity',

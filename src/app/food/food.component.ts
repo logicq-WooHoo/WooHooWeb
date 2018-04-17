@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FoodSearchService } from '../services/food.service';
+import { FoodSearchService } from './food.service';
 
 @Component({
   selector: 'app-food-search',

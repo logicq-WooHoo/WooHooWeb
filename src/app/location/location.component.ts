@@ -7,7 +7,7 @@ import { FormControl } from '@angular/forms';
 import { } from 'googlemaps';
 import { MapsAPILoader } from '@agm/core';
 import {Routes, RouterModule, Router, ActivatedRoute} from "@angular/router";
- 
+import {TranslateService} from 'ng2-translate';
 import { LocationService } from './location.service';
 
 @Component({
@@ -29,7 +29,8 @@ export class LocationComponent implements OnInit {
   public countryList: String[];
   public selectedCountry: String;
   public cityList: String[];
-  public selectedCity: string;
+  public selectedCity: String;
+
   @ViewChild("citySearch")
   public searchElementRef: ElementRef;
 
@@ -76,13 +77,14 @@ export class LocationComponent implements OnInit {
 
           this.lati = place.geometry.location.lat();
           this.longi= place.geometry.location.lng();
+          
         });
       });
     });
   }
 
   restaurentSearchdata(){
-    this.router.navigate(['landing', {longi:this.longi, lati:this.lati }]);
+    this.router.navigate(['landing', {longi:this.longi, lati:this.lati , place:this.location}]);
   }
 
   selectCountry(newValue) {

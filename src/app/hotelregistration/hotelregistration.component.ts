@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RegistrationService } from '../services/registration.service';
+import { RegistrationService } from './registration.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({

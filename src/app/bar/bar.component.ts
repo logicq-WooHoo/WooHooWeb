@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BarSearchService } from '../services/bar.service';
+import { BarSearchService } from './bar.service';
 
 @Component({
   selector: 'app-bar-search',
