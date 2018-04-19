@@ -1,0 +1,70 @@
+<div class="header">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="header-wrap" style="display: inline-block" >
+            <div id="logo" class="logo" style="display: inline-block" >
+              <a routerLink="/" title="WooHoo">
+                WooHoo
+              </a>
+            </div><!-- /.logo -->
+            <div style="display: inline-block"  align="right" > 
+              <div style="display: inline-block">
+                 <ul class="menu">
+                 <input type="text" [(ngModel)]="location" class="form-control"  [placeholder]=" 'searchforlocation' | translate" #search [formControl]="searchControl" >
+                 </ul>
+            </div>
+              
+        
+              <div class="button-header" *ngIf="!user" style="display: inline-block">
+                  <a routerLink="/login" class="btn btn-info" >{{'loginSignUp' | translate}}</a>
+              </div>
+              <div *ngIf="user" style="display: inline-block">
+                <span dropdown style="position: relative">
+                <a href id="basic-link" dropdownToggle (click)="false"
+                    aria-controls="basic-link-dropdown">{{user.name}}</a>
+                 <ul id="basic-link-dropdown" *dropdownMenu class="dropdown-menu"
+                 role="menu" aria-labelledby="basic-link">
+                    <li role="menuitem"><a class="dropdown-item" (click)="signOut()">{{'logOut' | translate}}</a>
+                    </li>
+                    <li><a class="dropdown-item">{{'Orders' | translate}}</a>
+                    </li>
+                    <li><a class="dropdown-item">{{'Profile' | translate}}</a>
+                    </li>
+                 </ul>
+                </span>
+              </div>
+              <div style="display: inline-block">
+                    <span dropdown style="position: relative">
+                            <a href id="language-link" dropdownToggle (click)="false"
+                                aria-controls="language-link-dropdown">{{'English' | translate}}</a>
+                             <ul id="language-link-dropdown" *dropdownMenu  class="dropdown-menu"
+                             role="menu" aria-labelledby="language-link">
+                                <li><a class="dropdown-item" (click)="switchLanguage('fr')">{{'French' | translate}}</a>
+                                </li>
+                                <li><a class="dropdown-item" (click)="switchLanguage('zh-tw')">{{'Chinese(Traditional)' | translate}}</a>
+                                </li>
+                                <li><a class="dropdown-item" (click)="switchLanguage('en')">{{'English' | translate}}</a>
+                                </li>
+                             </ul>
+                    </span>
+                  <!--<button  (click)="switchLanguage('en')">English</button>
+                  <button  (click)="switchLanguage('fr')" >French</button>  
+                  <button  (click)="switchLanguage('zh-tw')" >Chinese(Traditional)</button>-->
+                  
+            </div>
+            </div><!-- /.nav-wrap -->
+          </div><!-- /.header-wrap -->
+        </div><!-- /.col-md-12 -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div><!-- /.header -->
+  
+    <div  align="right">
+            
+          <!--<button  (click)="switchLanguage('en')">English</button>
+          <button  (click)="switchLanguage('fr')" >French</button>  
+          <button  (click)="switchLanguage('zh-tw')" >Chinese(Traditional)</button>-->
+          
+    </div>
+    <router-outlet></router-outlet>

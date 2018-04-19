@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Http,Headers,RequestOptions,Response,RequestMethod,Request} from '@angular/http';
 import { Observable } from 'rxjs';
-import { AppConfig } from '../configuration/app.config';
-import {Resturant} from '../model/resturant';
+import { AppConfig } from '../../configuration/app.config';
+import {Resturant} from '../../model/resturant';
 
 
 @Injectable()

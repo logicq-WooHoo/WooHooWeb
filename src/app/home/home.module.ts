@@ -1,6 +1,8 @@
-import { BrowserModule } from '@angular/platform-browser';
+//import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppComponent } from './app.component';
+import { HomeComponent } from './home.component';
+import { LandingService } from './landing/landing.service';
+import { LoginserviceService } from './login/loginservice.service';
 import { MatStepperModule } from '@angular/material/stepper';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
@@ -11,23 +13,25 @@ import {
   MatButtonModule, MatCheckboxModule, MatInputModule, MatRadioModule, MatMenuModule, MatFormFieldModule, MatSelectModule
   , MatToolbarModule, MatGridListModule, MatIconModule, MatCardModule
 } from '@angular/material';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { CommonModule } from '@angular/common';
+import { LandingComponent } from './landing/landing.component';
+import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { Http,Headers,RequestOptions,Response,RequestMethod,Request,HttpModule} from '@angular/http';
-import { routing, appRoutingProviders } from './app.routing';
+import { routing, homeRoutingProviders } from './home.routing';
 import { CdkStepperModule } from '@angular/cdk/stepper';
-import { HotelregistrationComponent } from './hotelregistration/hotelregistration.component';
-//import { HotelSearchComponent } from './hotel/hotel.component';
-// import { BarSearchComponent } from './bar/bar.component';
-// import { ShopSearchComponent } from './shop/shop.component';
-// import { EntitySearchComponent } from './entitysearch/entitysearch.component';
+import { BasicSearchComponent } from './basic-search/basic-search.component';
+import { EntityTypeComponent } from './entity/entity.component';
+import { PatnerComponent } from './patner/patner.component';
+import { FoodSearchComponent } from './food/food.component';
+//import { EntitySearchComponent } from './entitysearch/entitysearch.component';
 // import { LocationComponent } from './location/location.component';
 // import { LocationService } from './location/location.service';
 import { AgmCoreModule } from '@agm/core';
 import { HttpClient } from '@angular/common/http';
+import {BasicSearchService} from './basic-search/basicsearch.service';
 import {TranslateModule, TranslateStaticLoader, TranslateLoader} from 'ng2-translate/ng2-translate';
-
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 let config = new AuthServiceConfig([
   {
@@ -42,13 +46,16 @@ let config = new AuthServiceConfig([
 
 @NgModule({
   declarations: [
-    AppComponent,
-    DashboardComponent,
-    HotelregistrationComponent,
-    /*HotelSearchComponent,
-    BarSearchComponent,
-    ShopSearchComponent,
-    EntitySearchComponent,*/
+    HomeComponent,
+    LandingComponent,
+    LoginComponent,
+    
+    BasicSearchComponent,
+    FoodSearchComponent,
+    PatnerComponent,
+    EntityTypeComponent,
+    
+    //EntitySearchComponent,
     //LocationComponent
   ],
   imports: [
@@ -56,11 +63,12 @@ let config = new AuthServiceConfig([
       apiKey: "AIzaSyBG30O7cDCM-fKwisQ3OvwYMk-3lQo1pys",
       libraries: ["places"]
     }),
-    BrowserModule,
+    CommonModule,
+    BsDropdownModule.forRoot(),
     SocialLoginModule.initialize(config),
     MatButtonModule, MatCheckboxModule, MatInputModule, MatRadioModule, MatMenuModule, MatFormFieldModule, MatSelectModule,
     MatToolbarModule, MatCardModule,
-    BrowserAnimationsModule, MatStepperModule, FormsModule, ReactiveFormsModule, MatGridListModule, MatIconModule,
+    MatStepperModule, FormsModule, ReactiveFormsModule, MatGridListModule, MatIconModule,
     HttpClientModule, HttpModule,
     CdkStepperModule,
     routing,
@@ -71,8 +79,8 @@ let config = new AuthServiceConfig([
       deps: [Http]
     })
   ],
-  providers: [appRoutingProviders,TranslateModule /*LocationService*/],
-  bootstrap: [AppComponent]
+  providers: [homeRoutingProviders,TranslateModule /*LocationService*/],
+  bootstrap: [HomeComponent]
 })
-export class AppModule { }
+export class HomeModule { }
 

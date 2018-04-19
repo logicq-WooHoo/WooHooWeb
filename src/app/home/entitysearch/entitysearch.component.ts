@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { EntitySearchService } from './entitysearch.service';
-import {Resturant } from '../model/resturant';
+import {Resturant } from '../../model/resturant';
 import {Routes, RouterModule, Router, ActivatedRoute} from "@angular/router";
-import {GeoMap} from '../model/gmap';
+import {GeoMap} from '../../model/gmap';
 import { BasicSearchService } from '../basic-search/basicsearch.service';
 
 @Component({

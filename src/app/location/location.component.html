@@ -14,7 +14,7 @@
                    
                   </span>
                 <span>
-                    <input type="text"  [(ngModel)]="selectedCity"  [placeholder]=" 'Select City' | translate" name="citySearch" list="citySearchList">
+                    <input type="text"  [(ngModel)]="selectedCity" [placeholder]=" 'Select City' | translate" name="citySearch" list="citySearchList">
                   
                         <datalist id="citySearchList">
                           <option *ngFor="let city of cityList" [value]="city">{{city}}</option>
