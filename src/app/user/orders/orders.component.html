@@ -1,50 +1,12 @@
 <div>Chose from your Past Orders</div>
-
-<!--<div class="wrapper center-block">
-    <div *ngFor="let order of pastOrders" class="panel-group" id="order.timestamp" role="tablist" aria-multiselectable="true">
-    <div class="panel panel-default">
-      <div class="panel-heading active" role="tab" id="headingOne">
-        <h4 class="panel-title">
-          <a role="button" data-toggle="collapse" [data-parent]="'#'+order.timestamp" [href]="'#'+order.timestamp" aria-expanded="true" aria-controls="collapseOne">
-            {{order.timestamp}}
-          </a>
-        </h4>
-      </div>
-      <div [id]="order.timestamp" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-        <div class="panel-body">
-          <div *ngFor="let restaurantOrder of order.orderDetails">
-            <div>Ordered from {{restaurantOrder.restaurantName}} through {{restaurantOrder.deliveryPartner}}
-                <div *ngFor="let item of restaurantOrder.menuItems">
-                    <div>
-                        <table>
-                            <tr>
-                                <td>
-                                    {{item.itemName}}
-                                </td>
-                                <td>
-                                    {{item.quantity}}
-                                </td>
-                                <td>
-                                    {{item.totalPrice}}
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-          </div>
-        </div>
-    </div>
-  </div>
-  </div>-->
-  <mat-accordion>
+  <mat-accordion class="orders-area">
     <mat-expansion-panel *ngFor="let order of pastOrders">
       <mat-expansion-panel-header>
-        <mat-panel-title >
-          {{order.timestamp}}
+        <mat-panel-title class="order-date">
+          {{order.timestamp | date:'full'}}
         </mat-panel-title>
         <mat-panel-description>
-          <p class="title-bar">{{order.orderJson.paymentDetails.grandTotal}}</p>
+          <p class="title-bar">Amount: {{order.orderJson.paymentDetails.grandTotal}}</p>
           <span class="title-bar">
           <button mat-button>Re-order</button>
         </span>
@@ -54,12 +16,10 @@
     <div class="menu-info-container">
     <div *ngFor="let restaurantOrder of order.orderJson.orderDetails">
             <div *ngFor="let item of restaurantOrder.menuItems; let i = index">   
+                <span class="restaurant-name">{{restaurantOrder.restaurantName}}</span>
                     <table>
                         <tr>
-                        <th class="restaurant-name">{{restaurantOrder.restaurantName}}</th>
-                        </tr>
-                        <tr>
-                            <td class="menu-item">
+                            <td>
                                 {{i+1}}.
                             </td>
                             <td class="menu-item-name">  
@@ -79,16 +39,17 @@
             </div>  
     </div>
     </div>
+    <div class="boundary"></div>
     <div class="payment-info">
     <table>
-        <tr><td>Sub Total</td><td>{{order.orderJson.paymentDetails.subTotal}}</td></tr>
-        <tr><td>Delivery</td><td>{{order.orderJson.paymentDetails.deliveryCharges}}</td></tr>
-        <tr><td>Discount</td><td>{{order.orderJson.paymentDetails.discount}}</td></tr>
-        <tr><td>Tax</td><td>{{order.orderJson.paymentDetails.tax}}</td></tr>
-        <tr><td>Grand Total</td><td>{{order.orderJson.paymentDetails.grandTotal}}</td></tr>
+        <tr><td class = "payment-item">Sub Total</td><td class = "payment-item">{{order.orderJson.paymentDetails.subTotal}}</td></tr>
+        <tr><td class = "payment-item">Delivery</td><td class = "payment-item"> {{order.orderJson.paymentDetails.deliveryCharges}}</td></tr>
+        <tr><td class = "payment-item">Discount</td><td class = "payment-item">{{order.orderJson.paymentDetails.discount}}</td></tr>
+        <tr><td class = "payment-item">Tax</td><td class = "payment-item"> {{order.orderJson.paymentDetails.tax}}</td></tr>
+        <tr><td class = "payment-item">Grand Total</td><td class = "payment-item">{{order.orderJson.paymentDetails.grandTotal}}</td></tr>
     </table>
     </div>
-</div>    
+  </div>    
     </mat-expansion-panel>
     
   </mat-accordion>

@@ -1,6 +1,10 @@
 button{
     max-height:30px;
   }
+.orders-area{
+    width: 75%;
+    height: 75%
+}
 .title-bar{
     width:200px;
 }
@@ -13,12 +17,29 @@ button{
 .restaurant-name{
    font-style: italic;
    font-size: 15px;
+   width: 90%;
+   padding-bottom: 20px;
 }
 .payment-info{
     display: inline-block;
     width: 45%;
+    height: 80%;
 }
 .menu-info-container {
     width: 45%;
     display: inline-block;
+    height: 80%;
+}
+.boundary{
+    width:5%;
+    border-right: 1px;
+    display: inline-block;
+    height: 80%;
+    min-height: 10px;
+}
+.payment-item{
+    width: 35%;
+}
+.order-date{
+    width: 40%
 }

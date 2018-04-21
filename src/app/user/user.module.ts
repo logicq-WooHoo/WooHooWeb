@@ -16,11 +16,13 @@ import { HttpClient } from '@angular/common/http';
 import {TranslateModule, TranslateStaticLoader, TranslateLoader} from 'ng2-translate/ng2-translate';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { OrdersService } from './orders/orders.service';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
     UserComponent,
-    OrdersComponent
+    OrdersComponent,
+    ProfileComponent
     
     //EntitySearchComponent,
     //LocationComponent
