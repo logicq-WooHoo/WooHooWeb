@@ -1,0 +1,24 @@
+button{
+    max-height:30px;
+  }
+.title-bar{
+    width:200px;
+}
+.menu-item{
+    width:100px;
+}
+.menu-item-name{
+    width:200px;
+}
+.restaurant-name{
+   font-style: italic;
+   font-size: 15px;
+}
+.payment-info{
+    display: inline-block;
+    width: 45%;
+}
+.menu-info-container {
+    width: 45%;
+    display: inline-block;
+}

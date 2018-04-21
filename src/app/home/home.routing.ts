@@ -10,9 +10,9 @@ import {PatnerComponent } from './patner/patner.component';
 
 
 export const homeRoutes: Routes = [
-  { path: '', component: HomeComponent,
+  { path: '',component: HomeComponent,
   children: [
-    { path: '', redirectTo: '', pathMatch: 'full' },
+    { path: '', component: LandingComponent},
     { path: 'landing', component: LandingComponent }
   ] },
   //{ path: '', component: LandingComponent },

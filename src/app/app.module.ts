@@ -28,7 +28,6 @@ import { AgmCoreModule } from '@agm/core';
 import { HttpClient } from '@angular/common/http';
 import {TranslateModule, TranslateStaticLoader, TranslateLoader} from 'ng2-translate/ng2-translate';
 
-
 let config = new AuthServiceConfig([
   {
     id: GoogleLoginProvider.PROVIDER_ID,
