@@ -24,12 +24,17 @@ import { BasicSearchComponent } from './basic-search/basic-search.component';
 import { EntityTypeComponent } from './entity/entity.component';
 import { PatnerComponent } from './patner/patner.component';
 import { FoodSearchComponent } from './food/food.component';
-//import { EntitySearchComponent } from './entitysearch/entitysearch.component';
+import { EntitySearchComponent } from './entitysearch/entitysearch.component';
 // import { LocationComponent } from './location/location.component';
 // import { LocationService } from './location/location.service';
+import { HotelmenuComponent } from './hotelmenu/hotelmenu.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { AgmCoreModule } from '@agm/core';
 import { HttpClient } from '@angular/common/http';
 import {BasicSearchService} from './basic-search/basicsearch.service';
+import {ShoppingCartService} from './shopping-cart/shoppingcartservice';
+import {LocalStorageServie, StorageService} from './shopping-cart/storageservice';
+import {HotelmenuService} from './hotelmenu/hotelmenu.service';
 import {TranslateModule, TranslateStaticLoader, TranslateLoader} from 'ng2-translate/ng2-translate';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
@@ -52,9 +57,11 @@ let config = new AuthServiceConfig([
     
     BasicSearchComponent,
     FoodSearchComponent,
+    EntitySearchComponent,
     PatnerComponent,
     EntityTypeComponent,
-    
+    HotelmenuComponent,
+    ShoppingCartComponent
     //EntitySearchComponent,
     //LocationComponent
   ],
@@ -79,7 +86,9 @@ let config = new AuthServiceConfig([
       deps: [Http]
     })
   ],
-  providers: [homeRoutingProviders,TranslateModule /*LocationService*/],
+  providers: [homeRoutingProviders,TranslateModule, 
+    LocalStorageServie,
+    { provide: StorageService, useClass: LocalStorageServie }, /*LocationService*/],
   bootstrap: [HomeComponent]
 })
 export class HomeModule { }

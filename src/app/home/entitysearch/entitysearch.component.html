@@ -1,52 +1,54 @@
 
 <section class="flat-row flat-imagebox style3">
-    <div class="container" >
-      <div class="wrap-imagebox style3" >
-        <div class="row" >
-          <div class="col-sm-9">
-            <div class="imagebox style2">
-              <div class="box-imagebox">
-                <div class="box-header">
-                  <div class="box-image">
-                    <img src="assets/images/page/american.jpg" alt="">
+  <div class="container" >
+    <div class="wrap-imagebox style3" >
+      <div class="row" >
+        <div class="col-sm-9">
+          <div class="imagebox">
+            <div class="box-imagebox">
+              <div class="box-header">
+                <div class="box-image">
+                  <img src="assets/images/page/foods/american.jpg" alt="">
+                </div>
+              </div><!-- /.box-header -->
+              <div *ngIf="result && result.length > 0"> 
+              <div class="box-content" *ngFor="let res of result">
+                <div class="box-title">
+                <a (click)="restaurentMenu(res.id)" title="">{{res.restaurantName}}</a>
+                  <div class="queue">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
                   </div>
-                </div><!-- /.box-header -->
-                <div class="box-content" *ngFor="let res of result">
-                  <div class="box-title">
-                  <a href="#" title="">{{res.restaurantName}}</a>
-                    <div class="queue">
-                      <i class="fa fa-star" aria-hidden="true"></i>
-                      <i class="fa fa-star" aria-hidden="true"></i>
-                      <i class="fa fa-star" aria-hidden="true"></i>
-                      <i class="fa fa-star" aria-hidden="true"></i>
-                      <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                    </div>
-                  </div>
-               
-                  <div class="box-desc">
-                      <ul class="rating">
-                          <li *ngFor="let restype of res.restaurantTypes">{{restype}}</li>
-                      </ul>
-                      <ul class="rating">
-                          <li *ngFor="let delpart of res.deliveryPartners">{{delpart}}</li>
-                      </ul>
-                  </div>
-                  <ul class="location">
-                    <li class="address"><span class="ti-location-pin"></span>{{res.area}}, {{res.city}}</li>
-                    <li class="open"> <a href="#" title="">Menus</a></li>
-                  </ul>
-                </div><!-- /.box-content -->
-              </div><!-- /.box-imagebox -->
-            </div><!-- /.imagebox style2 -->
-          </div><!-- /.col-sm-12 -->
-        </div><!-- /.row -->
-        <div class="row">
-          <div class="col-md-12">
-            <div class="btn-more">
-              <a href="#" title="">Show More</a>
+                </div>
+             
+                <div class="box-desc">
+                    <ul class="rating">
+                        <li *ngFor="let restype of res.restaurantTypes">{{restype}}</li>
+                    </ul>
+                    <ul class="rating">
+                        <li *ngFor="let delpart of res.deliveryPartners">{{delpart}}</li>
+                    </ul>
+                </div>
+                <ul class="location">
+                  <li class="address"><span class="ti-location-pin"></span>{{res.area}}, {{res.city}}</li>
+                  <li class="open"> <a href="#" title="">Menus</a></li>
+                </ul>
+              </div><!-- /.box-content -->
             </div>
+            </div><!-- /.box-imagebox -->
+          </div><!-- /.imagebox style2 -->
+        </div><!-- /.col-sm-12 -->
+      </div><!-- /.row -->
+      <div class="row">
+        <div class="col-md-12">
+          <div class="btn-more">
+            <a href="#" title="">Show More</a>
           </div>
-        </div><!-- /.row -->
-      </div>
-    </div><!-- /.container -->
-  </section><!-- /.flat-imagebox style3 -->
+        </div>
+      </div><!-- /.row -->
+    </div>
+  </div><!-- /.container -->
+</section><!-- /.flat-imagebox style3 -->

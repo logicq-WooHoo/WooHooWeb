@@ -13,98 +13,114 @@
       </div><!-- /.col-md-12 -->
     </div><!-- /.row -->
     <div class="row">
+
+
        <div class="col-md-3 col-sm-6">
-        <div class="imagebox style5">
+        <div class="imagebox style5" *ngIf="showJapanese">
           <div class="box-image">
             <img src="assets/images/page/foods/japanise.jpg" alt="">
             <div class="overlay"></div>
           </div>
           <div class="box-content">
-            <a routerLink="/entitysearch" title="">{{'japanese' | translate}}</a>
-            <p>{{'label12' | translate}}</p>
+            <a (click)="restaurentTypedata(result.Japanese)" title="">{{'japanese' | translate}}</a>
+            <p>{{result.Japanese.length}}</p><p>{{'label12' | translate}}</p>
           </div>
         </div><!-- /.imaebox style5 -->
+
         <div class="height20"></div>
-        <div class="imagebox style5">
+
+        <div class="imagebox style5" *ngIf="showEuropian">
           <div class="box-image">
             <img src="assets/images/page/foods/europian.jpg" alt="">
             <div class="overlay"></div>
           </div>
           <div class="box-content">
-            <a routerLink="/entitysearch" title="" >{{'europian' | translate}}</a>
-            <p >{{'label12'| translate}}</p>
+            <a (click)="restaurentTypedata(result.Europian)" title="" >{{'europian' | translate}}</a>
+            <p>{{result.Europian.length}}</p><p >{{'label12'| translate}}</p>
           </div>
         </div><!-- /.imaebox style5 -->
       </div><!-- /.col-md-3 col-sm-6 -->
-      <div class="col-md-3 col-sm-6">
-        <div class="imagebox style5">
+
+
+
+      <div class="col-md-3 col-sm-6" >
+        <div class="imagebox style5"   *ngIf="showAmerican">
           <div class="box-image">
             <img src="assets/images/page/foods/american.jpg" alt="">
             <div class="overlay"></div>
           </div>
           <div class="box-content">
-            <a routerLink="/entitysearch" title="" >{{'american'| translate}}</a>
-            <p>{{'label12'| translate}}</p>
+            <a (click)="restaurentTypedata(result.American)" title="" >{{'american'| translate}}</a>
+            <p>{{result.American.length}}</p><p>{{'label12'| translate}}</p>
           </div>
         </div><!-- /.imaebox style5 -->
+
         <div class="height20"></div>
-        <div class="imagebox style5">
+        <div class="imagebox style5"  *ngIf="showChinese">
           <div class="box-image">
             <img src="assets/images/page/foods/chinese.jpg" alt="">
             <div class="overlay"></div>
           </div>
           <div class="box-content">
-            <a routerLink="/entitysearch" title="" >{{'chinese'| translate}}</a>
-            <p >{{'label12'| translate}}</p>
+            <a (click)="restaurentTypedata(result.Chinese)" title="" >{{'chinese'| translate}}</a>
+            <p>{{result.Chinese.length}}</p><p >{{'label12'| translate}}</p>
           </div>
         </div><!-- /.imaebox style5 -->
       </div><!-- /.col-md-3 col-sm-6 -->
+
+
       <div class="col-md-3 col-sm-6">
-        <div class="imagebox style5">
+        <div class="imagebox style5"  *ngIf="showIndian">
           <div class="box-image">
             <img src="assets/images/page/foods/indian.jpg" alt="">
             <div class="overlay"></div>
           </div>
           <div class="box-content">
-            <a routerLink="/entitysearch" title="" >{{'indian'| translate}}</a>
-            <p>{{'label12'| translate}}</p>
+            <a (click)="restaurentTypedata(result.Indian)" title="" >{{'indian'| translate}}</a>
+            <p>{{result.Indian.length}}</p><p>{{'label12'| translate}}</p>
           </div>
         </div><!-- /.imaebox style5 -->
+
         <div class="height20"></div>
-        <div class="imagebox style5">
+        <div class="imagebox style5"   *ngIf="showAusterlian">
           <div class="box-image">
             <img src="assets/images/page/foods/austrelian.jpg" alt="">
             <div class="overlay"></div>
           </div>
           <div class="box-content">
-            <a routerLink="/entitysearch" title="">{{'austerlian'| translate}}</a>
-            <p>{{'label12'| translate}}</p>
+            <a (click)="restaurentTypedata(result.Austerlian)" title="">{{'austerlian'| translate}}</a>
+            <p>{{result.Austerlian.length}}</p> <p>{{'label12'| translate}}</p>
           </div>
         </div><!-- /.imaebox style5 -->
       </div><!-- /.col-md-3 col-sm-6 -->
+
+
       <div class="col-md-3 col-sm-6">
-        <div class="imagebox style5">
+        <div class="imagebox style5"  *ngIf="showItalian">
           <div class="box-image">
             <img src="assets/images/page/foods/latian.jpg" alt="">
             <div class="overlay"></div>
           </div>
           <div class="box-content">
-            <a routerLink="/entitysearch" title="">{{'italian'| translate}}</a>
-            <p>{{'label12'| translate}}</p>
+            <a (click)="restaurentTypedata(result.Italian)"  title="">{{'italian'| translate}}</a>
+           <p>{{result.Italian.length}}</p> <p>{{'label12'| translate}}</p>
           </div>
         </div><!-- /.imagebox style5 -->
+
         <div class="height20"></div>
-        <div class="imagebox style5">
+        <div class="imagebox style5"  *ngIf="showKorean">
           <div class="box-image">
             <img src="assets/images/page/foods/korean.jpg" alt="">
             <div class="overlay"></div>
           </div>
           <div class="box-content">
-            <a routerLink="/entitysearch" title="" >{{'korean'| translate}}</a>
-            <p>{{'label12'| translate}}</p>
+            <a (click)="restaurentTypedata(result.Korean)" title="" >{{'korean'| translate}}</a>
+           <p>{{result.Korean.length}}</p> <p>{{'label12'| translate}}</p>
           </div>
         </div><!-- /.imagebox style5 -->
       </div><!-- /.col-md-3 col-sm-6 -->
+
+
     </div><!-- /.row -->
   </div><!-- /.container -->
 </section><!-- /.flat-imagebx style5 -->

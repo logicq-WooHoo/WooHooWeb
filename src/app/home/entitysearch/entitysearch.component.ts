@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { EntitySearchService } from './entitysearch.service';
-import {Resturant } from '../../model/resturant';
-import {Routes, RouterModule, Router, ActivatedRoute} from "@angular/router";
-import {GeoMap} from '../../model/gmap';
+import { Resturant } from '../../model/resturant';
+import { Routes, RouterModule, Router, ActivatedRoute } from "@angular/router";
+import { GeoMap } from '../../model/gmap';
 import { BasicSearchService } from '../basic-search/basicsearch.service';
 
 @Component({
@@ -26,7 +26,9 @@ export class EntitySearchComponent implements OnInit {
       
       if (params['longi']) {
        this.doRestaurentSearch(params['longi'],params['lati'])
-      }
+      }else if (params['resIds']) {
+        this.doRestaurentTypeSearch(params['resIds']);
+       }
     });
 
    }
@@ -45,6 +47,20 @@ export class EntitySearchComponent implements OnInit {
    });
 
   }
+
+
+  doRestaurentTypeSearch(restIds:Array<number>=[]){
+
+    var request={
+      restaurantIds:JSON.parse("[" + restIds + "]")
+      };
+     
+    this.basicSearchService.restaurentSearch(request).subscribe(data =>{
+      this.result=data;
+   });
+
+  }
+
   ngOnInit() {
     
   }
@@ -60,6 +76,12 @@ export class EntitySearchComponent implements OnInit {
   signUp(){
 
    
+  }
+
+
+  restaurentMenu(restaurentID:number){
+
+    this.router.navigate(['hotelmenu', {restaurentID:restaurentID}]);
   }
 
 }
