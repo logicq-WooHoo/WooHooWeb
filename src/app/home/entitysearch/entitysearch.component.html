@@ -14,7 +14,7 @@
               <div *ngIf="result && result.length > 0"> 
               <div class="box-content" *ngFor="let res of result">
                 <div class="box-title">
-                <a (click)="restaurentMenu(res.id)" title="">{{res.restaurantName}}</a>
+                <a title="">{{res.restaurantName}}</a>
                   <div class="queue">
                     <i class="fa fa-star" aria-hidden="true"></i>
                     <i class="fa fa-star" aria-hidden="true"></i>
@@ -26,15 +26,15 @@
              
                 <div class="box-desc">
                     <ul class="rating">
-                        <li *ngFor="let restype of res.restaurantTypes">{{restype}}</li>
+                        <li *ngFor="let restype of res.restaurantTypes" [translate]="restype">{{restype}}</li>
                     </ul>
                     <ul class="rating">
-                        <li *ngFor="let delpart of res.deliveryPartners">{{delpart}}</li>
+                        <li *ngFor="let delpart of res.deliveryPartners"  [translate]="delpart">{{delpart}}</li>
                     </ul>
                 </div>
                 <ul class="location">
                   <li class="address"><span class="ti-location-pin"></span>{{res.area}}, {{res.city}}</li>
-                  <li class="open"> <a href="#" title="">Menus</a></li>
+                  <li class="open"> <a (click)="restaurentMenu(res.id)" title="">Menus</a></li>
                 </ul>
               </div><!-- /.box-content -->
             </div>

@@ -74,7 +74,7 @@ export class BasicSearchComponent implements OnInit {
   }
 
   restaurentSearchdata(){
-    this.router.navigate(['entitysearch', {longi:this.longi, lati:this.lati }]);
+    this.router.navigate(['entitySearch', {longi:this.longi, lati:this.lati }]);
   }
 
 }
