@@ -3,6 +3,7 @@ export class MenuItem {
     public itemName: string;
     public description: string;
     public price: number;
+    public displayPrice:string;
     public isVeg:boolean;
 
 

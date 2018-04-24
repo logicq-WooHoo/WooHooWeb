@@ -50,7 +50,19 @@ export class HotelmenuComponent implements OnInit ,OnChanges{
   getRestaurentMenu(resID: number){
 
     this.hotelMenuService.restaurentMenu(resID).subscribe(data =>{
+     var language= localStorage.getItem('lang');
+     var numberlang='';
+     
       this.restaurentMenu=data;
+      this.restaurentMenu.forEach(res=>{
+
+        if(language=='zh-tw'){
+          numberlang='zh-Hans-CN-u-nu-hanidec';
+          res.displayPrice=res.price.toLocaleString(numberlang);
+         }else{
+          res.displayPrice=res.price.toString();
+         }        
+      })
    });
   }
 }

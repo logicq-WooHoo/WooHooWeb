@@ -5,8 +5,8 @@
               <div class="sub-item">              
                 <div class="add-to-cart">
                   <h4>{{resMenu.itemName}}</h4>
-                  <span class="m-price">{{resMenu.price | currency:"₹"}}</span>
-                  <a href class="add-cart" (click)="addProductToCart(resMenu, 1)">
+                  <span class="m-price"><span>$</span>{{ resMenu.displayPrice}}</span>
+                  <a class="add-cart" (click)="addProductToCart(resMenu, 1)">
                       <i class="fa"></i></a>
                 </div>
                 <span class="menu-tag" *ngIf="resMenu.isVeg===true;else veg" #veg  ><img src="assets/images/hotelmenu/icon-veg.png" alt=""></span>
@@ -16,3 +16,5 @@
           </div>
         </div>
 </div>
+
+<app-shopping-cart [cartItemsCount]="itemsCount"></app-shopping-cart>

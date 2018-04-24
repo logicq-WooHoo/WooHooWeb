@@ -29,12 +29,10 @@
                 <p><span class="list-comma" *ngFor="let restype of res.restaurantTypes | slice:1:3" [translate]="restype">{{restype}}</span> | others</p>
                 <button class="btn-yellow" (click)="showHotelMenu(res)">Menu</button>
               </div>
-
-              <div *ngIf="res.showMenu">
-                  <app-hotelmenu [restaurentId]="res.id"></app-hotelmenu>
-                </div>
-
             </div>
+            <div *ngIf="res.showMenu">
+                <app-hotelmenu [restaurentId]="res.id"></app-hotelmenu>
+              </div>
           </div>           
         </div>					
       </div>							

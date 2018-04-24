@@ -59,6 +59,8 @@ export class HomeComponent {
     });
     this.user = JSON.parse(localStorage.getItem('user'));
   this.initLocation();
+
+  localStorage.setItem("lang","en");
   }
 
   initLocation(){
@@ -95,6 +97,7 @@ export class HomeComponent {
   }
   switchLanguage(language: string) {
     this.translate.use(language);
+    localStorage.setItem("lang",language);
   }
   signOut(): void {
     localStorage.clear();
