@@ -13,6 +13,7 @@ export const appRoutes: Routes = [
   // { path: 'landing', pathMatch: 'full', component: LocationComponent },
   { path: '', loadChildren: './home/home.module#HomeModule' },
   { path: 'user', loadChildren: './user/user.module#UserModule' },
+  { path: 'checkout', loadChildren: './checkout/checkout.module#CheckoutModule' },
   //{ path:  'hotelregistration', component :HotelregistrationComponent},
   //{ path:  'barsearchlist', component :BarSearchComponent},
   //{ path:  'hotelsearchlist', component :HotelSearchComponent},

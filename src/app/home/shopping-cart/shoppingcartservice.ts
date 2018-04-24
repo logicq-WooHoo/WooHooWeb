@@ -47,6 +47,7 @@ export class ShoppingCartService {
     this.calculateCart(cart);
     this.save(cart);
     this.dispatch(cart);
+    
   }
 
   public empty(): void {
