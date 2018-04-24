@@ -79,8 +79,13 @@ export class EntitySearchComponent implements OnInit {
    
   }
 
-  showHotelMenu(){
-    this.showMenu=!this.showMenu;
+  showHotelMenu(restuarant: any) {
+    if (restuarant.showMenu) {
+      restuarant.showMenu= false;
+    } else {
+      restuarant.showMenu= true;
+    }
+    
   }
 
   restaurentMenu(restaurentID:number){
