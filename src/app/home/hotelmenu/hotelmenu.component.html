@@ -1,28 +1,18 @@
 <div class="col-md-12" id="open_menu">
-    <div class="open-menu-item">
-            <div class="row">
-      
-              <div class="col-md-3 col-sm-3"   *ngFor="let resMenu of restaurentMenu">
-                <div class="sub-item">
-                  <figure class="img-res"><img src="assets/images/hotelmenu/menu7.jpg" alt=""></figure>
-                  <div class="add-to-cart">
-                    <h4>{{resMenu.itemName}}</h4>
-                    <span class="m-price">{{resMenu.price | currency:"₹"}}</span>
-                    <a href="javascript:void(0);" class="add-cart" (click)="addProductToCart(resMenu, 1)">
+        <div class="open-menu-item">
+          <div class="row">
+            <div class="col-md-3 col-sm-3" *ngFor="let resMenu of restaurentMenu">
+              <div class="sub-item">              
+                <div class="add-to-cart">
+                  <h4>{{resMenu.itemName}}</h4>
+                  <span class="m-price">{{resMenu.price | currency:"₹"}}</span>
+                  <a href class="add-cart" (click)="addProductToCart(resMenu, 1)">
                       <i class="fa"></i></a>
-                  </div>
-      
-                  <!-- <span class="menu-tag"><img src="assets/images/hotelmenu/icon-veg.png" alt=""></span> -->
-                  <span class="menu-tag" *ngIf="resMenu.isVeg===true;else veg" #veg  ><img src="assets/images/hotelmenu/icon-veg.png" alt=""></span>
-                  <span class="menu-tag" *ngIf="resMenu.isVeg===false;else nonveg" #nonveg  ><img src="assets/images/hotelmenu/icon-non-veg.png" alt=""></span>
-        
                 </div>
-              </div>	
-      
-            </div>
-      </div>
+                <span class="menu-tag" *ngIf="resMenu.isVeg===true;else veg" #veg  ><img src="assets/images/hotelmenu/icon-veg.png" alt=""></span>
+                <span class="menu-tag" *ngIf="resMenu.isVeg===false;else nonveg" #nonveg  ><img src="assets/images/hotelmenu/icon-non-veg.png" alt=""></span>
+              </div>
+            </div>	         
+          </div>
+        </div>
 </div>
-     
-    <!-- <div class="small-12 medium-4 columns">
-        <app-shopping-cart [cartItemsCount]="itemsCount"></app-shopping-cart>
-      </div> -->

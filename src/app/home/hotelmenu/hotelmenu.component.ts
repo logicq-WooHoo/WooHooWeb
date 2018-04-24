@@ -3,6 +3,7 @@ import {Routes, RouterModule, Router, ActivatedRoute} from '@angular/router';
 import {HotelmenuService} from './hotelmenu.service';
 import { MenuItem } from './menuItem';
 import { ShoppingCartService }  from '../shopping-cart/shoppingcartservice';
+import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { ShoppingCartService }  from '../shopping-cart/shoppingcartservice';
   styleUrls: ['./hotelmenu.component.css'],
   providers: [HotelmenuService,ShoppingCartService]
 })
-export class HotelmenuComponent implements OnInit {
+export class HotelmenuComponent implements OnInit ,OnChanges{
 
   @Input() restaurentId: number;
 
@@ -25,14 +26,19 @@ export class HotelmenuComponent implements OnInit {
       this.route.params.subscribe(params => {
         
         if (params['restaurentID']) {
-         this.getRestaurentMenu(params['restaurentID'])
+         this.getRestaurentMenu(params['restaurentID']);
         }
       });
       
     }
 
   ngOnInit() {
-    this.getRestaurentMenu(this.restaurentId)
+    this.getRestaurentMenu(this.restaurentId);
+  }
+
+  ngOnChanges(){
+
+    this.getRestaurentMenu(this.restaurentId);
   }
 
 
