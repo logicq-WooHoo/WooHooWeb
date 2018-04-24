@@ -1,44 +1,28 @@
-
-<section class="flat-row flat-imagebox style3">
-  <div class="container" >
-    <div class="wrap-imagebox style3" >
-      <div class="row" >
-        <div class="col-sm-9">
-          <div class="imagebox">
-            <div class="box-imagebox">      
-              <div class="box-content" *ngFor="let resMenu of restaurentMenu">
-                <div class="box-title">
-                <a title="">{{resMenu.itemName}}</a>
-                </div>
-
-                <div class="box-title">
-                  <a  title="">{{resMenu.price | currency:"₹"}}</a>
+<div class="col-md-12" id="open_menu">
+    <div class="open-menu-item">
+            <div class="row">
+      
+              <div class="col-md-3 col-sm-3"   *ngFor="let resMenu of restaurentMenu">
+                <div class="sub-item">
+                  <figure class="img-res"><img src="assets/images/hotelmenu/menu7.jpg" alt=""></figure>
+                  <div class="add-to-cart">
+                    <h4>{{resMenu.itemName}}</h4>
+                    <span class="m-price">{{resMenu.price | currency:"₹"}}</span>
+                    <a href="javascript:void(0);" class="add-cart" (click)="addProductToCart(resMenu, 1)">
+                      <i class="fa"></i></a>
                   </div>
-
-                  <div class="box-title" *ngIf="resMenu.isVeg===true;else veg">
-                    <span class="menu-tag"  #veg  ><img src="assets/images/newVeg.png" alt=""></span>
-                   
-                    </div>
-                    <div class="box-title" *ngIf="resMenu.isVeg===false;else nonveg">
-
-                      <div>
-                         <span class="menu-tag"  #nonveg  ><img src="assets/images/newNonVeg.png" alt=""></span>
-                        </div>
-                  
+      
+                  <!-- <span class="menu-tag"><img src="assets/images/hotelmenu/icon-veg.png" alt=""></span> -->
+                  <span class="menu-tag" *ngIf="resMenu.isVeg===true;else veg" #veg  ><img src="assets/images/hotelmenu/icon-veg.png" alt=""></span>
+                  <span class="menu-tag" *ngIf="resMenu.isVeg===false;else nonveg" #nonveg  ><img src="assets/images/hotelmenu/icon-non-veg.png" alt=""></span>
+        
                 </div>
-
-                <button type="button" (click)="addProductToCart(resMenu, 1)">Add To Cart</button>      
-          
-              </div><!-- /.box-content -->
-            </div><!-- /.box-imagebox -->
-          </div><!-- /.imagebox style2 -->
-        </div><!-- /.col-sm-12 -->
-      </div><!-- /.row -->
-    </div>
-    <div class="small-12 medium-4 columns">
-        <app-shopping-cart [cartItemsCount]="itemsCount"></app-shopping-cart>
+              </div>	
+      
+            </div>
       </div>
-  </div><!-- /.container -->
-
- 
-</section><!-- /.flat-imagebox style3 -->
+</div>
+     
+    <!-- <div class="small-12 medium-4 columns">
+        <app-shopping-cart [cartItemsCount]="itemsCount"></app-shopping-cart>
+      </div> -->

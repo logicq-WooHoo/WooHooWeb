@@ -14,6 +14,7 @@ import { BasicSearchService } from '../basic-search/basicsearch.service';
 export class EntitySearchComponent implements OnInit {
 
   private result:Resturant[];
+  private showMenu:boolean=false;
 
 
   constructor(private loginService: EntitySearchService,
@@ -78,6 +79,9 @@ export class EntitySearchComponent implements OnInit {
    
   }
 
+  showHotelMenu(){
+    this.showMenu=!this.showMenu;
+  }
 
   restaurentMenu(restaurentID:number){
 

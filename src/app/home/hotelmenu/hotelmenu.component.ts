@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Input } from '@angular/core';
 import {Routes, RouterModule, Router, ActivatedRoute} from '@angular/router';
 import {HotelmenuService} from './hotelmenu.service';
 import { MenuItem } from './menuItem';
@@ -12,6 +12,8 @@ import { ShoppingCartService }  from '../shopping-cart/shoppingcartservice';
   providers: [HotelmenuService,ShoppingCartService]
 })
 export class HotelmenuComponent implements OnInit {
+
+  @Input() restaurentId: number;
 
   restaurentMenu:MenuItem[];
   itemsCount: number = 0;
@@ -30,6 +32,7 @@ export class HotelmenuComponent implements OnInit {
     }
 
   ngOnInit() {
+    this.getRestaurentMenu(this.restaurentId)
   }
 
 
