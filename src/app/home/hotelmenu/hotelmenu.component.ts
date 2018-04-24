@@ -14,7 +14,7 @@ import { ShoppingCartService }  from '../shopping-cart/shoppingcartservice';
 export class HotelmenuComponent implements OnInit {
 
   restaurentMenu:MenuItem[];
-
+  itemsCount: number = 0;
   constructor( private route: ActivatedRoute,
     private router: Router,
     private hotelMenuService:HotelmenuService,
@@ -35,6 +35,7 @@ export class HotelmenuComponent implements OnInit {
 
   public addProductToCart(product: MenuItem): void {
     this.shoppingCartService.addItem(product, 1,this.restaurentMenu);
+    this.itemsCount++;
   }
 
   getRestaurentMenu(resID: number){
