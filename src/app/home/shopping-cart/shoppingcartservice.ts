@@ -64,7 +64,7 @@ export class ShoppingCartService {
      cart.grossTotal = cart.itemsTotal;
   }
 
-  private retrieve(): ShoppingCart {
+  public retrieve(): ShoppingCart {
     const cart = new ShoppingCart();
     const storedCart = this.storage.getItem(CART_KEY);
     if (storedCart) {
