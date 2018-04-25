@@ -1,70 +1,33 @@
-<div class="header">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="header-wrap" style="display: inline-block" >
-            <div id="logo" class="logo" style="display: inline-block" >
-              <a routerLink="/" title="WooHoo">
-                WooHoo
-              </a>
-            </div><!-- /.logo -->
-            <div style="display: inline-block"  align="right" > 
-              <div style="display: inline-block">
-                 <ul class="menu">
-                 <input type="text" [(ngModel)]="location" class="form-control"  [placeholder]=" 'searchforlocation' | translate" #search [formControl]="searchControl" >
-                 </ul>
-            </div>
-              
-        
-              <div class="button-header" *ngIf="!user" style="display: inline-block">
-                  <a routerLink="/login" class="btn btn-info" >{{'loginSignUp' | translate}}</a>
+		<!-- Header Start -->
+    <header  data-spy="affix" data-offset-top="60" data-offset-bottom="200">
+        <div class="container no-glitter">
+          <div class="row clearfix">
+            <div class="col-md-12">
+              <div class="top-nav">
+                <a class="logo"  routerLink="/"><img src="assets/images/logo.png" alt="woohoo" /></a>
+                <div class="location"><i class="fa fa-location"></i> 135 Newtownards Road, Belfast, BT4 1AB</div>
+                <nav class="navbar navbar-default">  
+                  <ul class="nav navbar-nav"> 
+                    <li><a  routerLink="/login" >Sign Up</a></li>	
+                    <li><a  routerLink="/login" >Log In</a></li>
+                    <li><a href="javascript:void(0);" class="icon-call">Call</a></li>
+                    <li class="lan">
+                      <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                          Language
+                          <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                        <li><a (click)="switchLanguage('en')">English</a></li>
+                        <li><a (click)="switchLanguage('zh-tw')">Chinese</a></li> 
+                        </ul>
+                      </div>
+                    </li>
+                  </ul> 		
+                </nav>
               </div>
-              <div *ngIf="user" style="display: inline-block">
-                <span dropdown style="position: relative">
-                <a href id="basic-link" dropdownToggle (click)="false"
-                    aria-controls="basic-link-dropdown">{{user.name}}</a>
-                 <ul id="basic-link-dropdown" *dropdownMenu class="dropdown-menu"
-                 role="menu" aria-labelledby="basic-link">
-                    <li role="menuitem"><a class="dropdown-item" (click)="signOut()">{{'logOut' | translate}}</a>
-                    </li>
-                    <li><a routerLink="/user/orders" class="dropdown-item">{{'Orders' | translate}}</a>
-                    </li>
-                    <li><a routerLink="/user/profile" class="dropdown-item">{{'Profile' | translate}}</a>
-                    </li>
-                 </ul>
-                </span>
-              </div>
-              <div style="display: inline-block">
-                    <span dropdown style="position: relative">
-                            <a href id="language-link" dropdownToggle (click)="false"
-                                aria-controls="language-link-dropdown">{{'Language' | translate}}</a>
-                             <ul id="language-link-dropdown" *dropdownMenu  class="dropdown-menu"
-                             role="menu" aria-labelledby="language-link">
-                                <li><a class="dropdown-item" (click)="switchLanguage('fr')">{{'French' | translate}}</a>
-                                </li>
-                                <li><a class="dropdown-item" (click)="switchLanguage('zh-tw')">{{'Chinese(Traditional)' | translate}}</a>
-                                </li>
-                                <li><a class="dropdown-item" (click)="switchLanguage('en')">{{'English' | translate}}</a>
-                                </li>
-                             </ul>
-                    </span>
-                  <!--<button  (click)="switchLanguage('en')">English</button>
-                  <button  (click)="switchLanguage('fr')" >French</button>  
-                  <button  (click)="switchLanguage('zh-tw')" >Chinese(Traditional)</button>-->
-                  
             </div>
-            </div><!-- /.nav-wrap -->
-          </div><!-- /.header-wrap -->
-        </div><!-- /.col-md-12 -->
-      </div><!-- /.row -->
-    </div><!-- /.container-fluid -->
-  </div><!-- /.header -->
-  
-    <div  align="right">
-            
-          <!--<button  (click)="switchLanguage('en')">English</button>
-          <button  (click)="switchLanguage('fr')" >French</button>  
-          <button  (click)="switchLanguage('zh-tw')" >Chinese(Traditional)</button>-->
-          
-    </div>
+          </div>
+        </div>
+      </header>
     <router-outlet></router-outlet>
