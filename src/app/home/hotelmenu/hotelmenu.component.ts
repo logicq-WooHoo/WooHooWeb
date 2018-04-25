@@ -2,7 +2,7 @@ import { Component, OnInit , Input } from '@angular/core';
 import {Routes, RouterModule, Router, ActivatedRoute} from '@angular/router';
 import {HotelmenuService} from './hotelmenu.service';
 import { MenuItem } from './menuItem';
-import { ShoppingCartService }  from '../shopping-cart/shoppingcartservice';
+import { ShoppingCartService }  from '../shopping-cart/shopping-cart-service';
 import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
 
 
@@ -14,8 +14,8 @@ import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
 })
 export class HotelmenuComponent implements OnInit ,OnChanges{
 
-  @Input() restaurentId: number;
-
+  @Input() restaurantId: number;
+  @Input() restaurantName: string;
   restaurentMenu:MenuItem[];
   itemsCount: number = 0;
   constructor( private route: ActivatedRoute,
@@ -33,17 +33,17 @@ export class HotelmenuComponent implements OnInit ,OnChanges{
     }
 
   ngOnInit() {
-    this.getRestaurentMenu(this.restaurentId);
+    this.getRestaurentMenu(this.restaurantId);
   }
 
   ngOnChanges(){
 
-    this.getRestaurentMenu(this.restaurentId);
+    this.getRestaurentMenu(this.restaurantId);
   }
 
 
   public addProductToCart(product: MenuItem): void {
-    this.shoppingCartService.addItem(product, 1,this.restaurentMenu);
+    this.shoppingCartService.addItem(product, 1,this.restaurentMenu, this.restaurantId, this.restaurantName);
     this.itemsCount++;
   }
 

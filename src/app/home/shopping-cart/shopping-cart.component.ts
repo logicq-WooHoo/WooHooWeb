@@ -2,9 +2,9 @@ import { ChangeDetectionStrategy, Component, OnDestroy, OnInit, OnChanges, Input
 import { Observable } from "rxjs/Observable";
 import { Subscription } from "rxjs/Subscription";
 import { MenuItem } from "../hotelmenu/MenuItem";
-import { ShoppingCart } from "./ShoppingCart";
-import { ShoppingCartService } from './shoppingcartservice';
-import { CartItem } from "./CartItem";
+import { ShoppingCart } from "./shopping-cart";
+import { ShoppingCartService } from './shopping-cart-service';
+import { CartItem } from "./cart-item";
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -32,16 +32,32 @@ export class ShoppingCartComponent implements OnInit, OnDestroy, OnChanges{
   public ngOnInit(): void {
     this.cart = this.shoppingCartService.get();
     this.cartSubscription = this.cart.subscribe((cart) => {
-      this.itemCount = cart.items.map((x) => x.quantity).reduce((p, n) => p + n, 0);
-      this.grossTotal = cart.grossTotal;
+      this.itemCount = 0;
+      this.grossTotal = 0;
+      if(cart.restaurantCart){
+        cart.restaurantCart.forEach(restaurant => {
+          restaurant.itemsSelected.forEach(item =>{
+            this.itemCount = item.quantity + this.itemCount;
+            this.grossTotal = this.grossTotal + (item.quantity * item.price);
+          });
+        });
+      }
     });
   }
 
   public ngOnChanges(): void {
     this.cart = this.shoppingCartService.get();
     this.cartSubscription = this.cart.subscribe((cart) => {
-      this.itemCount = cart.items.map((x) => x.quantity).reduce((p, n) => p + n, 0);
-      this.grossTotal = cart.grossTotal;
+      this.itemCount = 0;
+      this.grossTotal = 0;
+      if(cart.restaurantCart){
+        cart.restaurantCart.forEach(restaurant => {
+          restaurant.itemsSelected.forEach(item =>{
+            this.itemCount = item.quantity + this.itemCount;
+            this.grossTotal = this.grossTotal + (item.quantity * item.price);
+          });
+        });
+      }
     });
   }
 

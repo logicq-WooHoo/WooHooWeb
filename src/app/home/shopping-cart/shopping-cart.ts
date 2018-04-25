@@ -1,12 +1,12 @@
-import { CartItem } from "./CartItem";
+import { RestaurantCart } from "./restaurant-cart";
 
 export class ShoppingCart {
-  public items: CartItem[] = new Array<CartItem>();
+  public restaurantCart: RestaurantCart[] = new Array<RestaurantCart>();
   public grossTotal: number = 0;
   public itemsTotal: number = 0;
 
   public updateFrom(src: ShoppingCart) {
-    this.items = src.items;
+    this.restaurantCart = src.restaurantCart;
     this.grossTotal = src.grossTotal;
     this.itemsTotal = src.itemsTotal;
   }
