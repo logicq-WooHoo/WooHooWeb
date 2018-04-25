@@ -12,18 +12,11 @@ import { Routes, RouterModule, Router, ActivatedRoute } from "@angular/router";
 })
 export class FoodSearchComponent implements OnInit {
 
-  result:any;
+  restarentSearchCount:Array<Object>=new Array<Object>() ;
   italianResSize:number;
   latitude:number=18.5075353;
   longitude:number=73.807182;
-  showKorean:boolean=false;
-  showItalian:boolean=false;
-  showAusterlian:boolean=false;
-  showIndian:boolean=false;
-  showChinese:boolean=false;
-  showAmerican:boolean=false;
-  showEuropian:boolean=false; 
-  showJapanese:boolean=false;
+  restarentCount:Map<string, Array<number>> = new Map<string, Array<number>>();;
   
 
   constructor(
@@ -49,41 +42,29 @@ export class FoodSearchComponent implements OnInit {
       };
      
     this.basicSearchService.restaurentTypeSearch(request).subscribe(data =>{
-      this.result=data;
+      this.restarentCount=data;
+      Object.keys(this.restarentCount).forEach(key=> {
+        let  keyvalue:  Array<number>;
+        keyvalue= this.restarentCount[key]  ;  
+        console.log('Key: ' +keyvalue+ ' Value: ' +key)
+       var restCount={};
+            restCount["name"]=key;
+            restCount["count"]=keyvalue.length;
+            restCount["resturantids"]=keyvalue;
+         this.restarentSearchCount.push(restCount);
+    });
+    //this.restarentCount.forEach(res=>{
+  //    console.log('Key: ' + res[0] + ' Value: ' + res[1])
+  //  });
+     // Array.from(this.restarentCount.entries()).forEach(entry => console.log('Key: ' + entry[0] + ' Value: ' + entry[1]));
 
-      if(this.result.Italian && this.result.Italian.length>0){
-        this.showItalian=true;
-       }
-    
-       if(this.result.Indian && this.result.Indian.length>0){
-        this.showIndian=true;
-       }
-
-        if(this.result.American && this.result.American.length>0){
-          this.showAmerican=true;
-       }
-
-
-     if(this.result.Chinese && this.result.Chinese.length>0){
-      this.showChinese=true;
-   }
-
-   if(this.result.Austerlian && this.result.Austerlian.length>0){
-    this.showAusterlian=true;
- }
-
- if(this.result.Japanese && this.result.Japanese.length>0){
-  this.showJapanese=true;
-}
-
-if(this.result.Korean && this.result.Korean.length>0){
-  this.showKorean=true;
-}
-
-if(this.result.Europian && this.result.Europian.length>0){
-  this.showEuropian=true;
-}
-
+     // this.restarentCount.forEach((value: any[], key: string) => {
+        // var restCount={};
+        //    restCount["name"]=key;
+        //    restCount["count"]=value.length;
+        // this.restarentSearchCount.push(restCount);
+       
+   // });
    });
      
   }

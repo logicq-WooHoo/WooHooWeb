@@ -1,7 +1,40 @@
 <section class="menu-step-container">
   <div class="container no-glitter">
     <div class="row clearfix">   
-      <div class="col-md-10 col-sm-9">    
+
+        <div class="col-md-12">
+						<div class="menu-step">
+							<ul class="menu-step-select">
+								<li class="active"><div class="icon s-search"><i></i><span>Select Menu's</span></div></li>
+								<li><div class="icon cart" ><i>  </i>  <a href="checkout"><span>Cart/Check out</span></a></div></li>
+								<li><div class="icon payment"><i></i><span>Payment</span></div></li>
+								<li><div class="icon enjoy"><i></i><span>Enjoy</span></div></li>
+							</ul>
+						</div>
+					</div>
+
+
+      <div class="col-md-10 col-sm-9"> 
+        
+          <div class="filter-top">
+							<label>Filter By</label>
+							<div class="custom-ddl">
+								<select class="css-ddl">
+									<option value="0">Options</option>
+									<option value="American">American</option>
+									<option value="Chinese">Chinese</option>	
+								</select>
+							</div>
+							<div class="custom-ddl">
+								<select class="css-ddl">
+									<option value="0">Review</option>
+									<option value="American">American</option>
+									<option value="Chinese">Chinese</option>	
+								</select>
+							</div>
+						</div>
+
+
         <div class="filter-menu-item">       
           <div class="row-item clearfix"  *ngFor="let res of result">        
             <div class="col-md-3 col-sm-3">
@@ -10,8 +43,8 @@
             <div class="col-md-6 col-sm-6">
               <div class="menu-details">
                 <h3><a href>{{res.restaurantName}}</a></h3>
-                <p class="res-add">{{res.area}}, {{res.city}} <a href class="fa fa-map"> </a> <span class="del-time">Delivery Time: 35 Mins up to 7 KM..</span></p>
-                <p class="del-partner">Delivery Partner: <span class="list-comma" *ngFor="let delpart of res.deliveryPartners"  [translate]="delpart">{{delpart}}</span></p>
+                <p class="res-add">{{res.area}}, {{res.city}} <a href class="fa fa-map"> </a> <span class="del-time">{{'deliverytime' | translate}}: 35 Mins up to 7 KM..</span></p>
+                <p class="del-partner">{{'deliveryPartner' | translate}}: <span class="list-comma" *ngFor="let delpart of res.deliveryPartners"  >{{delpart | translate}}</span></p>
                 <ul>
                   <li class="fa fa-takeaway"></li>
                   <li class="fa fa-delivery"></li>
@@ -21,12 +54,12 @@
             </div>
             <div class="col-md-3 col-sm-3">
               <div class="more-details">
-                <a href class="res-like"><i class="fa fa-recom"></i> <strong>450</strong> People recommended</a>
+                <a href class="res-like"><i class="fa fa-recom"></i> <strong>{{res.recommendationCount}}</strong> {{'recommendation' | translate}}</a>
                 <ul>
                   <li class="fa fa-food"></li>
                   <li class="fa fa-dining"></li> 
                 </ul>
-                <p><span class="list-comma" *ngFor="let restype of res.restaurantTypes | slice:1:3" [translate]="restype">{{restype}}</span> | others</p>
+                <p><span class="list-comma" *ngFor="let restype of res.restaurantTypes | slice:1:3" >{{restype  | translate }}</span> | others</p>
                 <button class="btn-yellow" (click)="showHotelMenu(res)">Menu</button>
               </div>
             </div>
@@ -35,7 +68,14 @@
               </div>
           </div>           
         </div>					
-      </div>							
+      </div>
+      
+      <div class="col-md-2 col-sm-3">
+          <div class="advertise-right text-center">
+            <figure><a href="javascript:void(0);"><img src="assets/images/advertise-big2.jpg" alt=""></a></figure>
+          </div>
+        </div>		
+      
     </div>
   </div>			
 </section>
