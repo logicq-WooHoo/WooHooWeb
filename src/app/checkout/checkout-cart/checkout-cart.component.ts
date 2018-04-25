@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ShoppingCartService } from '../../home/shopping-cart/shoppingcartservice';
 import { ShoppingCart } from '../../home/shopping-cart/ShoppingCart';
 
 @Component({
@@ -9,7 +8,8 @@ import { ShoppingCart } from '../../home/shopping-cart/ShoppingCart';
 })
 export class CheckoutCartComponent {
   cart: ShoppingCart;
-  constructor( private shoppingCartService: ShoppingCartService) {
-     this.cart = this.shoppingCartService.retrieve();
+  constructor() {
+     this.cart = JSON.parse(localStorage.getItem('cart'));
+     console.log(this.cart);
    }
 }
