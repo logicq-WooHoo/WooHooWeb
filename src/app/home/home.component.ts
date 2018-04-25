@@ -68,7 +68,7 @@ export class HomeComponent {
         this.searchControl = new FormControl();
 
         //load Places Autocomplete
-        this.mapsAPILoader.load().then(() => {
+     /*   this.mapsAPILoader.load().then(() => {
           let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
             types: ["address"]
           });
@@ -93,7 +93,7 @@ export class HomeComponent {
               this.longi= place.geometry.location.lng();
             });
           });
-        });
+        });*/
   }
   switchLanguage(language: string) {
     this.translate.use(language);
