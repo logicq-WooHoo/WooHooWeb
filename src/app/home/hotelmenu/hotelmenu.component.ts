@@ -1,4 +1,4 @@
-import { Component, OnInit , Input } from '@angular/core';
+import { Component, OnInit , Input, Output, EventEmitter } from '@angular/core';
 import {Routes, RouterModule, Router, ActivatedRoute} from '@angular/router';
 import {HotelmenuService} from './hotelmenu.service';
 import { MenuItem } from './menuItem';
@@ -16,6 +16,7 @@ export class HotelmenuComponent implements OnInit ,OnChanges{
 
   @Input() restaurantId: number;
   @Input() restaurantName: string;
+  @Output() onItemAdd = new EventEmitter<number>();
   restaurentMenu:MenuItem[];
   itemsCount: number = 0;
   constructor( private route: ActivatedRoute,
@@ -44,6 +45,7 @@ export class HotelmenuComponent implements OnInit ,OnChanges{
 
   public addProductToCart(product: MenuItem): void {
     this.shoppingCartService.addItem(product, 1,this.restaurentMenu, this.restaurantId, this.restaurantName);
+    this.onItemAdd.emit(product.price);
     this.itemsCount++;
   }
 

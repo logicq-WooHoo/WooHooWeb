@@ -75,7 +75,7 @@
               </div>
             </div>
             <div *ngIf="res.showMenu">
-                <app-hotelmenu [restaurantId]="res.id" [restaurantName]="res.restaurantName"></app-hotelmenu>
+                <app-hotelmenu [restaurantId]="res.id" [restaurantName]="res.restaurantName" (onItemAdd)="onItemAdd($event)"></app-hotelmenu>
               </div>
           </div>           
         </div>					

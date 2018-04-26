@@ -12,4 +12,10 @@ export class CheckoutCartComponent {
      this.cart = JSON.parse(localStorage.getItem('cart'));
      console.log(this.cart);
    }
+   
+   doEmptyCart(){
+    localStorage.removeItem('cart');
+    this.cart = null;
+   }
+
 }

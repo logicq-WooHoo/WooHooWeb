@@ -15,7 +15,8 @@ export class EntitySearchComponent implements OnInit {
 
   private result:Resturant[];
   private showMenu:boolean=false;
-
+private cartItemsCount: number = 0;
+//private totalPrice: number;
 
   constructor(private loginService: EntitySearchService,
     private route: ActivatedRoute,
@@ -85,8 +86,16 @@ export class EntitySearchComponent implements OnInit {
     } else {
       restuarant.showMenu= true;
     }
-    
+
   }
+
+
+  onItemAdd(itemPrice:  number){
+
+    this.cartItemsCount++;
+    //this.totalPrice = this.totalPrice + itemPrice;
+  }
+  
 
   restaurentMenu(restaurentID:number){
 
