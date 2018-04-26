@@ -68,35 +68,6 @@ export class ShoppingCartService {
       cart.restaurantCart = [];
       cart.restaurantCart.push(tempRestaurant);
     }
-    
-    
-    /*let tempRestaurant: RestaurantCart;
-    let tempItem: CartItem;
-    cart.restaurantCart.forEach(restaurant => {
-      if(restaurant.restaurantName === restaurantName){
-        tempRestaurant = restaurant;
-        restaurant.itemsSelected.forEach(itemSelected => {
-          if(itemSelected.productId === product.id){
-            itemSelected.quantity += quantity;
-          }else{
-            tempItem = new CartItem;
-            tempItem.price = product.price;
-            tempItem.productId = product.id;
-            tempItem.isVeg = product.isVeg;
-            restaurant.itemsSelected.push(tempItem);
-          }
-        });
-      }
-    })
-   
-    let item = cart.items.find((p) => p.productId === product.id);
-    if (item === undefined) {
-      
-      cart.items.push(item);
-    }
-
-    item.quantity += quantity;
-    cart.items = cart.items.filter((cartItem) => cartItem.quantity > 0);*/
 
     this.calculateCart(cart);
     this.save(cart);
@@ -112,14 +83,17 @@ export class ShoppingCartService {
 
  
   private calculateCart(cart: ShoppingCart): void {
-    if(cart.restaurantCart){
-      cart.restaurantCart.forEach(restaurant => {
-        restaurant.itemsSelected.forEach(item =>{
-          cart.itemsTotal = cart.itemsTotal + (item.quantity * item.price);
+    
+      if(cart.restaurantCart){
+        cart.itemsTotal = 0;
+        cart.restaurantCart.forEach(restaurant => {
+          restaurant.total = 0;
+          restaurant.itemsSelected.forEach(item =>{
+            restaurant.total = restaurant.total + (item.quantity * item.price);
+          });
+          cart.itemsTotal = cart.itemsTotal + restaurant.total;
         });
-      });
-    }
-     cart.grossTotal = cart.itemsTotal;
+      }
   }
 
   public retrieve(): ShoppingCart {

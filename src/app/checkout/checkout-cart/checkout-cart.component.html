@@ -89,12 +89,12 @@
 											</li>
 									</ul>
 									<ul class="cart-item cart-value-total">
-										<li>Subtotal <span>{{restaurant.grossTotal}}</span></li>
+										<li>Subtotal <span>{{restaurant.total}}</span></li>
 										<li>+ TAX<span>20.00</span></li>
 										<li>Total will be rounded off</li>
 										<li class="text-right"><strong>{{restaurant.total}}</strong></li>
 									</ul>
-									<div><span>Final Amount</span></div>
+									<div><span>Final Amount</span><span>{{cart.itemsTotal}}</span></div>
 									<div class="promo-code">
 										<input type="text" class="form-control" placeholder="Enter promo code"><button type="button" class="btn-procode">Apply</button>
 									</div>

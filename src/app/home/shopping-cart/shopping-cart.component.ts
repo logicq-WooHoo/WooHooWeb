@@ -35,11 +35,15 @@ export class ShoppingCartComponent implements OnInit, OnDestroy, OnChanges{
       this.itemCount = 0;
       this.grossTotal = 0;
       if(cart.restaurantCart){
+        cart.itemsTotal = 0;
         cart.restaurantCart.forEach(restaurant => {
+          restaurant.total = 0;
           restaurant.itemsSelected.forEach(item =>{
             this.itemCount = item.quantity + this.itemCount;
             this.grossTotal = this.grossTotal + (item.quantity * item.price);
+            restaurant.total = restaurant.total + (item.quantity * item.price);
           });
+          cart.itemsTotal = cart.itemsTotal + restaurant.total;
         });
       }
     });
@@ -51,11 +55,15 @@ export class ShoppingCartComponent implements OnInit, OnDestroy, OnChanges{
       this.itemCount = 0;
       this.grossTotal = 0;
       if(cart.restaurantCart){
+        cart.itemsTotal = 0;
         cart.restaurantCart.forEach(restaurant => {
+          restaurant.total = 0;
           restaurant.itemsSelected.forEach(item =>{
             this.itemCount = item.quantity + this.itemCount;
             this.grossTotal = this.grossTotal + (item.quantity * item.price);
+            restaurant.total = restaurant.total + (item.quantity * item.price);
           });
+          cart.itemsTotal = cart.itemsTotal + restaurant.total;
         });
       }
     });
