@@ -1,113 +1,98 @@
+<section class="body-container">
+		<div class="container no-glitter">
+			<div class="row clearfix"> 
+				<div class="col-md-12"> 
+					<div class="row-item profile-list clearfix">							
+						<div class="row clearfix">
+							<div class="col-md-9 col-sm-8">
+								<h3>Personal Info</h3>
+							</div>
+							<div class="col-md-3 col-sm-4 top-edit">
+								<a class="link-btn" >ADD NEW ADDRESS</a>
+								<a class="link-edit" ><i class="glyphicon glyphicon-pencil"></i></a>
+							</div>
+						</div>	
+						<div class="clearfix"></div>
+						<div class="media">
+							<div class="media-left">
+								<a>
+									<img class="media-object" src="assets/images/user.JPG" >
+								</a>
+							</div>
+							<div class="media-body">
+								<p>{{userProfile.userInformation.firstName}} {{userProfile.userInformation.lastName}}</p>
+								<p><span>Email:</span> {{userProfile.userInformation.emailId}}</p>
+								<p><span>Phone:</span> {{userProfile.userInformation.mobileNo}}</p>
+								
+							</div>
+						</div>							
+					</div>
 
-		<!-- Header End -->	
-		<!-- Body Container Start-->
-		<section class="page-heading clearfix">
-			<div class="container no-glitter">
-				<h2>Personal Information</h2>			
-			</div>
-		</section>
-		<section class="body-container">
-			<div class="container no-glitter">
-				<div class="row clearfix"> 
-					<div class="col-md-12"> 
-						<div class="row-item profile-list clearfix">							
+					<div class="row-item profile-list clearfix">							
 							<div class="row clearfix">
 								<div class="col-md-9 col-sm-8">
-									<h3>Personal Info</h3>
+									<h3>Addresses</h3>
 								</div>
 								<div class="col-md-3 col-sm-4 top-edit">
-									<a class="link-btn" href>ADD NEW ADDRESS</a>
-									<a class="link-edit" href><i class="glyphicon glyphicon-edit"></i></a>
-								</div>
-							</div>	
-							<div class="clearfix"></div>
-							<div class="media">
-								<div class="media-left">
-									<a href="#">
-										<img class="media-object" src="images/user.jpg" alt="...">
-									</a>
-								</div>
-								<div class="media-body">
-									<p>Noor Fatima</p>
-									<p><span>Email:</span> noor.fatima078@gmail.com</p>
-									<p><span>Phone:</span> +91 2302304444</p>
-									<p><span>Address:</span> S Villa , Servey No. 12345/1234/ek, New york city. USA</p>
-								</div>
-							</div>							
-						</div>
-						<div class="row-item profile-list clearfix">							
-							<div class="row clearfix">
-								<div class="col-md-9 col-sm-8">
-									<h3>Saved Payment Details</h3>
-								</div>
-								<div class="col-md-3 col-sm-4 top-edit">
-									<a class="link-btn" href>ADD NEW CARD</a>
-									<a class="link-edit" href title="Edit Card"><i class="glyphicon glyphicon-edit"></i></a>
+									<a class="link-btn">ADD NEW Address</a>
+									<a class="link-edit" title="Edit Card"><i class="glyphicon glyphicon-pencil"></i></a>
 								</div>
 							</div>	
 							<div class="clearfix"></div>
 							<form action="#">
-								<div class="card-list">									
-									<div class="card-item">
+								<div class="card-list" *ngFor="let address of userProfile.userInformation.addresses">									
+									<div class="card-item col-md-6" >
 										<label>
 											<input name="group1" type="radio" checked />
 											<span class="card-info">
-												<p>Card Details <i>VISA</i></p>
-												<p>xxxxxxxx 3456</p>
+												<p>Address <i>:</i></p>
+												<p>{{address.flatNo}} , {{address.societyName}} ,{{address.road}} {{address.city}}. {{address.state}} - {{address.pinCode}}</p>
 											</span>
+
 										</label> 
 									</div> 
-									<div class="card-item">
-										<label>
-											<input name="group1" type="radio" />
-											<span class="card-info">
-												<p>Card Details <i>VISA</i></p>
-												<p>xxxxxxxx 3456</p>
-											</span>
-										</label> 
-									</div>	
-									<div class="card-item">
-										<label>
-											<input name="group1" type="radio" checked />
-											<span class="card-info">
-												<p>Card Details <i>VISA</i></p>
-												<p>xxxxxxxx 3456</p>
-											</span>
-										</label> 
-									</div> 
-									<div class="card-item">
-										<label>
-											<input name="group1" type="radio" />
-											<span class="card-info">
-												<p>Card Details <i>VISA</i></p>
-												<p>xxxxxxxx 3456</p>
-											</span>
-										</label> 
-									</div>
-									<div class="card-item">
-										<label>
-											<input name="group1" type="radio" checked />
-											<span class="card-info">
-												<p>Card Details <i>VISA</i></p>
-												<p>xxxxxxxx 3456</p>
-											</span>
-										</label> 
-									</div> 
-									<div class="card-item">
-										<label>
-											<input name="group1" type="radio" />
-											<span class="card-info">
-												<p>Card Details <i>VISA</i></p>
-												<p>xxxxxxxx 3456</p>
-											</span>
-										</label> 
-									</div>
+	
 								</div>	
 							</form>							
 						</div>
-						
-					</div>				
-				</div>
-			</div>			
-		</section>
-		
+
+
+
+					<div class="row-item profile-list clearfix">							
+						<div class="row clearfix">
+							<div class="col-md-9 col-sm-8">
+								<h3>Saved Payment Details</h3>
+							</div>
+							<div class="col-md-3 col-sm-4 top-edit">
+								<a class="link-btn">ADD NEW CARD</a>
+								<a class="link-edit" title="Edit Card"><i class="glyphicon glyphicon-pencil"></i></a>
+							</div>
+						</div>	
+						<div class="clearfix"></div>
+						<form action="#">
+							<div class="card-list">									
+								<div class="card-item">
+									<label>
+										<input name="group1" type="radio" checked />
+										<span class="card-info">
+											<p>Card Details <i>VISA</i></p>
+											<p>xxxxxxxx 3456</p>
+										</span>
+									</label> 
+								</div> 
+
+							</div>	
+						</form>							
+					</div>
+					<div class="advertise-container text-center">
+						<div class="col-md-6">
+							<figure><a><img src="assets/images/advertise-small.jpg" alt=""></a></figure>
+						</div>
+						<div class="col-md-6">
+							<figure><a><img src="assets/images/advertise-small.jpg" alt=""></a></figure>
+						</div>
+					</div>
+				</div>				
+			</div>
+		</div>			
+	</section>

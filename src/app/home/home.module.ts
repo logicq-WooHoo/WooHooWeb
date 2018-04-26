@@ -31,7 +31,6 @@ import { AgmCoreModule } from '@agm/core';
 import { HttpClient } from '@angular/common/http';
 import {BasicSearchService} from './basic-search/basicsearch.service';
 import {ShoppingCartService} from './shopping-cart/shopping-cart-service';
-import {HotelmenuService} from './hotelmenu/hotelmenu.service';
 import {TranslateModule, TranslateStaticLoader, TranslateLoader} from 'ng2-translate/ng2-translate';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
