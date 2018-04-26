@@ -16,22 +16,33 @@
 
       <div class="col-md-10 col-sm-9"> 
         
-          <div class="filter-top">
-							<label>Filter By</label>
-							<div class="custom-ddl">
-								<select class="css-ddl">
-									<option value="0">Options</option>
-									<option value="American">American</option>
-									<option value="Chinese">Chinese</option>	
-								</select>
-							</div>
-							<div class="custom-ddl">
-								<select class="css-ddl">
-									<option value="0">Review</option>
-									<option value="American">American</option>
-									<option value="Chinese">Chinese</option>	
-								</select>
-							</div>
+          <div class="filter-left">
+							<div class="filter-top">
+								<label>Filter By</label>
+								<div class="custom-ddl">
+									<select class="css-ddl">
+										<option value="0">Options</option>
+										<option value="American">American</option>
+										<option value="Chinese">Chinese</option>	
+									</select>
+								</div>
+								<div class="custom-ddl">
+									<select class="css-ddl">
+										<option value="0">Review</option>
+										<option value="American">American</option>
+										<option value="Chinese">Chinese</option>	
+									</select>
+								</div>
+              </div> 
+              
+							<div class="item-cart">
+								<!-- <span>Total 4 Items: <strong>$1200</strong></span><button class="btn-cart">Add to cart</button> -->
+            <app-shopping-cart [cartItemsCount]="cartItemsCount"></app-shopping-cart>
+             
+              </div>
+              
+              <div class="clearfix"></div>
+              
 						</div>
 
 

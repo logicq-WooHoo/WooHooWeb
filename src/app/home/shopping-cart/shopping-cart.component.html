@@ -1,19 +1,2 @@
-<div class="row">
-    <div class="small-12 columns">
-      <h3>
-        <i class="material-icons">shopping_basket</i>
-        Your Shopping Basket
-      </h3>
-    </div>
-  </div>
-  <br/>
-  <div class="row">
-    <div class="small-12 columns">
-      <h5>
-        Sub Total ({{itemCount}} items):
-        <span class="text--red text--bold js-cart-total">{{grossTotal | currency:'₹':true}}</span>
-      </h5>
-    </div>
-  </div>
-  <br/>
+<span>Total {{itemCount}} Items: <strong>${{grossTotal}}</strong></span><button class="btn-cart">Add to cart</button>
   

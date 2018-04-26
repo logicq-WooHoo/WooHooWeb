@@ -14,7 +14,7 @@ import {
   , MatToolbarModule, MatGridListModule, MatIconModule, MatCardModule
 } from '@angular/material';
 import { CommonModule } from '@angular/common';
-import { LandingComponent } from './landing/landing.component';
+
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { Http,Headers,RequestOptions,Response,RequestMethod,Request,HttpModule} from '@angular/http';
@@ -22,8 +22,6 @@ import { routing, homeRoutingProviders } from './home.routing';
 import { CdkStepperModule } from '@angular/cdk/stepper';
 import { BasicSearchComponent } from './basic-search/basic-search.component';
 import { EntityTypeComponent } from './entity/entity.component';
-import { PatnerComponent } from './patner/patner.component';
-import { FoodSearchComponent } from './food/food.component';
 import { EntitySearchComponent } from './entitysearch/entitysearch.component';
 // import { LocationComponent } from './location/location.component';
 // import { LocationService } from './location/location.service';
@@ -51,13 +49,11 @@ let config = new AuthServiceConfig([
 @NgModule({
   declarations: [
     HomeComponent,
-    LandingComponent,
+
     LoginComponent,
     
     BasicSearchComponent,
-    FoodSearchComponent,
     EntitySearchComponent,
-    PatnerComponent,
     EntityTypeComponent,
     HotelmenuComponent,
     ShoppingCartComponent

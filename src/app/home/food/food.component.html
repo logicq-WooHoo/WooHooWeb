@@ -1,10 +1,9 @@
 <section class="container no-glitter">
-    <h2 class="mar-45 text-center">{{'makehappy' | translate}}</h2>
     <div class="menu-list-item">
       <div class="row clearfix">
         <div *ngIf="restarentSearchCount">
 
-        <div class="col-sm-3 col-md-3"  *ngFor="let resCount of restarentSearchCount">					
+        <div class="col-sm-4 col-md-4"  *ngFor="let resCount of restarentSearchCount">					
           <div class="menu">
             <figure><a href="javascript:void(0);"><img src="assets/images/page/foods/{{resCount.name}}.jpg" alt=""></a></figure>
             <div class="order-area">
@@ -20,3 +19,13 @@
       </div>
     </div>			
   </section>
+
+
+  <!-- Advertise Start-->
+<div class="container no-glitter">
+		<div class="row">
+			<div class="advertise-container text-center">
+				<figure><a href="javascript:void(0);"><img src="assets/images/advertise-big.jpg" alt=""></a></figure>
+			</div>
+		</div>
+	</div>

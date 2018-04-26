@@ -1,14 +1,14 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FoodSearchComponent } from '../food/food.component';
-import {PatnerComponent } from '../patner/patner.component';;
+import {LandingComponent } from './landing.component';
+import { PatnerComponent } from '../patner/patner.component';
 
 export const landingRoutes: Routes = [
-  { path: '',component: FoodSearchComponent,
+  { path: '', component: LandingComponent ,
   children: [
-   
-    { path: 'hotels', component: PatnerComponent },
-    { path: 'nightslife', component: PatnerComponent}
+    { path: '',component: FoodSearchComponent },
+    { path: 'hotels',component: PatnerComponent }
   ] }
 ];
 
