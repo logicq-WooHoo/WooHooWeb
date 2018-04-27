@@ -1,55 +1,117 @@
-<div>Chose from your Past Orders</div>
-  <mat-accordion class="orders-area">
-    <mat-expansion-panel *ngFor="let order of pastOrders">
-      <mat-expansion-panel-header>
-        <mat-panel-title class="order-date">
-          {{order.timestamp | date:'full'}}
-        </mat-panel-title>
-        <mat-panel-description>
-          <p class="title-bar">Amount: {{order.orderJson.paymentDetails.grandTotal}}</p>
-          <span class="title-bar">
-          <button mat-button>Re-order</button>
-        </span>
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-  <div class="order-details">
-    <div class="menu-info-container">
-    <div *ngFor="let restaurantOrder of order.orderJson.orderDetails">
-            <div *ngFor="let item of restaurantOrder.menuItems; let i = index">   
-                <span class="restaurant-name">{{restaurantOrder.restaurantName}}</span>
-                    <table>
-                        <tr>
-                            <td>
-                                {{i+1}}.
-                            </td>
-                            <td class="menu-item-name">  
-                                {{item.itemName}}
-                            </td>
-                            <td class="menu-item">
-                                {{item.price}}
-                            </td>
-                            <td class="menu-item">
-                                {{item.quantity}}
-                            </td>
-                            <td class="menu-item">
-                                {{item.totalPrice}}
-                            </td>
-                        </tr>
-                    </table>
-            </div>  
-    </div>
-    </div>
-    <div class="boundary"></div>
-    <div class="payment-info">
-    <table>
-        <tr><td class = "payment-item">Sub Total</td><td class = "payment-item">{{order.orderJson.paymentDetails.subTotal}}</td></tr>
-        <tr><td class = "payment-item">Delivery</td><td class = "payment-item"> {{order.orderJson.paymentDetails.deliveryCharges}}</td></tr>
-        <tr><td class = "payment-item">Discount</td><td class = "payment-item">{{order.orderJson.paymentDetails.discount}}</td></tr>
-        <tr><td class = "payment-item">Tax</td><td class = "payment-item"> {{order.orderJson.paymentDetails.tax}}</td></tr>
-        <tr><td class = "payment-item">Grand Total</td><td class = "payment-item">{{order.orderJson.paymentDetails.grandTotal}}</td></tr>
-    </table>
-    </div>
-  </div>    
-    </mat-expansion-panel>
-    
-  </mat-accordion>
+<!-- Body Container Start-->
+<body>
+<section class="page-heading clearfix">
+	<div class="container no-glitter">
+		<h2>A few past orders to refresh the memories and revive the taste.</h2>
+	</div>
+</section>
+<section class="body-container">
+	<div class="container no-glitter">
+		<div class="row clearfix">
+			<div class="col-md-10 col-sm-9">
+				<div class="row-item profile-list clearfix">
+					<div id="accordion" role="tablist" aria-multiselectable="true" *ngIf="pastOrders">
+                        
+                        
+                        
+                        <div class="card"  *ngFor="let pastOrder of pastOrders">
+							<div class="card-header" role="tab" id="headingOne">
+								<div class="mb-0">
+									<a data-toggle="collapse" data-parent="#accordion"
+										href="#collapseOne" aria-expanded="false"
+										aria-controls="collapseOne" class="collapsed">
+
+										<h3>Order Id: {{pastOrder.orderId}}</h3>
+										<p>{{pastOrder.timestamp | date:'medium'}}</p>
+									</a> <i class="glyphicon glyphicon-menu-right" aria-hidden="true"></i>
+								</div>
+							</div>
+
+							<div id="collapseOne" class="collapse in" role="tabpanel"
+                                aria-labelledby="headingOne" aria-expanded="false" >
+                                
+
+								<div class="card-block" *ngFor="let orderTrack of pastOrder.orderTrackings">
+									<h2>Details: {{orderTrack.orderDetails.restaurantName}}</h2>
+									<div class="row">
+										<div class="col-md-7 col-sm-5">
+
+											<div class="content table-responsive table-full-width">
+												<table class="table table-striped">
+													<thead>
+														<tr>
+															<th>Item</th>
+															<th>Quantity</th>
+															<th>Price</th>
+
+														</tr>
+													</thead>
+													<tbody  *ngFor="let menuItem of orderTrack.orderDetails.menuItems">
+														<tr>
+															<td>{{menuItem.itemName}}</td>
+															<td>{{menuItem.quantity}}</td>
+															<td>$ {{menuItem.totalPrice}}</td>
+														</tr>
+                                                    </tbody>
+                                                    
+												</table>
+
+											</div>
+
+										</div>
+
+										<div class="col-md-5 col-sm-5">
+
+											<div class="cart-value">
+
+												<ul class="cart-item cart-value-total">
+													<li>Subtotal <span>$ {{orderTrack.orderDetails.paymentDetails.subTotal}}</span></li>
+													<li class="discount">Discount <span>$ {{orderTrack.orderDetails.paymentDetails.discount}}</span></li>
+													<li>Delivery Fee <span>$ {{orderTrack.orderDetails.paymentDetails.deliveryCharges}}</span></li>
+													<li>Tax <span>$ {{orderTrack.orderDetails.paymentDetails.tax}}</span></li>
+												
+													<li class="text-right"><strong>$ {{orderTrack.orderDetails.paymentDetails.grandTotal}}</strong></li>
+												</ul>
+
+											</div>
+										</div>
+									</div>
+                                </div>
+                                
+
+
+							</div>
+                        </div>	
+                        
+                        
+					</div>
+				</div>
+
+				<div class="advertise-container text-center">
+					<div class="col-md-6">
+						<figure>
+							<a href="javascript:void(0);"><img
+								src="assets/images/advertise-small.jpg" alt=""></a>
+						</figure>
+					</div>
+					<div class="col-md-6">
+						<figure>
+							<a href="javascript:void(0);"><img
+								src="assets/images/advertise-small.jpg" alt=""></a>
+						</figure>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-2 col-sm-3">
+				<div class="text-center">
+					<figure>
+						<a href="javascript:void(0);"><img
+							src="assets/images/advertise-big2.jpg" alt=""></a>
+					</figure>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+</body>

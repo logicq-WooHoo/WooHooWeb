@@ -1,9 +1,7 @@
-/* -- import Bootstrap v3 --------------------------- */
-/* -- import Bootstrap docs ------------------------- */
-/* -- import Roboto Font ---------------------------- */
-@import "https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic&subset=latin,cyrillic";
-/* -- Body style ------------------------------------ */
 
+.body{
+  background-color:#eee;
+}
 /* -- Input styles ---------------------------------- */
 .form-group {
   position: relative;
@@ -83,32 +81,13 @@ label {
 }
 
 
-/* input colors ---- */
-// default
-.form-control:focus {
-  ~ label {
-    color: #03a9f4;
-  }
-  
-  ~ .form-bar:before, ~ .form-bar:after {
-    background: #03a9f4;
-  }
-}
-
-
-
-
-.form-control:valid ~ .control-label {
-
-}
-
 /* help-block */
 .form-group .help-block {
   position: absolute;
 }
 
 .help-block {
-  color: #bdbdbd; // caption
+  color: #bdbdbd;
   font-size: 12px;
   font-weight: 300;
 }
@@ -207,12 +186,6 @@ label {
 }
 
 
-/*-- Checkbox --------------------------- */
-// fork from https://codepen.io/jasonmayes/pen/wxtFr
-/* 
- * Core styles required for the checkboxes.
- * @author Jason Mayes 2014, www.jasonmayes.com
-*/
 .form-group.checkbox {
   margin-top: 20px;
 }
@@ -266,26 +239,16 @@ label {
   transform: rotate(-45deg) scaleY(0.5);
 }
 
-// Checkbox colors
+
 .checkbox .chk-span.checked {
   border-left-color: #03a9f4;
   border-bottom-color: #03a9f4;
 }
 
-// focus state
+
 .checkbox input[type='checkbox']:focus ~ label {
   
   color: #03a9f4;
-  
-  .chk-span {
-    border-color: #03a9f4;
-    &.checked {
-      border-left-color: #03a9f4;
-      border-bottom-color: #03a9f4;
-      border-top: 1px solid rgba(0, 0, 0, 0);
-      border-right: 1px solid rgba(0, 0, 0, 0);
-    }
-  }
 }
 
 
@@ -308,18 +271,6 @@ label {
   background-color: transparent;
   border-bottom-style: dashed;
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 #focusedInput {

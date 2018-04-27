@@ -16,7 +16,7 @@ export class OrdersComponent implements OnInit{
    }
 
   ngOnInit() {
-    this.ordersService.getPastOrdersForUser(2).subscribe(pastOrders => {
+    this.ordersService.getPastOrdersForUser(1).subscribe(pastOrders => {
         this.pastOrders = pastOrders;
         console.log(pastOrders);
     });

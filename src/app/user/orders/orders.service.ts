@@ -13,7 +13,7 @@ export class OrdersService {
       getPastOrdersForUser(userId: Number){
         let postheaders = new Headers({'Content-Type': 'application/json','Access-Control-Allow-Origin':'*'});
         let options = new RequestOptions({ headers: postheaders });
-        return this.http.get("http://127.0.0.1:8090/api/user/getpastorders/2",options).map(res => res.json());
+        return this.http.get("http://127.0.0.1:8090/api/user/getpastorders/"+userId,options).map(res => res.json());
       }
 
 }
