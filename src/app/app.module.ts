@@ -1,17 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { MatStepperModule } from '@angular/material/stepper';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider, LinkedInLoginProvider} from "angularx-social-login";
  
 //Material Components
-import {
-  MatButtonModule, MatCheckboxModule, MatInputModule, MatRadioModule, MatMenuModule, MatFormFieldModule, MatSelectModule
-  , MatToolbarModule, MatGridListModule, MatIconModule, MatCardModule
-} from '@angular/material';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import { Http,Headers,RequestOptions,Response,RequestMethod,Request,HttpModule} from '@angular/http';
@@ -56,10 +50,7 @@ let config = new AuthServiceConfig([
       libraries: ["places"]
     }),
     BrowserModule,
-    SocialLoginModule.initialize(config),
-    MatButtonModule, MatCheckboxModule, MatInputModule, MatRadioModule, MatMenuModule, MatFormFieldModule, MatSelectModule,
-    MatToolbarModule, MatCardModule,
-    BrowserAnimationsModule, MatStepperModule, FormsModule, ReactiveFormsModule, MatGridListModule, MatIconModule,
+    SocialLoginModule.initialize(config), ReactiveFormsModule,
     HttpClientModule, HttpModule,
     CdkStepperModule,
     routing,
