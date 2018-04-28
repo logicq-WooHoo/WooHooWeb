@@ -1,7 +1,6 @@
 //import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { CheckoutComponent } from './checkout.component';
-import { CheckoutCartComponent } from './checkout-cart/checkout-cart.component';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider, LinkedInLoginProvider} from "angularx-social-login";
@@ -14,11 +13,17 @@ import { AgmCoreModule } from '@agm/core';
 import { HttpClient } from '@angular/common/http';
 import {TranslateModule, TranslateStaticLoader, TranslateLoader} from 'ng2-translate/ng2-translate';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { CheckoutComponent } from './checkout.component';
+import { CheckoutCartComponent } from './checkout-cart/checkout-cart.component';
+import { PaymentComponent } from './payment/payment.component';
+import { CheckoutCartService } from './checkout-cart/checkout-cart.service';
+
 
 @NgModule({
   declarations: [
     CheckoutComponent,
-    CheckoutCartComponent
+    CheckoutCartComponent,
+    PaymentComponent
     
     //EntitySearchComponent,
     //LocationComponent
@@ -35,7 +40,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
       deps: [Http]
     })
   ],
-  providers: [checkoutRoutingProviders,TranslateModule /*LocationService*/],
+  providers: [checkoutRoutingProviders,TranslateModule, CheckoutCartService /*LocationService*/],
   bootstrap: [CheckoutComponent]
 })
 export class CheckoutModule { }

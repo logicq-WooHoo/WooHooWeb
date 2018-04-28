@@ -1,4 +1,4 @@
-<div class="body">
+
 		<section class="page-heading clearfix" *ngIf="cart">
 			<div class="container no-glitter">
 				<h2>You have selected {{cart.restaurantCart.length}} Restaurants for American Foods</h2>			
@@ -49,7 +49,7 @@
 									</div>	
 									<div class="clearfix"></div>
 									<div class="btn-cart-holder">
-										<button type="button" class="btn-yellow" routerLink="/">Add More</button>
+										<button type="button" class="btn-yellow" routerLink="/entitySearch" [queryParams]="{resIds:restaurant.id}">Add More</button>
 									</div>
 								</div>
 							</div>
@@ -77,7 +77,11 @@
 						<div class="col-md-4 col-sm-4">
 							<div class="estimate-time">
 								Estimate delivery time: <span>45 Mins</span>
-								<button type="button" class="make-payment" (click)="doEmptyCart()">Empty Cart</button>
+								<div class="promo-code">
+									<input type="text" class="form-control" placeholder="Enter promo code"><button type="button" class="btn-procode">Apply</button>
+								</div>
+								<div class="cart-item cart-value-total"><span>Tota Amount to be paid: </span><span>{{cart.grossTotal}}</span></div>
+								<button type="button" class="make-payment" (click)="makePayment()">Make Payment</button>
 							</div>
 							<div class="row-item padd20" *ngFor="let restaurant of cart.restaurantCart">
 								<div class="cart-value" >{{restaurant.restaurantName}}
@@ -90,16 +94,13 @@
 									</ul>
 									<ul class="cart-item cart-value-total">
 										<li>Subtotal <span>{{restaurant.total}}</span></li>
-										<li>+ TAX<span>20.00</span></li>
-										<li>Total will be rounded off</li>
-										<li class="text-right"><strong>{{restaurant.total}}</strong></li>
+										<li>+ TAX<span>{{restaurant.grossTotal - restaurant.total}}</span></li>
+										<li>Total will be rounded off<span>{{restaurant.grossTotal}}</span></li>
+										
 									</ul>
-									<div><span>Final Amount</span><span>{{cart.itemsTotal}}</span></div>
-									<div class="promo-code">
-										<input type="text" class="form-control" placeholder="Enter promo code"><button type="button" class="btn-procode">Apply</button>
-									</div>
 									
-									<button type="button" class="make-payment">Make Payment</button>
+									
+									
 								</div>
 							</div>
 						</div>
@@ -107,4 +108,3 @@
 				</div>
 			</div>			
 		</section>
-	</div>

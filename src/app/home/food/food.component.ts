@@ -14,8 +14,8 @@ export class FoodSearchComponent implements OnInit {
 
   restarentSearchCount:Array<Object>=new Array<Object>() ;
   italianResSize:number;
-  latitude:number=37.793461;
-  longitude:number=-122.399642;
+  latitude:number=18.5075353;
+  longitude:number=73.7713107;
   restarentCount:Map<string, Array<number>> = new Map<string, Array<number>>();;
   
 

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ShoppingCart } from '../../home/shopping-cart/shopping-cart';
+import { CheckoutCartService } from './checkout-cart.service';
+import { Routes, RouterModule, Router, ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-checkout-cart',
@@ -8,14 +10,32 @@ import { ShoppingCart } from '../../home/shopping-cart/shopping-cart';
 })
 export class CheckoutCartComponent {
   cart: ShoppingCart;
-  constructor() {
+  constructor(public checkoutCartService: CheckoutCartService,
+              public router: Router) {
      this.cart = JSON.parse(localStorage.getItem('cart'));
      console.log(this.cart);
+     this.calculateTaxes();
+   }
+
+   calculateTaxes(){
+     if(this.cart.restaurantCart && this.cart.restaurantCart.length > 0){
+      this.cart.restaurantCart.forEach(restaurant => {
+        this.checkoutCartService.getTaxAmount( restaurant.total ).subscribe( data => {
+          restaurant.grossTotal = data['tax']['taxable_amount'];
+          this.cart.grossTotal = this.cart.grossTotal  + restaurant.grossTotal;
+        });
+     });
+     }
+     
    }
    
    doEmptyCart(){
     localStorage.removeItem('cart');
     this.cart = null;
+   }
+
+   makePayment(){
+    this.router.navigate(['checkout/payment', {'amount':this.cart.grossTotal}]);
    }
 
 }

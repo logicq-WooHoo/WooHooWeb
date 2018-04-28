@@ -1,6 +1,7 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CheckoutCartComponent } from './checkout-cart/checkout-cart.component';
+import { PaymentComponent } from './payment/payment.component';
 
 
 export const checkoutRoutes: Routes = [
@@ -9,7 +10,7 @@ export const checkoutRoutes: Routes = [
   children: [
     { path: '', redirectTo: '', pathMatch: 'full' },
     { path: 'checkout', component: CheckoutCartComponent },
-    //{ path: 'payment', component: ProfileComponent}
+    { path: 'payment', component: PaymentComponent}
   ]}
   // { path:  'entitysearch', component :EntitySearchComponent}
 ];
