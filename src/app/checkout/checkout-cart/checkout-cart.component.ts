@@ -13,20 +13,20 @@ export class CheckoutCartComponent {
   constructor(public checkoutCartService: CheckoutCartService,
               public router: Router) {
      this.cart = JSON.parse(localStorage.getItem('cart'));
-     console.log(this.cart);
+     //console.log(this.cart);
      this.calculateTaxes();
    }
 
    calculateTaxes(){
-     if(this.cart.restaurantCart && this.cart.restaurantCart.length > 0){
+     if(this.cart && this.cart.restaurantCart && this.cart.restaurantCart.length > 0){
       this.cart.restaurantCart.forEach(restaurant => {
         this.checkoutCartService.getTaxAmount( restaurant.total ).subscribe( data => {
           restaurant.grossTotal = data['tax']['taxable_amount'];
           this.cart.grossTotal = this.cart.grossTotal  + restaurant.grossTotal;
+          localStorage.setItem('cart', JSON.stringify(this.cart));
         });
      });
      }
-     
    }
    
    doEmptyCart(){

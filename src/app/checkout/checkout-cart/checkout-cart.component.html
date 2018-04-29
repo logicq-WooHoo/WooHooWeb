@@ -41,16 +41,14 @@
 														<div class="btn-holder">
 															<button class="less-item">-</button><input type="text" [placeholder]="item.quantity" class="form-control" ><button class="add-item">+</button>
 														</div>
-														<a href="javascript:void(0);" class="remove-item">Remove</a>
+														<a href="" class="remove-item">Remove</a>
 													</div>
 												</div>
 											</div>
 										</div>
 									</div>	
-									<div class="clearfix"></div>
-									<div class="btn-cart-holder">
-										<button type="button" class="btn-yellow" routerLink="/entitySearch" [queryParams]="{resIds:restaurant.id}">Add More</button>
-									</div>
+		
+									
 								</div>
 							</div>
 							<div class="row-item padd20">
@@ -81,7 +79,7 @@
 									<input type="text" class="form-control" placeholder="Enter promo code"><button type="button" class="btn-procode">Apply</button>
 								</div>
 								<div class="cart-item cart-value-total"><span>Tota Amount to be paid: </span><span>{{cart.grossTotal}}</span></div>
-								<button type="button" class="make-payment" (click)="makePayment()">Make Payment</button>
+								<button routerLink="/checkout/payment" [queryParams]="{amount: cart.grossTotal}" type="button" class="make-payment">Make Payment</button>
 							</div>
 							<div class="row-item padd20" *ngFor="let restaurant of cart.restaurantCart">
 								<div class="cart-value" >{{restaurant.restaurantName}}
