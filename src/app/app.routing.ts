@@ -1,6 +1,7 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
 
 //import { HotelSearchComponent } from './hotel/hotel.component';
 // import { BarSearchComponent } from './bar/bar.component';
@@ -14,7 +15,7 @@ export const appRoutes: Routes = [
   { path: '', loadChildren: './home/home.module#HomeModule' },
   { path: 'user', loadChildren: './user/user.module#UserModule' },
   { path: 'checkout', loadChildren: './checkout/checkout.module#CheckoutModule' },
-  //{ path:  'hotelregistration', component :HotelregistrationComponent},
+  { path:  'login', component : LoginComponent},
   //{ path:  'barsearchlist', component :BarSearchComponent},
   //{ path:  'hotelsearchlist', component :HotelSearchComponent},
   //{ path:  'shopsearchlist', component :ShopSearchComponent},

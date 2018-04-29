@@ -12,6 +12,7 @@ import { } from '@types/googlemaps';
 import { } from 'googlemaps';
 import { MapsAPILoader } from '@agm/core';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -61,6 +62,7 @@ export class HomeComponent {
   this.initLocation();
 
   localStorage.setItem("lang","en");
+  this.isUserLoggedIn();
   }
 
   initLocation(){
@@ -99,9 +101,14 @@ export class HomeComponent {
     this.translate.use(language);
     localStorage.setItem("lang",language);
   }
-  signOut(): void {
-    localStorage.clear();
-    this.user = null;
-    this.authService.signOut();
-  }
+ isUserLoggedIn(){
+   if(localStorage.getItem('user')){
+     this.user = JSON.parse(localStorage.getItem('user'));
+   }
+ }
+ signOut(){
+  this.authService.signOut();
+  localStorage.removeItem('user');
+  this.user = null;
+ }
 }
