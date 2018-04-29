@@ -69,10 +69,13 @@ export class ShoppingCartService {
       cart.restaurantCart.push(tempRestaurant);
     }
 
+    this.updateCart(cart);
+    
+  }
+
+  public updateCart(cart){
     this.calculateCart(cart);
     this.save(cart);
-    this.dispatch(cart);
-    
   }
 
   public empty(): void {
@@ -83,15 +86,18 @@ export class ShoppingCartService {
 
  
   private calculateCart(cart: ShoppingCart): void {
-    
+    let itemCount = 0;
+    let grossTotal = 0;
       if(cart.restaurantCart){
         cart.itemsTotal = 0;
         cart.restaurantCart.forEach(restaurant => {
           restaurant.total = 0;
           restaurant.itemsSelected.forEach(item =>{
+            itemCount = item.quantity + itemCount;
             restaurant.total = restaurant.total + (item.quantity * item.price);
           });
           cart.itemsTotal = cart.itemsTotal + restaurant.total;
+          cart.totalNumberOfItems = itemCount;
         });
       }
   }

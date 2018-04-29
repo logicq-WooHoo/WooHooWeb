@@ -36,16 +36,6 @@ export class LoginComponent implements OnInit {
 
 
   ngOnInit() {
-   
-    this.authService.authState.subscribe((user) => {
-      this.user = user;
-      this.loggedIn = (user != null);
-      localStorage.setItem('user', JSON.stringify(user));
-      if(this.loggedIn){
-        console.log(user);
-       // this.router.navigate(['']);
-      }
-    });
   }
 
   signIn(){
@@ -78,19 +68,31 @@ export class LoginComponent implements OnInit {
     );
   }*/
   signInWithGoogle(): void {
-    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
-    this.setUserDetails();
-    this.router.navigate(['']);
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(
+      (userData) => {
+        this.setUserDetails(userData);
+        
+      }
+    );
+    
   }
  
   signInWithFB(): void {
-    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
-    this.setUserDetails();
-    this.router.navigate(['']);
+    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then(
+      (userData) => {
+        this.setUserDetails(userData);
+        
+      }
+    );
   }
   
   signInWithLinkedIn(): void {
-    this.authService.signIn(LinkedInLoginProvider.PROVIDER_ID);
+    this.authService.signIn(LinkedInLoginProvider.PROVIDER_ID).then(
+      (userData) => {
+        this.setUserDetails(userData);
+        
+      }
+    );
   }  
  
   signOut(): void {
@@ -112,16 +114,15 @@ export class LoginComponent implements OnInit {
   }
 
 
-  setUserDetails(){
-    this.authService.authState.subscribe((user) => {
+  setUserDetails(user: SocialUser){
+   
       this.user = user;
       this.loggedIn = (user != null);
       localStorage.setItem('user', JSON.stringify(user));
       if(this.loggedIn){
         console.log(user);
-       // this.router.navigate(['']);
+       this.router.navigate(['']);
       }
-    });
   }
 
 }

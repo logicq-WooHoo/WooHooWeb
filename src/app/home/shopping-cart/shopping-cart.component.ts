@@ -30,42 +30,19 @@ export class ShoppingCartComponent implements OnInit, OnDestroy, OnChanges{
   }
 
   public ngOnInit(): void {
-    this.cart = this.shoppingCartService.get();
-    this.cartSubscription = this.cart.subscribe((cart) => {
-      this.itemCount = 0;
-      this.grossTotal = 0;
-      if(cart.restaurantCart){
-        cart.itemsTotal = 0;
-        cart.restaurantCart.forEach(restaurant => {
-          restaurant.total = 0;
-          restaurant.itemsSelected.forEach(item =>{
-            this.itemCount = item.quantity + this.itemCount;
-            this.grossTotal = this.grossTotal + (item.quantity * item.price);
-            restaurant.total = restaurant.total + (item.quantity * item.price);
-          });
-          cart.itemsTotal = cart.itemsTotal + restaurant.total;
-        });
-      }
-    });
+    this.fetchAndUpdateCart();
   }
 
   public ngOnChanges(): void {
+    this.fetchAndUpdateCart();
+  }
+  private fetchAndUpdateCart(){
     this.cart = this.shoppingCartService.get();
     this.cartSubscription = this.cart.subscribe((cart) => {
-      this.itemCount = 0;
-      this.grossTotal = 0;
-      if(cart.restaurantCart){
-        cart.itemsTotal = 0;
-        cart.restaurantCart.forEach(restaurant => {
-          restaurant.total = 0;
-          restaurant.itemsSelected.forEach(item =>{
-            this.itemCount = item.quantity + this.itemCount;
-            this.grossTotal = this.grossTotal + (item.quantity * item.price);
-            restaurant.total = restaurant.total + (item.quantity * item.price);
-          });
-          cart.itemsTotal = cart.itemsTotal + restaurant.total;
-        });
-      }
+      this.shoppingCartService.updateCart(cart);
+      let updatedCart: ShoppingCart = JSON.parse(localStorage.getItem('cart'));
+      this.itemCount = updatedCart.totalNumberOfItems;
+      this.grossTotal = updatedCart.itemsTotal;
     });
   }
 

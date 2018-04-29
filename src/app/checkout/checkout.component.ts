@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ShoppingCart } from '../home/shopping-cart/shopping-cart';
 
 @Component({
   selector: 'app-checkout',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class CheckoutComponent {
   title = 'app';
+  cart: ShoppingCart;
+  constructor(){
+    this.cart = JSON.parse(localStorage.getItem('cart'));
+  }
 }

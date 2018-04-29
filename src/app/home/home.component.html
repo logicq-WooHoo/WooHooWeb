@@ -13,7 +13,7 @@
               <li>
                   <a href="#" class="cart-icon">
                   <i class="glyphicon glyphicon-shopping-cart"></i>
-                  <span class="num">10</span>
+                  <span *ngIf="cart" class="num">{{cart.totalNumberOfItems}}</span>
                   </a>
               </li>
               
