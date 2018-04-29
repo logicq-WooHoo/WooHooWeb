@@ -1,174 +1,146 @@
 
 				<section class="page-heading clearfix">
-			<div class="container no-glitter">
-				<h2>Total Payment <span>₹ 1275.50</span> <button type="button" class="btn btn-default pull-right">Add More</button></h2>			
-			</div>
-		</section>
-
-		<section class="body-container">
-			<div class="container no-glitter">
-				<div class="row clearfix"> 
-		
-					<div class="checkput-container">
-						<div class="col-md-8 col-sm-8">
-								<div class="row-item">
-								<!-- Payment Tab -->
-								<div class="clearfix">
-						
-						      
-				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 bhoechie-tab-menu">
-              <div class="list-group">
-                <a href="#" class="list-group-item active text-center">
-                  <h4 class="glyphicon glyphicon-credit-card"></h4><br/>Card
-                </a>
-                <a href="#" class="list-group-item text-center">
-                  <h4 class="glyphicon glyphicon-book"></h4><br/>Wallet
-                </a>
-                <a href="#" class="list-group-item text-center">
-                  <h4 class="glyphicon glyphicon-transfer"></h4><br/>Netbanking
-                </a>
-                <a href="#" class="list-group-item text-center">
-                  <h4 class="glyphicon glyphicon-briefcase"></h4><br/>Cash On Delivery
-                </a>
-                <a href="#" class="list-group-item text-center">
-                  <h4 class="glyphicon glyphicon-phone"></h4><br/>Digital Payment
-                </a>
-              </div>
-            </div>
-            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 bhoechie-tab">
-                <!-- flight section -->
-                <div class="bhoechie-tab-content active">
-                  
-
-            <div class="panel panel-default">
-        
-                <div class="panel-body">
-                    <form role="form">
-                    <div class="form-group">
-                        <label for="cardNumber">
-                            CARD NUMBER</label>
-                        <div class="input-group">
-                            <input type="text" class="form-control" id="cardNumber" placeholder="Valid Card Number"
-                                required autofocus />
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                        </div>
+                    <div class="container no-glitter">
+                        <h2>Total Payment <span>{{cart.grossTotal}}</span> <button type="button" class="btn btn-default pull-right">Add More</button></h2>			
                     </div>
-                      <!-- Name -->
-          <div class="form-group">
-            <label class="control-label"  for="username">CARD HOLDER'S NAME</label>
-            <div class="controls">
-                 <input type="text" class="form-control" id="cardNumber" placeholder=""
-                                required  />
-            </div>
-          </div>
-                    <div class="row">
-                        <div class="col-xs-7 col-md-7">
+                </section>
+        
+                <section class="body-container">
+                    <div class="container no-glitter">
+                        <div class="row clearfix"> 
+                            <div class="col-md-12">
+                                <div class="menu-step">
+                                    <ul class="menu-step-select">
+                                        <li class="visited"><div class="icon s-search"><i></i> <a href="entitySearch"><span>Select Menu's</span></a></div></li>
+                                        <li class="visited"><div class="icon cart"><i></i><span>Cart/Check out</span></div></li>
+                                        <li class="active"><div class="icon payment"><i></i><span>Payment</span></div></li>
+                                        <li ><div class="icon enjoy"><i></i><span>Enjoy</span></div></li>
+                                    </ul>
+                                </div>						
+                            </div>
+                            <div class="checkput-container">
+                                <div class="col-md-8 col-sm-8">
+                                        <div class="row-item">
+                                        <!-- Payment Tab -->
+                                        <div class="clearfix">
+                                
+                                      
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 bhoechie-tab-menu">
+                      <div class="list-group">
+                        <a href="#" class="list-group-item active text-center">
+                          <h4 class="glyphicon glyphicon-credit-card"></h4><br/>Card
+                        </a>
+                        <a href="#" class="list-group-item text-center">
+                          <h4 class="glyphicon glyphicon-book"></h4><br/>Wallet
+                        </a>
+                        <a href="#" class="list-group-item text-center">
+                          <h4 class="glyphicon glyphicon-transfer"></h4><br/>Netbanking
+                        </a>
+                        <a href="#" class="list-group-item text-center">
+                          <h4 class="glyphicon glyphicon-briefcase"></h4><br/>Cash On Delivery
+                        </a>
+                        <a href="#" class="list-group-item text-center">
+                          <h4 class="glyphicon glyphicon-phone"></h4><br/>Digital Payment
+                        </a>
+                      </div>
+                    </div>
+                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 bhoechie-tab">
+                        <!-- flight section -->
+                        <div class="bhoechie-tab-content active">
+                          
+        
+                    <div class="panel panel-default">
+                
+                        <div class="panel-body">
+                            <form role="form">
                             <div class="form-group">
-                                <label  class="col-xs-12 col-lg-12 col-md-12" for="expityMonth">
-                                    EXPIRY DATE</label>
-                                <div class="col-xs-6 col-lg-6 pl-ziro">
-                                    <input type="text" class="form-control" id="expityMonth" placeholder="MM" required />
+                                <label for="cardNumber">
+                                    CARD NUMBER</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="cardNumber" placeholder="Valid Card Number"
+                                        required autofocus />
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
                                 </div>
-                                <div class="col-xs-6 col-lg-6 pl-ziro">
-                                    <input type="text" class="form-control" id="expityYear" placeholder="YY" required /></div>
                             </div>
-                        </div>
-                        <div class="col-xs-5 col-md-5 pull-right">
-                            <div class="form-group">
-                                <label for="cvCode">
-                                    CVV2 CODE</label>
-                                <input type="password" class="form-control" id="cvCode" placeholder="CVV2" required />
+                              <!-- Name -->
+                  <div class="form-group">
+                    <label class="control-label"  for="username">CARD HOLDER'S NAME</label>
+                    <div class="controls">
+                         <input type="text" class="form-control" id="cardNumber" placeholder=""
+                                        required  />
+                    </div>
+                  </div>
+                            <div class="row">
+                                <div class="col-xs-7 col-md-7">
+                                    <div class="form-group">
+                                        <label  class="col-xs-12 col-lg-12 col-md-12" for="expityMonth">
+                                            EXPIRY DATE</label>
+                                        <div class="col-xs-6 col-lg-6 pl-ziro">
+                                            <input type="text" class="form-control" id="expityMonth" placeholder="MM" required />
+                                        </div>
+                                        <div class="col-xs-6 col-lg-6 pl-ziro">
+                                            <input type="text" class="form-control" id="expityYear" placeholder="YY" required /></div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-5 col-md-5 pull-right">
+                                    <div class="form-group">
+                                        <label for="cvCode">
+                                            CVV2 CODE</label>
+                                        <input type="password" class="form-control" id="cvCode" placeholder="CVV2" required />
+                                    </div>
+                                </div>
                             </div>
+                            </form>
                         </div>
                     </div>
-                    </form>
-                </div>
-            </div>
+                
+                    <a routerLink="/checkout/track" class="btn make-payment" role="button">Pay</a>
+             
+                          
+                        </div>
+                        <!-- train section -->
+                        <div class="bhoechie-tab-content">
+                            
+                              <h1 class="glyphicon glyphicon-book" style="font-size:12em;color:#55518a"></h1>
+                              <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
+                              <h3 style="margin-top: 0;color:#55518a">Wallet</h3>
+                            
+                        </div>
+            
+                        <!-- hotel search -->
+                        <div class="bhoechie-tab-content">
+                            
+                              <h1 class="glyphicon glyphicon-transfer" style="font-size:12em;color:#55518a"></h1>
+                              <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
+                              <h3 style="margin-top: 0;color:#55518a">Net Banking</h3>
+                            
+                        </div>
+                        <div class="bhoechie-tab-content">
+                            
+                              <h1 class="glyphicon glyphicon-briefcase" style="font-size:12em;color:#55518a"></h1>
+                              <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
+                              <h3 style="margin-top: 0;color:#55518a">Csh On Deliver</h3>
+                            
+                        </div>
+                        <div class="bhoechie-tab-content">
+                            
+                              <h1 class="glyphicon glyphicon-phone" style="font-size:12em;color:#55518a"></h1>
+                              <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
+                              <h3 style="margin-top: 0;color:#55518a">Digita Payment</h3>
+                            
+                        </div>
+                    </div>
+                
+          </div>
         
-            <a href="#" class="btn make-payment" role="button">Pay</a>
-     
-				  
                 </div>
-                <!-- train section -->
-                <div class="bhoechie-tab-content">
+            
+                            
                     
-                      <h1 class="glyphicon glyphicon-book" style="font-size:12em;color:#55518a"></h1>
-                      <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
-                      <h3 style="margin-top: 0;color:#55518a">Wallet</h3>
-                    
-                </div>
-    
-                <!-- hotel search -->
-                <div class="bhoechie-tab-content">
-                    
-                      <h1 class="glyphicon glyphicon-transfer" style="font-size:12em;color:#55518a"></h1>
-                      <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
-                      <h3 style="margin-top: 0;color:#55518a">Net Banking</h3>
-                    
-                </div>
-                <div class="bhoechie-tab-content">
-                    
-                      <h1 class="glyphicon glyphicon-briefcase" style="font-size:12em;color:#55518a"></h1>
-                      <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
-                      <h3 style="margin-top: 0;color:#55518a">Csh On Deliver</h3>
-                    
-                </div>
-                <div class="bhoechie-tab-content">
-                    
-                      <h1 class="glyphicon glyphicon-phone" style="font-size:12em;color:#55518a"></h1>
-                      <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
-                      <h3 style="margin-top: 0;color:#55518a">Digita Payment</h3>
-                    
-                </div>
-            </div>
-        
-  </div>
-
-		</div>
-	
-						<!-- // -->
-						
-						
-						
-							<div class="col-md-12">
-						<div class="advertise-container text-center">
-							<div class="col-md-6">
-								<figure><a href=""><img src="images/advertise-small.jpg" alt=""></a></figure>
-							</div>
-							<div class="col-md-6">
-								<figure><a href=""><img src="images/advertise-small.jpg" alt=""></a></figure>
-							</div>
-						</div>
-					</div>	
-						
-			
-						</div>
-						<div class="col-md-4 col-sm-4">
-							
-							<div class="row-item padd20">
-								<div class="cart-value">
-									<ul class="cart-item">
-										<li><small>1x</small> Dal Tadka <span>140.00</span></li>
-										<li><small>1x</small> Dal Tadka <span>140.00</span></li>
-										<li><small>1x</small> Dal Tadka <span>140.00</span></li>
-										<li><small>1x</small> Dal Tadka <span>140.00</span></li>
-										<li><small>1x</small> Dal Tadka <span>140.00</span></li>
-									</ul>
-									<ul class="cart-item cart-value-total">
-										<li>Subtotal <span>20.00</span></li>
-										<li class="discount">Discount <span>20.00</span></li>
-										<li>Delivery Fee <span>20.00</span></li>
-										<li>+ SGST <span>20.00</span></li>
-										<li>+ CGST <span>20.00</span></li>
-										<li>Total will be rounded off <span>20.00</span></li>
-										<li class="text-right"><strong>1275.50</strong></li>
-									</ul>
-								
-								</div>
-							</div>
-						</div>
-					</div>
-							
-				</div>
-			</div>			
-		</section>
+                                </div>
+                               
+                            </div>
+                                    
+                        </div>
+                    </div>			
+                </section>

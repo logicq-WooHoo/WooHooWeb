@@ -3,10 +3,10 @@ import { ShoppingCart } from '../../home/shopping-cart/shopping-cart';
 
 @Component({
   selector: 'app-payment',
-  templateUrl: './payment.component.html',
-  styleUrls: ['./payment.component.css']
+  templateUrl: './track.component.html',
+  styleUrls: ['./track.component.css']
 })
-export class PaymentComponent {
+export class TrackComponent {
   cart: ShoppingCart;
   constructor() {
     this.cart = JSON.parse(localStorage.getItem('cart'));

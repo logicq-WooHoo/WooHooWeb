@@ -16,6 +16,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { CheckoutComponent } from './checkout.component';
 import { CheckoutCartComponent } from './checkout-cart/checkout-cart.component';
 import { PaymentComponent } from './payment/payment.component';
+import { TrackComponent } from './track/track.component';
 import { CheckoutCartService } from './checkout-cart/checkout-cart.service';
 
 
@@ -23,7 +24,8 @@ import { CheckoutCartService } from './checkout-cart/checkout-cart.service';
   declarations: [
     CheckoutComponent,
     CheckoutCartComponent,
-    PaymentComponent
+    PaymentComponent,
+    TrackComponent
     
     //EntitySearchComponent,
     //LocationComponent
