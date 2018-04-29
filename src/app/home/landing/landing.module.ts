@@ -13,13 +13,21 @@ import {TranslateModule, TranslateStaticLoader, TranslateLoader} from 'ng2-trans
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { LandingComponent } from './landing.component';
 import { FoodSearchComponent } from '../food/food.component';
-import { PatnerComponent } from '../patner/patner.component';
+import{HotelSearchComponent} from '../hotel/hotel.component';
+import { ShopSearchComponent } from '../shop/shop.component';
+import { NightlifeSearchComponent } from '../nightlife/nightlife.component';
+import { ActivitySearchComponent } from '../activites/activites.component';
+import { EmergencySearchComponent } from '../emergency/emergency.component';
 
 @NgModule({
   declarations: [
     LandingComponent,
     FoodSearchComponent,
-    PatnerComponent
+    HotelSearchComponent,
+    ShopSearchComponent,
+    NightlifeSearchComponent,
+    ActivitySearchComponent,
+    EmergencySearchComponent
   ],
   imports: [
     landingrouting,

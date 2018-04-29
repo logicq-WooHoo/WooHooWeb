@@ -1,0 +1,37 @@
+<section class="container no-glitter">
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active">
+      <div class="menu-list-item">
+        <div class="row clearfix">
+          <div *ngIf="activitySearchCount">
+
+            <div class="col-sm-4 col-md-4" *ngFor="let activityCount of activitySearchCount">
+              <div class="menu">
+                <figure><a (click)="getActivitiesDetails(activityCount.activityfeids)"><img src="assets/images/page/activity/{{activityCount.name}}.jpg" alt=""></a></figure>
+                <div class="order-area">
+                  <div class="menu-title">
+                    <a (click)="getActivitiesDetails(activityCount.activityfeids)">
+                      <h4>{{activityCount.name | translate}}</h4>
+                    </a>
+                    <span>{{activityCount.count}} {{'label12'| translate}}</span>
+                  </div>
+                  <a (click)="getActivitiesDetails(activityCount.activityfeids)" class="order-now">Book Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Advertise Start-->
+<div class="container no-glitter">
+  <div class="row">
+    <div class="advertise-container text-center">
+      <figure><a href="javascript:void(0);"><img src="assets/images/advertise-big.jpg" alt=""></a></figure>
+    </div>
+  </div>
+</div>

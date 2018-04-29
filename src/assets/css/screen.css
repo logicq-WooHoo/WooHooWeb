@@ -42,8 +42,9 @@ header.affix{width:100%; z-index:99999;  border-bottom:1px solid #da3939;}
 .top-nav .logo, .top-nav .location, .top-nav  .navbar{ flex: 1; line-height:50px; box-shadow:none; -webkit-box-shadow:none; height:auto;}
 .top-nav .location{font-size:14px; text-align:center; position:relative;}
 .top-nav .location a{font-size:12px; margin-left:3px;}
-.location-edit{position:absolute; left:0; top:7px; width:79%; display:none;}
-.location-edit .form-control{text-align:center; box-shadow:none !important;}
+.current-location{border:0; width:250px; height: 25px;}
+.current-location:focus {border-bottom:1px solid #666;}
+.current-location .form-control{text-align:center; box-shadow:none !important;}
 
 .navbar{background:none; border:0; margin-bottom:0; text-align:right;}
 .navbar .navbar-nav{ float:none;}
@@ -85,7 +86,7 @@ header.affix{width:100%; z-index:99999;  border-bottom:1px solid #da3939;}
 /*--- Search ---*/
 
 /*--- Menu ---*/
-.menu{ box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); margin-bottom:30px; overflow:hidden}
+.menu{ box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); background:#fff; margin-bottom:30px; overflow:hidden}
 .menu:hover figure img{  transform: scale(1.04)!important;}
 .order-area{position:relative; padding:20px;}
 .menu  img{transition: all .5s;}

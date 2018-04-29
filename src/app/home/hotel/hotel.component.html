@@ -1,0 +1,35 @@
+<section class="container no-glitter">
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active">
+        <div class="menu-list-item">
+          <div class="row clearfix">
+            <div *ngIf="hotelsSearchCount">
+    
+            <div class="col-sm-4 col-md-4"  *ngFor="let hotelCount of hotelsSearchCount">					
+              <div class="menu">
+                <figure><a  (click)="getHotelDetails(hotelCount.hotelids)"><img src="assets/images/page/hotels/{{hotelCount.name}}.jpg" alt=""></a></figure>
+                <div class="order-area">
+                  <div class="menu-title">
+                      <a (click)="getHotelDetails(hotelCount.hotelids)"><h4>{{hotelCount.name | translate}}</h4></a>
+                    <span>{{hotelCount.count}} {{'label12'| translate}}</span>
+                  </div>
+                  <a (click)="getHotelDetails(hotelCount.hotelids)" class="order-now">Book Now</a>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 			
+      </section>
+    
+    
+      <!-- Advertise Start-->
+    <div class="container no-glitter">
+        <div class="row">
+          <div class="advertise-container text-center">
+            <figure><a href="javascript:void(0);"><img src="assets/images/advertise-big.jpg" alt=""></a></figure>
+          </div>
+        </div>
+      </div>

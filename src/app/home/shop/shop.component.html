@@ -1,0 +1,35 @@
+<section class="container no-glitter">
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active">
+            <div class="menu-list-item">
+              <div class="row clearfix">
+                <div *ngIf="shopSearchCount">
+        
+                <div class="col-sm-4 col-md-4"  *ngFor="let shopCount of shopSearchCount">					
+                  <div class="menu">
+                    <figure><a  (click)="getShopDetails(shopCount.shopids)"><img src="assets/images/page/shops/{{shopCount.name}}.jpg" alt=""></a></figure>
+                    <div class="order-area">
+                      <div class="menu-title">
+                          <a (click)="getShopDetails(shopCount.shopids)"><h4>{{shopCount.name | translate}}</h4></a>
+                        <span>{{shopCount.count}} {{'label12'| translate}}</span>
+                      </div>
+                      <a (click)="getShopDetails(shopCount.shopids)" class="order-now">Go To Shop</a>
+                    </div>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> 			
+          </section>
+        
+        
+          <!-- Advertise Start-->
+        <div class="container no-glitter">
+            <div class="row">
+              <div class="advertise-container text-center">
+                <figure><a href="javascript:void(0);"><img src="assets/images/advertise-big.jpg" alt=""></a></figure>
+              </div>
+            </div>
+          </div>

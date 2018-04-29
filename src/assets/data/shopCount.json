@@ -1,0 +1,34 @@
+{
+    "Boutique": [
+        1,
+        2,
+		9
+    ],
+    "TravelAgent": [
+        13,
+        14,
+		15,
+		16
+    ],
+    "Bakery": [
+        7,
+        11,
+		10
+    ],
+   "DeptmentalStore": [
+        1,
+        2,
+		3
+    ],
+	"Malls": [
+        4,
+        7,
+		3,
+		6
+    ],
+	"SuperMarket": [
+		6,
+		3,
+		5
+    ]
+}
