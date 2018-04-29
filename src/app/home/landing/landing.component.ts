@@ -18,6 +18,16 @@ export class LandingComponent implements OnInit {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   private user: SocialUser;
+  activeFlag: any = {
+    foodsTabActive:String,
+    hotelsTabActive:String,
+    shopTabActive:String,
+    activtiesTabActive:String,
+    nightlifeTabActive:String,
+    emergencyTabActive:String
+  };
+  
+  
   //defaultLocation:String="Pune Railway Station, Agarkar Nagar";
  
 
@@ -25,6 +35,13 @@ export class LandingComponent implements OnInit {
     private authService: AuthService) {
     translate.setDefaultLang('en');
     translate.use('en');
+  
+      this.activeFlag.hotelsTabActive='';
+      this.activeFlag.shopTabActive='',
+      this.activeFlag.activtiesTabActive='',
+      this.activeFlag.nightlifeTabActive='',
+      this.activeFlag.emergencyTabActive=''
+       this.activeFlag.foodsTabActive='active';
    }
 
   ngOnInit() {
@@ -48,5 +65,56 @@ export class LandingComponent implements OnInit {
     localStorage.clear();
     this.user = null;
     this.authService.signOut();
+  }
+
+  setActive(entity: string){
+   if(entity=='FOODS'){
+    this.activeFlag.hotelsTabActive='';
+    this.activeFlag.shopTabActive='',
+    this.activeFlag.activtiesTabActive='',
+    this.activeFlag.nightlifeTabActive='',
+    this.activeFlag.emergencyTabActive=''
+     this.activeFlag.foodsTabActive='active';
+   }
+   if(entity=='HOTELS'){
+    this.activeFlag.hotelsTabActive='active';
+    this.activeFlag.shopTabActive='',
+    this.activeFlag.activtiesTabActive='',
+    this.activeFlag.nightlifeTabActive='',
+    this.activeFlag.emergencyTabActive=''
+     this.activeFlag.foodsTabActive='';
+   }
+   if(entity=='SHOP'){
+    this.activeFlag.hotelsTabActive='';
+    this.activeFlag.shopTabActive='active',
+    this.activeFlag.activtiesTabActive='',
+    this.activeFlag.nightlifeTabActive='',
+    this.activeFlag.emergencyTabActive=''
+     this.activeFlag.foodsTabActive='';
+   }
+   if(entity=='ACTIVTIES'){
+    this.activeFlag.hotelsTabActive='';
+    this.activeFlag.shopTabActive='',
+    this.activeFlag.activtiesTabActive='active',
+    this.activeFlag.nightlifeTabActive='',
+    this.activeFlag.emergencyTabActive=''
+     this.activeFlag.foodsTabActive='';
+   }
+   if(entity=='NIGHTLIFE'){
+    this.activeFlag.hotelsTabActive='';
+    this.activeFlag.shopTabActive='',
+    this.activeFlag.activtiesTabActive='',
+    this.activeFlag.nightlifeTabActive='active',
+    this.activeFlag.emergencyTabActive=''
+     this.activeFlag.foodsTabActive='';
+   }
+   if(entity=='EMERGENCY'){
+    this.activeFlag.hotelsTabActive='';
+    this.activeFlag.shopTabActive='',
+    this.activeFlag.activtiesTabActive='',
+    this.activeFlag.nightlifeTabActive='',
+    this.activeFlag.emergencyTabActive='active'
+     this.activeFlag.foodsTabActive='';
+   }
   }
 }

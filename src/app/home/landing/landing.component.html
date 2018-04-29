@@ -93,14 +93,15 @@
                                         <option value="Archery" selected>Archery</option>
                                         <option value="Camping">Camping</option>
                                         <option value="Canoeing">Canoeing</option>
-                                        <option value="Climbing">Climbing / Abseil</option>
+                                        <option value="Climbing">Climbing </option>
+                                        <option value="Abseil">Abseil</option>
                                         <option value="Duckies">Duckies</option>
                                         <option value="Scrambling">Scrambling</option>
                                         <option value="Scuba">Scuba Diving </option>
                                         <option value="Rafting">Rafting</option>	
                                     </select>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Enter foods">
+                                <input type="text" class="form-control" placeholder="Enter Activites">
                                 <button type="button" class="btn-search"></button>
                             </div>
                         </div>
@@ -169,12 +170,12 @@
                 <div class="menulist-tab">
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs text-center" role="tablist">
-                        <li role="presentation"><a routerLink="/"            role="tab" data-toggle="tab">FOODS</a></li>
-                        <li role="presentation"><a  routerLink="/hotels"     role="tab" data-toggle="tab">HOTELS</a></li>
-                        <li role="presentation"><a  routerLink="/shop" role="tab" data-toggle="tab">SHOP</a></li> 
-                        <li role="presentation"><a  routerLink="/activites" role="tab" data-toggle="tab">ACTIVTIES</a></li> 
-                        <li role="presentation"><a  routerLink="/nightlife" role="tab" data-toggle="tab">NIGHT LIFE</a></li> 
-                        <li role="presentation"><a  routerLink="/emergency" role="tab" data-toggle="tab">EMERGENCY SERVICES</a></li> 
+                        <li role="presentation" class="{{activeFlag.foodsTabActive}}"><a  routerLink="/" (click)="setActive('FOODS')"            role="tab" data-toggle="tab">FOODS</a></li>
+                        <li role="presentation" class="{{activeFlag.hotelsTabActive}}"><a  routerLink="/hotels"   (click)="setActive('HOTELS')"    role="tab" data-toggle="tab">HOTELS</a></li>
+                        <li role="presentation" class="{{activeFlag.shopTabActive}}"><a  routerLink="/shop" (click)="setActive('SHOP')"  role="tab" data-toggle="tab">SHOP</a></li> 
+                        <li role="presentation" class="{{activeFlag.activtiesTabActive}}"><a  routerLink="/activites" (click)="setActive('ACTIVTIES')" role="tab" data-toggle="tab">ACTIVTIES</a></li> 
+                        <li role="presentation" class="{{activeFlag.nightlifeTabActive}}"><a  routerLink="/nightlife"  (click)="setActive('NIGHTLIFE')"role="tab" data-toggle="tab">NIGHT LIFE</a></li> 
+                        <li role="presentation" class="{{activeFlag.emergencyTabActive}}"><a  routerLink="/emergency"  (click)="setActive('EMERGENCY')"role="tab" data-toggle="tab">EMERGENCY SERVICES</a></li> 
                     </ul>
                     </div>
                     </section>
