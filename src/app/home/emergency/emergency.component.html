@@ -1,109 +1,37 @@
-
-<section class="flat-row flat-imagebox style5">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="flat-row-title center">
-          <h2>We offers you different style hotels</h2>
-          <p>
-            Not limit your staying at travel destination
-          </p>
+<section class="container no-glitter">
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active">
+        <div class="menu-list-item">
+          <div class="row clearfix">
+            <div *ngIf="emergencySerSearchCount">
+  
+              <div class="col-sm-4 col-md-4" *ngFor="let emergencySer of emergencySerSearchCount">
+                <div class="menu">
+                  <figure><a (click)="getEmergencyServicesDetails(emergencySer.ids)"><img src="assets/images/page/activity/{{emergencySer.name}}.jpg" alt=""></a></figure>
+                  <div class="order-area">
+                    <div class="menu-title">
+                      <a (click)="getEmergencyServicesDetails(emergencySer.ids)">
+                        <h4>{{emergencySer.name | translate}}</h4>
+                      </a>
+                      <span>{{emergencySer.count}} {{'label12'| translate}}</span>
+                    </div>
+                    <a (click)="getEmergencyServicesDetails(emergencySer.ids)" class="order-now">Book Now</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div><!-- /.col-md-12 -->
-    </div><!-- /.row -->
+      </div>
+    </div>
+  </section>
+  
+  
+  <!-- Advertise Start-->
+  <div class="container no-glitter">
     <div class="row">
-       <div class="col-md-3 col-sm-6">
-        <div class="imagebox style5">
-          <div class="box-image">
-            <img src="assets/images/page/hotels/luxury.jpg" alt="">
-            <div class="overlay"></div>
-          </div>
-          <div class="box-content">
-            <a href="#" title="">Luxurious Hotels</a>
-            <p>8 Hotels Near you</p>
-          </div>
-        </div><!-- /.imaebox style5 -->
-        <div class="height20"></div>
-        <div class="imagebox style5">
-          <div class="box-image">
-            <img src="assets/images/page/hotels/botique.jpg" alt="">
-            <div class="overlay"></div>
-          </div>
-          <div class="box-content">
-            <a href="#" title="">Boutique and lifestyle Hotels</a>
-            <p>8 Hotels Near you</p>
-          </div>
-        </div><!-- /.imaebox style5 -->
-      </div><!-- /.col-md-3 col-sm-6 -->
-      <div class="col-md-3 col-sm-6">
-        <div class="imagebox style5">
-          <div class="box-image">
-            <img src="assets/images/page/hotels/fullservice.jpg" alt="">
-            <div class="overlay"></div>
-          </div>
-          <div class="box-content">
-            <a href="#" title="">	Full-service Hotels</a>
-            <p>8 Hotels Near you</p>
-          </div>
-        </div><!-- /.imaebox style5 -->
-        <div class="height20"></div>
-        <div class="imagebox style5">
-          <div class="box-image">
-            <img src="assets/images/page/hotels/selectedservice.jpg" alt="">
-            <div class="overlay"></div>
-          </div>
-          <div class="box-content">
-            <a href="#" title="">Focused service Hotels</a>
-            <p>8 Hotels Near you</p>
-          </div>
-        </div><!-- /.imaebox style5 -->
-      </div><!-- /.col-md-3 col-sm-6 -->
-      <div class="col-md-3 col-sm-6">
-        <div class="imagebox style5">
-          <div class="box-image">
-            <img src="assets/images/page/hotels/economy.jpg" alt="">
-            <div class="overlay"></div>
-          </div>
-          <div class="box-content">
-            <a href="#" title="">Economy service Hotels</a>
-            <p>8 Hotels Near you</p>
-          </div>
-        </div><!-- /.imaebox style5 -->
-        <div class="height20"></div>
-        <div class="imagebox style5">
-          <div class="box-image">
-            <img src="assets/images/page/hotels/extendedstay.jpg" alt="">
-            <div class="overlay"></div>
-          </div>
-          <div class="box-content">
-            <a href="#" title="">	Extended stay Hotels</a>
-            <p>8 Hotels Near you</p>
-          </div>
-        </div><!-- /.imaebox style5 -->
-      </div><!-- /.col-md-3 col-sm-6 -->
-      <div class="col-md-3 col-sm-6">
-        <div class="imagebox style5">
-          <div class="box-image">
-            <img src="assets/images/page/hotels/timeshareclub.jpg" alt="">
-            <div class="overlay"></div>
-          </div>
-          <div class="box-content">
-            <a href="#" title="">Timeshare and destination clubs</a>
-            <p>USA</p>
-          </div>
-        </div><!-- /.imagebox style5 -->
-        <div class="height20"></div>
-        <div class="imagebox style5">
-          <div class="box-image">
-            <img src="assets/images/page/hotels/motel.jpg" alt="">
-            <div class="overlay"></div>
-          </div>
-          <div class="box-content">
-            <a href="#" title="">Motel</a>
-            <p>15 Resturants Near you</p>
-          </div>
-        </div><!-- /.imagebox style5 -->
-      </div><!-- /.col-md-3 col-sm-6 -->
-    </div><!-- /.row -->
-  </div><!-- /.container -->
-</section><!-- /.flat-imagebx style5 -->
+      <div class="advertise-container text-center">
+        <figure><a href="javascript:void(0);"><img src="assets/images/advertise-big.jpg" alt=""></a></figure>
+      </div>
+    </div>
+  </div>
