@@ -2,7 +2,6 @@
 import { NgModule } from '@angular/core';
 import { HomeComponent } from './home.component';
 import { LandingService } from './landing/landing.service';
-import { LoginserviceService } from './login/loginservice.service';
 import { MatStepperModule } from '@angular/material/stepper';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
@@ -14,8 +13,6 @@ import {
   , MatToolbarModule, MatGridListModule, MatIconModule, MatCardModule
 } from '@angular/material';
 import { CommonModule } from '@angular/common';
-
-import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { Http,Headers,RequestOptions,Response,RequestMethod,Request,HttpModule} from '@angular/http';
 import { routing, homeRoutingProviders } from './home.routing';
@@ -48,9 +45,6 @@ let config = new AuthServiceConfig([
 @NgModule({
   declarations: [
     HomeComponent,
-
-    LoginComponent,
-    
     BasicSearchComponent,
     EntitySearchComponent,
     EntityTypeComponent,

@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider, LinkedInLoginProvider} from "angularx-social-login";
  
@@ -12,15 +13,11 @@ import { Http,Headers,RequestOptions,Response,RequestMethod,Request,HttpModule} 
 import { routing, appRoutingProviders } from './app.routing';
 import { CdkStepperModule } from '@angular/cdk/stepper';
 import { HotelregistrationComponent } from './hotelregistration/hotelregistration.component';
-//import { HotelSearchComponent } from './hotel/hotel.component';
-// import { BarSearchComponent } from './bar/bar.component';
-// import { ShopSearchComponent } from './shop/shop.component';
-// import { EntitySearchComponent } from './entitysearch/entitysearch.component';
-// import { LocationComponent } from './location/location.component';
-// import { LocationService } from './location/location.service';
 import { AgmCoreModule } from '@agm/core';
 import { HttpClient } from '@angular/common/http';
 import {TranslateModule, TranslateStaticLoader, TranslateLoader} from 'ng2-translate/ng2-translate';
+import { LoginComponent } from './login/login.component';
+import { LoginService } from './login/loginservice.service';
 
 let config = new AuthServiceConfig([
   {
@@ -38,6 +35,8 @@ let config = new AuthServiceConfig([
     AppComponent,
     DashboardComponent,
     HotelregistrationComponent,
+    LoginComponent
+
     /*HotelSearchComponent,
     BarSearchComponent,
     ShopSearchComponent,
@@ -50,9 +49,10 @@ let config = new AuthServiceConfig([
       libraries: ["places"]
     }),
     BrowserModule,
-    SocialLoginModule.initialize(config), ReactiveFormsModule,
+    SocialLoginModule.initialize(config),FormsModule, ReactiveFormsModule,
     HttpClientModule, HttpModule,
     CdkStepperModule,
+    CommonModule,
     routing,
     HttpClientModule,
     TranslateModule.forRoot({ 
@@ -61,7 +61,7 @@ let config = new AuthServiceConfig([
       deps: [Http]
     })
   ],
-  providers: [appRoutingProviders,TranslateModule /*LocationService*/],
+  providers: [appRoutingProviders,TranslateModule, LoginService /*LocationService*/],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

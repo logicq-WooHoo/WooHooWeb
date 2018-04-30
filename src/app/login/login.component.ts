@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginserviceService } from './loginservice.service';
+import { LoginService } from './loginservice.service';
 import { AuthService } from "angularx-social-login";
 import { SocialUser } from "angularx-social-login";
 import { Router } from '@angular/router';
@@ -10,7 +10,7 @@ import { FacebookLoginProvider, GoogleLoginProvider, LinkedInLoginProvider } fro
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers: [LoginserviceService],
+  providers: [LoginService],
 })
 export class LoginComponent implements OnInit {
   firstname:string="";
@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
   private loggedIn: boolean;
  
 
-  constructor(private loginService: LoginserviceService,
+  constructor(private loginService: LoginService,
     private authService: AuthService,
     private router: Router) {
    }
@@ -36,20 +36,6 @@ export class LoginComponent implements OnInit {
 
 
   ngOnInit() {
-    console.log(this.loginService.getRestaurantCities());
-    this.authService.authState.subscribe((user) => {
-      this.user = user;
-      this.loggedIn = (user != null);
-      localStorage.setItem('user', JSON.stringify(user));
-      if(this.loggedIn){
-        console.log(user);
-        this.router.navigate(['']);
-      }
-    });
-  }
-
-  getRestaurantCities(){
-      console.log(this.loginService.getRestaurantCities());
   }
 
   signIn(){
@@ -82,15 +68,31 @@ export class LoginComponent implements OnInit {
     );
   }*/
   signInWithGoogle(): void {
-    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(
+      (userData) => {
+        this.setUserDetails(userData);
+        
+      }
+    );
+    
   }
  
   signInWithFB(): void {
-    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
+    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then(
+      (userData) => {
+        this.setUserDetails(userData);
+        
+      }
+    );
   }
   
   signInWithLinkedIn(): void {
-    this.authService.signIn(LinkedInLoginProvider.PROVIDER_ID);
+    this.authService.signIn(LinkedInLoginProvider.PROVIDER_ID).then(
+      (userData) => {
+        this.setUserDetails(userData);
+        
+      }
+    );
   }  
  
   signOut(): void {
@@ -109,6 +111,18 @@ export class LoginComponent implements OnInit {
       //console.log(data.usernam);
       
     });
+  }
+
+
+  setUserDetails(user: SocialUser){
+   
+      this.user = user;
+      this.loggedIn = (user != null);
+      localStorage.setItem('user', JSON.stringify(user));
+      if(this.loggedIn){
+        console.log(user);
+       this.router.navigate(['']);
+      }
   }
 
 }

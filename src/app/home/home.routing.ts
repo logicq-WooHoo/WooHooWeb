@@ -1,7 +1,6 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home.component';
-import { LoginComponent } from './login/login.component';
 import { LandingComponent } from './landing/landing.component';
 import { FoodSearchComponent } from './food/food.component';
 import { EntityTypeComponent } from './entity/entity.component';
@@ -17,7 +16,7 @@ export const homeRoutes: Routes = [
     { path: 'hotelmenu', component: HotelmenuComponent }
   ] },
   //{ path: '', component: LandingComponent },
-  { path: 'login',component: LoginComponent },
+  
   { path:  'entitytype', component :EntityTypeComponent},
 
 

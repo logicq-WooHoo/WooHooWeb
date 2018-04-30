@@ -7,15 +7,30 @@
             <div class="location"><i class="fa fa-location"></i> <input type="text" name="location" id="location" value="135 Newtownards Road, Belfast, BT4 1AB" class="current-location" /> <a href="javascript:void(0);" id="edit_Location"></a></div>
           <nav class="navbar navbar-default">  
             <ul class="nav navbar-nav"> 
-              <li><a href="javascript:void(0);" data-toggle="modal" data-target="#userLogin">Sign Up</a></li>	
-              <li><a href="javascript:void(0);"  data-toggle="modal" data-target="#userLogin">Log In</a></li>
+              
+              <li><a *ngIf="!user" routerLink="/login">Log In</a></li>
               <!--li><a href="javascript:void(0);" class="icon-call">Call</a></li-->
               <li>
                   <a href="#" class="cart-icon">
                   <i class="glyphicon glyphicon-shopping-cart"></i>
-                  <span class="num">0</span>
+                  <span *ngIf="cart" class="num">{{cart.totalNumberOfItems}}</span>
                   </a>
               </li>
+              
+                
+                  <li *ngIf="user" class="lan">
+                    <div class="dropdown">
+                      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        {{user.name}}
+                        <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                        <li><a routerLink="/user/orders">Past Orders</a></li>
+                        <li><a routerLink="/user/profile">Profile</a></li> 
+                        <li><a (click)="signOut()">Sign Out</a></li> 
+                      </ul>
+                    </div>
+                  </li>
               <li class="lan">
                 <div class="dropdown">
                   <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">

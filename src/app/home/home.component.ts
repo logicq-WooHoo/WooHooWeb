@@ -12,6 +12,9 @@ import { } from '@types/googlemaps';
 import { } from 'googlemaps';
 import { MapsAPILoader } from '@agm/core';
 
+import { ShoppingCart } from './shopping-cart/shopping-cart';
+
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -26,6 +29,7 @@ export class HomeComponent {
   public searchControl: FormControl;
   public lati: number;
   public longi: number;
+  cart: ShoppingCart;
   public city:String;
   public country:String;
   public temp:String[];
@@ -57,10 +61,12 @@ export class HomeComponent {
     this.secondFormGroup = this._formBuilder.group({
       secondCtrl: ['', Validators.required]
     });
-    this.user = JSON.parse(localStorage.getItem('user'));
+  
   this.initLocation();
 
   localStorage.setItem("lang","en");
+  this.getUserDetails();
+  this.cart = JSON.parse(localStorage.getItem('cart'));
   }
 
   initLocation(){
@@ -99,9 +105,14 @@ export class HomeComponent {
     this.translate.use(language);
     localStorage.setItem("lang",language);
   }
-  signOut(): void {
-    localStorage.clear();
-    this.user = null;
-    this.authService.signOut();
-  }
+ getUserDetails(){
+   if(localStorage.getItem('user')){
+     this.user = JSON.parse(localStorage.getItem('user'));
+   }
+ }
+ signOut(){
+  this.authService.signOut();
+  localStorage.removeItem('user');
+  this.user = null;
+ }
 }
