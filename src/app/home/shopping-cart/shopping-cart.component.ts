@@ -3,7 +3,7 @@ import { Observable } from "rxjs/Observable";
 import { Subscription } from "rxjs/Subscription";
 import { MenuItem } from "../hotelmenu/MenuItem";
 import { ShoppingCart } from "./shopping-cart";
-import { ShoppingCartService } from './shopping-cart-service';
+import { ShoppingCartService } from '../../shared/shopping-cart-service';
 import { CartItem } from "./cart-item";
 
 @Component({
@@ -37,10 +37,10 @@ export class ShoppingCartComponent implements OnInit, OnDestroy, OnChanges{
     this.fetchAndUpdateCart();
   }
   private fetchAndUpdateCart(){
-    this.cart = this.shoppingCartService.get();
-    this.cartSubscription = this.cart.subscribe((cart) => {
-      this.shoppingCartService.updateCart(cart);
-      let updatedCart: ShoppingCart = JSON.parse(localStorage.getItem('cart'));
+    let cart = this.shoppingCartService.get();
+    this.cartSubscription = cart.subscribe((updatedCart) => {
+      //this.shoppingCartService.updateCart(cart);
+      //let updatedCart: ShoppingCart = JSON.parse(localStorage.getItem('cart'));
       this.itemCount = updatedCart.totalNumberOfItems;
       this.grossTotal = updatedCart.itemsTotal;
     });

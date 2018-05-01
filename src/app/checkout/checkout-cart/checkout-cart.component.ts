@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ShoppingCart } from '../../home/shopping-cart/shopping-cart';
 import { CheckoutCartService } from './checkout-cart.service';
 import { Routes, RouterModule, Router, ActivatedRoute } from "@angular/router";
+import { ShoppingCartService } from '../../shared/shopping-cart-service';
 
 @Component({
   selector: 'app-checkout-cart',
@@ -10,15 +11,19 @@ import { Routes, RouterModule, Router, ActivatedRoute } from "@angular/router";
 })
 export class CheckoutCartComponent {
   cart: ShoppingCart;
+  orderModeMessage: string = '';
   constructor(public checkoutCartService: CheckoutCartService,
+    public shoppingCartService:ShoppingCartService,
               public router: Router) {
-     this.cart = JSON.parse(localStorage.getItem('cart'));
+     
      //console.log(this.cart);
-     this.calculateTaxes();
+     this.getLatestCartWithTaxes();
    }
 
-   calculateTaxes(){
+   /*calculateTaxes(){
+    this.cart = JSON.parse(localStorage.getItem('cart'));
      if(this.cart && this.cart.restaurantCart && this.cart.restaurantCart.length > 0){
+      this.cart.grossTotal = 0;
       this.cart.restaurantCart.forEach(restaurant => {
         this.checkoutCartService.getTaxAmount( restaurant.total ).subscribe( data => {
           restaurant.grossTotal = data['tax']['taxable_amount'];
@@ -27,6 +32,15 @@ export class CheckoutCartComponent {
         });
      });
      }
+   }*/
+
+   getLatestCartWithTaxes(){
+     this.shoppingCartService.calculateTaxes();
+     let kart = this.shoppingCartService.get();
+     kart.subscribe( updatedCart => {
+      this.cart = updatedCart;
+     });
+     //this.cart = this.shoppingCartService.retrieve();
    }
    
    doEmptyCart(){
@@ -38,4 +52,20 @@ export class CheckoutCartComponent {
     this.router.navigate(['checkout/payment', {'amount':this.cart.grossTotal}]);
    }
 
+   increaseQuantity(itemId: any, restaurantId: any, quantityAdded:number){
+    this.shoppingCartService.addItemQuantity(itemId,restaurantId,quantityAdded);
+    this.getLatestCartWithTaxes();
+    //this.cart = this.shoppingCartService.retrieve();
+   }
+
+   decreaseQuantity(itemId: any, restaurantId: any, quantityRemoved:number){
+    this.shoppingCartService.subtractItemQuantity(itemId,restaurantId,quantityRemoved);
+    this.getLatestCartWithTaxes();
+    //this.cart = this.shoppingCartService.retrieve();
+   }
+
+   updateOrderMode(restaurantId: number, orderMode: string, cabType: string = ''){
+     this.shoppingCartService.updateOrderMode(restaurantId,orderMode,cabType);
+     this.getLatestCartWithTaxes();
+   }
 }

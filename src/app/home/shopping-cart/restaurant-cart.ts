@@ -6,5 +6,8 @@ export class RestaurantCart {
     public grossTotal: number;
     public total: number;
     public restaurantId: number;
+    public orderMode: string;
+    public cabType: string;
+    public orderMessage: string = 'Your food would be delivered within 45 minutes.';
   }
   

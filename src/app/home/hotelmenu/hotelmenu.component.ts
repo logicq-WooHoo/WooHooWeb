@@ -2,7 +2,7 @@ import { Component, OnInit , Input, Output, EventEmitter } from '@angular/core';
 import {Routes, RouterModule, Router, ActivatedRoute} from '@angular/router';
 import {HotelmenuService} from './hotelmenu.service';
 import { MenuItem } from './menuItem';
-import { ShoppingCartService }  from '../shopping-cart/shopping-cart-service';
+import { ShoppingCartService }  from '../../shared/shopping-cart-service';
 import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
 
 

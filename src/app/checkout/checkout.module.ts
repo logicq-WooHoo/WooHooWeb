@@ -18,7 +18,7 @@ import { CheckoutCartComponent } from './checkout-cart/checkout-cart.component';
 import { PaymentComponent } from './payment/payment.component';
 import { TrackComponent } from './track/track.component';
 import { CheckoutCartService } from './checkout-cart/checkout-cart.service';
-
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -36,6 +36,7 @@ import { CheckoutCartService } from './checkout-cart/checkout-cart.service';
     BsDropdownModule.forRoot(),
     routing,
     HttpClientModule,
+    SharedModule,
     TranslateModule.forRoot({ 
       provide: TranslateLoader,
       useFactory: (http: Http) => new TranslateStaticLoader(http, '/assets/i18n', '.json'),

@@ -10,5 +10,6 @@ export class ShoppingCart {
     this.restaurantCart = src.restaurantCart;
     this.grossTotal = src.grossTotal;
     this.itemsTotal = src.itemsTotal;
+    this.totalNumberOfItems = src.totalNumberOfItems;
   }
 }

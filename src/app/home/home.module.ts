@@ -27,9 +27,9 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { AgmCoreModule } from '@agm/core';
 import { HttpClient } from '@angular/common/http';
 import {BasicSearchService} from './basic-search/basicsearch.service';
-import {ShoppingCartService} from './shopping-cart/shopping-cart-service';
 import {TranslateModule, TranslateStaticLoader, TranslateLoader} from 'ng2-translate/ng2-translate';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { SharedModule } from '../shared/shared.module';
 
 let config = new AuthServiceConfig([
   {
@@ -59,6 +59,7 @@ let config = new AuthServiceConfig([
       libraries: ["places"]
     }),
     CommonModule,
+    SharedModule,
     BsDropdownModule.forRoot(),
     SocialLoginModule.initialize(config),
     MatButtonModule, MatCheckboxModule, MatInputModule, MatRadioModule, MatMenuModule, MatFormFieldModule, MatSelectModule,

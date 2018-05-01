@@ -1,10 +1,11 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs/Observable";
 import { Observer } from "rxjs/Observer";
-import { ShoppingCart } from "./shopping-cart";
-import { MenuItem } from "../hotelmenu/menuItem";
-import { CartItem } from "./cart-item";
-import { RestaurantCart } from './restaurant-cart';
+import { ShoppingCart } from "../home/shopping-cart/shopping-cart";
+import { MenuItem } from "../home/hotelmenu/menuItem";
+import { CartItem } from "../home/shopping-cart/cart-item";
+import { RestaurantCart } from '../home/shopping-cart/restaurant-cart';
+import { TaxService } from './tax-service';
 
 const CART_KEY = "cart";
 
@@ -15,7 +16,7 @@ export class ShoppingCartService {
   private subscribers: Array<Observer<ShoppingCart>> = new Array<Observer<ShoppingCart>>();
   private products: MenuItem[];
 
-  public constructor() {  
+  public constructor(public taxService: TaxService) {  
     this.subscriptionObservable = new Observable<ShoppingCart>((observer: Observer<ShoppingCart>) => {
       this.subscribers.push(observer);
       observer.next(this.retrieve());
@@ -76,6 +77,7 @@ export class ShoppingCartService {
   public updateCart(cart){
     this.calculateCart(cart);
     this.save(cart);
+    this.dispatch(cart);
   }
 
   public empty(): void {
@@ -84,6 +86,37 @@ export class ShoppingCartService {
     this.dispatch(newCart);
   }
 
+  addItemQuantity(productId: string, restaurantId: number, quantity:number){
+    const cart = this.retrieve();
+    if(cart.restaurantCart){
+      let foundRestaurant = cart.restaurantCart.find((res) => res.restaurantId === restaurantId);
+      let foundItem: CartItem;
+      if(foundRestaurant){
+        foundItem = cart.restaurantCart.find((res) => res.restaurantId === restaurantId)
+        .itemsSelected.find((item) => item.productId === productId);
+      }
+      if(foundRestaurant && foundItem){
+        foundItem.quantity += quantity;
+      }
+    }
+    this.updateCart(cart);
+  }
+
+  subtractItemQuantity(productId: string, restaurantId: number, quantity:number){
+    const cart = this.retrieve();
+    if(cart.restaurantCart){
+      let foundRestaurant = cart.restaurantCart.find((res) => res.restaurantId === restaurantId);
+      let foundItem: CartItem;
+      if(foundRestaurant){
+        foundItem = cart.restaurantCart.find((res) => res.restaurantId === restaurantId)
+        .itemsSelected.find((item) => item.productId === productId);
+      }
+      if(foundRestaurant && foundItem){
+        foundItem.quantity -= quantity;
+      }
+    }
+    this.updateCart(cart);
+  }
  
   private calculateCart(cart: ShoppingCart): void {
     let itemCount = 0;
@@ -101,6 +134,40 @@ export class ShoppingCartService {
         });
       }
   }
+
+  public calculateTaxes(){
+    const cart = this.retrieve();
+     if(cart && cart.restaurantCart && cart.restaurantCart.length > 0){
+      cart.grossTotal = 0;
+      cart.restaurantCart.forEach(restaurant => {
+        this.taxService.getTaxAmount( restaurant.total ).subscribe( data => {
+          restaurant.grossTotal = data['tax']['taxable_amount'];
+          cart.grossTotal = cart.grossTotal  + restaurant.grossTotal;
+          this.updateCart(cart);
+        });
+     });
+     
+     }
+   }
+
+   public updateOrderMode(restaurantId: number, orderMode: string, cabType: string = ''){
+    let orderModeMessage = 'Your food would be delivered within 45 minutes.';
+    if(cabType == 'private'){
+      orderModeMessage = 'Your Cab will arrive in 5 minutes!'
+     }else if(cabType == 'share'){
+      orderModeMessage = 'Your share Cab will arrive in 10 minutes!'
+     }else if(orderMode=='takeaway' && cabType==''){
+      orderModeMessage = 'Please arrive at the restaurant after 20 minutes!'
+     }
+    const cart = this.retrieve();
+    if(cart.restaurantCart){
+      let foundRestaurant = cart.restaurantCart.find((res) => res.restaurantId === restaurantId);
+      foundRestaurant.orderMode = orderMode;
+      foundRestaurant.cabType = cabType;
+      foundRestaurant.orderMessage = orderModeMessage;
+    }
+    this.updateCart(cart);
+   }
 
   public retrieve(): ShoppingCart {
     const cart = new ShoppingCart();

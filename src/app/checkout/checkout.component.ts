@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ShoppingCart } from '../home/shopping-cart/shopping-cart';
+import { ShoppingCartService } from '../shared/shopping-cart-service';
 
 @Component({
   selector: 'app-checkout',
@@ -8,8 +9,21 @@ import { ShoppingCart } from '../home/shopping-cart/shopping-cart';
 })
 export class CheckoutComponent {
   title = 'app';
-  cart: ShoppingCart;
-  constructor(){
-    this.cart = JSON.parse(localStorage.getItem('cart'));
+  cart: ShoppingCart; 
+  user: any;
+  constructor(public shoppingCartService: ShoppingCartService){
+    
+    if(localStorage.getItem('user')){
+      this.user = JSON.parse(localStorage.getItem('user'));
+    }
+  }
+
+  getCartDetails(){
+    let cart = this.shoppingCartService.get();
+    cart.subscribe((updatedCart) => {
+      //this.shoppingCartService.updateCart(cart);
+      //let updatedCart: ShoppingCart = JSON.parse(localStorage.getItem('cart'));
+      this.cart = updatedCart;
+    });
   }
 }

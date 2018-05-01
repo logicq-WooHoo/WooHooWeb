@@ -28,10 +28,11 @@
 										</div>
 										<div class="col-md-4 col-sm-4">
 											<ul class="del-service">
-												<li class="fa fa-takeaway"></li>
-												<li class="fa fa-delivery active"></li>
-												<li class="fa fa-group"></li>
+												<li (click)="updateOrderMode(restaurant.restaurantId, 'takeaway', '')" class="fa fa-takeaway"></li>
+												<li (click)="updateOrderMode(restaurant.restaurantId, 'takeaway', 'private')" class="fa fa-delivery active"></li>
+												<li (click)="updateOrderMode(restaurant.restaurantId, 'takeaway', 'share')" class="fa fa-group"></li>
 											</ul>
+											<span>{{restaurant.orderMessage}}</span>
 										</div>
 										<div class="restu-menu" *ngFor="let item of restaurant.itemsSelected">
 											<div class="col-md-6 col-sm-6">
@@ -39,7 +40,9 @@
 													<h4 class="restu-item"><span>{{item.productName}}<i class="veg"></i></span><div class="item-price">{{item.price}}</div></h4>
 													<div class="sell-item">
 														<div class="btn-holder">
-															<button class="less-item">-</button><input type="text" [placeholder]="item.quantity" class="form-control" ><button class="add-item">+</button>
+															<button class="less-item" (click)="decreaseQuantity(item.productId, restaurant.restaurantId, 1)">-</button>
+															<input type="text" [placeholder]="item.quantity" class="form-control" >
+															<button class="add-item" (click)="increaseQuantity(item.productId, restaurant.restaurantId, 1)">+</button>
 														</div>
 														<a href="" class="remove-item">Remove</a>
 													</div>
