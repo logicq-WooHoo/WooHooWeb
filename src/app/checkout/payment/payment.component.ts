@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ShoppingCart } from '../../home/shopping-cart/shopping-cart';
+import { ShoppingCartService } from '../../shared/shopping-cart-service';
 
 @Component({
   selector: 'app-payment',
@@ -8,10 +9,16 @@ import { ShoppingCart } from '../../home/shopping-cart/shopping-cart';
 })
 export class PaymentComponent {
   cart: ShoppingCart;
-  constructor() {
-    this.cart = JSON.parse(localStorage.getItem('cart'));
-    console.log(this.cart);
+  showComp='card';
+  constructor(public shoppingCartService:ShoppingCartService) {
+    this.getLatestCartWithTaxes();
    }
-  
+   
+   getLatestCartWithTaxes(){
+    let kart = this.shoppingCartService.get();
+    kart.subscribe( updatedCart => {
+     this.cart = updatedCart;
+    });  
 
-}
+  }
+} 

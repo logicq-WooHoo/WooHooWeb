@@ -21,3 +21,110 @@
                         </div> 
                     </div>			
                 </section>
+                <section class="body-container">
+                    <div class="container no-glitter">
+                        <div class="row clearfix">
+                            <div class="col-md-10 col-sm-9">
+                                <div class="row-item profile-list clearfix">
+                                    <div *ngIf="cart" id="accordion" role="tablist" aria-multiselectable="true">
+                                        
+                                        <span>Relax and Enjoy your orders!</span>
+                                        
+                                        <div  class="card"  *ngFor="let restaurant of cart.restaurantCart">
+                                            <div class="card-header" role="tab" id="headingOne">
+                                                <div class="mb-0">
+                                                    <a data-toggle="collapse" data-parent="#accordion"
+                                                        href="#collapseOne" aria-expanded="false"
+                                                        aria-controls="collapseOne" class="collapsed">
+                
+                                                        <h3>Restaurant: {{restaurant.restaurantName}}</h3>
+                                                        <p>{{restaurant.orderMessage}}</p>
+                                                    </a> <i class="glyphicon glyphicon-menu-right" aria-hidden="true"></i>
+                                                </div>
+                                            </div>
+                
+                                            <div id="collapseOne" class="collapse in" role="tabpanel"
+                                                aria-labelledby="headingOne" aria-expanded="false" >
+                                                
+                
+                                                <div class="card-block">
+                                                    <h2>Details:</h2>
+                                                    <div class="row">
+                                                        <div class="col-md-7 col-sm-5">
+                
+                                                            <div class="content table-responsive table-full-width">
+                                                                <table class="table table-striped">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Item</th>
+                                                                            <th>Quantity</th>
+                                                                            <th>Price</th>
+                
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody  *ngFor="let item of restaurant.itemsSelected">
+                                                                        <tr>
+                                                                            <td>{{item.productName}}</td>
+                                                                            <td>{{item.quantity}}</td>
+                                                                            <td>$ {{item.price}}</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                    
+                                                                </table>
+                
+                                                            </div>
+                
+                                                        </div>
+                
+                                                        <div class="col-md-5 col-sm-5">
+                
+                                                            <div class="cart-value">
+                
+                                                                <ul class="cart-item cart-value-total">
+                                                                    <li>Subtotal <span>{{restaurant.total}}</span></li>
+										                            <li>+ TAX<span>{{restaurant.grossTotal - restaurant.total}}</span></li>
+										                
+                                                                    <li class="text-right"><strong>$ {{restaurant.grossTotal}}</strong></li>
+                                                                </ul>
+                
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                
+                
+                                            </div>
+                                        </div>	
+                                        
+                                        
+                                    </div>
+                                </div>
+                
+                                <div class="advertise-container text-center">
+                                    <div class="col-md-6">
+                                        <figure>
+                                            <a href="javascript:void(0);"><img
+                                                src="assets/images/advertise-small.jpg" alt=""></a>
+                                        </figure>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <figure>
+                                            <a href="javascript:void(0);"><img
+                                                src="assets/images/advertise-small.jpg" alt=""></a>
+                                        </figure>
+                                    </div>
+                                </div>
+                            </div>
+                
+                            <div class="col-md-2 col-sm-3">
+                                <div class="text-center">
+                                    <figure>
+                                        <a href="javascript:void(0);"><img
+                                            src="assets/images/advertise-big2.jpg" alt=""></a>
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>

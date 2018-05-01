@@ -16,6 +16,7 @@ export class CheckoutComponent {
     if(localStorage.getItem('user')){
       this.user = JSON.parse(localStorage.getItem('user'));
     }
+    this.getCartDetails();
   }
 
   getCartDetails(){
