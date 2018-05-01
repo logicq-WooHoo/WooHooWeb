@@ -18,15 +18,17 @@ export class FoodSearchComponent implements OnInit {
   longitude:number=73.7713107;
   //latitude:number=37.793461;
   //longitude:number=-122.399642;
-  restarentCount:Map<string, Array<number>> = new Map<string, Array<number>>();;
-  
+  restarentCount:Map<string, Array<number>> = new Map<string, Array<number>>();
+  resCountTopMenus:Array<Object>=new Array<Object>() ;
+  restarentCountTopMenus:Map<string, Array<number>> = new Map<string, Array<number>>();
 
   constructor(
     private foodSearchService: FoodSearchService, 
     private basicSearchService: BasicSearchService,
     private route: ActivatedRoute,
     private router: Router) {
-      this.getRestaurantCount();
+    this.getRestaurantCount();
+    this.getTrendingRestuarntCountMenuType();
    }
 
   ngOnInit() {
@@ -36,6 +38,32 @@ export class FoodSearchComponent implements OnInit {
   getRestaurantCities(){
     
   }
+
+  getTrendingRestuarntCountMenuType(){
+      this.foodSearchService.getTrendingMenuCount().subscribe(data =>{
+        this.restarentCountTopMenus=data;
+        Object.keys(this.restarentCountTopMenus).forEach(key=> {
+          let  keyvalue:  Array<number>;
+          keyvalue= this.restarentCountTopMenus[key]  ;  
+         var resturnatMenuCount={};
+         resturnatMenuCount["name"]=key;
+         resturnatMenuCount["count"]=keyvalue.length;
+         resturnatMenuCount["resids"]=keyvalue;
+         let  isVeg:boolean;
+         var finddata=keyvalue.find(x=>x==0);
+         if(finddata==0){
+          resturnatMenuCount["isVeg"]=true;
+         }else{
+          resturnatMenuCount["isVeg"]=false;
+         }
+        
+        this.resCountTopMenus.push(resturnatMenuCount);
+          });
+     });
+
+  }
+
+ 
 
   getRestaurantCount(){
     var request={
@@ -48,7 +76,6 @@ export class FoodSearchComponent implements OnInit {
       Object.keys(this.restarentCount).forEach(key=> {
         let  keyvalue:  Array<number>;
         keyvalue= this.restarentCount[key]  ;  
-        console.log('Key: ' +keyvalue+ ' Value: ' +key)
        var restCount={};
             restCount["name"]=key;
             restCount["count"]=keyvalue.length;
