@@ -5,11 +5,13 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {TranslateService} from 'ng2-translate';
 import { SocialUser } from "angularx-social-login";
 import { AuthService } from "angularx-social-login";
+import { Routes, RouterModule, Router, ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
-  styleUrls: ['./landing.component.css']
+  styleUrls: ['./landing.component.css'],
+  providers:[LandingService]
 })
 
 export class LandingComponent implements OnInit {
@@ -18,6 +20,9 @@ export class LandingComponent implements OnInit {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   private user: SocialUser;
+  private restaurentTypes:any[];
+  private restaurentTypeId:number=0;
+
   activeFlag: any = {
     foodsTabActive:String,
     hotelsTabActive:String,
@@ -31,8 +36,12 @@ export class LandingComponent implements OnInit {
   //defaultLocation:String="Pune Railway Station, Agarkar Nagar";
  
 
-  constructor(private _formBuilder: FormBuilder,private translate: TranslateService,
-    private authService: AuthService) {
+  constructor(private _formBuilder: FormBuilder
+    ,private translate: TranslateService,
+    private authService: AuthService,
+    private landingService:LandingService,
+    private route: ActivatedRoute,
+    private router: Router) {
     translate.setDefaultLang('en');
     translate.use('en');
   
@@ -42,7 +51,29 @@ export class LandingComponent implements OnInit {
       this.activeFlag.nightlifeTabActive='',
       this.activeFlag.emergencyTabActive=''
        this.activeFlag.foodsTabActive='active';
+
+
+       this.getrestauranttypes();
+     
    }
+
+   searchRestaurent(restaurentTypeId:number){ 
+
+    //need to channge city
+    this.router.navigate(['entitySearch', {city:"Pune",restaurentTypeId:restaurentTypeId}]);
+
+   }
+
+   getrestauranttypes(){
+    this.landingService.getRestaurentTypes().subscribe(data =>{
+      this.restaurentTypes=data;
+    });
+   }
+
+   onChange(restaurentTypeId:number){
+    this.restaurentTypeId=restaurentTypeId;
+  }
+
 
   ngOnInit() {
 
@@ -58,9 +89,7 @@ export class LandingComponent implements OnInit {
     
   }
 
-  switchLanguage(language: string) {
-    this.translate.use(language);
-  }
+  
   signOut(): void {
     localStorage.clear();
     this.user = null;

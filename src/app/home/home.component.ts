@@ -114,7 +114,7 @@ export class HomeComponent {
   }
   switchLanguage(language: string) {
     this.translate.use(language);
-    localStorage.setItem("lang",language);
+    
   }
  getUserDetails(){
    if(localStorage.getItem('user')){

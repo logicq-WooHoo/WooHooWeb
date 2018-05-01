@@ -8,7 +8,7 @@
           <nav class="navbar navbar-default">  
             <ul class="nav navbar-nav"> 
               
-              <li><a *ngIf="!user" routerLink="/login">Log In</a></li>
+              <li><a *ngIf="!user" routerLink="/login">{{'loginSignUp' | translate}}</a></li>
               <!--li><a href="javascript:void(0);" class="icon-call">Call</a></li-->
               <li>
                   <a href="#" class="cart-icon">
@@ -38,8 +38,8 @@
                     <span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
-                  <li><a href="#">English</a></li>
-                  <li><a href="#">Chinese</a></li> 
+                  <li><a (click)="switchLanguage('en')">English</a></li>
+                  <li><a (click)="switchLanguage('zh-tw')">Chinese</a></li> 
                   </ul>
                 </div>
               </li>

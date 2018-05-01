@@ -30,11 +30,25 @@ private cartItemsCount: number = 0;
        this.doRestaurentSearch(params['longi'],params['lati'])
       }else if (params['resIds']) {
         this.doRestaurentTypeSearch(params['resIds']);
+       }else if(params['city']){
+        this.doRestaurentSearchByResIdAndCity(params['city'],params['restaurentTypeId']);
        }
     });
 
    }
    
+
+   doRestaurentSearchByResIdAndCity(city:string,resTypeId:number){
+    var request={
+        city:city,
+        restaurantTypeId:resTypeId
+      };
+
+      this.basicSearchService.restaurentSearch(request).subscribe(data =>{
+        this.result=data;
+     });
+
+   }
    doRestaurentSearch(longi: number,lati:number) {
     
    var latitude:String;

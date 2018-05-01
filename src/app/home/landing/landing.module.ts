@@ -30,6 +30,7 @@ import { EmergencySearchComponent } from '../emergency/emergency.component';
     EmergencySearchComponent
   ],
   imports: [
+    FormsModule,
     landingrouting,
     CommonModule,
     BsDropdownModule.forRoot(),

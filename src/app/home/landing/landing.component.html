@@ -18,20 +18,12 @@
                     <p>Order food online from the best restaurants near you.</p>
                     <div class="form-inner">
                         <div class="custom-ddl">
-                            <select class="css-ddl">
-                                <option value="0">Select</option>
-                                <option value="American" selected>American</option>
-                                <option value="Chinese">Chinese</option>	
-                                <option value="Europian">Europian</option>
-                                <option value="Italian">Italian</option>
-                                <option value="Austerlian">Austerlian</option>
-                                <option value="Indian">Indian</option>
-                                <option value="Korean">Korean</option>
-                                <option value="Japanese">Japanese</option>
+                            <select class="css-ddl" [(ngModel)]="restaurentTypeId">
+                            <option *ngFor="let resType of restaurentTypes" [ngValue]="resType.id">{{resType.type}}</option>
                             </select>
                         </div>
                         <input type="text" class="form-control" placeholder="Search Resturnats or Foods">
-                        <button type="button" class="btn-search"></button>
+                        <button type="button" (click)="searchRestaurent(restaurentTypeId)" class="btn-search"></button>
                     </div>
                 </div>
           </div>
@@ -164,7 +156,7 @@
       </div>
       	<!-- Body Container Start-->
 		<section class="container no-glitter">			
-                <h2 class="mar-15 text-center">What makes you happy :)</h2>
+                <h2 class="mar-15 text-center">{{'makehappy' | translate}}</h2>
                 <div class="menulist-tab">
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs text-center" role="tablist">
