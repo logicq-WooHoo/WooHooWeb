@@ -30,13 +30,26 @@ private cartItemsCount: number = 0;
        this.doRestaurentSearch(params['longi'],params['lati'])
       }else if (params['resIds']) {
         this.doRestaurentTypeSearch(params['resIds']);
-       }else if(params['city']){
+       }else if(params['restaurentTypeId']){
         this.doRestaurentSearchByResIdAndCity(params['city'],params['restaurentTypeId']);
+       }else if(params['foodCategory']){
+        this.doRestaurentSearchByFoodCategory(params['city'],params['foodCategory']);
        }
     });
 
    }
    
+   doRestaurentSearchByFoodCategory(city:string,foodCategory:string){
+    var request={
+      city:city,
+      foodCategory:foodCategory
+    };
+
+    this.basicSearchService.restaurentSearch(request).subscribe(data =>{
+      this.result=data;
+   });
+
+   }
 
    doRestaurentSearchByResIdAndCity(city:string,resTypeId:number){
     var request={

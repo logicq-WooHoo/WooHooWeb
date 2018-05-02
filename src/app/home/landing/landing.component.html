@@ -19,10 +19,11 @@
                     <div class="form-inner">
                         <div class="custom-ddl">
                             <select class="css-ddl" [(ngModel)]="restaurentTypeId">
+                            <option value="" selected>Select</option>
                             <option *ngFor="let resType of restaurentTypes" [ngValue]="resType.id">{{resType.type}}</option>
                             </select>
                         </div>
-                        <input type="text" class="form-control" placeholder="Search Resturnats or Foods">
+                        <input type="text" [(ngModel)]="foodCategory" class="form-control" placeholder="Search for restaurants or dishes">
                         <button type="button" (click)="searchRestaurent(restaurentTypeId)" class="btn-search"></button>
                     </div>
                 </div>
@@ -119,7 +120,7 @@
                                             <option value="Sports">Sports</option>
                                         </select>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Enter foods">
+                                    <input type="text" class="form-control" placeholder="Enter name or service">
                                     <button type="button" class="btn-search"></button>
                                 </div>
                             </div>
@@ -139,7 +140,7 @@
                                                 <option value="Hospitals">Hospitals</option>
                                               </select>
                                         </div>
-                                        <input type="text" class="form-control" placeholder="Enter foods">
+                                        <input type="text" class="form-control" placeholder="Enter name or service">
                                         <button type="button" class="btn-search"></button>
                                     </div>
                                 </div>

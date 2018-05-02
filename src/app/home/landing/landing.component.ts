@@ -21,7 +21,9 @@ export class LandingComponent implements OnInit {
   secondFormGroup: FormGroup;
   private user: SocialUser;
   private restaurentTypes:any[];
-  private restaurentTypeId:number=0;
+  private restaurentTypeId:number;
+  private foodCategory:string;
+
 
   activeFlag: any = {
     foodsTabActive:String,
@@ -60,7 +62,13 @@ export class LandingComponent implements OnInit {
    searchRestaurent(restaurentTypeId:number){ 
 
     //need to channge city
+    if(this.foodCategory==undefined){
     this.router.navigate(['entitySearch', {city:"Pune",restaurentTypeId:restaurentTypeId}]);
+    }
+    else{
+      this.router.navigate(['entitySearch', {city:"Pune",foodCategory:this.foodCategory}]);
+    
+    }
 
    }
 

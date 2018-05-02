@@ -1,20 +1,71 @@
-<div class="col-md-12" id="open_menu">
-        <div class="open-menu-item">
-          <div class="row">
-            <div class="col-md-3 col-sm-3" *ngFor="let resMenu of restaurentMenu">
-              <div class="sub-item {{resMenu.itemSelected}}">              
+
+<div class="col-md-12" id="ex-tab-menu">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#breakfast" data-toggle="tab">Breakfast</a>
+      </li>
+      <li><a href="#lunch" data-toggle="tab">Lunch</a></li>
+      <li><a href="#dinner" data-toggle="tab">Dinner</a></li>
+    </ul>
+  
+    <div class="tab-content ">
+
+      
+      <div class="tab-pane active" id="breakfast" >
+  
+          <div class="col-md-3 col-sm-3" *ngFor="let resMenu of restaurentMenu">
+              <div class="sub-item {{resMenu.itemSelected}}">
                 <div class="add-to-cart">
                   <h4>{{resMenu.itemName}}</h4>
-                  <span class="m-price"><span>$</span>{{ resMenu.displayPrice}}</span>
-                  <a class="add-cart" (click)="addProductToCart(resMenu, 1)">
-                      <i class="fa"></i></a>
+                  <span class="m-price"><span>$</span>{{
+                    resMenu.displayPrice}}</span> <a class="add-cart"
+                    (click)="addProductToCart(resMenu, 1)"> <i class="fa"></i></a>
                 </div>
-                <span class="menu-tag" *ngIf="resMenu.isVeg===true;else veg" #veg  ><img src="assets/images/hotelmenu/newVeg.png" alt=""></span>
-                <span class="menu-tag" *ngIf="resMenu.isVeg===false;else nonveg" #nonveg  ><img src="assets/images/hotelmenu/newNonVeg.png" alt=""></span>
+                <span class="menu-tag" *ngIf="resMenu.isVeg===true;else veg" #veg><img
+                  src="assets/images/hotelmenu/newVeg.png" alt=""></span> <span
+                  class="menu-tag" *ngIf="resMenu.isVeg===false;else nonveg" #nonveg><img
+                  src="assets/images/hotelmenu/newNonVeg.png" alt=""></span>
               </div>
-            </div>	         
+          </div>
+  
+      </div>
+
+
+
+      <div class="tab-pane" id="lunch">
+  
+        <div class="col-md-3 col-sm-3">
+          <div class="sub-item">
+            <div class="add-to-cart">
+              <h4>Baked Beans</h4>
+              <span class="menu-details">Stir-fried rice tossed in
+                manchurian...</span> <span class="m-price">$ 280</span> <a
+                href="javascript:void(0);" class="add-cart"><i class="fa"></i></a>
+            </div>
+            <span class="menu-tag"><img
+              src="asserts/images/icon-veg.png" alt=""></span>
           </div>
         </div>
-</div>
+  
+      </div>
+      
 
-<!-- <app-shopping-cart [cartItemsCount]="itemsCount"></app-shopping-cart> -->
+
+      <div class="tab-pane" id="dinner">
+        
+        <div class="col-md-3 col-sm-3">
+          <div class="sub-item">
+            <div class="add-to-cart">
+              <h4>Veg. Manchurian Rice</h4>
+              <span class="menu-details">Stir-fried rice tossed in
+                manchurian...</span> <span class="m-price">$ 280</span> <a
+                href="javascript:void(0);" class="add-cart"><i class="fa"></i></a>
+            </div>
+            <span class="menu-tag"><img
+              src="asserts/images/icon-veg.png" alt=""></span>
+          </div>
+        </div>
+  
+      </div>
+
+    </div>
+  </div>

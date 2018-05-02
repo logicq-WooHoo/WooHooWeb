@@ -14,7 +14,7 @@
 .clearfix::after,.clearfix:after{clear:both;content:" ";visibility:hidden}
 html, body { height: 100%; }
 textarea, input { outline: none; }
-body{ margin:0; padding:0; font-size:14px; color:#da3939; overflow-x:hidden;  -ms-overflow-style: scrollbar; font-family: 'Roboto Condensed', sans-serif; line-height:20px;font-weight:400; background:#f4f3ef;}
+body{ margin:0; padding:0; font-size:14px; color:#393939; overflow-x:hidden;  -ms-overflow-style: scrollbar; font-family: 'Roboto Condensed', sans-serif; line-height:20px;font-weight:400; background:#f4f3ef;}
 :focus{outline:none}
 
 a { border:0; outline:none; -webkit-transition: all 200s ease-in-out; -moz-transition: all 200ms ease-in-out; -o-transition: all 200ms ease-in-out; -ms-transition: all 200ms ease-in-out; transition: all 200ms ease-in-out; color:#1b1b1b; text-decoration:none; }
@@ -42,9 +42,8 @@ header.affix{width:100%; z-index:99999;  border-bottom:1px solid #da3939;}
 .top-nav .logo, .top-nav .location, .top-nav  .navbar{ flex: 1; line-height:50px; box-shadow:none; -webkit-box-shadow:none; height:auto;}
 .top-nav .location{font-size:14px; text-align:center; position:relative;}
 .top-nav .location a{font-size:12px; margin-left:3px;}
-.current-location{border:0; width:250px; height: 25px;}
-.current-location:focus {border-bottom:1px solid #666;}
-.current-location .form-control{text-align:center; box-shadow:none !important;}
+.location-edit{position:absolute; left:0; top:7px; width:79%; display:none;}
+.location-edit .form-control{text-align:center; box-shadow:none !important;}
 
 .navbar{background:none; border:0; margin-bottom:0; text-align:right;}
 .navbar .navbar-nav{ float:none;}
@@ -86,7 +85,7 @@ header.affix{width:100%; z-index:99999;  border-bottom:1px solid #da3939;}
 /*--- Search ---*/
 
 /*--- Menu ---*/
-.menu{ box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); background:#fff; margin-bottom:30px; overflow:hidden}
+.menu{ box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); margin-bottom:30px; overflow:hidden}
 .menu:hover figure img{  transform: scale(1.04)!important;}
 .order-area{position:relative; padding:20px;}
 .menu  img{transition: all .5s;}
@@ -192,15 +191,22 @@ header.affix{width:100%; z-index:99999;  border-bottom:1px solid #da3939;}
 .add-to-cart  h4{margin:0 0 10px 0;}
 .add-cart{width:26px; height:22px; border:1px solid #e1e1e1; position:absolute; right:14px; bottom:14px;}
 .add-cart .fa{background-position: -4px -426px; width: 25px; height: 22px; margin: 0 auto;}
-.menu-tag{position:absolute; right:7px; top:7px;}
+.menu-tag{position:absolute; right:15px; top:8px;}
+
+/* New Added -- avijit 2/5/18 */
+.add-to-cart h4{font-size:14px; margin:0 0 5px 0; font-weight:600;}
+.menu-details {font-size:13px; line-height:14px; display:block; margin-bottom:5px;}
+.m-price {font-weight:600;}
 
 .open-menu-item{padding:0}
-.rem-cart .add-to-cart{background:#f7941d;}
+.rem-cart .add-to-cart{background:#434343;}
 .rem-cart .add-to-cart h4, .rem-cart  .add-to-cart span{color:#fff;}
 .rem-cart  .add-to-cart .add-cart{border-color:#fff;}
 .rem-cart  .add-to-cart .add-cart .fa{background-position: -41px -426px;}
-
-
+.sub-item {margin-bottom: 0;}
+.row-item{padding:15px 0;}
+.nav-tabs {margin-left: -15px; margin-right: -15px;}
+.nav-tabs li:first-child {margin-left: 15px;}
 
 .page-heading{background:#f7a139; padding:12px 0;}
 .page-heading h2{color:#fff; font-size:18px; margin-top:10px;}

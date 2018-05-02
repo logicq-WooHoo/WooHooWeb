@@ -33,7 +33,7 @@ export class HomeComponent {
   public city:String;
   public country:String;
   public temp:String[];
-  public location:String;
+  public location:String="135 Newtownards Road, Belfast, BT4 1AB";
 
  
   @ViewChild("search")
@@ -63,7 +63,7 @@ export class HomeComponent {
       secondCtrl: ['', Validators.required]
     });
   
-  this.initLocation();
+  this.initMap();
 
   localStorage.setItem("lang","en");
   this.getUserDetails();
@@ -80,37 +80,33 @@ export class HomeComponent {
     });
   }
 
-  initLocation(){
-        //create search FormControl
-        this.searchControl = new FormControl();
+  initMap(){
+      //create search FormControl
+    this.searchControl = new FormControl();
 
-        //load Places Autocomplete
-     /*   this.mapsAPILoader.load().then(() => {
-          let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
-            types: ["address"]
-          });
-          autocomplete.addListener("place_changed", () => {
-            this.ngZone.run(() => {
-              //get the place result
-              let place: google.maps.places.PlaceResult = autocomplete.getPlace();
-    
-              this.location=place.formatted_address;
-    
-              this.temp=this.location.split(",");
-    
-              //console.log(this.temp);
-              
-    
-              //verify result
-              if (place.geometry === undefined || place.geometry === null) {
-                return;
-              }
-    
-              this.lati = place.geometry.location.lat();
-              this.longi= place.geometry.location.lng();
-            });
-          });
-        });*/
+    //load Places Autocomplete
+    this.mapsAPILoader.load().then(() => {
+      let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
+        types: ["address"]
+      });
+      autocomplete.addListener("place_changed", () => {
+        this.ngZone.run(() => {
+          //get the place result
+          let place: google.maps.places.PlaceResult = autocomplete.getPlace();
+
+          this.location=place.formatted_address;
+          this.temp=this.location.split(",");
+
+          //verify result
+          if (place.geometry === undefined || place.geometry === null) {
+            return;
+          }
+
+          this.lati = place.geometry.location.lat();
+          this.longi= place.geometry.location.lng();
+        });
+      });
+    }); 
   }
   switchLanguage(language: string) {
     this.translate.use(language);
@@ -126,4 +122,8 @@ export class HomeComponent {
   localStorage.removeItem('user');
   this.user = null;
  }
+
+ restaurentSearchdata(){
+  this.router.navigate(['entitySearch', {longi:this.longi, lati:this.lati }]);
+}
 }
