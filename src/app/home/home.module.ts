@@ -29,7 +29,7 @@ import { HttpClient } from '@angular/common/http';
 import {BasicSearchService} from './basic-search/basicsearch.service';
 import {TranslateModule, TranslateStaticLoader, TranslateLoader} from 'ng2-translate/ng2-translate';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { SharedModule } from '../shared/shared.module';
+
 
 let config = new AuthServiceConfig([
   {
@@ -59,7 +59,6 @@ let config = new AuthServiceConfig([
       libraries: ["places"]
     }),
     CommonModule,
-    SharedModule,
     BsDropdownModule.forRoot(),
     SocialLoginModule.initialize(config),
     MatButtonModule, MatCheckboxModule, MatInputModule, MatRadioModule, MatMenuModule, MatFormFieldModule, MatSelectModule,

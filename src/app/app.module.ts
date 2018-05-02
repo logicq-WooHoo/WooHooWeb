@@ -18,6 +18,9 @@ import { HttpClient } from '@angular/common/http';
 import {TranslateModule, TranslateStaticLoader, TranslateLoader} from 'ng2-translate/ng2-translate';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from './login/loginservice.service';
+import { ShoppingCartService } from './shared/shopping-cart-service';
+import { TaxService } from './shared/tax-service';
+import { PubSubService } from './shared/pub-sub.service';
 
 let config = new AuthServiceConfig([
   {
@@ -61,7 +64,7 @@ let config = new AuthServiceConfig([
       deps: [Http]
     })
   ],
-  providers: [appRoutingProviders,TranslateModule, LoginService /*LocationService*/],
+  providers: [appRoutingProviders,TranslateModule, LoginService ,ShoppingCartService, TaxService,PubSubService/*LocationService*/],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

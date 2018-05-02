@@ -3,6 +3,7 @@ import { ShoppingCart } from '../../home/shopping-cart/shopping-cart';
 import { CheckoutCartService } from './checkout-cart.service';
 import { Routes, RouterModule, Router, ActivatedRoute } from "@angular/router";
 import { ShoppingCartService } from '../../shared/shopping-cart-service';
+import { PubSubService } from '../../shared/pub-sub.service';
 
 @Component({
   selector: 'app-checkout-cart',
@@ -12,9 +13,10 @@ import { ShoppingCartService } from '../../shared/shopping-cart-service';
 export class CheckoutCartComponent {
   cart: ShoppingCart;
   orderModeMessage: string = '';
-  constructor(public checkoutCartService: CheckoutCartService,
-    public shoppingCartService:ShoppingCartService,
-              public router: Router) {
+  constructor(private checkoutCartService: CheckoutCartService,
+    private shoppingCartService:ShoppingCartService,
+    private pubSubService: PubSubService,
+              private router: Router) {
      
      //console.log(this.cart);
      this.getLatestCartWithTaxes();
@@ -36,13 +38,13 @@ export class CheckoutCartComponent {
 
    getLatestCartWithTaxes(){
      this.shoppingCartService.calculateTaxes();
-     let kart = this.shoppingCartService.get();
-     kart.subscribe( updatedCart => {
-      this.cart = updatedCart;
-     });
+     let cart = this.pubSubService.subscribe('cart', this.updateCartDetails.bind(this));
      //this.cart = this.shoppingCartService.retrieve();
    }
-   
+
+   updateCartDetails(topic,cart){
+    this.cart = cart;
+  }
    doEmptyCart(){
     localStorage.removeItem('cart');
     this.cart = null;
@@ -54,18 +56,18 @@ export class CheckoutCartComponent {
 
    increaseQuantity(itemId: any, restaurantId: any, quantityAdded:number){
     this.shoppingCartService.addItemQuantity(itemId,restaurantId,quantityAdded);
-    this.getLatestCartWithTaxes();
+    //this.getLatestCartWithTaxes();
     //this.cart = this.shoppingCartService.retrieve();
    }
 
    decreaseQuantity(itemId: any, restaurantId: any, quantityRemoved:number){
     this.shoppingCartService.subtractItemQuantity(itemId,restaurantId,quantityRemoved);
-    this.getLatestCartWithTaxes();
+    //this.getLatestCartWithTaxes();
     //this.cart = this.shoppingCartService.retrieve();
    }
 
    updateOrderMode(restaurantId: number, orderMode: string, cabType: string = ''){
      this.shoppingCartService.updateOrderMode(restaurantId,orderMode,cabType);
-     this.getLatestCartWithTaxes();
+     //this.getLatestCartWithTaxes();
    }
 }

@@ -6,6 +6,7 @@ import { MenuItem } from "../home/hotelmenu/menuItem";
 import { CartItem } from "../home/shopping-cart/cart-item";
 import { RestaurantCart } from '../home/shopping-cart/restaurant-cart';
 import { TaxService } from './tax-service';
+import { PubSubService } from './pub-sub.service';
 
 const CART_KEY = "cart";
 
@@ -16,12 +17,14 @@ export class ShoppingCartService {
   private subscribers: Array<Observer<ShoppingCart>> = new Array<Observer<ShoppingCart>>();
   private products: MenuItem[];
 
-  public constructor(public taxService: TaxService) {  
+
+  public constructor(public taxService: TaxService,
+                     public pubSubService: PubSubService) {  
     this.subscriptionObservable = new Observable<ShoppingCart>((observer: Observer<ShoppingCart>) => {
       this.subscribers.push(observer);
       observer.next(this.retrieve());
       return () => {
-        this.subscribers = this.subscribers.filter((obs) => obs !== observer);
+        this.subscribers;
       };
     });
   }
@@ -184,6 +187,7 @@ export class ShoppingCartService {
   }
 
   private dispatch(cart: ShoppingCart): void {
+    this.pubSubService.publish('cart', cart);
     this.subscribers
         .forEach((sub) => {
           try {
@@ -193,4 +197,5 @@ export class ShoppingCartService {
           }
         });
   }
+  
 }

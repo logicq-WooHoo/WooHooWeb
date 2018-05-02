@@ -10,7 +10,7 @@ import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
   selector: 'app-hotelmenu',
   templateUrl: './hotelmenu.component.html',
   styleUrls: ['./hotelmenu.component.css'],
-  providers: [HotelmenuService,ShoppingCartService]
+  providers: [HotelmenuService]
 })
 export class HotelmenuComponent implements OnInit ,OnChanges{
 

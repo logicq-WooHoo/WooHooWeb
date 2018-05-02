@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ShoppingCart } from '../../home/shopping-cart/shopping-cart';
 import { ShoppingCartService } from '../../shared/shopping-cart-service';
+import { PubSubService } from '../../shared/pub-sub.service';
 
 @Component({
   selector: 'app-payment',
@@ -9,15 +10,17 @@ import { ShoppingCartService } from '../../shared/shopping-cart-service';
 })
 export class TrackComponent {
   cart: ShoppingCart;
-  constructor(public shoppingCartService:ShoppingCartService) {
-    this.getLatestCartWithTaxes()
-   }
-   getLatestCartWithTaxes(){
-    let kart = this.shoppingCartService.get();
-    kart.subscribe( updatedCart => {
-     this.cart = updatedCart;
-    });
-    //this.cart = this.shoppingCartService.retrieve();
+  constructor(private pubSubService: PubSubService) {
+    this.getCartDetails();
   }
 
-}
+  getCartDetails(){
+    this.cart = null;
+    let cart = this.pubSubService.subscribe('cart', this.updateCartDetails.bind(this));
+    
+  }
+
+  updateCartDetails(topic,cart){
+    this.cart = cart;
+  }
+} 

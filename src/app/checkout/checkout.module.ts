@@ -36,7 +36,6 @@ import { SharedModule } from '../shared/shared.module';
     BsDropdownModule.forRoot(),
     routing,
     HttpClientModule,
-    SharedModule,
     TranslateModule.forRoot({ 
       provide: TranslateLoader,
       useFactory: (http: Http) => new TranslateStaticLoader(http, '/assets/i18n', '.json'),

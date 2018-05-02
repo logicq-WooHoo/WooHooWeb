@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ShoppingCart } from '../home/shopping-cart/shopping-cart';
-import { ShoppingCartService } from '../shared/shopping-cart-service';
+import { PubSubService } from '../shared/pub-sub.service';
 
 @Component({
   selector: 'app-checkout',
@@ -11,7 +11,7 @@ export class CheckoutComponent {
   title = 'app';
   cart: ShoppingCart; 
   user: any;
-  constructor(public shoppingCartService: ShoppingCartService){
+  constructor(private pubSubService: PubSubService){
     
     if(localStorage.getItem('user')){
       this.user = JSON.parse(localStorage.getItem('user'));
@@ -20,11 +20,13 @@ export class CheckoutComponent {
   }
 
   getCartDetails(){
-    let cart = this.shoppingCartService.get();
-    cart.subscribe((updatedCart) => {
-      //this.shoppingCartService.updateCart(cart);
-      //let updatedCart: ShoppingCart = JSON.parse(localStorage.getItem('cart'));
-      this.cart = updatedCart;
-    });
+    this.cart = null;
+    let cart = this.pubSubService.subscribe('cart', this.updateCartDetails.bind(this));
+    
   }
+
+  updateCartDetails(topic,cart){
+    this.cart = cart;
+  }
+
 }

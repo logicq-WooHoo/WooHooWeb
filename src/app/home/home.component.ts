@@ -13,7 +13,7 @@ import { } from 'googlemaps';
 import { MapsAPILoader } from '@agm/core';
 
 import { ShoppingCart } from './shopping-cart/shopping-cart';
-import { ShoppingCartService } from '../shared/shopping-cart-service';
+import { PubSubService } from '../shared/pub-sub.service';
 
 @Component({
   selector: 'app-home',
@@ -47,7 +47,7 @@ export class HomeComponent {
     private route: ActivatedRoute,
     private router: Router,
     private authService: AuthService,
-    private shoppingCartService: ShoppingCartService) {
+    private pubSubService: PubSubService) {
     translate.setDefaultLang('en');
     translate.use('en');
    }
@@ -72,12 +72,12 @@ export class HomeComponent {
 
   getCartDetails(){
     this.cart = null;
-    let cart = this.shoppingCartService.get();
-    cart.subscribe((updatedCart) => {
-      //this.shoppingCartService.updateCart(cart);
-      //let updatedCart: ShoppingCart = JSON.parse(localStorage.getItem('cart'));
-      this.cart = updatedCart;
-    });
+    let cart = this.pubSubService.subscribe('cart', this.updateCartDetails.bind(this));
+    
+  }
+
+  updateCartDetails(topic,cart){
+    this.cart = cart;
   }
 
   initMap(){

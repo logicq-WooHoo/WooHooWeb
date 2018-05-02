@@ -5,12 +5,13 @@ import { MenuItem } from "../hotelmenu/MenuItem";
 import { ShoppingCart } from "./shopping-cart";
 import { ShoppingCartService } from '../../shared/shopping-cart-service';
 import { CartItem } from "./cart-item";
+import { PubSubService } from '../../shared/pub-sub.service';
+
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: "app-shopping-cart",
-  templateUrl: "./shopping-cart.component.html",
-  providers:[ShoppingCartService]
+  templateUrl: "./shopping-cart.component.html"
 })
 
 export class ShoppingCartComponent implements OnInit, OnDestroy, OnChanges{
@@ -22,7 +23,8 @@ export class ShoppingCartComponent implements OnInit, OnDestroy, OnChanges{
   private cartSubscription: Subscription;
   @Input() cartItemsCount: number;
 
-  public constructor(private shoppingCartService: ShoppingCartService) {
+  public constructor(private shoppingCartService: ShoppingCartService,
+                    private pubSubService: PubSubService) {
   }
 
   public emptyCart(): void {
@@ -37,14 +39,17 @@ export class ShoppingCartComponent implements OnInit, OnDestroy, OnChanges{
     this.fetchAndUpdateCart();
   }
   private fetchAndUpdateCart(){
-    let cart = this.shoppingCartService.get();
-    this.cartSubscription = cart.subscribe((updatedCart) => {
+    this.pubSubService.subscribe('cart', this.updateCartDetails.bind(this));
+    
+  }
+
+  updateCartDetails(topic,cart){
+    this.cart = cart;
+    this.itemCount = cart.totalNumberOfItems;
+    this.grossTotal = cart.itemsTotal;
+  }
       //this.shoppingCartService.updateCart(cart);
       //let updatedCart: ShoppingCart = JSON.parse(localStorage.getItem('cart'));
-      this.itemCount = updatedCart.totalNumberOfItems;
-      this.grossTotal = updatedCart.itemsTotal;
-    });
-  }
 
   public ngOnDestroy(): void {
     if (this.cartSubscription) {
