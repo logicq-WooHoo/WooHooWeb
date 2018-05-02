@@ -44,9 +44,15 @@ export class HotelmenuComponent implements OnInit ,OnChanges{
 
 
   public addProductToCart(product: MenuItem): void {
-    this.shoppingCartService.addItem(product, 1,this.restaurentMenu, this.restaurantId, this.restaurantName);
-    this.onItemAdd.emit(product.price);
-    this.itemsCount++;
+    if(null==product["itemSelected"]){
+      this.shoppingCartService.addItem(product, 1,this.restaurentMenu, this.restaurantId, this.restaurantName);
+      this.onItemAdd.emit(product.price);
+      this.itemsCount++;
+      product["itemSelected"]="rem-cart";
+    }else{
+      product["itemSelected"]=null;
+    }
+  
   }
 
   getRestaurentMenu(resID: number){

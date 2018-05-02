@@ -1,0 +1,135 @@
+[
+    {
+        "id": 17,
+        "hotelName": "Hotel Sagar Plaza",
+        "city": "Pune",
+        "area": "Kothrud",
+        "recommendationCount": 230,
+        "rating": 4.2,
+		"type":"Economy",
+        "amenities": [
+            "RoomService",
+            "Gym/Spa",
+            "Restaurant",
+			"SwimmingPool",
+			"Interent"
+        ],
+        "outServices":{"Airpot":5.3,"ATM":0.3,"Medical":2.3,"Mall":0.4}
+    },
+    {
+        "id": 18,
+        "restaurantName": "Cocoon Hotel",
+        "city": "Pune",
+        "area": "Kothrud",
+        "latitude":18.5075353,
+        "longitude":73.7713107,
+        "recommendationCount": 210,
+        "rating": 4.1,
+		"type":"Economy",
+        "amenities": [
+            "RoomService",
+            "Gym/Spa",
+            "Restaurant",
+			"Bar",
+			"SwimmingPool",
+			"Interent"
+        ],
+       "outServices":{"Airpot":5.3,"ATM":0.3,"Medical":2.3,"Mall":0.4}
+    },
+    {
+        "id": 19,
+        "restaurantName": "St Laurn Hotel",
+        "city": "Pune",
+        "area": "Kothrud",
+        "recommendationCount": 200,
+        "rating": 4,
+		"type":"Economy",
+         "amenities": [
+            "RoomService",
+            "Restaurant",
+			"Bar",
+			"Interent"
+        ],
+       "outServices":{"Airpot":2.3,"ATM":1.3,"Medical":4.3,"Mall":10.4}
+    },
+	{
+        "id": 20,
+        "restaurantName": "Hotel Mint Highstreet",
+        "city": "Pune",
+        "area": "Kothrud",
+        "recommendationCount": 200,
+        "rating": 4,
+		"type":"Economy",
+         "amenities": [
+            "RoomService",
+			"Gym/Spa",
+			"Bar",
+			"Interent"
+        ],
+       "outServices":{"Airpot":6.3,"ATM":6.3,"Medical":5.3,"Mall":2.4}
+    },
+	{
+        "id": 31,
+        "restaurantName": "Hotel Mint Highstreet",
+        "city": "Pune",
+        "area": "Kothrud",
+        "recommendationCount": 200,
+        "rating": 4,
+		"type":"Economy",
+         "amenities": [
+            "RoomService",
+			"Gym/Spa",
+			"Bar",
+			"Interent"
+        ],
+       "outServices":{"Airpot":6.3,"ATM":6.3,"Medical":5.3,"Mall":2.4}
+    },
+	{
+        "id": 32,
+        "restaurantName": "Hotel Mint Highstreet",
+        "city": "Pune",
+        "area": "Kothrud",
+        "recommendationCount": 200,
+        "rating": 4,
+		"type":"Economy",
+         "amenities": [
+            "RoomService",
+			"Gym/Spa",
+			"Bar",
+			"Interent"
+        ],
+       "outServices":{"Airpot":6.3,"ATM":6.3,"Medical":5.3,"Mall":2.4}
+    },
+	{
+        "id": 33,
+        "restaurantName": "Hotel Mint Highstreet",
+        "city": "Pune",
+        "area": "Kothrud",
+        "recommendationCount": 200,
+        "rating": 4,
+		"type":"Economy",
+         "amenities": [
+            "RoomService",
+			"Gym/Spa",
+			"Bar",
+			"Interent"
+        ],
+       "outServices":{"Airpot":6.3,"ATM":6.3,"Medical":5.3,"Mall":2.4}
+    },
+	{
+        "id": 34,
+        "restaurantName": "Hotel Mint Highstreet",
+        "city": "Pune",
+        "area": "Kothrud",
+        "recommendationCount": 200,
+        "rating": 4,
+		"type":"Economy",
+         "amenities": [
+            "RoomService",
+			"Gym/Spa",
+			"Bar",
+			"Interent"
+        ],
+       "outServices":{"Airpot":6.3,"ATM":6.3,"Medical":5.3,"Mall":2.4}
+    }
+]

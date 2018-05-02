@@ -2,7 +2,7 @@
         <div class="open-menu-item">
           <div class="row">
             <div class="col-md-3 col-sm-3" *ngFor="let resMenu of restaurentMenu">
-              <div class="sub-item">              
+              <div class="sub-item {{resMenu.itemSelected}}">              
                 <div class="add-to-cart">
                   <h4>{{resMenu.itemName}}</h4>
                   <span class="m-price"><span>$</span>{{ resMenu.displayPrice}}</span>

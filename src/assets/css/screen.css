@@ -195,7 +195,7 @@ header.affix{width:100%; z-index:99999;  border-bottom:1px solid #da3939;}
 .menu-tag{position:absolute; right:7px; top:7px;}
 
 .open-menu-item{padding:0}
-.rem-cart .add-to-cart{background:#434343;}
+.rem-cart .add-to-cart{background:#f7941d;}
 .rem-cart .add-to-cart h4, .rem-cart  .add-to-cart span{color:#fff;}
 .rem-cart  .add-to-cart .add-cart{border-color:#fff;}
 .rem-cart  .add-to-cart .add-cart .fa{background-position: -41px -426px;}

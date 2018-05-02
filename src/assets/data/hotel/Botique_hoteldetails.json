@@ -1,0 +1,39 @@
+[
+    {
+        "id": 21,
+        "hotelName": "Hotel Sagar Plaza",
+        "city": "Pune",
+        "area": "Kothrud",
+        "recommendationCount": 230,
+        "rating": 4.2,
+		"type":"Botique",
+        "amenities": [
+            "RoomService",
+            "Gym/Spa",
+            "Restaurant",
+			"SwimmingPool",
+			"Interent"
+        ],
+        "outServices":{"Airpot":5.3,"ATM":0.3,"Medical":2.3,"Mall":0.4}
+    },
+    {
+        "id": 22,
+        "restaurantName": "Cocoon Hotel",
+        "city": "Pune",
+        "area": "Kothrud",
+        "latitude":18.5075353,
+        "longitude":73.7713107,
+        "recommendationCount": 210,
+        "rating": 4.1,
+		"type":"Botique",
+        "amenities": [
+            "RoomService",
+            "Gym/Spa",
+            "Restaurant",
+			"Bar",
+			"SwimmingPool",
+			"Interent"
+        ],
+       "outServices":{"Airpot":5.3,"ATM":0.3,"Medical":2.3,"Mall":0.4}
+    }
+]
