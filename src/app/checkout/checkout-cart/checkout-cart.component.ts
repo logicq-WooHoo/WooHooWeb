@@ -63,12 +63,14 @@ export class CheckoutCartComponent {
 
    increaseQuantity(itemId: any, restaurantId: any, quantityAdded:number){
     this.shoppingCartService.addItemQuantity(itemId,restaurantId,quantityAdded);
+    this.shoppingCartService.calculateTaxes();
     //this.getLatestCartWithTaxes();
     //this.cart = this.shoppingCartService.retrieve();
    }
 
    decreaseQuantity(itemId: any, restaurantId: any, quantityRemoved:number){
     this.shoppingCartService.subtractItemQuantity(itemId,restaurantId,quantityRemoved);
+    this.shoppingCartService.calculateTaxes();
     //this.getLatestCartWithTaxes();
     //this.cart = this.shoppingCartService.retrieve();
    }
@@ -76,5 +78,10 @@ export class CheckoutCartComponent {
    updateOrderMode(restaurantId: number, orderMode: string, cabType: string = ''){
      this.shoppingCartService.updateOrderMode(restaurantId,orderMode,cabType);
      //this.getLatestCartWithTaxes();
+   }
+
+   removeItemFromCart(itemId: any, restaurantId: any){
+    this.shoppingCartService.removeItem(itemId, restaurantId);
+    this.shoppingCartService.calculateTaxes();
    }
 }

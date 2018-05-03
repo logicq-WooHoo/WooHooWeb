@@ -82,6 +82,26 @@ export class ShoppingCartService {
     
   }
 
+  public removeItem( productId: any, restaurantId: number){
+    const cart = this.retrieve();
+    if(cart.restaurantCart){
+      let foundRestaurant = cart.restaurantCart.find((res) => res.restaurantId === restaurantId);
+      let foundItem: CartItem;
+      if(foundRestaurant){
+        let newRestaurantCart = foundRestaurant.itemsSelected
+                .filter((item) => item.productId != productId);
+        foundRestaurant.itemsSelected = newRestaurantCart;
+        if(foundRestaurant.itemsSelected.length == 0){
+          let newCart = cart.restaurantCart
+          .filter((rest) => rest.restaurantId != restaurantId);
+          cart.restaurantCart = newCart;
+        }
+
+      }
+    }
+    this.updateCart(cart);
+  }
+
   public updateCart(cart){
     this.calculateCart(cart);
     this.save(cart);
@@ -109,7 +129,7 @@ export class ShoppingCartService {
     }
    
     this.updateCart(cart);
-    this.calculateTaxes();
+    //this.calculateTaxes();
   }
 
   subtractItemQuantity(productId: string, restaurantId: number, quantity:number){
@@ -123,10 +143,13 @@ export class ShoppingCartService {
       }
       if(foundRestaurant && foundItem){
         foundItem.quantity -= quantity;
+        if(foundItem.quantity == 0){
+          this.removeItem(foundItem.productId, restaurantId);
+        }
       }
     }
     this.updateCart(cart);
-    this.calculateTaxes();
+    //this.calculateTaxes();
     //this.updateCart(cart);
   }
  

@@ -44,7 +44,7 @@
 															<input type="text" [placeholder]="item.quantity" class="form-control" >
 															<button class="add-item" (click)="increaseQuantity(item.productId, restaurant.restaurantId, 1)">+</button>
 														</div>
-														<a href="" class="remove-item">Remove</a>
+														<a (click)="removeItemFromCart(item.productId, restaurant.restaurantId)" class="remove-item">Remove</a>
 													</div>
 												</div>
 											</div>
