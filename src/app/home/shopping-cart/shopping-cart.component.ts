@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnDestroy, OnInit, OnChanges, Input } from "@angular/core";
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit, OnChanges, Input, ChangeDetectorRef } from "@angular/core";
 import { Observable } from "rxjs/Observable";
 import { Subscription } from "rxjs/Subscription";
 import { MenuItem } from "../hotelmenu/MenuItem";
@@ -6,6 +6,7 @@ import { ShoppingCart } from "./shopping-cart";
 import { ShoppingCartService } from '../../shared/shopping-cart-service';
 import { CartItem } from "./cart-item";
 import { PubSubService } from '../../shared/pub-sub.service';
+
 
 
 @Component({
@@ -25,7 +26,8 @@ export class ShoppingCartComponent implements OnInit, OnDestroy, OnChanges{
   @Input() cartItemsCount: number;
 
   public constructor(private shoppingCartService: ShoppingCartService,
-                    private pubSubService: PubSubService) {
+                    private pubSubService: PubSubService,
+                    private changeDetectorRef: ChangeDetectorRef) {
   }
 
   public emptyCart(): void {
@@ -50,6 +52,7 @@ export class ShoppingCartComponent implements OnInit, OnDestroy, OnChanges{
     this.cart = cart;
     this.itemCount = cart.totalNumberOfItems;
     this.grossTotal = cart.itemsTotal;
+    this.changeDetectorRef.markForCheck();
   }
       //this.shoppingCartService.updateCart(cart);
       //let updatedCart: ShoppingCart = JSON.parse(localStorage.getItem('cart'));

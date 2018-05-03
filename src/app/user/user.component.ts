@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { PubSubService } from '../shared/pub-sub.service';
+import { LoginService } from '../login/loginservice.service';
 
 @Component({
   selector: 'app-user',
@@ -10,15 +11,20 @@ export class UserComponent implements OnInit {
   title = 'app';
   private user: any;
 
-  constructor(){
-    
+  constructor(private pubSubService: PubSubService,
+    private loginService: LoginService){
+    this.getUserDetails();
   }
   ngOnInit(){
-    this.isUserLoggedIn();
+   
   }
-  isUserLoggedIn(){
-    if(localStorage.getItem('user')){
-      this.user = JSON.parse(localStorage.getItem('user'));
-    }
-  }
+  getUserDetails(){
+    this.user = this.loginService.getUserDetails();
+    this.pubSubService.subscribe('user', this.updateUserDetails.bind(this));
+     
+ }
+ 
+   updateUserDetails(topic,user){
+     this.user = user;
+   }
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ShoppingCart } from '../home/shopping-cart/shopping-cart';
 import { PubSubService } from '../shared/pub-sub.service';
+import { LoginService } from '../login/loginservice.service';
 
 @Component({
   selector: 'app-checkout',
@@ -11,11 +12,10 @@ export class CheckoutComponent {
   title = 'app';
   cart: ShoppingCart; 
   user: any;
-  constructor(private pubSubService: PubSubService){
+  constructor(private pubSubService: PubSubService,
+              private loginService: LoginService){
     
-    if(localStorage.getItem('user')){
-      this.user = JSON.parse(localStorage.getItem('user'));
-    }
+    this.getUserDetails();
     this.getCartDetails();
   }
 
@@ -28,5 +28,15 @@ export class CheckoutComponent {
   updateCartDetails(topic,cart){
     this.cart = cart;
   }
+
+  getUserDetails(){
+    this.user = this.loginService.getUserDetails();
+    this.pubSubService.subscribe('user', this.updateUserDetails.bind(this));
+     
+ }
+ 
+   updateUserDetails(topic,user){
+     this.user = user;
+   }
 
 }
