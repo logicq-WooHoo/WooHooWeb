@@ -1,62 +1,113 @@
-
- <!-- Loginn and register-->
- <section class="flat-row flat-login style2 parallax1" id="login">
-		<div class="container">
-		  <div class="row">
-			<div class="col-lg-2">
-			</div><!-- /.col-lg-2 -->
-			<div class="col-lg-4 col-sm-6">
-			  <div class="login-form style2">
-				<h3>Register</h3>
-				<form action="#" method="get" accept-charset="utf-8">
-				  <div class="wrap-login firstname">
-					<label>First name</label>
-					<input type="text" [(ngModel)]="firstname"  class="first-name" name="firstname">
-				  </div>
-				  <div class="wrap-login lastname">
-					<label>Last name</label>
-					<input type="text" [(ngModel)]="lastname" class="last-name" name="lastname">
-				  </div>
-				  <div class="wrap-login">
-					<label>Email address *</label>
-					<input type="text" [(ngModel)]="username" class="username" name="username">
-				  </div>
-				  <div class="wrap-login">
-					<label>Password *</label>
-					<input type="password" [(ngModel)]="password" class="password" name="password">
-				  </div>
-				  <div class="btn-more">
-					<a (click)="signUp()" href="#" title="">Register</a>
-				  </div>
-				</form><!-- /form -->
-			  </div><!-- /.login-form style2 -->
-			</div><!-- /.col-lg-4 col-sm-6 -->
-			<div class="col-lg-6 col-sm-6">
-				<div class="login-form style2">
-					<h3>Login</h3>
+<section class="page-heading clearfix">
+		<div class="container text-center no-glitter">
+			<h2>Please Log In 0r Create your account</h2>
+		</div>
+	</section>
 	
-					<div class="wrap-login firstname">
-						<label>Email address *</label>
-						<input type="text" [(ngModel)]="username" class="username" name="username">
-					  </div>
-					  <div class="wrap-login lastname">
-						<label>Password *</label>
-						<input type="password" [(ngModel)]="password" class="password" name="password">
-					  </div>
-				  <div class="btn-more">
-					  <a (click)="signIn()" href="#" title="">Login</a>
+	<section class="body-container">
+		<div class="container no-glitter">
+			<div class="row clearfix">
+				<div class="col-md-12">
+	
+					<div class="row-item profile-list clearfix">
+						<div class="login-container">
+							<div class="login-inner">
+								<div class="login-left">
+									<div class="content-logn">
+										<figure class="inner-logo">
+											<a (click)="signInWithGoogle()"><img src="assets/images/btn-google.png" alt="" /></a>
+										</figure>
+										<figure class="inner-logo">
+											<a (click)="signInWithFB()"><img src="assets/images/btn-fb.png" alt="" /></a>
+										</figure>
+	
+									</div>
+								</div>
+								<div class="login-right">
+									<ul class="toggle-top clearfix">
+										<li><a (click)="showLoginTab()" role="presentation"
+											class="button-toggle {{isLoginTabActive}}">Log In</a></li>
+										<li><a (click)="showUserSignUP()" role="presentation"
+											class="button-toggle {{isSignupTabActive}}">Sign Up</a></li>
+									</ul>
+									<div class="toggle-content clearfix">
+										<div class="form-login" id="loginSection"
+											*ngIf='displaySection'>
+											<div class="form-group">
+												<label for="email">Email address</label> 
+												<input type="email" [(ngModel)]="username"	class="form-control" id="email">
+											</div>
+											<div class="form-group">
+												<label for="pwd">Password</label> 
+												<input type="password" [(ngModel)]="password"	class="form-control" id="pwd">
+											</div>
+	
+											<div class="btn-area clearfix">
+												<a href="javascript:void(0);" class="forget-pass">Forget
+													Password ?</a>
+												<div class="clearfix"></div>
+												<button type="submit" class="btn btn-default btn-login">Let
+													Me In</button>
+												<p>
+													Please read our <a href="javascript:void(0);">T&C </a> and <a
+														href="javascript:void(0);">Privacy Policy. </a>
+												</p>
+											</div>
+										</div>
+	
+	
+										<div class="form-login" id="content-signup"
+											*ngIf='!displaySection'>
+											<div class="form-group">
+												<label for="email">Email address</label> <input type="email"
+													class="form-control" id="email">
+											</div>
+											<div class="form-group">
+												<label for="pwd">Password</label> <input type="password"
+													class="form-control" id="pwd">
+											</div>
+	
+											<div class="form-group">
+												<label for="pwd">Confirm Password</label> <input
+													type="password" class="form-control" id="pwd">
+											</div>
+	
+	
+											<div class="btn-area clearfix">
+												<button type="submit" class="btn btn-default btn-login">Register</button>
+												<p>
+													Please read our <a href="javascript:void(0);">T&C </a> and <a
+														href="javascript:void(0);">Privacy Policy. </a>
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+	
 					</div>
-			  <div class="login-social">
-				<div>For faster login or register use your social account.</div>
-				<button class="facebook" title="" (click)="signInWithFB()"><span class="ti-facebook"></span>Login with Facebook</button>
-				<p>or</p>
-				<button class="google" title="" (click)="signInWithGoogle()"><span class="ti-google"></span>Login with Google</button>
-			  </div><!-- /.login-social -->
-			  </div>
-			</div><!-- /.col-lg-5 col-sm-6 -->
-			<div class="col-lg-1">
-			</div><!-- /.col-lg-1 -->
-		  </div><!-- /.row -->
-		</div><!-- /.container -->
-		<div class="overlay"></div>
-	  </section><!-- /.flat-login style2 -->
+	
+	
+	
+					<div class="advertise-container text-center">
+						<div class="col-md-6">
+							<figure>
+								<a href="javascript:void(0);"><img
+									src="assets/images/advertise-small.jpg" alt=""></a>
+							</figure>
+						</div>
+						<div class="col-md-6">
+							<figure>
+								<a href="javascript:void(0);"><img
+									src="assets/images/advertise-small.jpg" alt=""></a>
+							</figure>
+						</div>
+					</div>
+				</div>
+	
+	
+			</div>
+		</div>
+	</section>
+	

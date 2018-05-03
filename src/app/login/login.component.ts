@@ -128,5 +128,20 @@ export class LoginComponent implements OnInit {
        this.router.navigate(['']);
       }
   }
+  isLoginTabActive:string="active";
+  isSignupTabActive:string;
+  displaySection:boolean=true;
+
+  showLoginTab(){
+    this.isLoginTabActive="active";
+    this.isSignupTabActive="";
+    this.displaySection=true;
+  }
+  showUserSignUP(){
+    this.isSignupTabActive="active";
+    this.isLoginTabActive="";
+    this.displaySection=false;
+  }
+
 
 }
