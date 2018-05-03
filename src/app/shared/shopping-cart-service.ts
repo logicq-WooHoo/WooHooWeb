@@ -129,7 +129,7 @@ export class ShoppingCartService {
     }
    
     this.updateCart(cart);
-    this.calculateTaxes();
+    //this.calculateTaxes();
   }
 
   subtractItemQuantity(productId: string, restaurantId: number, quantity:number){
@@ -143,10 +143,13 @@ export class ShoppingCartService {
       }
       if(foundRestaurant && foundItem){
         foundItem.quantity -= quantity;
+        if(foundItem.quantity == 0){
+          this.removeItem(foundItem.productId, restaurantId);
+        }
       }
     }
     this.updateCart(cart);
-    this.calculateTaxes();
+    //this.calculateTaxes();
     //this.updateCart(cart);
   }
  
