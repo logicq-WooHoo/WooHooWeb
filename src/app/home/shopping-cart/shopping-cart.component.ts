@@ -17,7 +17,7 @@ import { PubSubService } from '../../shared/pub-sub.service';
 
 export class ShoppingCartComponent implements OnInit, OnDestroy, OnChanges{
   public products: Observable<MenuItem[]>;
-  public cart: Observable<ShoppingCart>;
+  public cart: ShoppingCart;
   public itemCount: number;
   public grossTotal: number;
   private currentCurreny:string;
@@ -28,6 +28,8 @@ export class ShoppingCartComponent implements OnInit, OnDestroy, OnChanges{
   public constructor(private shoppingCartService: ShoppingCartService,
                     private pubSubService: PubSubService,
                     private changeDetectorRef: ChangeDetectorRef) {
+    this.cart = null;
+    this.cart = this.shoppingCartService.getCartDetails();
   }
 
   public emptyCart(): void {

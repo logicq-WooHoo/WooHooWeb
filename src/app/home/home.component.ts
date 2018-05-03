@@ -16,6 +16,7 @@ import { ShoppingCart } from './shopping-cart/shopping-cart';
 import { PubSubService } from '../shared/pub-sub.service';
 import { LoginService } from '../login/loginservice.service';
 import { LanguageService } from '../shared/language.service';
+import { ShoppingCartService } from '../shared/shopping-cart-service';
 
 @Component({
   selector: 'app-home',
@@ -51,8 +52,8 @@ export class HomeComponent {
     private authService: AuthService,
     private pubSubService: PubSubService,
     private loginService: LoginService,
-    private languageService:LanguageService
-  ) {
+    private languageService:LanguageService,
+    private shoppingCartService: ShoppingCartService) {
 
     translate.setDefaultLang(this.languageService.getlanguage());
     translate.use(this.languageService.getlanguage());
@@ -79,6 +80,7 @@ export class HomeComponent {
 
   getCartDetails(){
     this.cart = null;
+    this.cart = this.shoppingCartService.getCartDetails();
     let cart = this.pubSubService.subscribe('cart', this.updateCartDetails.bind(this));
     
   }
