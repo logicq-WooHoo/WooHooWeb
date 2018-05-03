@@ -13,6 +13,8 @@ import { PubSubService } from '../../shared/pub-sub.service';
 export class CheckoutCartComponent {
   cart: ShoppingCart;
   orderModeMessage: string = '';
+  private currentCurreny:string;
+
   constructor(private checkoutCartService: CheckoutCartService,
     private shoppingCartService:ShoppingCartService,
     private pubSubService: PubSubService,
@@ -21,6 +23,10 @@ export class CheckoutCartComponent {
      //console.log(this.cart);
      this.getLatestCartWithTaxes();
    }
+
+   ngOnInit() {
+    this.currentCurreny=localStorage.getItem("currentCurreny");
+  }
 
    /*calculateTaxes(){
     this.cart = JSON.parse(localStorage.getItem('cart'));

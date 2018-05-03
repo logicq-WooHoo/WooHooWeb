@@ -7,6 +7,7 @@ import { CartItem } from "../home/shopping-cart/cart-item";
 import { RestaurantCart } from '../home/shopping-cart/restaurant-cart';
 import { TaxService } from './tax-service';
 import { PubSubService } from './pub-sub.service';
+import { Resturant } from '../model/resturant';
 
 const CART_KEY = "cart";
 
@@ -33,7 +34,7 @@ export class ShoppingCartService {
     return this.subscriptionObservable;
   }
 
-  public addItem(product: MenuItem, quantity: number,allProduct:MenuItem[], restaurantId: number, restaurantName: string): void {
+  public addItem(product: MenuItem, quantity: number,allProduct:MenuItem[], restaurantId: number, restaurantName: string, restaurentDetail: Resturant): void {
 
     this.products=allProduct;
     const cart = this.retrieve();
@@ -48,6 +49,9 @@ export class ShoppingCartService {
 
     tempRestaurant.restaurantId = restaurantId;
     tempRestaurant.restaurantName = restaurantName;
+    tempRestaurant.deliveryPartners=restaurentDetail.deliveryPartners;
+
+
     if(cart.restaurantCart){
       let foundRestaurant = cart.restaurantCart.find((res) => res.restaurantId === restaurantId);
       let foundItem: CartItem;

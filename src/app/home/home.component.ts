@@ -65,6 +65,7 @@ export class HomeComponent {
   
   this.initMap();
 
+  localStorage.setItem("currentCurreny","₹");
   localStorage.setItem("lang","en");
   this.getUserDetails();
   this.getCartDetails();
@@ -94,8 +95,16 @@ export class HomeComponent {
           //get the place result
           let place: google.maps.places.PlaceResult = autocomplete.getPlace();
 
-          this.location=place.formatted_address;
+          this.location=place.formatted_address;      
           this.temp=this.location.split(",");
+
+          if(this.temp[this.temp.length-1].trim()=="India"){
+          localStorage.setItem("currentCurreny","₹");
+          }else if(this.temp[this.temp.length-1].trim()=="China"){
+            localStorage.setItem("currentCurreny","¥"); 
+          }else if(this.temp[this.temp.length-1].trim()=="USA"){
+            localStorage.setItem("currentCurreny","$");
+          }
 
           //verify result
           if (place.geometry === undefined || place.geometry === null) {

@@ -4,6 +4,7 @@ import {HotelmenuService} from './hotelmenu.service';
 import { MenuItem } from './menuItem';
 import { ShoppingCartService }  from '../../shared/shopping-cart-service';
 import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
+import { Resturant } from '../../model/resturant';
 
 
 @Component({
@@ -16,9 +17,15 @@ export class HotelmenuComponent implements OnInit ,OnChanges{
 
   @Input() restaurantId: number;
   @Input() restaurantName: string;
+  @Input() restaurentDetail: Resturant;
   @Output() onItemAdd = new EventEmitter<number>();
+
   restaurentMenu:MenuItem[];
   itemsCount: number = 0;
+private currentCurreny:string;
+ 
+
+
   constructor( private route: ActivatedRoute,
     private router: Router,
     private hotelMenuService:HotelmenuService,
@@ -35,6 +42,7 @@ export class HotelmenuComponent implements OnInit ,OnChanges{
 
   ngOnInit() {
     this.getRestaurentMenu(this.restaurantId);
+    this.currentCurreny=localStorage.getItem("currentCurreny");
   }
 
   ngOnChanges(){
@@ -45,7 +53,7 @@ export class HotelmenuComponent implements OnInit ,OnChanges{
 
   public addProductToCart(product: MenuItem): void {
     if(null==product["itemSelected"]){
-      this.shoppingCartService.addItem(product, 1,this.restaurentMenu, this.restaurantId, this.restaurantName);
+      this.shoppingCartService.addItem(product, 1,this.restaurentMenu, this.restaurantId, this.restaurantName, this.restaurentDetail);
       this.onItemAdd.emit(product.price);
       this.itemsCount++;
       product["itemSelected"]="rem-cart";

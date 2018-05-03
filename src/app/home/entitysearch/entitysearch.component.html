@@ -90,11 +90,11 @@
                   <li class="fa fa-dining"></li> 
                 </ul>
                 <p><span class="list-comma" *ngFor="let restype of res.restaurantTypes | slice:1:3" >{{restype  | translate }}</span> | others</p>
-                <button class="btn-yellow" (click)="showHotelMenu(res)">Menu</button>
+                <button class="btn-yellow" (click)="showHotelMenu(res)">{{menuText}}</button>
               </div>
             </div>
             <div *ngIf="res.showMenu">
-                <app-hotelmenu [restaurantId]="res.id" [restaurantName]="res.restaurantName" (onItemAdd)="onItemAdd($event)"></app-hotelmenu>
+                <app-hotelmenu [restaurantId]="res.id" [restaurantName]="res.restaurantName" [restaurentDetail]="res" (onItemAdd)="onItemAdd($event)"></app-hotelmenu>
               </div>
           </div>           
         </div>					

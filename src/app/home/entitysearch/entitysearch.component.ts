@@ -16,6 +16,7 @@ export class EntitySearchComponent implements OnInit {
   private result:Resturant[];
   private showMenu:boolean=false;
 private cartItemsCount: number = 0;
+menuText:string="Select Menu";
 //private totalPrice: number;
 
   constructor(private loginService: EntitySearchService,
@@ -108,10 +109,14 @@ private cartItemsCount: number = 0;
   }
 
   showHotelMenu(restuarant: any) {
+
+  
     if (restuarant.showMenu) {
       restuarant.showMenu= false;
+      this.menuText="Select Menu";
     } else {
       restuarant.showMenu= true;
+      this.menuText="Hide Menu";
     }
 
   }

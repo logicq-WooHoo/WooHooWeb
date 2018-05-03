@@ -24,7 +24,7 @@
 									<div class="menu-details list-checkout clearfix">
 										<div class="col-md-8 col-sm-8">
 											<h3>{{restaurant.restaurantName}}</h3>
-											<p class="del-partner">Service Partner: <span>Zomatoo, foodpanda </span></p>
+											<p class="del-partner">Service Partner: <span class="list-comma" *ngFor="let delpart of restaurant.deliveryPartners"  >{{delpart | translate}}</span></p>
 										</div>
 										<div class="col-md-4 col-sm-4">
 											<ul class="del-service">
@@ -37,7 +37,7 @@
 										<div class="restu-menu" *ngFor="let item of restaurant.itemsSelected">
 											<div class="col-md-6 col-sm-6">
 												<div class="outer-area">
-													<h4 class="restu-item"><span>{{item.productName}}<i class="veg"></i></span><div class="item-price">{{item.price}}</div></h4>
+													<h4 class="restu-item"><span>{{item.productName}}<i class="veg"></i></span><div class="item-price">{{currentCurreny}}{{item.price}}</div></h4>
 													<div class="sell-item">
 														<div class="btn-holder">
 															<button class="less-item" (click)="decreaseQuantity(item.productId, restaurant.restaurantId, 1)">-</button>
@@ -56,22 +56,23 @@
 							</div>
 							<div class="row-item padd20">
 								<div class="delivery-address">
-									<h3>Delivery Address <button type="button" class="btn-yellow pull-right btn-white">Add new address</button></h3>
-									<ul>
-										<li class="radio">
-											<label>
+									<h3>Delivery Address </h3>
+									<button type="button" class="btn-yellow pull-right btn-white">Add new address</button>
+								
+										<!--li class="radio">
+											< <label>
 												<div class="custom-radio"><input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"></div>
 												<div class="add-all">
 													<h4><span class="glyphicon glyphicon-home"></span> Home - B602, Sentosa</h4>
 													<p> 135 Newtownards Road, Belfast, BT4 1AB</p>
 												</div>												
-											</label>
-											<div class="add-action">
+											</label> -->
+											<!--div class="add-action">
 												<a class="link" title="Edit"><span class="glyphicon glyphicon-pencil"></span></a>
 												<a class="link" title="Remove"><span class="glyphicon glyphicon-trash"></span></a>
 											</div>
-										</li>
-									</ul>
+										</li-->
+									
 								</div>
 							</div>
 						</div>
@@ -81,7 +82,7 @@
 								<div class="promo-code">
 									<input type="text" class="form-control" placeholder="Enter promo code"><button type="button" class="btn-procode">Apply</button>
 								</div>
-								<div class="cart-item cart-value-total"><span>Tota Amount to be paid: </span><span>{{cart.grossTotal}}</span></div>
+								<div class="cart-item cart-value-total"><span>Tota Amount to be paid: </span><span>{{currentCurreny}} {{cart.grossTotal}}</span></div>
 								<button routerLink="/checkout/payment" [queryParams]="{amount: cart.grossTotal}" type="button" class="make-payment">Make Payment</button>
 							</div>
 							<div class="row-item padd20" *ngFor="let restaurant of cart.restaurantCart">
@@ -90,18 +91,16 @@
 										<li *ngFor="let item of restaurant.itemsSelected">
 											<small>{{item.quantity}}x</small>
 											 {{item.productName}} 
-											 <span>{{item.quantity * item.price}}</span>
+											 <span>{{currentCurreny}}{{item.quantity * item.price}}</span>
 											</li>
 									</ul>
 									<ul class="cart-item cart-value-total">
-										<li>Subtotal <span>{{restaurant.total}}</span></li>
-										<li>+ TAX<span>{{restaurant.grossTotal - restaurant.total}}</span></li>
-										<li>Total will be rounded off<span>{{restaurant.grossTotal}}</span></li>
+										<li>Subtotal <span>{{currentCurreny}}{{restaurant.total}}</span></li>
+										<li>+ TAX<span>{{currentCurreny}}{{restaurant.grossTotal - restaurant.total}}</span></li>
+										<li>Total will be rounded off<span>{{currentCurreny}}{{restaurant.grossTotal}}</span></li>
 										
 									</ul>
-									
-									
-									
+								
 								</div>
 							</div>
 						</div>

@@ -19,6 +19,7 @@ export class ShoppingCartComponent implements OnInit, OnDestroy, OnChanges{
   public cart: Observable<ShoppingCart>;
   public itemCount: number;
   public grossTotal: number;
+  private currentCurreny:string;
 
   private cartSubscription: Subscription;
   @Input() cartItemsCount: number;
@@ -33,6 +34,8 @@ export class ShoppingCartComponent implements OnInit, OnDestroy, OnChanges{
 
   public ngOnInit(): void {
     this.fetchAndUpdateCart();
+    this.currentCurreny=localStorage.getItem("currentCurreny");
+
   }
 
   public ngOnChanges(): void {
