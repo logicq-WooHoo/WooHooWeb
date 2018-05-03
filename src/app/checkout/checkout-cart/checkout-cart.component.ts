@@ -37,8 +37,9 @@ export class CheckoutCartComponent {
    }*/
 
    getLatestCartWithTaxes(){
-     this.shoppingCartService.calculateTaxes();
-     let cart = this.pubSubService.subscribe('cart', this.updateCartDetails.bind(this));
+    this.shoppingCartService.calculateTaxes();
+    this.cart = this.shoppingCartService.getCartDetails();
+    this.pubSubService.subscribe('cart', this.updateCartDetails.bind(this));
      //this.cart = this.shoppingCartService.retrieve();
    }
 

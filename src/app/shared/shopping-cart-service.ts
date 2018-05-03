@@ -16,6 +16,7 @@ export class ShoppingCartService {
   private subscriptionObservable: Observable<ShoppingCart>;
   private subscribers: Array<Observer<ShoppingCart>> = new Array<Observer<ShoppingCart>>();
   private products: MenuItem[];
+  private cart: ShoppingCart = new ShoppingCart();
 
 
   public constructor(public taxService: TaxService,
@@ -136,6 +137,7 @@ export class ShoppingCartService {
           cart.totalNumberOfItems = itemCount;
         });
       }
+      this.cart = cart;
   }
 
   public calculateTaxes(){
@@ -179,23 +181,28 @@ export class ShoppingCartService {
       cart.updateFrom(JSON.parse(storedCart));
     }
 
-    return cart;
+    return this.cart;
   }
 
   private save(cart: ShoppingCart): void {
-    localStorage.setItem(CART_KEY, JSON.stringify(cart));
+    //localStorage.setItem(CART_KEY, JSON.stringify(cart));
+    this.cart = cart;
   }
 
   private dispatch(cart: ShoppingCart): void {
-    this.pubSubService.publish('cart', cart);
-    this.subscribers
+    this.pubSubService.publish('cart', this.cart);
+    /*this.subscribers
         .forEach((sub) => {
           try {
             sub.next(cart);
           } catch (e) {
             // we want all subscribers to get the update even if one errors.
           }
-        });
+        });*/
+  }
+
+  public getCartDetails(){
+    return this.cart;
   }
   
 }

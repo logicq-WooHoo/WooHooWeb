@@ -10,14 +10,15 @@ import { PubSubService } from '../../shared/pub-sub.service';
 })
 export class TrackComponent {
   cart: ShoppingCart;
-  constructor(private pubSubService: PubSubService) {
-    this.getCartDetails();
+  constructor(private pubSubService: PubSubService,
+    private shoppingCartService: ShoppingCartService) {
+      this.getCartDetails();
   }
 
   getCartDetails(){
-    this.cart = null;
+    this.cart = this.shoppingCartService.getCartDetails();
     let cart = this.pubSubService.subscribe('cart', this.updateCartDetails.bind(this));
-    
+
   }
 
   updateCartDetails(topic,cart){
