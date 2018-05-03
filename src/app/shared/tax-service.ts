@@ -11,7 +11,7 @@ export class TaxService {
         
     }
 
-    public getTaxAmount(amount: number): Observable<any>{
+    public getTaxAmount(amount: number,quantity:number): Observable<any>{
         let postheaders = new Headers({'Content-Type': 'application/json',
         'Authorization': 'Token token=\"9b9a678aa4fa58c9aa470bbb9ad13ef1\"'});
     
@@ -25,10 +25,10 @@ export class TaxService {
                     "to_zip": "V6G 3E",
                     "to_state": "BC",
                     "amount": amount,
-                    "shipping":12,
+                    "shipping":0,
                     "line_items": [
                     {
-                        "quantity": 1,
+                        "quantity": quantity,
                         "unit_price": amount
                     }
                     ]

@@ -148,9 +148,12 @@ export class ShoppingCartService {
     const cart = this.retrieve();
      if(cart && cart.restaurantCart && cart.restaurantCart.length > 0){
       cart.grossTotal = 0;
+      
       cart.restaurantCart.forEach(restaurant => {
-        this.taxService.getTaxAmount( restaurant.total ).subscribe( data => {
-          restaurant.grossTotal = data['tax']['taxable_amount'];
+     
+        this.taxService.getTaxAmount( restaurant.total,1).subscribe( data => {
+          let taxAmount=data['tax']['amount_to_collect'];
+          restaurant.grossTotal = Number((restaurant.total+taxAmount).toFixed(2));
           cart.grossTotal = cart.grossTotal  + restaurant.grossTotal;
           this.updateCart(cart);
         });
