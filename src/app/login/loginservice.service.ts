@@ -19,9 +19,9 @@ export class LoginService {
 
   getSignIn(request){
     console.log("Login service");
-    let postheaders = new Headers({'Content-Type': 'application/json','Access-Control-Allow-Origin':'*'});
+    let postheaders = new Headers({'Content-Type': 'application/json','Access-Control-Allow-Origin':'*','username':request.emailId,'password':request.password});
     let options = new RequestOptions({ headers: postheaders });
-    return this.http.post("http://127.0.0.1:8090/user/login",request).map(res => res);
+    return this.http.post("http://127.0.0.1:8090/api/login",request).map(res => res);
   }
 
   getSignUp(request){

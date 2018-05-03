@@ -4,7 +4,7 @@ import { AuthService } from "angularx-social-login";
 import { SocialUser } from "angularx-social-login";
 import { Router } from '@angular/router';
 import { FacebookLoginProvider, GoogleLoginProvider, LinkedInLoginProvider } from "angularx-social-login";
- 
+import { PubSubService } from '../shared/pub-sub.service';
 
 @Component({
   selector: 'app-login',
@@ -24,11 +24,12 @@ export class LoginComponent implements OnInit {
   restaurantCitiesList = [];
   private user: SocialUser;
   private loggedIn: boolean;
- 
+  type:string="";
+  loginType:string="";
 
   constructor(private loginService: LoginService,
     private authService: AuthService,
-    private router: Router) {
+    private router: Router,private pubSubService: PubSubService) {
    }
 
   
@@ -40,16 +41,23 @@ export class LoginComponent implements OnInit {
 
   signIn(){
     let request={
-      userName:this.username,
+      emailId:this.emailId,
       password:this.password
     }
-    console.log("Usermane : "+this.username);
-    console.log("Password : "+this.password);
+  
     this.loginService.getSignIn(request).subscribe(data=>{
-      console.log(data);
-      console.log("Usermane : "+this.username);
-      console.log("Password : "+this.password);
-    })
+      let user=new SocialUser();
+      this.loggedIn = (data != null);
+      if(this.loggedIn){
+        user.email=data["emailId"];
+        user.id=data["id"];
+        user.name=data["emailId"];
+       // user.userId=data["id"];
+        this.loginService.setUserDetails(user);
+        this.router.navigate(['']);
+        this.setUserDetails(user);
+      }
+    });
   }
 
   /*public socialSignIn(socialPlatform : string) {
@@ -105,15 +113,24 @@ export class LoginComponent implements OnInit {
 
   signUp(){
     var request={
-      firstName:this.firstname,
-      lastName:this.lastname,
-      username:this.username,
-      password:this.password
+        emailId:this.emailId,
+        password:this.password,
+        type:"customer",
+        loginType:"WOHOO"
     }
-    console.log(this.firstname+"            "+this.lastname+"     "+this.username+"           "+this.password);
     this.loginService.getSignUp(request).subscribe(data => {
-      //console.log(data.usernam);
-      
+      let user=new SocialUser();
+      this.loggedIn = (data != null);
+      if(this.loggedIn){
+        user.email=data["emailId"];
+        user.id=data["id"];
+        user.name=data["emailId"];
+        user.provider=data["loginType"];
+       // user.userId=data["id"];
+        this.loginService.setUserDetails(user);
+        this.router.navigate(['']);
+        this.setUserDetails(user);
+      }
     });
   }
 
@@ -128,6 +145,8 @@ export class LoginComponent implements OnInit {
        this.router.navigate(['']);
       }
   }
+
+
   isLoginTabActive:string="active";
   isSignupTabActive:string;
   displaySection:boolean=true;
