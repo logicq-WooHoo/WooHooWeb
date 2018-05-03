@@ -23,7 +23,7 @@ export class LandingComponent implements OnInit {
   secondFormGroup: FormGroup;
   private user: SocialUser;
   private restaurentTypes:any[];
-  private restaurentTypeId:number;
+  private restaurentTypeId:number=1;
   private language:string;
 
   activeFlag: any = {
@@ -50,8 +50,7 @@ export class LandingComponent implements OnInit {
     ) {
 
     this.getLanguageDetail();
-    translate.setDefaultLang(this.language);
-    translate.use(this.language);
+
   
       this.activeFlag.hotelsTabActive='';
       this.activeFlag.shopTabActive='',
@@ -69,11 +68,13 @@ export class LandingComponent implements OnInit {
    getLanguageDetail(){
     this.language = this.languageService.getlanguage();
     this.pubSubService.subscribe('language', this.updateLanguageDetail.bind(this));
-     
+   
  }
  
  updateLanguageDetail(topic,language){
      this.language = language;
+     this.translate.setDefaultLang(this.language);
+     this.translate.use(this.language);
    }
 
    searchRestaurent(restaurentTypeId:number){ 
@@ -96,6 +97,9 @@ export class LandingComponent implements OnInit {
 
   ngOnInit() {
 
+
+    this.translate.setDefaultLang('en');
+    this.translate.use('en');
     var isLinear = true;
     
     this.firstFormGroup = this._formBuilder.group({

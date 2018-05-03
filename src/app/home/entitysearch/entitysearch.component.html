@@ -66,7 +66,7 @@
 
 
         <div class="filter-menu-item">       
-          <div class="row-item clearfix"  *ngFor="let res of result">        
+          <div class="row-item clearfix"  *ngFor="let res of restaurentDetails">        
             <div class="col-md-3 col-sm-3">
               <figure class="img-res"><img src="assets/images/hotelmenu/menu7.jpg" alt=""></figure>
             </div>
@@ -84,7 +84,7 @@
             </div>
             <div class="col-md-3 col-sm-3">
               <div class="more-details">
-                <a href class="res-like"><i class="fa fa-recom"></i> <strong>{{res.recommendationCount}}</strong> {{'recommendation' | translate}}</a>
+                <a href class="res-like"><i class="fa fa-recom"></i> <strong>{{res.displayRecommendationCount}}</strong> {{'recommendation' | translate}}</a>
                 <ul>
                   <li class="fa fa-food"></li>
                   <li class="fa fa-dining"></li> 

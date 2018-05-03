@@ -7,7 +7,26 @@
   "shop": "店",
   "nightlife": "夜生活",
   "searchforlocation": "搜索位置",
-  "makehappy":"什麼讓你開心 :)",
+  "landingfoodheader":"在線搜索美味的食物!",
+  "landingfoodorder":"從附近最好的餐館網上訂購食物.",
+  "landingfoodplaceholder":"搜索餐廳或菜餚",
+  "landinghotelheader":"以豪華生活的空間",
+  "landinghotelsubheader":"豪華生活，總理接待，寧靜的環境",
+  "landinghotelplaceholder":"搜索酒店",
+  "landinghotelselect":"選擇",
+  "landinghotelluxury":"豪華",
+  "landinghotelboutique":"精品",
+  "landinghotelfullservice":"全面服務",
+  "landinghoteleconomy":"經濟",
+  "landinghotelmotel":"汽車旅館",
+  "landinghotelMicrostay":"微呆",
+
+  "landingshopheader":"發現你的商店，你的地方",  
+  "landingshopsubheader":"You'll find it here!",
+
+
+
+
   "recommendation":"人們推薦",
   "loginSignUp": "登錄",
   "deliveryPartner":"交付夥伴",

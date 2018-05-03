@@ -3,6 +3,7 @@ export class Resturant {
     public restaurantName: string;
     public city: string;
      public recommendationCount: number;
+     public displayRecommendationCount: string;
       public rating: number;
       public deliveryPartners :string[];
       public restaurantTypes:string[];

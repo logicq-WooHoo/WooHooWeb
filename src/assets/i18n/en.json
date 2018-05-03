@@ -7,7 +7,25 @@
   "shop": "Shop",
   "nightlife": "Night Life",
   "searchforlocation": "search for location",
-  "makehappy":"What makes you happy :)",
+  "landingfoodheader":"Search delicious food online!",
+  "landingfoodorder":"Order food online from the best restaurants near you.",
+  "landingfoodplaceholder":"Search for restaurants or dishes",
+  "landinghotelheader":"Space to live your life with luxury",
+  "landinghotelsubheader":"Luxurious living,Premier Hospitality,Tranquil Surroundings",
+  "landinghotelplaceholder":"Search for hotel",
+  "landinghotelselect":"Select",
+  "landinghotelluxury":"Luxury",
+  "landinghotelboutique":"Boutique",
+  "landinghotelfullservice":"Full-service",
+  "landinghoteleconomy":"Economy",
+  "landinghotelmotel":"Motel",
+  "landinghotelMicrostay":"Microstay",
+
+  "landingshopheader":"Discover your stores, your place",  
+  "landingshopsubheader":"You'll find it here!",
+
+
+
   "recommendation":"People recommended",
   "deliveryPartner":"Delivery Partner",
   "deliverytime":"Delivery Time",

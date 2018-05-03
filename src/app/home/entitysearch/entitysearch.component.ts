@@ -4,6 +4,8 @@ import { Resturant } from '../../model/resturant';
 import { Routes, RouterModule, Router, ActivatedRoute } from "@angular/router";
 import { GeoMap } from '../../model/gmap';
 import { BasicSearchService } from '../basic-search/basicsearch.service';
+import {LanguageService} from '../../shared/language.service';
+import {PubSubService} from '../../shared/pub-sub.service';
 
 @Component({
   selector: 'app-entity-search',
@@ -13,18 +15,21 @@ import { BasicSearchService } from '../basic-search/basicsearch.service';
 })
 export class EntitySearchComponent implements OnInit {
 
-  private result:Resturant[];
+  private restaurentDetails:Resturant[];
   private showMenu:boolean=false;
-private cartItemsCount: number = 0;
-menuText:string="Select Menu";
+  private cartItemsCount: number = 0;
+  private language:string;
+  menuText:string="Select Menu";
 //private totalPrice: number;
 
   constructor(private loginService: EntitySearchService,
     private route: ActivatedRoute,
     private router: Router,
-    private basicSearchService: BasicSearchService
+    private basicSearchService: BasicSearchService,
+    private languageService:LanguageService,
+    private pubSubService: PubSubService
   ) {
-  
+    this.getLanguageDetail();
     this.route.params.subscribe(params => {
       
       if (params['longi']) {
@@ -39,7 +44,35 @@ menuText:string="Select Menu";
     });
 
    }
+
+
+   getLanguageDetail(){
+    this.language = this.languageService.getlanguage();
+    this.pubSubService.subscribe('language', this.updateLanguageDetail.bind(this));
    
+ }
+ 
+ updateLanguageDetail(topic,language){
+     this.language = language;
+
+    if(this.restaurentDetails.length!=0){
+
+      for (var resCount in this.restaurentDetails) {
+        if (this.language=='zh-tw') {
+          this.restaurentDetails[resCount].displayRecommendationCount=this.restaurentDetails[resCount].recommendationCount.toLocaleString('zh-Hans-CN-u-nu-hanidec');
+         
+        }else{
+          this.restaurentDetails[resCount].displayRecommendationCount=this.restaurentDetails[resCount].recommendationCount.toString();
+         
+        }
+      }
+
+
+    }
+
+   }
+
+
    doRestaurentSearchByFoodCategory(city:string,foodCategory:string){
     var request={
       city:city,
@@ -47,7 +80,22 @@ menuText:string="Select Menu";
     };
 
     this.basicSearchService.restaurentSearch(request).subscribe(data =>{
-      this.result=data;
+      this.restaurentDetails=data;
+
+      this.restaurentDetails.forEach(restaurent=>{
+       // restaurent.displayRecommendationCount=restaurent.recommendationCount.toString();
+
+        if (this.language=='zh-tw') {
+          restaurent.displayRecommendationCount=restaurent.recommendationCount.toLocaleString('zh-Hans-CN-u-nu-hanidec');
+         
+        }else{
+          restaurent.displayRecommendationCount=restaurent.recommendationCount.toString();
+         
+        }
+
+
+      })
+
    });
 
    }
@@ -59,7 +107,17 @@ menuText:string="Select Menu";
       };
 
       this.basicSearchService.restaurentSearch(request).subscribe(data =>{
-        this.result=data;
+        this.restaurentDetails=data;
+
+        this.restaurentDetails.forEach(restaurent=>{
+          if (this.language=='zh-tw') {
+            restaurent.displayRecommendationCount=restaurent.recommendationCount.toLocaleString('zh-Hans-CN-u-nu-hanidec');
+           
+          }else{
+            restaurent.displayRecommendationCount=restaurent.recommendationCount.toString();
+           
+          }
+        })
      });
 
    }
@@ -73,7 +131,17 @@ menuText:string="Select Menu";
       };
      
     this.basicSearchService.restaurentSearch(request).subscribe(data =>{
-      this.result=data;
+      this.restaurentDetails=data;
+      this.restaurentDetails.forEach(restaurent=>{
+        if (this.language=='zh-tw') {
+          restaurent.displayRecommendationCount=restaurent.recommendationCount.toLocaleString('zh-Hans-CN-u-nu-hanidec');
+         
+        }else{
+          restaurent.displayRecommendationCount=restaurent.recommendationCount.toString();
+         
+        }
+      })
+
    });
 
   }
@@ -86,7 +154,16 @@ menuText:string="Select Menu";
       };
      
     this.basicSearchService.restaurentSearch(request).subscribe(data =>{
-      this.result=data;
+      this.restaurentDetails=data;
+      this.restaurentDetails.forEach(restaurent=>{
+        if (this.language=='zh-tw') {
+          restaurent.displayRecommendationCount=restaurent.recommendationCount.toLocaleString('zh-Hans-CN-u-nu-hanidec');
+         
+        }else{
+          restaurent.displayRecommendationCount=restaurent.recommendationCount.toString();
+         
+        }
+      })
    });
 
   }

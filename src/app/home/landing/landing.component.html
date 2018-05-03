@@ -14,16 +14,15 @@
           <div class="item active">
             <img src="assets/images/banner-1.jpg">
             <div class="search-form text-center">
-                    <h2>{{'makehappy' | translate}}</h2>
-                    <p>Order food online from the best restaurants near you.</p>
+                    <h2>{{'landingfoodheader' | translate}}</h2>
+                    <p>{{'landingfoodorder' | translate}}</p>
                     <div class="form-inner">
                         <div class="custom-ddl">
                             <select class="css-ddl" [(ngModel)]="restaurentTypeId">
-                            <option value="" selected>Select</option>
-                            <option *ngFor="let resType of restaurentTypes" [ngValue]="resType.id">{{resType.type}}</option>
+                            <option *ngFor="let resType of restaurentTypes" [ngValue]="resType.id">{{resType.type | translate}}</option>
                             </select>
                         </div>
-                        <input type="text" [(ngModel)]="foodCategory" class="form-control" placeholder="Search for restaurants or dishes">
+                        <input type="text" [(ngModel)]="foodCategory" class="form-control" [placeholder]=" 'landingfoodplaceholder' | translate">
                         <button type="button" (click)="searchRestaurent(restaurentTypeId)" class="btn-search"></button>
                     </div>
                 </div>
@@ -31,21 +30,21 @@
           <div class="item">
             <img src="assets/images/hotel_banner.jpg">
             <div class="search-form text-center">
-                    <h2>Space to live your life with luxury</h2>
-                    <p>Luxurious living,Premier Hospitality,Tarnquil Surroundings</p>
+                    <h2>{{'landinghotelheader' | translate}}</h2>
+                    <p>{{'landinghotelsubheader' | translate}}</p>
                     <div class="form-inner">
                         <div class="custom-ddl">
                             <select class="css-ddl">
-                                <option value="0">Select</option>
-                                <option value="Luxury" selected>Luxury</option>
-                                <option value="Boutique">Boutique</option>
-                                <option value="Full-service">Full-service</option>	
-                                <option value="Economy">Economy</option>	
-                                <option value="Motel">Motel</option>	
-                                <option value="Microstay">Microstay</option>	
+                                <option value="0">{{'landinghotelselect' | translate}}</option>
+                                <option value="Luxury" selected>{{'landinghotelluxury' | translate}}</option>
+                                <option value="Boutique">{{'landinghotelboutique' | translate}}</option>
+                                <option value="Full-service">{{'landinghotelfullservice' | translate}}</option>	
+                                <option value="Economy">{{'landinghoteleconomy' | translate}}</option>	
+                                <option value="Motel">{{'landinghotelmotel' | translate}}</option>	
+                                <option value="Microstay">{{'landinghotelMicrostay' | translate}}</option>	
                             </select>
                         </div>
-                        <input type="text" class="form-control" placeholder="Search for hotel">
+                        <input type="text" class="form-control" [placeholder]="'landinghotelplaceholder' | translate">
                         <button type="button" class="btn-search"></button>
                     </div>
                 </div>
@@ -53,8 +52,8 @@
           <div class="item">
                 <img src="assets/images/shop_banner.jpg">
                 <div class="search-form text-center">
-                        <h2>Discover your stores, your place</h2>
-                        <p>You'll find it here!</p>
+                        <h2>{{'landingshopheader' | translate}}</h2>
+                        <p>{{'landingshopsubheader' | translate}}</p>
                         <div class="form-inner">
                             <div class="custom-ddl">
                                 <select class="css-ddl">

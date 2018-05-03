@@ -3,6 +3,8 @@ import { FoodSearchService } from './food.service';
 import { Resturant } from './resturant';
 import { BasicSearchService } from '../basic-search/basicsearch.service';
 import { Routes, RouterModule, Router, ActivatedRoute } from "@angular/router";
+import {LanguageService} from '../../shared/language.service';
+import {PubSubService} from '../../shared/pub-sub.service';
 
 @Component({
   selector: 'app-food-search',
@@ -21,12 +23,17 @@ export class FoodSearchComponent implements OnInit {
   restarentCount:Map<string, Array<number>> = new Map<string, Array<number>>();
   resCountTopMenus:Array<Object>=new Array<Object>() ;
   restarentCountTopMenus:Map<string, Array<number>> = new Map<string, Array<number>>();
+  private language:string;
 
   constructor(
     private foodSearchService: FoodSearchService, 
     private basicSearchService: BasicSearchService,
     private route: ActivatedRoute,
-    private router: Router) {
+    private router: Router,
+    private languageService:LanguageService,
+    private pubSubService: PubSubService
+  ) {
+    this.getLanguageDetail();
     this.getRestaurantCount();
     this.getTrendingRestuarntCountMenuType();
    }
@@ -63,7 +70,30 @@ export class FoodSearchComponent implements OnInit {
 
   }
 
+  getLanguageDetail(){
+    this.language = this.languageService.getlanguage();
+    this.pubSubService.subscribe('language', this.updateLanguageDetail.bind(this));
+   
+ }
  
+ updateLanguageDetail(topic,language){
+     this.language = language;
+
+    if(this.restarentSearchCount.length!=0){
+
+      for (var resCount in this.restarentSearchCount) {
+        if (this.language=='zh-tw') {
+          this.restarentSearchCount[resCount]["displayCount"]=this.restarentSearchCount[resCount]["count"].toLocaleString('zh-Hans-CN-u-nu-hanidec');
+         
+        }else{
+          this.restarentSearchCount[resCount]["displayCount"]=this.restarentSearchCount[resCount]["count"];
+        }
+      }
+
+
+    }
+
+   }
 
   getRestaurantCount(){
     var request={
@@ -78,7 +108,11 @@ export class FoodSearchComponent implements OnInit {
         keyvalue= this.restarentCount[key]  ;  
        var restCount={};
             restCount["name"]=key;
+
+
+            restCount["displayCount"]=keyvalue.length;
             restCount["count"]=keyvalue.length;
+
             restCount["resturantids"]=keyvalue;
          this.restarentSearchCount.push(restCount);
     });

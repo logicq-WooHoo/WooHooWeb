@@ -54,8 +54,8 @@ export class HomeComponent {
     private languageService:LanguageService
   ) {
 
-    translate.setDefaultLang(this.languageService.getlanguage());
-    translate.use(this.languageService.getlanguage());
+    translate.setDefaultLang('en');
+    translate.use('en');
    }
 
   ngOnInit() {
@@ -106,10 +106,10 @@ export class HomeComponent {
 
           if(this.temp[this.temp.length-1].trim()=="India"){
           localStorage.setItem("currentCurreny","₹");
-          }else if(this.temp[this.temp.length-1].trim()=="China"){
-            localStorage.setItem("currentCurreny","¥"); 
           }else if(this.temp[this.temp.length-1].trim()=="USA"){
             localStorage.setItem("currentCurreny","$");
+          }else{
+            localStorage.setItem("currentCurreny","¥"); 
           }
 
           //verify result
@@ -127,9 +127,6 @@ export class HomeComponent {
     this.translate.use(language);
     this.languageService.changeLanguage(language);
   }
-
-
-  
  getUserDetails(){
    this.user = this.loginService.getUserDetails();
    this.pubSubService.subscribe('user', this.updateUserDetails.bind(this));
