@@ -14,6 +14,7 @@ import { MapsAPILoader } from '@agm/core';
 
 import { ShoppingCart } from './shopping-cart/shopping-cart';
 import { PubSubService } from '../shared/pub-sub.service';
+import { LoginService } from '../login/loginservice.service';
 
 @Component({
   selector: 'app-home',
@@ -47,7 +48,9 @@ export class HomeComponent {
     private route: ActivatedRoute,
     private router: Router,
     private authService: AuthService,
-    private pubSubService: PubSubService) {
+    private pubSubService: PubSubService,
+    private loginService: LoginService) {
+
     translate.setDefaultLang('en');
     translate.use('en');
    }
@@ -113,10 +116,15 @@ export class HomeComponent {
     
   }
  getUserDetails(){
-   if(localStorage.getItem('user')){
-     this.user = JSON.parse(localStorage.getItem('user'));
-   }
- }
+   this.user = this.loginService.getUserDetails();
+   this.pubSubService.subscribe('user', this.updateUserDetails.bind(this));
+    
+}
+
+  updateUserDetails(topic,user){
+    this.user = user;
+  }
+
  signOut(){
   this.authService.signOut();
   localStorage.removeItem('user');

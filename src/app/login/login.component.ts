@@ -10,7 +10,6 @@ import { FacebookLoginProvider, GoogleLoginProvider, LinkedInLoginProvider } fro
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers: [LoginService],
 })
 export class LoginComponent implements OnInit {
   firstname:string="";
@@ -70,8 +69,8 @@ export class LoginComponent implements OnInit {
   signInWithGoogle(): void {
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(
       (userData) => {
-        this.setUserDetails(userData);
-        
+        this.loginService.setUserDetails(userData);
+        this.router.navigate(['']);
       }
     );
     
@@ -80,8 +79,8 @@ export class LoginComponent implements OnInit {
   signInWithFB(): void {
     this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then(
       (userData) => {
-        this.setUserDetails(userData);
-        
+        this.loginService.setUserDetails(userData);
+        this.router.navigate(['']);
       }
     );
   }
@@ -89,15 +88,13 @@ export class LoginComponent implements OnInit {
   signInWithLinkedIn(): void {
     this.authService.signIn(LinkedInLoginProvider.PROVIDER_ID).then(
       (userData) => {
-        this.setUserDetails(userData);
-        
+        this.loginService.setUserDetails(userData);
+        this.router.navigate(['']);
       }
     );
   }  
  
-  signOut(): void {
-    this.authService.signOut();
-  }
+  
 
   signUp(){
     var request={
@@ -114,15 +111,6 @@ export class LoginComponent implements OnInit {
   }
 
 
-  setUserDetails(user: SocialUser){
-   
-      this.user = user;
-      this.loggedIn = (user != null);
-      localStorage.setItem('user', JSON.stringify(user));
-      if(this.loggedIn){
-        console.log(user);
-       this.router.navigate(['']);
-      }
-  }
+ 
 
 }

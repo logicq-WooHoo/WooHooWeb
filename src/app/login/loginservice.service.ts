@@ -4,12 +4,16 @@ import { Http,Headers,RequestOptions,Response,RequestMethod,Request} from '@angu
 import { Observable } from 'rxjs';
 import { AppConfig } from '../configuration/app.config';
 import 'rxjs/Rx';
-
+import { AuthService } from "angularx-social-login";
+import { SocialUser } from "angularx-social-login";
+import { PubSubService } from '../shared/pub-sub.service';
 
 @Injectable()
 export class LoginService {
-
-  constructor(private http :HttpClient) {
+  user: SocialUser;
+  constructor(private http :HttpClient,
+              private authService: AuthService,
+              private pubSubService: PubSubService) {
     
    }
 
@@ -27,4 +31,21 @@ export class LoginService {
     return this.http.post("http://127.0.0.1:8090/api/user/registration",request);
   }
 
+  signOut(): void {
+    this.authService.signOut();
+    this.user = null;
+    this.setUserDetails(null);
+  }
+
+  setUserDetails(user: SocialUser){ 
+    if(user){
+      console.log(user);
+      this.user = user;
+    }
+    this.pubSubService.publish('user', this.user);
+  }
+
+  getUserDetails(){
+    return this.user;
+  }
 }
