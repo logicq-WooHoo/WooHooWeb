@@ -107,7 +107,9 @@ export class ShoppingCartService {
         foundItem.quantity += quantity;
       }
     }
+   
     this.updateCart(cart);
+    this.calculateTaxes();
   }
 
   subtractItemQuantity(productId: string, restaurantId: number, quantity:number){
@@ -124,6 +126,8 @@ export class ShoppingCartService {
       }
     }
     this.updateCart(cart);
+    this.calculateTaxes();
+    //this.updateCart(cart);
   }
  
   private calculateCart(cart: ShoppingCart): void {
