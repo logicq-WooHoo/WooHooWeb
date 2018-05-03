@@ -10,6 +10,7 @@ import { FacebookLoginProvider, GoogleLoginProvider, LinkedInLoginProvider } fro
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
+  providers: [LoginService],
 })
 export class LoginComponent implements OnInit {
   firstname:string="";
@@ -71,6 +72,7 @@ export class LoginComponent implements OnInit {
       (userData) => {
         this.loginService.setUserDetails(userData);
         this.router.navigate(['']);
+        this.setUserDetails(userData);
       }
     );
     
@@ -81,6 +83,8 @@ export class LoginComponent implements OnInit {
       (userData) => {
         this.loginService.setUserDetails(userData);
         this.router.navigate(['']);
+        this.setUserDetails(userData);
+        
       }
     );
   }
@@ -90,11 +94,14 @@ export class LoginComponent implements OnInit {
       (userData) => {
         this.loginService.setUserDetails(userData);
         this.router.navigate(['']);
+        this.setUserDetails(userData);
       }
     );
   }  
  
-  
+  signOut(): void {
+    this.authService.signOut();
+  }
 
   signUp(){
     var request={
@@ -111,6 +118,15 @@ export class LoginComponent implements OnInit {
   }
 
 
- 
+  setUserDetails(user: SocialUser){
+   
+      this.user = user;
+      this.loggedIn = (user != null);
+      localStorage.setItem('user', JSON.stringify(user));
+      if(this.loggedIn){
+        console.log(user);
+       this.router.navigate(['']);
+      }
+  }
 
 }
