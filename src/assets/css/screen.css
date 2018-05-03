@@ -85,7 +85,7 @@ header.affix{width:100%; z-index:99999;  border-bottom:1px solid #da3939;}
 /*--- Search ---*/
 
 /*--- Menu ---*/
-.menu{ box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); margin-bottom:30px; overflow:hidden}
+.menu{  background-color: rgb(255, 255, 255); box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1); margin-bottom:30px; overflow:hidden}
 .menu:hover figure img{  transform: scale(1.04)!important;}
 .order-area{position:relative; padding:20px;}
 .menu  img{transition: all .5s;}
