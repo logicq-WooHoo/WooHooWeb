@@ -6,6 +6,8 @@ import {TranslateService} from 'ng2-translate';
 import { SocialUser } from "angularx-social-login";
 import { AuthService } from "angularx-social-login";
 import { Routes, RouterModule, Router, ActivatedRoute } from "@angular/router";
+import {LanguageService} from '../../shared/language.service';
+import {PubSubService} from '../../shared/pub-sub.service';
 
 @Component({
   selector: 'app-landing',
@@ -22,8 +24,7 @@ export class LandingComponent implements OnInit {
   private user: SocialUser;
   private restaurentTypes:any[];
   private restaurentTypeId:number;
-  private foodCategory:string;
-
+  private language:string;
 
   activeFlag: any = {
     foodsTabActive:String,
@@ -43,9 +44,14 @@ export class LandingComponent implements OnInit {
     private authService: AuthService,
     private landingService:LandingService,
     private route: ActivatedRoute,
-    private router: Router) {
-    translate.setDefaultLang('en');
-    translate.use('en');
+    private router: Router,
+    private languageService:LanguageService,
+    private pubSubService: PubSubService
+    ) {
+
+    this.getLanguageDetail();
+    translate.setDefaultLang(this.language);
+    translate.use(this.language);
   
       this.activeFlag.hotelsTabActive='';
       this.activeFlag.shopTabActive='',
@@ -59,16 +65,21 @@ export class LandingComponent implements OnInit {
      
    }
 
+
+   getLanguageDetail(){
+    this.language = this.languageService.getlanguage();
+    this.pubSubService.subscribe('language', this.updateLanguageDetail.bind(this));
+     
+ }
+ 
+ updateLanguageDetail(topic,language){
+     this.language = language;
+   }
+
    searchRestaurent(restaurentTypeId:number){ 
 
     //need to channge city
-    if(this.foodCategory==undefined){
     this.router.navigate(['entitySearch', {city:"Pune",restaurentTypeId:restaurentTypeId}]);
-    }
-    else{
-      this.router.navigate(['entitySearch', {city:"Pune",foodCategory:this.foodCategory}]);
-    
-    }
 
    }
 

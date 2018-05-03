@@ -4,7 +4,7 @@ import { PubSubService } from './pub-sub.service';
 
 @Injectable()
 export class LanguageService {
-    language: string = 'English';
+    language: string = 'en';
     
     constructor(private pubSubService: PubSubService){
         

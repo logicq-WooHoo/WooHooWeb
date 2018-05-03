@@ -21,6 +21,7 @@ import { LoginService } from './login/loginservice.service';
 import { ShoppingCartService } from './shared/shopping-cart-service';
 import { TaxService } from './shared/tax-service';
 import { PubSubService } from './shared/pub-sub.service';
+import { LanguageService } from './shared/language.service';
 
 let config = new AuthServiceConfig([
   {
@@ -64,7 +65,7 @@ let config = new AuthServiceConfig([
       deps: [Http]
     })
   ],
-  providers: [appRoutingProviders,TranslateModule, LoginService ,ShoppingCartService, TaxService,PubSubService/*LocationService*/],
+  providers: [appRoutingProviders,TranslateModule, LoginService ,ShoppingCartService, TaxService,PubSubService,LanguageService/*LocationService*/],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

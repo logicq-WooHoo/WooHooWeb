@@ -15,6 +15,7 @@ import { MapsAPILoader } from '@agm/core';
 import { ShoppingCart } from './shopping-cart/shopping-cart';
 import { PubSubService } from '../shared/pub-sub.service';
 import { LoginService } from '../login/loginservice.service';
+import { LanguageService } from '../shared/language.service';
 
 @Component({
   selector: 'app-home',
@@ -49,10 +50,12 @@ export class HomeComponent {
     private router: Router,
     private authService: AuthService,
     private pubSubService: PubSubService,
-    private loginService: LoginService) {
+    private loginService: LoginService,
+    private languageService:LanguageService
+  ) {
 
-    translate.setDefaultLang('en');
-    translate.use('en');
+    translate.setDefaultLang(this.languageService.getlanguage());
+    translate.use(this.languageService.getlanguage());
    }
 
   ngOnInit() {
@@ -122,8 +125,11 @@ export class HomeComponent {
   }
   switchLanguage(language: string) {
     this.translate.use(language);
-    
+    this.languageService.changeLanguage(language);
   }
+
+
+  
  getUserDetails(){
    this.user = this.loginService.getUserDetails();
    this.pubSubService.subscribe('user', this.updateUserDetails.bind(this));
