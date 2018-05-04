@@ -55,6 +55,7 @@ export class FoodSearchComponent implements OnInit {
          var resturnatMenuCount={};
          resturnatMenuCount["name"]=key;
          resturnatMenuCount["count"]=keyvalue.length;
+         resturnatMenuCount["displayCount"]=keyvalue.length;
          resturnatMenuCount["resids"]=keyvalue;
          let  isVeg:boolean;
          var finddata=keyvalue.find(x=>x==0);
@@ -87,11 +88,27 @@ export class FoodSearchComponent implements OnInit {
          
         }else{
           this.restarentSearchCount[resCount]["displayCount"]=this.restarentSearchCount[resCount]["count"];
+
         }
       }
-
-
     }
+
+
+    if(this.resCountTopMenus.length!=0){
+      
+            for (var resMenuCount in this.resCountTopMenus) {
+              if (this.language=='zh-tw') {
+                this.resCountTopMenus[resMenuCount]["displayCount"]=this.resCountTopMenus[resMenuCount]["count"].toLocaleString('zh-Hans-CN-u-nu-hanidec');
+               
+              }else{
+                this.resCountTopMenus[resMenuCount]["displayCount"]=this.resCountTopMenus[resMenuCount]["count"];
+      
+              }
+            }
+          }
+
+
+
 
    }
 

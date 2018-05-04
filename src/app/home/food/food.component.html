@@ -1,6 +1,6 @@
       	<!-- Body Container Start-->
  <section class="container no-glitter">			
-          <h2 class="mar-15 text-center">Traveller's Pick </h2>
+          <h2 class="mar-15 text-center">{{'foodcomponentheader' | translate}} </h2>
           <div class="tab-content">
             <div role="tabpanel" class="tab-pane active">
             <div class="menu-list-item">
@@ -14,9 +14,9 @@
                           <a (click)="restaurentTypedata(menu.resids)"><h4>{{menu.name | translate}}</h4></a>
                           <span class="menu-tag" *ngIf="menu.isVeg===true;else veg" #veg  ><img src="assets/images/hotelmenu/newVeg.png" alt=""></span>
                           <span class="menu-tag" *ngIf="menu.isVeg===false;else nonveg" #nonveg  ><img src="assets/images/hotelmenu/newNonVeg.png" alt=""></span>
-                        <span>{{menu.count}} Resturants </span>
+                        <span>{{menu.displayCount}} {{'Resturants' | translate}} </span>
                       </div>
-                      <a (click)="restaurentTypedata(menu.resids)" class="order-now">Order Now</a>
+                      <a (click)="restaurentTypedata(menu.resids)" class="order-now">{{'Order Now' |translate}}</a>
                     </div>
                   </div>
                 </div>
@@ -31,7 +31,7 @@
 
 
 <section class="container no-glitter">
-    <h2 class="mar-15 text-center">Resturants Near You</h2>
+    <h2 class="mar-15 text-center">{{'foodcomponentRestaurentLable' | translate}}</h2>
 <div class="tab-content">
     <div role="tabpanel" class="tab-pane active">
     <div class="menu-list-item">
@@ -44,9 +44,9 @@
             <div class="order-area">
               <div class="menu-title">
                   <a (click)="restaurentTypedata(resCount.resturantids)"><h4>{{resCount.name | translate}}</h4></a>
-                <span>{{resCount.displayCount}} {{'label12'| translate}}</span>
+                <span>{{resCount.displayCount}} {{'foodcomponentRestaurentLable'| translate}}</span>
               </div>
-              <a (click)="restaurentTypedata(resCount.resturantids)" class="order-now">Order Now</a>
+              <a (click)="restaurentTypedata(resCount.resturantids)" class="order-now">{{'Order Now' |translate}}</a>
             </div>
           </div>
         </div>

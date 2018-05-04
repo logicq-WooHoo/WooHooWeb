@@ -6,6 +6,7 @@ import { ShoppingCart } from "./shopping-cart";
 import { ShoppingCartService } from '../../shared/shopping-cart-service';
 import { CartItem } from "./cart-item";
 import { PubSubService } from '../../shared/pub-sub.service';
+import {LanguageService} from '../../shared/language.service';
 
 
 
@@ -18,16 +19,21 @@ import { PubSubService } from '../../shared/pub-sub.service';
 export class ShoppingCartComponent implements OnInit, OnDestroy, OnChanges{
   public products: Observable<MenuItem[]>;
   public cart: ShoppingCart;
-  public itemCount: number;
+  public itemCount: number=0;
   public grossTotal: number;
   private currentCurreny:string;
+  private language:string;
 
   private cartSubscription: Subscription;
   @Input() cartItemsCount: number;
 
   public constructor(private shoppingCartService: ShoppingCartService,
                     private pubSubService: PubSubService,
-                    private changeDetectorRef: ChangeDetectorRef) {
+                    private changeDetectorRef: ChangeDetectorRef,
+                    private languageService:LanguageService               
+                  ) {
+
+    this.getLanguageDetail();
     this.cart = null;
     this.cart = this.shoppingCartService.getCartDetails();
   }
@@ -42,7 +48,7 @@ export class ShoppingCartComponent implements OnInit, OnDestroy, OnChanges{
 
   }
 
-  public ngOnChanges(): void {
+  public ngOnChanges(): void {  
     this.fetchAndUpdateCart();
   }
   private fetchAndUpdateCart(){
@@ -55,7 +61,44 @@ export class ShoppingCartComponent implements OnInit, OnDestroy, OnChanges{
     this.itemCount = cart.totalNumberOfItems;
     this.grossTotal = cart.itemsTotal;
     this.changeDetectorRef.markForCheck();
+
+
+    if(this.cart.totalNumberOfItems!=0){
+      
+              if (this.language=='zh-tw') {
+                this.cart.displayTotalNumberOfItems=this.cart.totalNumberOfItems.toLocaleString('zh-Hans-CN-u-nu-hanidec');
+                this.cart.displayItemsTotal=this.cart.itemsTotal.toLocaleString('zh-Hans-CN-u-nu-hanidec');
+              }else{
+                this.cart.displayTotalNumberOfItems=this.cart.totalNumberOfItems.toString();
+                this.cart.displayItemsTotal=this.cart.itemsTotal.toString();
+              }  
+          }
+
   }
+
+
+getLanguageDetail(){
+    this.language = this.languageService.getlanguage();
+    this.pubSubService.subscribe('language', this.updateLanguageDetail.bind(this));
+   
+ }
+ 
+ updateLanguageDetail(topic,language){
+    this.language = language;
+
+    if(this.cart.totalNumberOfItems!=0){
+
+      if (this.language=='zh-tw') {
+        this.cart.displayTotalNumberOfItems=this.cart.totalNumberOfItems.toLocaleString('zh-Hans-CN-u-nu-hanidec');
+        this.cart.displayItemsTotal=this.cart.itemsTotal.toLocaleString('zh-Hans-CN-u-nu-hanidec');
+      }else{
+        this.cart.displayTotalNumberOfItems=this.cart.totalNumberOfItems.toString();
+        this.cart.displayItemsTotal=this.cart.itemsTotal.toString();
+      }  
+    }
+   }
+
+
       //this.shoppingCartService.updateCart(cart);
       //let updatedCart: ShoppingCart = JSON.parse(localStorage.getItem('cart'));
 

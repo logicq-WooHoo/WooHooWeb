@@ -4,6 +4,7 @@ import { CheckoutCartService } from './checkout-cart.service';
 import { Routes, RouterModule, Router, ActivatedRoute } from "@angular/router";
 import { ShoppingCartService } from '../../shared/shopping-cart-service';
 import { PubSubService } from '../../shared/pub-sub.service';
+import {LanguageService} from '../../shared/language.service';
 
 @Component({
   selector: 'app-checkout-cart',
@@ -15,11 +16,13 @@ export class CheckoutCartComponent {
   orderModeMessage: string = '';
   private currentCurreny:string;
   private userProfile: any;
+  private language:string;
 
   constructor(private checkoutCartService: CheckoutCartService,
     private shoppingCartService:ShoppingCartService,
     private pubSubService: PubSubService,
-              private router: Router) {
+              private router: Router,
+              private languageService:LanguageService   ) {
      
      //console.log(this.cart);
      this.getLatestCartWithTaxes();

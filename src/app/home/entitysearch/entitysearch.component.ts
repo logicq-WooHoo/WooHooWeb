@@ -36,9 +36,9 @@ export class EntitySearchComponent implements OnInit {
        this.doRestaurentSearch(params['longi'],params['lati'])
       }else if (params['resIds']) {
         this.doRestaurentTypeSearch(params['resIds']);
-       }else if(params['restaurentTypeId']){
+      }else if(params['restaurentTypeId']){
         this.doRestaurentSearchByResIdAndCity(params['city'],params['restaurentTypeId']);
-       }else if(params['foodCategory']){
+      }else if(params['foodCategory']){
         this.doRestaurentSearchByFoodCategory(params['city'],params['foodCategory']);
        }
     });
@@ -46,14 +46,14 @@ export class EntitySearchComponent implements OnInit {
    }
 
 
-   getLanguageDetail(){
+getLanguageDetail(){
     this.language = this.languageService.getlanguage();
     this.pubSubService.subscribe('language', this.updateLanguageDetail.bind(this));
    
  }
  
  updateLanguageDetail(topic,language){
-     this.language = language;
+    this.language = language;
 
     if(this.restaurentDetails.length!=0){
 
@@ -66,10 +66,7 @@ export class EntitySearchComponent implements OnInit {
          
         }
       }
-
-
     }
-
    }
 
 
