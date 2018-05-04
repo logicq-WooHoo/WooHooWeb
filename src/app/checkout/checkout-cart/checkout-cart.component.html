@@ -58,7 +58,19 @@
 								<div class="delivery-address">
 									<h3>Delivery Address </h3>
 									<button type="button" class="btn-yellow pull-right btn-white">Add new address</button>
-								
+									<div class="card-list" *ngFor="let address of userProfile.userInformation.addresses">									
+										<div class="card-item col-md-6" >
+											<label>
+												<input name="group1" type="radio" checked />
+												<span class="card-info">
+													<p>Address <i>:</i></p>
+													<p>{{address.flatNo}} , {{address.societyName}} ,{{address.road}} {{address.city}}. {{address.state}} - {{address.pinCode}}</p>
+												</span>
+	
+											</label> 
+										</div> 
+		
+									</div>	
 										<!--li class="radio">
 											< <label>
 												<div class="custom-radio"><input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"></div>

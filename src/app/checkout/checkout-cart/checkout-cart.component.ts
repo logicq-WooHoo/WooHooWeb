@@ -14,6 +14,7 @@ export class CheckoutCartComponent {
   cart: ShoppingCart;
   orderModeMessage: string = '';
   private currentCurreny:string;
+  private userProfile: any;
 
   constructor(private checkoutCartService: CheckoutCartService,
     private shoppingCartService:ShoppingCartService,
@@ -22,6 +23,7 @@ export class CheckoutCartComponent {
      
      //console.log(this.cart);
      this.getLatestCartWithTaxes();
+     this.getUserProfile();
    }
 
    ngOnInit() {
@@ -84,4 +86,12 @@ export class CheckoutCartComponent {
     this.shoppingCartService.removeItem(itemId, restaurantId);
     this.shoppingCartService.calculateTaxes();
    }
+   getUserProfile(){
+
+    //Need to change hard code value 1 as user login
+    this.checkoutCartService.getUserProfile(1).subscribe(data =>{
+      this.userProfile=data;
+    });
+
+  }
 }
