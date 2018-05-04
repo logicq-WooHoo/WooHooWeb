@@ -20,7 +20,7 @@
               <li><a *ngIf="!user" routerLink="/login">{{'loginSignUp' | translate}}</a></li>
               <!--li><a href="javascript:void(0);" class="icon-call">Call</a></li-->
               <li>
-                  <a href="#" class="cart-icon">
+                  <a routerLink="/checkout" class="cart-icon">
                   <i class="glyphicon glyphicon-shopping-cart"></i>
                   <span *ngIf="cart" class="num">{{cart.totalNumberOfItems}}</span>
                   </a>
@@ -46,7 +46,7 @@
                     {{'Language' | translate}}
                     <span class="caret"></span>
                   </button>
-                  <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                  <ul class="dropdown-menu dropdown-menu-right"  aria-labelledby="dropdownMenu1">
                   <li><a (click)="switchLanguage('en')">{{'English' |translate}}</a></li>
                   <li><a (click)="switchLanguage('zh-tw')">{{'Chinese' | translate}}</a></li> 
                   </ul>

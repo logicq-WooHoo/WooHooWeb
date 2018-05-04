@@ -92,6 +92,9 @@ export class HotelmenuComponent implements OnInit ,OnChanges{
       product["itemSelected"]="rem-cart";
     }else{
       product["itemSelected"]=null;
+      this.shoppingCartService.removeItem(product.id, this.restaurantId);
+      this.onItemAdd.emit(-product.price);
+      this.itemsCount--;
     }
   
   }
