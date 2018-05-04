@@ -10,11 +10,11 @@ import { PubSubService } from '../shared/pub-sub.service';
 
 @Injectable()
 export class LoginService {
-  user: SocialUser;
+  public user: SocialUser;
   constructor(private http :HttpClient,
               private authService: AuthService,
               private pubSubService: PubSubService) {
-    
+    this.user = null;
    }
 
   getSignIn(request){
@@ -41,8 +41,9 @@ export class LoginService {
     if(user){
       console.log(user);
       this.user = user;
+      this.pubSubService.publish('user', user);
     }
-    this.pubSubService.publish('user', this.user);
+    
   }
 
   getUserDetails(){
