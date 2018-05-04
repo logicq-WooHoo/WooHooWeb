@@ -37,6 +37,7 @@ export class HomeComponent {
   public country:String;
   public temp:String[];
   public location:String="135 Newtownards Road, Belfast, BT4 1AB";
+  private English:string="English";
 
  
   @ViewChild("search")
@@ -126,6 +127,13 @@ export class HomeComponent {
     }); 
   }
   switchLanguage(language: string) {
+
+    if(language=='en'){
+      this.English="English";
+    }else{
+      this.English="Chinese";
+    }
+
     this.translate.use(language);
     this.languageService.changeLanguage(language);
   }
