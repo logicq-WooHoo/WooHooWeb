@@ -21,18 +21,19 @@
   "Economy":"經濟",
   "Motel":"汽車旅館",
   "Microstay":"微呆",
-
+  "FullService":"全面服務",
+  "GoToShop":"去商店",
   
 
   "landingshopheader":"發現你的商店，你的地方",  
   "landingshopsubheader":"你會在這裡找到它！",
   "landingshopBoutique" : "精品",
 
-  "landingshopTravelAgent" : "旅行社",
-  "landingshopBakery" : "麵包店",
-  "landingshopDepartmentalStore" : "部門商店",
-  "landingshopMalls" : "商場",
-  "landingshopSuperMarket" : "超級市場",
+  "TravelAgent" : "旅行社",
+  "Bakery" : "麵包店",
+  "DeptmentalStore" : "部門商店",
+  "Malls" : "商場",
+  "SuperMarket" : "超級市場",
   "landingshopplaceholder" : "輸入商店",
 
   "landingactivityheader":"城市最好的事情",
@@ -81,7 +82,6 @@
   "Profile":"輪廓",
   "Sign Out":"登出",
   "Language":"語言",
-  "English":"英語",
   "Others":"其他",
 
   "foodcomponentheader":"旅行者的選擇",

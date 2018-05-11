@@ -20,16 +20,20 @@
   "Motel":"Motel",
   "Microstay":"Microstay",
   "Full-Service":"Full-Service",
+  "FullService":"Full-Service",
+
+  "GoToShop":"Go To Shop",
 
 
   "landingshopheader":"Discover your stores, your place",  
   "landingshopsubheader":"You'll find it here!",
 
-  "landingshopTravelAgent" : "Travel Agent",
-  "landingshopBakery" : "Bakery",
-  "landingshopDepartmentalStore" : "Departmental Store",
-  "landingshopMalls" : "Malls",
-  "landingshopSuperMarket" : "Super Market",
+  "TravelAgent" : "Travel Agent",
+  "landingshopBoutique":"Boutique",
+  "Bakery" : "Bakery",
+  "DeptmentalStore" : "Departmental Store",
+  "Malls" : "Malls",
+  "SuperMarket" : "Super Market",
   "landingshopplaceholder" : "Enter shops",
 
   "landingactivityheader":"Best Things to Do in the City",
@@ -76,7 +80,6 @@
 "Profile":"Profile",
 "Sign Out":"Sign Out",
 "Language":"Language",
-"English":"English",
 
 "foodcomponentheader":"Traveller's Pick",
 
