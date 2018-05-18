@@ -15,7 +15,7 @@
   "landinghotelplaceholder":"搜索酒店",
 
   "select":"選擇",
-  "Luxury":"豪華",
+  "Luxurious":"豪華",
   "Boutique":"精品",
   "Full-Service":"全面服務",
   "Economy":"經濟",
@@ -54,7 +54,7 @@
   "landingnightplaceholder":"輸入姓名或服務",
   "Pubs":"酒館",
   "Bars":"酒吧",
-  "Live music":"現場音樂",
+  "LiveMusic":"現場音樂",
   "Concerts":"音樂會",
   "Cabarets":"夜總會",
   "Theatre":"劇院",
@@ -65,7 +65,7 @@
 
   "landingemergencyheader":"尋找緊急和醫療服務",
   "landingemergencysubheader":"沒人叫我們，因為他們做了一件聰明的事！",
-  "Medicine Stores":"醫藥商店",
+  "Medicine":"醫藥商店",
   "Ambulance":"救護車",
   "Hospitals":"醫院",
   "landingemergencyplaceholder":"輸入姓名或服務",

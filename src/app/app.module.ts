@@ -40,7 +40,7 @@ let config = new AuthServiceConfig([
     AppComponent,
     DashboardComponent,
     HotelregistrationComponent,
-    LoginComponent
+    LoginComponent,
 
     /*HotelSearchComponent,
     BarSearchComponent,

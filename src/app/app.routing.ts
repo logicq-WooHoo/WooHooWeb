@@ -13,6 +13,7 @@ import { LoginComponent } from './login/login.component';
 export const appRoutes: Routes = [
   // { path: 'landing', pathMatch: 'full', component: LocationComponent },
   { path: '', loadChildren: './home/home.module#HomeModule' },
+  { path: 'admin', loadChildren: './admin/admin.module#AdminModule' },
   { path: 'user', loadChildren: './user/user.module#UserModule' },
   { path: 'checkout', loadChildren: './checkout/checkout.module#CheckoutModule' },
   { path:  'login', component : LoginComponent},
