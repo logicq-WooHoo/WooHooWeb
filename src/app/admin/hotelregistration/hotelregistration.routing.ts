@@ -10,10 +10,10 @@ import { OpenRestaurentComponent } from './open-restaurent/open-restaurent.compo
 export const hotelRegistrationRoutes: Routes = [
   { path:  '', component :HotelregistrationComponent,
     children: [
+      { path: '', component: PersonalDetailComponent},
       { path: 'setuprestaurent', component: SetupRestaurentComponent},
       { path: 'restaurentmenu', component: RestaurentMenuComponent},
       { path: 'restaurentdetail', component: RestaurentDetailsComponent},
-      { path: 'personaldetail', component: PersonalDetailComponent},
       { path: 'openrestaurent', component: OpenRestaurentComponent} 
   ] 
 }
@@ -23,4 +23,4 @@ export const hotelRegistrationRoutes: Routes = [
 export const hotelRegistrationRoutingProviders: any[] = [
 ];
 
-export const routing: ModuleWithProviders = RouterModule.forChild( hotelRegistrationRoutes);
+export const hotelRegistrationrouting: ModuleWithProviders = RouterModule.forChild( hotelRegistrationRoutes);

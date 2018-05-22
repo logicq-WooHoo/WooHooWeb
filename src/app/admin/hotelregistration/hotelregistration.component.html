@@ -1,3 +1,122 @@
-<p>
-  hotelregistration works!
-</p>
+<div class="wrapper">
+    <div class="sidebar" data-background-color="white" data-active-color="danger">
+
+        <div class="sidebar-wrapper">
+            <div class="logo">
+                <a  class="simple-text">
+                    PARTNER LOGO
+                </a>
+            </div>
+
+            <ul class="nav">
+                <li class="active">
+                    <a >
+                        <i class="ti-panel"></i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
+                <li>
+                    <a >
+                        <i class="ti-user"></i>
+                        <p>User Profile</p>
+                    </a>
+                </li>
+                <li>
+                    <a >
+                        <i class="ti-view-list-alt"></i>
+                        <p>Menus</p>
+                    </a>
+                </li>
+                <li class="active">
+                    <a >
+                        <i class="ti-bell"></i>
+                        <p>Restaurant Setup</p>
+                    </a>
+                </li>
+                <li>
+                    <a >
+                        <i class="ti-pencil-alt2"></i>
+                        <p>Order Review</p>
+                    </a>
+                </li>
+
+                <li>
+                    <a >
+                        <i class="ti-bell"></i>
+                        <p>Service Provider</p>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-panel">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar bar1"></span>
+                        <span class="icon-bar bar2"></span>
+                        <span class="icon-bar bar3"></span>
+                    </button>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-md-8 col-sm-8">
+                        <h5 class="page-title">Restaurant Setup</h5>
+                    </div>
+                    <div class="col-md-4 col-sm-4">
+                        <div class="collapse navbar-collapse">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="language">
+                                    <select>
+                                        <option>English</option>
+                                    </select>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="content">
+            <div class="container-fluid wh-bg">
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="menu-step">
+                            <ul class="menu-step-select">
+                                <li class="{{activeFlag.personalDetailTabActive}}">
+                                    <i>1</i>
+                                    <span routerLink="/admin/" (click)="setActive('PERSONALDETAIL')">Personal Detail</span>
+                                </li>
+                                <li class="{{activeFlag.restaurentDetailTabActive}}">
+                                    <i>2</i>
+                                    <span routerLink="/admin/restaurentdetail" (click)="setActive('RESTAURENTDETAIL')">Restaurent Detail</span>
+                                </li>
+                                <li class="{{activeFlag.setupRestaurentTabActive}}">
+                                    <i>3</i>
+                                    <span routerLink="/admin/setuprestaurent" (click)="setActive('SETUPRESTAURENT')">Setup Restaurent</span>
+                                </li>
+                                <li class="{{activeFlag.menuItemTabActive}}">
+                                    <i>4</i>
+                                    <span routerLink="/admin/restaurentmenu" (click)="setActive('RESTAURENTMENU')">Restaurent Menu</span>
+                                </li>
+                                <li class="{{activeFlag.openRestaurentTabActive}}">
+                                    <i>5</i>
+                                    <span routerLink="/admin/openrestaurent" (click)="setActive('OPENRESTAURENT')">Open Restaurent</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <router-outlet></router-outlet>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { routing,hotelRegistrationRoutingProviders } from './hotelregistration.routing';
+import { hotelRegistrationrouting,hotelRegistrationRoutingProviders } from './hotelregistration.routing';
 import { HotelregistrationComponent } from './hotelregistration.component';
 import { PersonalDetailComponent } from './personal-detail/personal-detail.component';
 import { RestaurentDetailsComponent } from './restaurent-details/restaurent-details.component';
@@ -22,7 +22,9 @@ import { OpenRestaurentComponent } from './open-restaurent/open-restaurent.compo
     OpenRestaurentComponent
   ],
   imports: [
-    routing
+    FormsModule,
+    CommonModule,
+    hotelRegistrationrouting
   ],
   providers: [hotelRegistrationRoutingProviders],
   bootstrap: [HotelregistrationComponent]

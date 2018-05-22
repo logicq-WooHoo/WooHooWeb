@@ -1,0 +1,93 @@
+h5{font-weight:600}
+
+.wh-bg{background:#fff;}
+
+.menu-step{margin:50px 0;}
+.menu-step-select {margin:0; padding:0; list-style-type:none;display: flex; position:relative}
+.menu-step-select:after{content:''; position:absolute; width:100%; left:50%; top:38%; transform:translate(-50%, -50%); border-top:1px solid #000; z-index:0}
+.menu-step-select li{flex: 1;text-align:center; }
+.menu-step-select li i{width:100px; text-align:center; }
+.menu-step-select li i{width:49px; height:49px; background:#fff; border:1px solid #464646; border-radius:50%; display:inline-block; position:relative; z-index:20; margin:0 auto; line-height:49px; font-style:normal}
+.menu-step-select li i{ border-color:#505050;}
+.menu-step-select li.active i{background-color:#0099ff; border-color:#0099ff; color:#fff;}
+.menu-step-select li.visited i{background-color:#488305; border-color:#488305; color:#fff;}
+.menu-step-select li span{display:block; color:#2c2c2c; font-size:15px; font-weight:500;}
+.menu-step-select li.active span{font-weight:600;} 
+
+.btn-holder{margin-bottom:15px;}
+
+.language{line-height: 1.42857; margin: 15px 0px;  padding: 10px 0;}
+.page-title{padding-top:12px;}
+
+
+.info{font-size:12px; margin:0}
+.info i{width:15px; height:15px; border-radius:50%; background:#9A9A9A; line-height:15px; color:#fff; display:inline-block; text-align:center; margin-right:5px;}
+
+.setup-form ul{padding:0; margin:0;}
+.setup-form ul li{display:inline-block; margin-bottom:10px; margin-right:20px;}
+.setup-form ul li.checkbox label{padding-left:0}
+
+.del-partner li{margin: 10px 10px 10px 0; border: 1px dashed #787878;  border-radius: 5px; padding: 10px;}
+.setup-form ul.del-partner li.checkbox label{padding-left:30px;}
+.setup-form ul.del-partner li.checkbox .icons{top:48%; transform:translateY(-50%); left:10px;}
+.custom-table{padding:10px 0;}
+
+.custom-table .icons{display:none;}
+.input-table .form-control{border: 1px solid #787878; }
+.input-table{text-align:center;}
+.add-menu{margin-bottom:20px;}
+.add-menu h4{float:left; margin:0}
+
+.btn-bs-file{ position:relative;}
+.btn-bs-file input[type="file"]{  position: absolute; top: -9999999; filter: alpha(opacity=0); opacity: 0; width:0; height:0; outline: none;  cursor: inherit;}
+.slidecontainer { width: 100%; text-align:center; }
+.slidecontainer .slider { -webkit-appearance: none;  width: 75%; height: 12px; background: #d3d3d3; outline: none; opacity: 0.7; -webkit-transition: .2s;   transition: opacity .2s; display:inline-block; margin:0 10px;}
+.slidecontainer .slider:hover {  opacity: 1;}
+.slidecontainer .slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 25px; height: 25px; background: #488305;    cursor: pointer; border-radius:50%}
+.slidecontainer .slider::-moz-range-thumb {  width: 25px; height: 12px; background: #4CAF50; cursor: pointer;}
+.slidecontainer p{  text-align:center; margin:10px 0 0; font-weight:600; font-weight:600;}
+
+.add-menu-step{padding:4px 8px; border-radius:50%; background:#4CAF50; color:#fff; position: relative;top: 5px; left: -8px;}
+	
+.profile-list {padding:15px 15px 10px 15px; margin-bottom:15px;}
+.profile-list .media-left a{width:70px; display:block; border-radius:50%; overflow:hidden}
+.profile-list h3{margin:0; }
+.profile-list .media-body p{ font-size: 15px;}
+.profile-list .media-body p span{color: #a3a3a3; }
+
+.profile-list .link-edit{margin:0 0 0 15px; display:inline-block}
+.link-btn{color: #da3939;}
+
+.card .header {
+   position:relative;
+}
+
+.menu-type-icon {
+   position:absolute;
+   top:15px;
+   right:25px;
+}
+	
+/* TABLET LAYOUT (LANDSCAPE/992PX) 
+----------------------------------------------- */
+@media only screen and (min-width: 992px) and (max-width: 1279px) {
+	 
+}
+
+/* TABLET LAYOUT (PORTRAIT/768PX) 
+----------------------------------------------- */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+ 
+}
+
+
+/* MOBILE LAYOUT (PORTRAIT/320PX) 
+----------------------------------------------- */
+@media only screen and (max-width: 767px) { 
+	
+	
+}	 
+
+@media only screen and (orientation: landscape) { 
+	.form-inner .form-control{width:70%}
+}

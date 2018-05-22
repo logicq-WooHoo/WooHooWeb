@@ -1,0 +1,110 @@
+
+ .checkbox label .toggle,.checkbox-inline .toggle{
+    margin-left:-20px;
+    margin-right:5px
+}
+ .toggle{
+    position:relative;
+    overflow:hidden;
+	height:31px !important;
+}
+ .toggle input[type=checkbox]{
+    display:none
+}
+ .toggle-group{
+    position:absolute;
+    width:200%;
+    top:0;
+    bottom:0;
+    left:0;
+    transition:left .35s;
+    -webkit-transition:left .35s;
+    -moz-user-select:none;
+    -webkit-user-select:none;
+	height:31px;
+}
+ .toggle.off .toggle-group{
+    left:-100%
+}
+ .toggle-on{
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:50%;
+    margin:0;
+    border:0; 
+	padding:0 5px;
+	background:#488305;
+	color:#fff;
+	line-height:31px;
+	border-radius:0;
+	height:31px;
+}
+ .toggle-off{
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:50%;
+    right:0;
+    margin:0;
+    border:0;
+    border-radius:0
+}
+ .toggle-handle{
+    position:relative;
+    margin:0 auto;
+    padding-top:0;
+    padding-bottom:0;
+    height:31px;
+    width:0;
+    border-width:0 1px;
+	border-radius:0;
+	background:#989898;
+}
+ .toggle.btn{
+    min-width:59px;
+    min-height:15px;
+	border-radius:4px;
+	border:0;
+}
+ .toggle-on.btn{ 
+
+}
+ .toggle-off.btn{
+    padding-left:12px;
+	height:31px;
+}
+ .toggle.btn-lg{
+    min-width:79px;
+    min-height:15px
+}
+ .toggle-on.btn-lg{
+    padding-right:20px
+}
+ .toggle-off.btn-lg{
+    padding-left:20px
+}
+ .toggle-handle.btn-lg{
+    width:40px
+}
+ .toggle.btn-sm{
+    min-width:50px;
+    min-height:15px
+}
+ .toggle-on.btn-sm{
+    padding-right:10px
+}
+ .toggle-off.btn-sm{
+    padding-left:10px
+}
+ .toggle.btn-xs{
+    min-width:35px;
+    min-height:15px
+}
+ .toggle-on.btn-xs{
+    padding-right:12px
+}
+ .toggle-off.btn-xs{
+    padding-left:12px
+}
