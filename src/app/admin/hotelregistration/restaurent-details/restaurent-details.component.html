@@ -2,14 +2,14 @@
     <div class="restau-form">
       <div class="form-group">
         <label>Restaurant Name</label>
-        <input type="text" class="form-control border-input" >
+        <input type="text" [(ngModel)]="restaurantName" class="form-control border-input" >
       </div>
     </div> 
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
           <label>Registration Number</label>
-          <input type="text" class="form-control border-input" value="Chet">
+          <input type="text"  [(ngModel)]="registrationNumber"  class="form-control border-input" value="Chet">
         </div>
       </div>
       <div class="col-md-6">
@@ -71,6 +71,6 @@
     <div class="text-right btn-holder">
       <button type="submit" class="btn btn-default btn-fill btn-wd" >Back</button>
       <button type="submit" class="btn btn-primary btn-fill btn-wd">Save</button>
-      <button type="submit" class="btn btn-primary btn-fill btn-wd" >Next</button>
+      <button type="submit" class="btn btn-primary btn-fill btn-wd" (click)="saveRestaurentDetail()">Next</button>
     </div>
   </div>

@@ -33,6 +33,19 @@ private  countryCode:string;
 
 private  distance:number;
 
-  }
+
+get FlatNo():string{
+  return this.flatNo;
+}
+
+
+set FlatNo(flatNo:string){
+   this.flatNo=flatNo;
+}
+
+
+
+
+}
   
 
