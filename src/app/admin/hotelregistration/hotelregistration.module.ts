@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-
+import { AgmCoreModule } from '@agm/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { hotelRegistrationrouting,hotelRegistrationRoutingProviders } from './hotelregistration.routing';
@@ -9,6 +9,7 @@ import { RestaurentDetailsComponent } from './restaurent-details/restaurent-deta
 import { SetupRestaurentComponent } from './setup-restaurent/setup-restaurent.component';
 import { RestaurentMenuComponent } from './restaurent-menu/restaurent-menu.component';
 import { OpenRestaurentComponent } from './open-restaurent/open-restaurent.component';
+import { RestaurentSetupService } from './restaurentsetupservice';
 
 
 
@@ -21,12 +22,15 @@ import { OpenRestaurentComponent } from './open-restaurent/open-restaurent.compo
     RestaurentMenuComponent,
     OpenRestaurentComponent
   ],
-  imports: [
+  imports: [  AgmCoreModule.forRoot({
+    apiKey: "AIzaSyBG30O7cDCM-fKwisQ3OvwYMk-3lQo1pys",
+    libraries: ["places"]
+  }),
     FormsModule,
     CommonModule,
     hotelRegistrationrouting
   ],
-  providers: [hotelRegistrationRoutingProviders],
+  providers: [hotelRegistrationRoutingProviders,RestaurentSetupService],
   bootstrap: [HotelregistrationComponent]
 })
 export class HotelRegistrationModule { }

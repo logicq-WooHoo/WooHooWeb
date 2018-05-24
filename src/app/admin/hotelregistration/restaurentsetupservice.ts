@@ -1,14 +1,18 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { ReplaySubject } from 'rxjs';
 import { FinalRestaurentSetup } from './restaurantmodel/finalrestaurentsetup';
 
 @Injectable()
 export class RestaurentSetupService {
 
-  public finalRestaurentSetup = new BehaviorSubject<FinalRestaurentSetup>(new FinalRestaurentSetup);
-  public currentfinalRestaurentSetup = this.finalRestaurentSetup.asObservable();
-
+  public finalRestaurentSetup = new ReplaySubject<FinalRestaurentSetup>(1);
+ 
   constructor() { }
+
+  
+getFinalRestaurentSetup() {
+    return  this.finalRestaurentSetup.asObservable();
+}
 
   public changeFinalRestaurentSetup(finalRestaurentSetup: FinalRestaurentSetup) {
     this.finalRestaurentSetup.next(finalRestaurentSetup)

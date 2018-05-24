@@ -23,7 +23,7 @@
     <div class="restau-form">
       <div class="form-group">
         <label>Address Line 1</label>
-        <input type="text" class="form-control border-input">
+        <input type="text"  [(ngModel)]="landmark" class="form-control border-input">
       </div>
     </div> 
     <div class="restau-form">
@@ -36,20 +36,20 @@
       <div class="col-md-6">
         <div class="form-group">
           <label>Select Country</label>
-          <select id="u407_input" class="form-control border-input">
+          <select id="u407_input" [(ngModel)]="country" class="form-control border-input">
             <option selected="" value="USA">USA</option>
             <option value="China">China</option>
-            <option value=" Algeria">&nbsp;Algeria</option>
+            <option value="India">India</option>
           </select>
         </div>
       </div>
       <div class="col-md-6">
         <div class="form-group">
           <label>Select State</label>
-          <select id="u407_input" class="form-control border-input">
-            <option selected="" value="USA">USA</option>
-            <option value="China">China</option>
-            <option value=" Algeria">&nbsp;Algeria</option>
+          <select id="u407_input"  [(ngModel)]="state" class="form-control border-input">
+            <option selected="" value="MAHARASTA">MAHARASTA</option>
+            <option value="KARNATAKA">KARNATAKA</option>
+            <option value="RAJASTHAN">RAJASTHAN</option>
           </select>
         </div>
       </div>
@@ -58,13 +58,13 @@
       <div class="col-md-6">
         <div class="form-group">
           <label>City</label>
-          <input type="text" class="form-control border-input" >
+          <input type="text"  [(ngModel)]="city" class="form-control border-input" >
         </div>
       </div>
       <div class="col-md-6">
         <div class="form-group">
           <label>Pin Code</label>
-          <input type="text" class="form-control border-input" >
+          <input type="text" [(ngModel)]="pinCode" class="form-control border-input" >
         </div>
       </div>
     </div>

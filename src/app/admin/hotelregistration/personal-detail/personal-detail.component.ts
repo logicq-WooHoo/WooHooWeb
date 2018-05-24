@@ -7,8 +7,7 @@ import { Routes, RouterModule, Router, ActivatedRoute } from "@angular/router";
 @Component({
   selector: 'app-personal-detail',
   templateUrl: './personal-detail.component.html',
-  styleUrls: ['./personal-detail.component.css'],
-  providers:[RestaurentSetupService]
+  styleUrls: ['./personal-detail.component.css']
 })
 export class PersonalDetailComponent implements OnInit {
 
@@ -27,7 +26,7 @@ export class PersonalDetailComponent implements OnInit {
 
   saveUserDetail(){
 
-     this.restaurentSetupService.currentfinalRestaurentSetup.subscribe(
+     this.restaurentSetupService.getFinalRestaurentSetup().subscribe(
        finalRestaurentSetup => this.finalRestaurentSetup=finalRestaurentSetup
     );
 
@@ -37,7 +36,7 @@ export class PersonalDetailComponent implements OnInit {
     this.userInformation.mobileNo=this.mobileNo;
     this.userInformation.emailId=this.emailId;
 
-    this.finalRestaurentSetup.UserInformation=this.userInformation;
+    this.finalRestaurentSetup.userInformation=this.userInformation;
     this.restaurentSetupService.changeFinalRestaurentSetup(this.finalRestaurentSetup);
 
     this.router.navigateByUrl('/admin/restaurentdetail');

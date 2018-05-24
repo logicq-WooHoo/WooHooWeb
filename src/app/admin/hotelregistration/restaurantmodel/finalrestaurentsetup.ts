@@ -14,37 +14,39 @@ export class FinalRestaurentSetup {
 	
 	public restaurantSetup : RestaurantSetup ;
 
-	get UserInformation(): UserInformation{
-		return this.userInformation;
-	}
+	constructor() { }
 
-	set UserInformation(userInformation:UserInformation){
-		 this.userInformation=userInformation;
-	}
+	// get UserInformation(): UserInformation{
+	// 	return this.userInformation;
+	// }
 
-	get RestaurantDetails(): RestaurantDetails{
-		return this.restaurantDetails;
-	}
+	// set UserInformation(userInformation:UserInformation){
+	// 	 this.userInformation=userInformation;
+	// }
 
-	set RestaurantDetails(restaurantDetails:RestaurantDetails){
-		 this.restaurantDetails=restaurantDetails;
-	}
+	// get RestaurantDetails(): RestaurantDetails{
+	// 	return this.restaurantDetails;
+	// }
 
-	get RestaurantMenu(): RestaurantMenu{
-		return this.restaurantMenu;
-	}
+	// set RestaurantDetails(restaurantDetails:RestaurantDetails){
+	// 	 this.restaurantDetails=restaurantDetails;
+	// }
 
-	set RestaurantMenu(restaurantMenu:RestaurantMenu){
-		 this.restaurantMenu=restaurantMenu;
-	}
+	// get RestaurantMenu(): RestaurantMenu{
+	// 	return this.restaurantMenu;
+	// }
 
-	get RestaurantSetup(): RestaurantSetup{
-		return this.restaurantSetup;
-	}
+	// set RestaurantMenu(restaurantMenu:RestaurantMenu){
+	// 	 this.restaurantMenu=restaurantMenu;
+	// }
 
-	set RestaurantSetup(restaurantSetup:RestaurantSetup){
-		 this.restaurantSetup=restaurantSetup;
-	}
+	// get RestaurantSetup(): RestaurantSetup{
+	// 	return this.restaurantSetup;
+	// }
+
+	// set RestaurantSetup(restaurantSetup:RestaurantSetup){
+	// 	 this.restaurantSetup=restaurantSetup;
+	// }
 	
   }
   

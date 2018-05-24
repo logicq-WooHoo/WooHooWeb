@@ -1,50 +1,39 @@
 
 export class Address {
 
-private  flatNo:string;
+  flatNo:string;
 
-private  societyName:string;
+  societyName:string;
 
-private  street:string;
+  street:string;
 
-private  road:string;
+  road:string;
 
-private  city:string;
+  city:string;
 
-private  pinCode:string;
+  pinCode:string;
 
-private  locality:string;
+  locality:string;
 
-private  landmark:string;
+  landmark:string;
 
-private  state:string;
+  state:string;
 
-private  country:string;
+  country:string;
 
-private  latitude:number;
+  latitude:number;
 
-private  longitude:number;
+  longitude:number;
 
-private  type:string;
+  type:string;
 
-private  stateCode:string;
+  stateCode:string;
 
-private  countryCode:string;
+  countryCode:string;
 
-private  distance:number;
+  distance:number;
 
-
-get FlatNo():string{
-  return this.flatNo;
-}
-
-
-set FlatNo(flatNo:string){
-   this.flatNo=flatNo;
-}
-
-
-
+constructor(){}
 
 }
   
