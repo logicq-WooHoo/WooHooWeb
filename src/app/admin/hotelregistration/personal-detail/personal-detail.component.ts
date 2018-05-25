@@ -11,32 +11,31 @@ import { Routes, RouterModule, Router, ActivatedRoute } from "@angular/router";
 })
 export class PersonalDetailComponent implements OnInit {
 
-   userInformation: UserInformation=new UserInformation();
-   finalRestaurentSetup:FinalRestaurentSetup=new FinalRestaurentSetup();
+  userInformation: UserInformation = new UserInformation();
+  finalRestaurentSetup: FinalRestaurentSetup = new FinalRestaurentSetup();
 
-   firstName: string="";
-	 lastName:string="";
-	 emailId: string="";
-	 mobileNo : string ="";
+  firstName: string = "";
+  lastName: string = "";
+  emailId: string = "";
+  mobileNo: string = "";
 
-  constructor(private restaurentSetupService:RestaurentSetupService,
+  constructor(private restaurentSetupService: RestaurentSetupService,
     private route: ActivatedRoute,
-    private router: Router,) { }
+    private router: Router, ) { }
 
 
-  saveUserDetail(){
+  saveUserDetail() {
 
-     this.restaurentSetupService.getFinalRestaurentSetup().subscribe(
-       finalRestaurentSetup => this.finalRestaurentSetup=finalRestaurentSetup
+    this.restaurentSetupService.getFinalRestaurentSetup().subscribe(
+      finalRestaurentSetup => this.finalRestaurentSetup = finalRestaurentSetup
     );
 
+    this.userInformation.firstName = this.firstName;
+    this.userInformation.lastName = this.lastName;
+    this.userInformation.mobileNo = this.mobileNo;
+    this.userInformation.emailId = this.emailId;
 
-    this.userInformation.firstName=this.firstName;
-    this.userInformation.lastName=this.lastName;
-    this.userInformation.mobileNo=this.mobileNo;
-    this.userInformation.emailId=this.emailId;
-
-    this.finalRestaurentSetup.userInformation=this.userInformation;
+    this.finalRestaurentSetup.userInformation = this.userInformation;
     this.restaurentSetupService.changeFinalRestaurentSetup(this.finalRestaurentSetup);
 
     this.router.navigateByUrl('/admin/restaurentdetail');
