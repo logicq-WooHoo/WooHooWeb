@@ -31,8 +31,8 @@ export class RestaurentDetailsComponent implements OnInit {
   landmark: string;
   state: string;
   country: string;
-  latitude: number = 0;
-  longitude: number = 0;
+  latitude:number=18.5075353;
+  longitude:number=73.7713107;
   geocoder:any;
 
   constructor(private restaurentSetupService: RestaurentSetupService,
@@ -68,10 +68,12 @@ export class RestaurentDetailsComponent implements OnInit {
     this.address.city = this.city;
     this.address.pinCode = this.pinCode;
 
-    this.getGeoLocation("wakad,pune");
+    //this.getGeoLocation("wakad,pune");
 
     this.address.longitude = this.longitude;
     this.address.latitude = this.latitude;
+    this.restaurantDetails.address=this.address;
+
     this.finalRestaurentSetup.restaurantDetails = this.restaurantDetails;
     this.restaurentSetupService.changeFinalRestaurentSetup(this.finalRestaurentSetup);        
     this.router.navigateByUrl('/admin/setuprestaurent');
