@@ -6,9 +6,9 @@
             <h3 class="panel-title">Personal Info</h3>
           </div>
           <div class="panel-body">
-            <p>Mr. Alan Michlle</p>
-            <p><span>Email:</span> alan.michle2000@gmail.com</p>
-            <p><span>Phone:</span> +91 2302304444</p>
+            <p>Mr. {{firstName}} {{lastName}}</p>
+            <p><span>Email:</span> {{emailId}}</p>
+            <p><span>Phone:</span> {{mobileNo}}</p>
             <p><span>Address:</span>  S Villa , Servey No. 12345/1234/ek, New york city. USA</p>
           </div>
         </div>
@@ -19,9 +19,9 @@
             <h3 class="panel-title">Hotel Details</h3>
           </div>
           <div class="panel-body">
-            <p>Relaxy Garden Restro and bar</p>
-            <p><span>Registration No:</span> regi-no-340721E-340</p>										
-            <p><span>Address:</span>  S Villa , Servey No. 12345/1234/ek, New york city. USA</p>
+            <p>{{restaurantName}}</p>
+            <p><span>Registration No:</span> {{registrationNumber}}</p>										
+            <p><span>Address:</span> {{landmark}} , {{state}}, {{country}}-{{pinCode}}</p>
             <p><span>City:</span> New York</p>
           </div>
         </div>
@@ -35,15 +35,12 @@
             <p><span>Restaurant Type</span>American, Asian</p>
             <p><strong>Delivery Partner</strong></p>
             <ul>
-              <li>FoodPanda</li>
-              <li>Ola Cafe</li>
-              <li>Swiggy</li>
+              <li *ngFor="let resType of restaurentTypesDisplay">{{resType}}</li>
+              
             </ul>
             <p><strong>Food Services Type</strong></p>
             <ul>
-              <li>Breakfast</li>
-              <li>Lunch</li>
-              <li>Dinner</li>
+              <li *ngFor="let delPart of deliveryPartnersDisplay">{{delPart}}</li>
             </ul>
           </div>
         </div>
@@ -51,7 +48,7 @@
       <div class="col-md-12">
         <div class="text-right btn-holder">
           <button type="submit" class="btn btn-default btn-fill btn-wd" >Back</button>
-          <button type="submit" class="btn btn-success btn-fill btn-wd">Finish</button> 
+          <button type="submit" class="btn btn-success btn-fill btn-wd" (click)="finalSetup()" >Finish</button> 
         </div>
       </div>
     </div>

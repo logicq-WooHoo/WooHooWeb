@@ -38,7 +38,7 @@ export class RestaurentDetailsComponent implements OnInit {
   constructor(private restaurentSetupService: RestaurentSetupService,
     private mapsAPILoader: MapsAPILoader,
     private route: ActivatedRoute,
-    private router: Router, ) { }
+    private router: Router ) { }
 
   ngOnInit() {
 

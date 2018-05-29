@@ -2,11 +2,17 @@ import { TimeDetail } from './timedetail'
 
 export class RestaurantSetup {
 	
-  public restaurentTypes:string[];
+  public restaurentTypes:string[]=[];
 
-	public  deliveryPartners:string[];
+  public  deliveryPartners:string[]=[];
+  
+  public restaurentTypesDisplay:string[]=[];
 
-	public operationTime:TimeDetail[]= new Array<TimeDetail>();
+	public deliveryPartnersDisplay:string[]=[];
+
+  public operationTime:TimeDetail[]= new Array<TimeDetail>();
+
+  constructor(){}
 
   }
   
