@@ -1,0 +1,69 @@
+//import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { HomeComponent } from './home.component';
+import { LandingService } from './landing/landing.service';
+import { MatStepperModule } from '@angular/material/stepper';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
+import { GoogleLoginProvider, FacebookLoginProvider, LinkedInLoginProvider} from "angularx-social-login";
+ 
+//Material Components
+import {
+  MatButtonModule, MatCheckboxModule, MatInputModule, MatRadioModule, MatMenuModule, MatFormFieldModule, MatSelectModule
+  , MatToolbarModule, MatGridListModule, MatIconModule, MatCardModule
+} from '@angular/material';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { Http,Headers,RequestOptions,Response,RequestMethod,Request,HttpModule} from '@angular/http';
+import { routing, homeRoutingProviders } from './home.routing';
+import { CdkStepperModule } from '@angular/cdk/stepper';
+import { RestaurentConfirmationComponent } from './RestaurentConfirmation/restaurentconfirmation.component';
+import { AgmCoreModule } from '@agm/core';
+import { HttpClient } from '@angular/common/http';
+import {TranslateModule, TranslateStaticLoader, TranslateLoader} from 'ng2-translate/ng2-translate';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+
+
+let config = new AuthServiceConfig([
+  {
+    id: GoogleLoginProvider.PROVIDER_ID,
+    provider: new GoogleLoginProvider("221264096256-o6c03p2dnvmssriovgm75p047652el23.apps.googleusercontent.com")
+  },
+  {
+    id: FacebookLoginProvider.PROVIDER_ID,
+    provider: new FacebookLoginProvider("130722581110534")
+  }
+]);
+
+@NgModule({
+  declarations: [
+    HomeComponent,
+    RestaurentConfirmationComponent
+  ],
+  imports: [
+    AgmCoreModule.forRoot({
+      apiKey: "AIzaSyBG30O7cDCM-fKwisQ3OvwYMk-3lQo1pys",
+      libraries: ["places"]
+    }),
+    CommonModule,
+    BsDropdownModule.forRoot(),
+    SocialLoginModule.initialize(config),
+    MatButtonModule, MatCheckboxModule, MatInputModule, MatRadioModule, MatMenuModule, MatFormFieldModule, MatSelectModule,
+    MatToolbarModule, MatCardModule,
+    MatStepperModule, FormsModule, ReactiveFormsModule, MatGridListModule, MatIconModule,
+    HttpClientModule, HttpModule,
+    CdkStepperModule,
+    routing,
+    HttpClientModule,
+    TranslateModule.forRoot({ 
+      provide: TranslateLoader,
+      useFactory: (http: Http) => new TranslateStaticLoader(http, '/assets/i18n', '.json'),
+      deps: [Http]
+    })
+  ],
+  providers: [homeRoutingProviders,TranslateModule, 
+    /*LocationService*/],
+  bootstrap: [HomeComponent]
+})
+export class HomeModule { }
+

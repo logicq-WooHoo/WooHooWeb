@@ -1,0 +1,145 @@
+[   {
+        "restaurantId": 1,
+        "restaurantProfile":{
+			"restName":"EJ Phair Company ",
+			"imageURL":"assets/images/page/foods/menu8.jpg"
+		},
+		"addressDetails":{
+		"id":15,
+		"flatNo":"",
+		"societyName":"",
+		"street":"300 Cumberland Street",
+		"road":"",
+		"city":"Pittsburg",
+		"pinCode":94517,
+		"locality":"",
+		"landmark":"",
+		"state":"California",
+		"country":"United States of America",
+		"stateCode":"CA",
+		"countryCode":"USA",
+		"latitude":"",
+		"longitude":""
+		}
+    },
+    {
+        "restaurantId": 2,
+        "restaurantProfile":{
+			"restName":"Lumpy's Diner",
+			"imageURL":"assets/images/page/foods/sample1.jpg"
+		},
+		"addressDetails":{
+		"id":14,
+		"flatNo":"",
+		"societyName":"",
+		"street":"615 Railroad Avenue",
+		"road":"",
+		"city":"Pittsburg",
+		"pinCode":94565,
+		"locality":"",
+		"landmark":"",
+		"state":"California",
+		"country":"United States of America",
+		"stateCode":"CA",
+		"countryCode":"USA",
+		"latitude":"",
+		"longitude":""
+		}
+    },
+    {
+        "restaurantId": 3,
+        "restaurantProfile":{
+			"restName":"Chili's Grill & Bar",
+			"imageURL":"assets/images/page/foods/menu9.jpg"
+		},
+		"addressDetails":{
+		"id":13,
+		"flatNo":"",
+		"societyName":"",
+		"street":"4330 Century Blvd",
+		"road":"",
+		"city":"Pittsburg",
+		"pinCode":94517,
+		"locality":"",
+		"landmark":"",
+		"state":"California",
+		"country":"United States of America",
+		"stateCode":"CA",
+		"countryCode":"USA",
+		"latitude":"",
+		"longitude":""
+		}
+    },
+	{
+        "restaurantId": 4,
+        "restaurantProfile":{
+			"restName":"Viva Mexico Grill & Catina",
+			"imageURL":"assets/images/page/foods/American.jpg"
+		},
+		"addressDetails":{
+		"id":12,
+		"flatNo":"",
+		"societyName":"",
+		"street":"1335 Buchanan Road",
+		"road":"",
+		"city":"Pittsburg",
+		"pinCode":94565,
+		"locality":"",
+		"landmark":"",
+		"state":"California",
+		"country":"United States of America",
+		"stateCode":"CA",
+		"countryCode":"USA",
+		"latitude":"",
+		"longitude":""
+		}
+    },
+	{
+        "restaurantId": 5,
+        "restaurantProfile":{
+			"restName":"Chris' Downhome Soul Food",
+			"imageURL":"assets/images/page/foods/Korean.jpg"
+		},
+		"addressDetails":{
+		"id":11,
+		"flatNo":"",
+		"societyName":"",
+		"street":" 1260 Rumrill Blvd",
+		"road":"",
+		"city":"San Pablo",
+		"pinCode":94806,
+		"locality":"",
+		"landmark":"",
+		"state":"California",
+		"country":"United States of America",
+		"stateCode":"CA",
+		"countryCode":"USA",
+		"latitude":"",
+		"longitude":""
+		}
+    },
+	{
+        "restaurantId": 6,
+        "restaurantProfile":{
+			"restName":"P-J's Restaurant & Cocktail",
+			"imageURL":"assets/images/page/foods/Others.jpg"
+		},
+		"addressDetails":{
+		"id":10,
+		"flatNo":"",
+		"societyName":"",
+		"street":"3721 San Pablo Dam Rd",
+		"road":"",
+		"city":"El Sobrante",
+		"pinCode":94803,
+		"locality":"",
+		"landmark":"",
+		"state":"California",
+		"country":"United States of America",
+		"stateCode":"CA",
+		"countryCode":"USA",
+		"latitude":"",
+		"longitude":""
+		}
+    }
+]

@@ -1,0 +1,26 @@
+<header  data-spy="affix" data-offset-top="60" data-offset-bottom="200">
+  <div class="container no-glitter">
+    <div class="row clearfix">
+      <div class="col-md-12">
+        <div class="top-nav">
+            <a class="logo" href="javascript:void(0);"><img src="assets/images/eazdine.jpg" alt="woohoo" /></a>
+            
+            <div class="location"><i class="fa fa-location"></i> 
+           
+          <input type="text"  name="location" id="location" [(ngModel)]="location" value="{{location}}" class="current-location"   #search [formControl]="searchControl" />
+          </div>
+
+
+          <nav class="navbar navbar-default">  
+            <ul class="nav navbar-nav"> 
+              
+              <li><a routerLink="/login">Login / SignUp</a></li>
+            
+            </ul> 		
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<router-outlet></router-outlet>

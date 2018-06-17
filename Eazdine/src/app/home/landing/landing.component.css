@@ -1,0 +1,13 @@
+.divider{
+    width:5px;
+    height:auto;
+    display:inline-block;
+}
+
+
+.button2 {background-color: #f7a139;
+
+    height:50px;
+    width:200px;
+
+} /* Blue */

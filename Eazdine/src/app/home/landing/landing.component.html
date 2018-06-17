@@ -1,0 +1,44 @@
+<ng-template #content let-c="close" let-d="dismiss">
+        <div class="modal-header">
+          <h4 class="modal-title">Profile update</h4>
+          <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="dateOfBirth">Date of birth</label>
+            
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Save</button>
+        </div>
+      </ng-template>
+
+
+
+
+<br>
+<br>
+<br>
+<div style="text-align: center;" >
+
+    <button  style="margin:5px;"  class="button2">
+        HOST A TABLE
+    </button>
+
+    <button style="margin:5px;"  class="button2" (click)="open(content)">
+        JOIN A TABLE
+    </button>
+
+    <button style="margin:5px;"  class="button2">
+        PlACE A TAKE OUT ORDER
+    </button>
+</div>
+<br>
+<br>
+<br>
+<router-outlet></router-outlet>
